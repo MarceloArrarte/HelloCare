@@ -1,12 +1,47 @@
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe.config
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.pdb
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmDiagnosticoPrimario.resources
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipal.resources
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.Resources.resources
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.GenerateResource.cache
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.exe
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.xml
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.pdb
+D:\Descargas\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe.config
+D:\Descargas\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe
+D:\Descargas\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.pdb
+D:\Descargas\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.xml
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmDiagnosticoPrimario.resources
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmIngresoSintoma.resources
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipalPaciente.resources
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.Resources.resources
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.GenerateResource.cache
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.CoreCompileInputs.cache
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.exe
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.xml
+D:\Descargas\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.pdb
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe.config
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.pdb
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.xml
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmDiagnosticoPrimario.resources
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmIngresoSintoma.resources
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipalPaciente.resources
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.frmPaciente.resources
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.Resources.resources
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.GenerateResource.cache
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.CoreCompileInputs.cache
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.exe
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.xml
+C:\Users\fafos\Desktop\HelloCare-master\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\AplicacionPacientes.exe.config
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\AplicacionPacientes.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\AplicacionPacientes.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\AplicacionPacientes.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmIngresoSintoma.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipalPaciente.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmLogin.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.CopyComplete
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.pdb

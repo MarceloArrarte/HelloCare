@@ -54,7 +54,7 @@ Partial Class FrmMenuPrincipal
         Me.Button2.Text = "Cargar Enfermedades"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Form1
+        'FrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -62,7 +62,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "FrmMenuPrincipal"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -120,7 +120,7 @@ Partial Class FrmVerEnfermedades
         Me.TextBox4.Size = New System.Drawing.Size(427, 78)
         Me.TextBox4.TabIndex = 33
         '
-        'Form1
+        'FrmVerEnfermedades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -135,7 +135,7 @@ Partial Class FrmVerEnfermedades
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "FrmVerEnfermedades"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()

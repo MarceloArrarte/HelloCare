@@ -30,6 +30,7 @@ Partial Class FrmListadoSintomas
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -78,7 +79,7 @@ Partial Class FrmListadoSintomas
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(334, 329)
+        Me.Button2.Location = New System.Drawing.Point(331, 329)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 5
@@ -103,11 +104,21 @@ Partial Class FrmListadoSintomas
         Me.Button4.Text = "Importar csv"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'Form1
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(384, 394)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 8
+        Me.Button5.Text = "Volver"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'FrmListadoSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
@@ -116,7 +127,7 @@ Partial Class FrmListadoSintomas
         Me.Controls.Add(Me.Sintomas)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "FrmListadoSintomas"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -131,4 +142,5 @@ Partial Class FrmListadoSintomas
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
 End Class

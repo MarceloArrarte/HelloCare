@@ -101,7 +101,7 @@ Partial Class FrmDiagnosticoPrimario
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'DiagnosticoPrimario
+        'FrmDiagnosticoPrimario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -114,7 +114,7 @@ Partial Class FrmDiagnosticoPrimario
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.lblSintomas)
         Me.Controls.Add(Me.lblTitulo)
-        Me.Name = "DiagnosticoPrimario"
+        Me.Name = "FrmDiagnosticoPrimario"
         Me.Text = "DiagnosticoPrimario"
         Me.ResumeLayout(False)
         Me.PerformLayout()

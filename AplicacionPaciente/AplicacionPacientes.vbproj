@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{68CBE3EA-EB73-430F-AB67-C715306AB55E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>AplicacionPacientes.FrmMenuPrincipal</StartupObject>
+    <StartupObject>AplicacionPacientes.FrmLogin</StartupObject>
     <RootNamespace>AplicacionPacientes</RootNamespace>
-    <AssemblyName>Proyecto Ventana Paciente</AssemblyName>
+    <AssemblyName>AplicacionPacientes</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Proyecto Ventana Paciente.xml</DocumentationFile>
+    <DocumentationFile>AplicacionPacientes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Proyecto Ventana Paciente.xml</DocumentationFile>
+    <DocumentationFile>AplicacionPacientes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -77,10 +77,22 @@
     <Compile Include="FrmDiagnosticoPrimario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.Designer.vb">
-      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    <Compile Include="FrmIngresoSintoma.Designer.vb">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.vb">
+    <Compile Include="FrmIngresoSintoma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuPrincipalPaciente.Designer.vb">
+      <DependentUpon>FrmMenuPrincipalPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuPrincipalPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -103,8 +115,14 @@
     <EmbeddedResource Include="FrmDiagnosticoPrimario.resx">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuPrincipal.resx">
-      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    <EmbeddedResource Include="FrmIngresoSintoma.resx">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipalPaciente.resx">
+      <DependentUpon>FrmMenuPrincipalPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -124,6 +142,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaLogica\CapaLogica.vbproj">
+      <Project>{ddddf5d9-48b3-4529-921b-a6ae6c57c97a}</Project>
+      <Name>CapaLogica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

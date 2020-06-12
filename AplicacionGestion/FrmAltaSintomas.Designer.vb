@@ -130,7 +130,7 @@ Partial Class FrmAltaSintomas
         Me.Button2.Text = "Volver"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Form1
+        'FrmAltaSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -146,7 +146,7 @@ Partial Class FrmAltaSintomas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "FrmAltaSintomas"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()

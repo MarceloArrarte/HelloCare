@@ -29,11 +29,13 @@ Partial Class FrmListadoEnfermedades
         Me.Enfermedades = New System.Windows.Forms.ListBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(633, 343)
+        Me.Button4.Location = New System.Drawing.Point(680, 343)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 15
@@ -42,7 +44,7 @@ Partial Class FrmListadoEnfermedades
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(468, 343)
+        Me.Button2.Location = New System.Drawing.Point(387, 343)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 13
@@ -51,7 +53,7 @@ Partial Class FrmListadoEnfermedades
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(296, 343)
+        Me.Button1.Location = New System.Drawing.Point(211, 343)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
@@ -60,7 +62,7 @@ Partial Class FrmListadoEnfermedades
         '
         'Agregar
         '
-        Me.Agregar.Location = New System.Drawing.Point(115, 343)
+        Me.Agregar.Location = New System.Drawing.Point(67, 343)
         Me.Agregar.Name = "Agregar"
         Me.Agregar.Size = New System.Drawing.Size(75, 23)
         Me.Agregar.TabIndex = 11
@@ -93,11 +95,31 @@ Partial Class FrmListadoEnfermedades
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Bienvenido al ABM Enfermedades"
         '
-        'Form1
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(387, 383)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "Volver"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(540, 343)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 17
+        Me.Button5.Text = "Modificar"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'FrmListadoEnfermedades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -105,7 +127,7 @@ Partial Class FrmListadoEnfermedades
         Me.Controls.Add(Me.Enfermedades)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "FrmListadoEnfermedades"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -119,4 +141,6 @@ Partial Class FrmListadoEnfermedades
     Friend WithEvents Enfermedades As ListBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button5 As Button
 End Class

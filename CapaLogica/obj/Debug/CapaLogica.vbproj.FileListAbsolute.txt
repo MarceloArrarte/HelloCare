@@ -1,0 +1,9 @@
+C:\Users\marce\source\repos\HelloCare\CapaLogica\bin\Debug\CapaLogica.exe
+C:\Users\marce\source\repos\HelloCare\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\marce\source\repos\HelloCare\CapaLogica\bin\Debug\CapaLogica.xml
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.Resources.resources
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.vbproj.GenerateResource.cache
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.exe
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.xml
+C:\Users\marce\source\repos\HelloCare\CapaLogica\obj\Debug\CapaLogica.pdb
