@@ -1,0 +1,19 @@
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\ABM Gestion.exe.config
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\ABM Gestion.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\ABM Gestion.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\ABM Gestion.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmAltaEnfermedades.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmMenuPrincipal.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmAltaSintomas.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmListadoEnfermedades.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmListadoSintomas.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.Form1.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmModificarEnfermedades.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.Resources.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmVerEnfermedades.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmVerSintomas.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.vbproj.GenerateResource.cache
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\ABM Gestion.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\ABM Gestion.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\ABM Gestion.pdb

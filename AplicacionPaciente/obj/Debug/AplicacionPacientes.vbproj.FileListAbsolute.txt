@@ -1,0 +1,12 @@
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe.config
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\Proyecto Ventana Paciente.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmDiagnosticoPrimario.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipal.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.Resources.resources
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.GenerateResource.cache
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.exe
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.xml
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\Proyecto Ventana Paciente.pdb
