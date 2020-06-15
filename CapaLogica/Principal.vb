@@ -1,4 +1,4 @@
-﻿Module Principal
+﻿Public Module Principal
     Private ListaEnfermedades As New List(Of Enfermedad)
     Private ListaSintomas As New List(Of Sintoma)
     Private ListaUsuariosPacientes As New List(Of Usuario_Paciente)
@@ -62,18 +62,33 @@
         Return listaResultados
     End Function
 
-    Public Sub EliminarEnfermedad(enfermedad As Enfermedad, indiceModificado As Integer)
+    Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
         Try
-            If indiceModificado >= ListaEnfermedades.Count Then
+            If enfermedad Is Nothing Then
+                Throw New Exception("La enfermedad tiene un valor nulo.")
+            End If
+            If Not ListaEnfermedades.Contains(enfermedad) Then
+                Throw New Exception("Esta enfermedad no está almacenada.")
+            End If
+
+            ListaEnfermedades.Remove(enfermedad)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub EliminarEnfermedad(indice As Integer)
+        Try
+            If indice >= ListaEnfermedades.Count Then
                 Throw New Exception("El índice indicado excede el tamaño de la colección.")
             End If
-            If indiceModificado < 0 Then
+            If indice < 0 Then
                 Throw New Exception("El índice indicado es negativo.")
             End If
 
-            ListaEnfermedades.RemoveAt(indiceModificado)
+            ListaEnfermedades.RemoveAt(indice)
         Catch ex As Exception
-
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -135,33 +150,197 @@
         Return listaResultados
     End Function
 
-    Public Sub EliminarSintoma(sintoma As Sintoma, indiceModificado As Integer)
+    Public Sub EliminarSintoma(sintoma As Sintoma)
         Try
-            If indiceModificado >= ListaEnfermedades.Count Then
-                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            If sintoma Is Nothing Then
+                Throw New Exception("El síntoma tiene un valor nulo.")
             End If
-            If indiceModificado < 0 Then
-                Throw New Exception("El índice indicado es negativo.")
+            If Not ListaSintomas.Contains(sintoma) Then
+                Throw New Exception("Este síntoma no está almacenado.")
             End If
 
-            ListaEnfermedades.RemoveAt(indiceModificado)
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-
-
-    Public Sub ListaUsuariosPacientes(_UsuarioPaciente As Usuario_Paciente)
-        Try
-            If _UsuarioPaciente Is Nothing Then
-                Throw New Exception("El usuario paciente tiene un valor nulo")
-            End If
+            ListaSintomas.Remove(sintoma)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
+    Public Sub EliminarSintoma(indice As Integer)
+        Try
+            If indice >= ListaSintomas.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            If indice < 0 Then
+                Throw New Exception("El índice indicado es negativo.")
+            End If
+
+            ListaSintomas.RemoveAt(indice)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub IngresarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
+        Try
+            If usuarioPaciente Is Nothing Then
+                Throw New Exception("El usuario de paciente tiene un valor nulo.")
+            End If
+            For Each u As Usuario_Paciente In ListaUsuariosPacientes
+                If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
+                    Throw New Exception("Ya hay un usuario de paciente con esta cédula.")
+                End If
+            Next
+
+            ListaUsuariosPacientes.Add(usuarioPaciente)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ModificarUsuarioPaciente(usuarioPaciente As Usuario_Paciente, indiceModificado As Integer)
+        Try
+            If usuarioPaciente Is Nothing Then
+                Throw New Exception("El usuario de paciente tiene un valor nulo.")
+            End If
+            If indiceModificado >= ListaUsuariosPacientes.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            For Each u As Usuario_Paciente In ListaUsuariosPacientes
+                If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
+                    Throw New Exception("Ya hay un usuario de paciente con esta cédula.")
+                End If
+            Next
+
+            Dim registro As Usuario_Paciente = ListaUsuariosPacientes(indiceModificado)
+            registro.CI_Paciente = usuarioPaciente.CI_Paciente
+            registro.Contrasena = usuarioPaciente.Contrasena
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Function BuscarUsuariosPacientes(busqueda As String) As List(Of Usuario_Paciente)
+        Dim listaResultados As New List(Of Usuario_Paciente)
+
+        For Each u As Usuario_Paciente In ListaUsuariosPacientes
+            If u.CI_Paciente Like ("*" & busqueda & "*") Then
+                listaResultados.Add(u)
+            End If
+        Next
+
+        Return listaResultados
+    End Function
+
+    Public Sub EliminarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
+        Try
+            If usuarioPaciente Is Nothing Then
+                Throw New Exception("El usuario de paciente tiene un valor nulo.")
+            End If
+            If Not ListaUsuariosPacientes.Contains(usuarioPaciente) Then
+                Throw New Exception("Este usuario de paciente no está almacenado.")
+            End If
+
+            ListaUsuariosPacientes.Remove(usuarioPaciente)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub EliminarUsuarioPaciente(indice As Integer)
+        Try
+            If indice >= ListaUsuariosPacientes.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            If indice < 0 Then
+                Throw New Exception("El índice indicado es negativo.")
+            End If
+
+            ListaUsuariosPacientes.RemoveAt(indice)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub IngresarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
+        Try
+            If usuarioAdministrativo Is Nothing Then
+                Throw New Exception("El usuario de administrativo tiene un valor nulo.")
+            End If
+            For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+                If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
+                    Throw New Exception("Ya hay un usuario de administrativo con esta cédula.")
+                End If
+            Next
+
+            ListaUsuariosAdministrativos.Add(usuarioAdministrativo)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo, indiceModificado As Integer)
+        Try
+            If usuarioAdministrativo Is Nothing Then
+                Throw New Exception("El usuario de administrativo tiene un valor nulo.")
+            End If
+            If indiceModificado >= ListaUsuariosAdministrativos.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+                If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
+                    Throw New Exception("Ya hay un usuario de administrativo con esta cédula.")
+                End If
+            Next
+
+            Dim registro As Usuario_Administrativo = ListaUsuariosAdministrativos(indiceModificado)
+            registro.CI_Administrativo = usuarioAdministrativo.CI_Administrativo
+            registro.Contrasena = usuarioAdministrativo.Contrasena
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Function BuscarUsuariosAdministrativos(busqueda As String) As List(Of Usuario_Administrativo)
+        Dim listaResultados As New List(Of Usuario_Administrativo)
+
+        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+            If u.CI_Administrativo Like ("*" & busqueda & "*") Then
+                listaResultados.Add(u)
+            End If
+        Next
+
+        Return listaResultados
+    End Function
+
+    Public Sub EliminarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
+        Try
+            If usuarioAdministrativo Is Nothing Then
+                Throw New Exception("El usuario de administrativo tiene un valor nulo.")
+            End If
+            If Not ListaUsuariosAdministrativos.Contains(usuarioAdministrativo) Then
+                Throw New Exception("Este usuario de administrativo no está almacenado.")
+            End If
+
+            ListaUsuariosAdministrativos.Remove(usuarioAdministrativo)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub EliminarUsuarioAdministrativo(indice As Integer)
+        Try
+            If indice >= ListaUsuariosAdministrativos.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            If indice < 0 Then
+                Throw New Exception("El índice indicado es negativo.")
+            End If
+
+            ListaUsuariosAdministrativos.RemoveAt(indice)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 
     Public Sub GenerarDatos()
         Dim enfermedad1 As New Enfermedad("Nombre: Gripe leve", "Recomendacion: Reposo", 40, "Descripcion: Tos y mocos")
@@ -180,11 +359,4 @@
         Dim usuarioAdministrativo2 As New Usuario_Administrativo("26715504", "televisor")
         Dim usuarioAdministrativo3 As New Usuario_Administrativo("52315504", "teclado")
     End Sub
-
-
-
-
-
-
-
 End Module
