@@ -1,15 +1,22 @@
 ﻿Public Class Usuario_Administrativo
     Inherits Usuario
-    Private _CI_Paciente As String
+    Private _CI_Administrativo As String
 
-    Public Property CI_Paciente As String
+    'Constructor usuario_administrativo'
+
+    Sub New(ci As String, contrasena As String)
+        MyBase.New(contrasena)
+        _CI_Administrativo = ci
+    End Sub
+
+    Public Property CI_Administrativo As String
         Get
-            Return _CI_Paciente
+            Return _CI_Administrativo
         End Get
         Set(value As String)
             Try
                 If Validaciones.Cedula(value) Then
-                    _CI_Paciente = value
+                    _CI_Administrativo = value
                 Else
                     Throw New Exception("El número de cédula ingresado no corresponde con el dígito verificador.")
                 End If

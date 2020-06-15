@@ -1,6 +1,12 @@
 ﻿Public MustInherit Class Usuario
     Private _Contrasena As String
 
+    'Constructor Usuario'
+    Public Sub New(contrasena As String)
+        Me.New()
+        _Contrasena = contrasena
+    End Sub
+
     Public Property Contrasena As String
         Get
             Return _Contrasena
@@ -23,5 +29,7 @@
     Public Shared Function Autenticar(ByVal usuario As String, ByVal contrasena As String) As Boolean
 
     End Function
+
+
 
 End Class

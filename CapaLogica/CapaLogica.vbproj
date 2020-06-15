@@ -88,7 +88,8 @@
     </Compile>
     <Compile Include="Paciente.vb" />
     <Compile Include="Persona.vb" />
-    <Compile Include="sintoma.vb" />
+    <Compile Include="Principal.vb" />
+    <Compile Include="Sintoma.vb" />
     <Compile Include="Usuario.vb" />
     <Compile Include="Usuario_Administrativo.vb" />
     <Compile Include="Usuario_Paciente.vb" />

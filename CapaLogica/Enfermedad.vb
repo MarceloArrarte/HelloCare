@@ -9,6 +9,7 @@ Public Class Enfermedad
     Private _Probabilidad As Decimal
     Private ReadOnly _ListaSintomas As List(Of Sintoma)
 
+
     Public Property Nombre As String
         Get
             Return _Nombre
