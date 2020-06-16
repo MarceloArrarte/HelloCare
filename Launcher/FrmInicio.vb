@@ -2,6 +2,8 @@
     Dim appGestion As AplicacionGestion.FrmLogin
     Dim appPacientes As AplicacionPacientes.FrmLogin
     Private Sub FrmInicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CapaLogica.Principal.GenerarDatos()
+
         appGestion = New AplicacionGestion.FrmLogin
         appPacientes = New AplicacionPacientes.FrmLogin
 

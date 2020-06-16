@@ -343,20 +343,20 @@
     End Sub
 
     Public Sub GenerarDatos()
-        Dim enfermedad1 As New Enfermedad("Nombre: Gripe leve", "Recomendacion: Reposo", 40, "Descripcion: Tos y mocos")
-        Dim enfermedad2 As New Enfermedad("Nombre: Hipertension", "Recomendacion: Comer sin sal", 50, "Descripcion: Presion alta")
-        Dim enfermedad3 As New Enfermedad("Nombre: Sobrepeso", "Recomendacion: Hacer ejercicio", 20, "Descripcion: IMC mayor a 25")
+        ListaEnfermedades.Add(New Enfermedad("Nombre: Gripe leve", "Recomendacion: Reposo", 40, "Descripcion: Tos y mocos"))
+        ListaEnfermedades.Add(New Enfermedad("Nombre: Hipertension", "Recomendacion: Comer sin sal", 50, "Descripcion: Presion alta"))
+        ListaEnfermedades.Add(New Enfermedad("Nombre: Sobrepeso", "Recomendacion: Hacer ejercicio", 20, "Descripcion: IMC mayor a 25"))
 
-        Dim sintoma1 As New Sintoma("Nombre: Tos", "Descripcion: es un mecanismo de defensa de nuestro organismo. Protege las vías respiratorias dejándolas limpias para respirar con normalidad.", "Recomendaciones: mantenerse caliente y tomar miel", 10)
-        Dim sintoma2 As New Sintoma("Nombre: Dolor de cabeza", "Descripcion: Dolor de muñeca", "Recomendaciones: hielo en zona", 60)
-        Dim sintoma3 As New Sintoma("Nombre: Resfriado", "Descripcion: infección viral aguda del tracto respiratorio", "Recomendaciones: mantenerse caliente y tomar té con miel", 20)
+        ListaSintomas.Add(New Sintoma("Nombre: Tos", "Descripcion: es un mecanismo de defensa de nuestro organismo. Protege las vías respiratorias dejándolas limpias para respirar con normalidad.", "Recomendaciones: mantenerse caliente y tomar miel", 10))
+        ListaSintomas.Add(New Sintoma("Nombre: Dolor de cabeza", "Descripcion: Dolor de muñeca", "Recomendaciones: hielo en zona", 60))
+        ListaSintomas.Add(New Sintoma("Nombre: Resfriado", "Descripcion: infección viral aguda del tracto respiratorio", "Recomendaciones: mantenerse caliente y tomar té con miel", 20))
 
-        Dim usuarioPaciente1 As New Usuario_Paciente("51712282", "republica")
-        Dim usuarioPaciente2 As New Usuario_Paciente("59273847", "constelaciones")
-        Dim usuarioPaciente3 As New Usuario_Paciente("51273748", "informatica")
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("51712282", "republica"))
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("59273847", "constelaciones"))
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("51273748", "informatica"))
 
-        Dim usuarioAdministrativo1 As New Usuario_Administrativo("52315584", "nashe")
-        Dim usuarioAdministrativo2 As New Usuario_Administrativo("26715504", "televisor")
-        Dim usuarioAdministrativo3 As New Usuario_Administrativo("52315504", "teclado")
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("52315584", "nashe"))
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("26715504", "televisor"))
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("52315504", "teclado"))
     End Sub
 End Module

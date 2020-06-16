@@ -24,9 +24,10 @@ Partial Class FrmLogin
     Private Sub InitializeComponent()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPaciente = New System.Windows.Forms.TextBox()
+        Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label2
@@ -49,38 +50,50 @@ Partial Class FrmLogin
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "INGRESE SU DOCUMENTO"
         '
-        'TextBox2
+        'txtPaciente
         '
-        Me.TextBox2.Location = New System.Drawing.Point(251, 165)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(301, 20)
-        Me.TextBox2.TabIndex = 8
+        Me.txtPaciente.Location = New System.Drawing.Point(251, 165)
+        Me.txtPaciente.Name = "txtPaciente"
+        Me.txtPaciente.Size = New System.Drawing.Size(301, 20)
+        Me.txtPaciente.TabIndex = 8
         '
-        'TextBox1
+        'txtContrasena
         '
-        Me.TextBox1.Location = New System.Drawing.Point(251, 266)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(301, 20)
-        Me.TextBox1.TabIndex = 7
+        Me.txtContrasena.Location = New System.Drawing.Point(251, 266)
+        Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.Size = New System.Drawing.Size(301, 20)
+        Me.txtContrasena.TabIndex = 7
+        Me.txtContrasena.UseSystemPasswordChar = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(333, 307)
+        Me.Button1.Location = New System.Drawing.Point(333, 332)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(149, 45)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "INGRESAR"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(349, 300)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(118, 17)
+        Me.CheckBox1.TabIndex = 12
+        Me.CheckBox1.Text = "Mostrar Contraseña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'FrmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtPaciente)
+        Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.Button1)
         Me.Name = "FrmLogin"
         Me.Text = "frmPaciente"
@@ -91,7 +104,8 @@ Partial Class FrmLogin
 
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents TextBox2 As Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As Windows.Forms.TextBox
+    Friend WithEvents txtPaciente As Windows.Forms.TextBox
+    Friend WithEvents txtContrasena As Windows.Forms.TextBox
     Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
 End Class

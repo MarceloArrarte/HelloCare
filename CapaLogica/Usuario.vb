@@ -3,7 +3,6 @@
 
     'Constructor Usuario'
     Public Sub New(contrasena As String)
-        Me.New()
         _Contrasena = contrasena
     End Sub
 
@@ -25,11 +24,4 @@
             End Try
         End Set
     End Property
-
-    Public Shared Function Autenticar(ByVal usuario As String, ByVal contrasena As String) As Boolean
-
-    End Function
-
-
-
 End Class

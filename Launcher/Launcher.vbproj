@@ -124,6 +124,10 @@
       <Project>{68cbe3ea-eb73-430f-ab67-c715306ab55e}</Project>
       <Name>AplicacionPacientes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CapaLogica\CapaLogica.vbproj">
+      <Project>{ddddf5d9-48b3-4529-921b-a6ae6c57c97a}</Project>
+      <Name>CapaLogica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

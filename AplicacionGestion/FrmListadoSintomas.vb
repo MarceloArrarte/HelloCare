@@ -23,12 +23,14 @@
         Me.Hide()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'Form1.Show()
-        'Me.Hide()
-    End Sub
-
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
+    End Sub
+
+    Private Sub tblPatologias_Load(sender As Object, e As EventArgs) Handles MyBase.Activated
+        tblSintomas.Rows.Clear()
+        For Each sintoma As CapaLogica.Sintoma In CapaLogica.Principal.BuscarSintomas("", True).ToArray
+            tblSintomas.Rows.Add(sintoma.Nombre, sintoma.Descripcion, sintoma.Urgencia, sintoma.Recomendaciones)
+        Next
     End Sub
 End Class

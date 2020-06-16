@@ -27,11 +27,12 @@ Partial Class FrmLogin
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(306, 307)
+        Me.Button1.Location = New System.Drawing.Point(311, 326)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(149, 45)
         Me.Button1.TabIndex = 0
@@ -44,6 +45,7 @@ Partial Class FrmLogin
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(301, 20)
         Me.TextBox1.TabIndex = 1
+        Me.TextBox1.UseSystemPasswordChar = True
         '
         'TextBox2
         '
@@ -72,17 +74,28 @@ Partial Class FrmLogin
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "INGRESE SU CLAVE"
         '
-        'frmAdministrativo
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(327, 298)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(118, 17)
+        Me.CheckBox1.TabIndex = 7
+        Me.CheckBox1.Text = "Mostrar Contraseña"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'FrmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "frmAdministrativo"
+        Me.Name = "FrmLogin"
         Me.Text = "frmAdministrativo"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -94,4 +107,5 @@ Partial Class FrmLogin
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

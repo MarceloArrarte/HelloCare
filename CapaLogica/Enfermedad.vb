@@ -118,4 +118,8 @@ Public Class Enfermedad
         _Descripcion = descripcion
         _Probabilidad = Nothing
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return "Nombre: " + _Nombre.ToString() + " Descripción: " + _Descripcion.ToString() + " Gravedad: " + _Gravedad.ToString() + " Recomendaciones: " + _Recomendaciones.ToString()
+    End Function
 End Class

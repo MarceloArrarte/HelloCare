@@ -26,13 +26,19 @@ Partial Class FrmAltaSintomas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtNombreSintoma = New System.Windows.Forms.TextBox()
+        Me.txtInfoSintoma = New System.Windows.Forms.TextBox()
+        Me.txtRecomendacionSintoma = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.lblUrgenciaSintoma = New System.Windows.Forms.Label()
+        Me.txtUrgencia = New System.Windows.Forms.TextBox()
+        Me.tblPatologias = New System.Windows.Forms.DataGridView()
+        Me.colAsociacion = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.colEnfermedades = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -65,35 +71,35 @@ Partial Class FrmAltaSintomas
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(26, 173)
+        Me.Label4.Location = New System.Drawing.Point(26, 233)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(155, 13)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Recomendaciones del sintoma:"
         '
-        'TextBox1
+        'txtNombreSintoma
         '
-        Me.TextBox1.Location = New System.Drawing.Point(193, 54)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(427, 25)
-        Me.TextBox1.TabIndex = 4
+        Me.txtNombreSintoma.Location = New System.Drawing.Point(193, 54)
+        Me.txtNombreSintoma.Multiline = True
+        Me.txtNombreSintoma.Name = "txtNombreSintoma"
+        Me.txtNombreSintoma.Size = New System.Drawing.Size(427, 25)
+        Me.txtNombreSintoma.TabIndex = 4
         '
-        'TextBox2
+        'txtInfoSintoma
         '
-        Me.TextBox2.Location = New System.Drawing.Point(193, 95)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(427, 72)
-        Me.TextBox2.TabIndex = 5
+        Me.txtInfoSintoma.Location = New System.Drawing.Point(193, 95)
+        Me.txtInfoSintoma.Multiline = True
+        Me.txtInfoSintoma.Name = "txtInfoSintoma"
+        Me.txtInfoSintoma.Size = New System.Drawing.Size(427, 72)
+        Me.txtInfoSintoma.TabIndex = 5
         '
-        'TextBox3
+        'txtRecomendacionSintoma
         '
-        Me.TextBox3.Location = New System.Drawing.Point(193, 173)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(427, 187)
-        Me.TextBox3.TabIndex = 6
+        Me.txtRecomendacionSintoma.Location = New System.Drawing.Point(193, 233)
+        Me.txtRecomendacionSintoma.Multiline = True
+        Me.txtRecomendacionSintoma.Name = "txtRecomendacionSintoma"
+        Me.txtRecomendacionSintoma.Size = New System.Drawing.Size(427, 127)
+        Me.txtRecomendacionSintoma.TabIndex = 6
         '
         'Label5
         '
@@ -104,17 +110,9 @@ Partial Class FrmAltaSintomas
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Patologias a asociar"
         '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 393)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(735, 186)
-        Me.ListBox1.TabIndex = 8
-        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(127, 605)
+        Me.Button1.Location = New System.Drawing.Point(545, 605)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 9
@@ -123,31 +121,87 @@ Partial Class FrmAltaSintomas
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(544, 605)
+        Me.Button2.Location = New System.Drawing.Point(192, 605)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "Volver"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'lblUrgenciaSintoma
+        '
+        Me.lblUrgenciaSintoma.AutoSize = True
+        Me.lblUrgenciaSintoma.Location = New System.Drawing.Point(127, 191)
+        Me.lblUrgenciaSintoma.Name = "lblUrgenciaSintoma"
+        Me.lblUrgenciaSintoma.Size = New System.Drawing.Size(53, 13)
+        Me.lblUrgenciaSintoma.TabIndex = 14
+        Me.lblUrgenciaSintoma.Text = "Urgencia:"
+        '
+        'txtUrgencia
+        '
+        Me.txtUrgencia.Location = New System.Drawing.Point(192, 188)
+        Me.txtUrgencia.Multiline = True
+        Me.txtUrgencia.Name = "txtUrgencia"
+        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
+        Me.txtUrgencia.TabIndex = 13
+        '
+        'tblPatologias
+        '
+        Me.tblPatologias.AllowUserToAddRows = False
+        Me.tblPatologias.AllowUserToDeleteRows = False
+        Me.tblPatologias.AllowUserToResizeColumns = False
+        Me.tblPatologias.AllowUserToResizeRows = False
+        Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAsociacion, Me.colEnfermedades, Me.colFrecuencia})
+        Me.tblPatologias.Location = New System.Drawing.Point(12, 411)
+        Me.tblPatologias.Name = "tblPatologias"
+        Me.tblPatologias.RowHeadersVisible = False
+        Me.tblPatologias.Size = New System.Drawing.Size(724, 188)
+        Me.tblPatologias.TabIndex = 15
+        '
+        'colAsociacion
+        '
+        Me.colAsociacion.FillWeight = 10.0!
+        Me.colAsociacion.HeaderText = "Asociación"
+        Me.colAsociacion.Name = "colAsociacion"
+        Me.colAsociacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colAsociacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'colEnfermedades
+        '
+        Me.colEnfermedades.FillWeight = 80.0!
+        Me.colEnfermedades.HeaderText = "Enfermedades"
+        Me.colEnfermedades.Name = "colEnfermedades"
+        Me.colEnfermedades.ReadOnly = True
+        '
+        'colFrecuencia
+        '
+        Me.colFrecuencia.FillWeight = 10.0!
+        Me.colFrecuencia.HeaderText = "Frecuencia"
+        Me.colFrecuencia.Name = "colFrecuencia"
+        '
         'FrmAltaSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(759, 656)
+        Me.Controls.Add(Me.tblPatologias)
+        Me.Controls.Add(Me.lblUrgenciaSintoma)
+        Me.Controls.Add(Me.txtUrgencia)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtRecomendacionSintoma)
+        Me.Controls.Add(Me.txtInfoSintoma)
+        Me.Controls.Add(Me.txtNombreSintoma)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmAltaSintomas"
         Me.Text = "Form1"
+        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -157,11 +211,16 @@ Partial Class FrmAltaSintomas
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtNombreSintoma As TextBox
+    Friend WithEvents txtInfoSintoma As TextBox
+    Friend WithEvents txtRecomendacionSintoma As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents lblUrgenciaSintoma As Label
+    Friend WithEvents txtUrgencia As TextBox
+    Friend WithEvents tblPatologias As DataGridView
+    Friend WithEvents colAsociacion As DataGridViewCheckBoxColumn
+    Friend WithEvents colEnfermedades As DataGridViewTextBoxColumn
+    Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn
 End Class

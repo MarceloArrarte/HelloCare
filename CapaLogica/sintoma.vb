@@ -105,6 +105,6 @@
     End Sub
 
     Public Overrides Function ToString() As String
-        Return _Nombre
+        Return "Nombre: " + _Nombre.ToString() + " Descripción: " + _Descripcion.ToString() + " Urgencia: " + _Urgencia.ToString() + " Recomendaciones: " + _Recomendaciones.ToString()
     End Function
 End Class

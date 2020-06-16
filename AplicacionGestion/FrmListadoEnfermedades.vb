@@ -25,9 +25,11 @@
 
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        FrmModificacionEnfermedades.Show()
-        Me.Hide()
+    Private Sub tblPatologia_Load(sender As Object, e As EventArgs) Handles MyBase.Activated
+        tblPatologias.Rows.Clear()
+        For Each enfermedad As CapaLogica.Enfermedad In CapaLogica.Principal.BuscarEnfermedades("", True).ToArray
+            tblPatologias.Rows.Add(enfermedad.Nombre, enfermedad.Descripcion, enfermedad.Gravedad, enfermedad.Recomendaciones)
+        Next
 
     End Sub
 End Class

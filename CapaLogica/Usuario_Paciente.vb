@@ -25,4 +25,20 @@
         End Set
     End Property
 
+    Public Shared Function Autenticar(ByVal ci_usuario As String, ByVal contrasena As String) As Boolean
+        Try
+            Dim pacienteRegistrado As Usuario_Paciente = Principal.BuscarUsuariosPacientes(ci_usuario).SingleOrDefault
+            If pacienteRegistrado Is Nothing Then
+                Throw New Exception("No se encontró un usuario de paciente para esta cédula.")
+            End If
+            If pacienteRegistrado.Contrasena = contrasena Then
+                Return True
+            Else
+                Throw New Exception("La contraseña en incorrecta.")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return False
+        End Try
+    End Function
 End Class
