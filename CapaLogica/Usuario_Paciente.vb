@@ -5,7 +5,7 @@
     'Constructor Usuario_Paciente'
     Sub New(ci As String, contrasena As String)
         MyBase.New(contrasena)
-        _CI_Paciente = ci
+        Me.CI_Paciente = ci
     End Sub
 
     Public Property CI_Paciente As String

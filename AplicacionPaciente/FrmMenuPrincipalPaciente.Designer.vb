@@ -32,49 +32,57 @@ Partial Class FrmMenuPrincipalPaciente
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label1.Location = New System.Drawing.Point(264, 22)
+        Me.Label1.Location = New System.Drawing.Point(125, 24)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(273, 29)
+        Me.Label1.Size = New System.Drawing.Size(214, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Menu Principal Paciente"
         '
         'btnIngresoSintoma
         '
-        Me.btnIngresoSintoma.Location = New System.Drawing.Point(72, 125)
+        Me.btnIngresoSintoma.Location = New System.Drawing.Point(54, 102)
+        Me.btnIngresoSintoma.Margin = New System.Windows.Forms.Padding(2)
         Me.btnIngresoSintoma.Name = "btnIngresoSintoma"
-        Me.btnIngresoSintoma.Size = New System.Drawing.Size(220, 70)
-        Me.btnIngresoSintoma.TabIndex = 1
-        Me.btnIngresoSintoma.Text = "Ingreso Sintoma"
+        Me.btnIngresoSintoma.Size = New System.Drawing.Size(165, 57)
+        Me.btnIngresoSintoma.TabIndex = 0
+        Me.btnIngresoSintoma.Text = "Tengo algunos síntomas"
         Me.btnIngresoSintoma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnIngresoSintoma.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(314, 135)
+        Me.Label2.Location = New System.Drawing.Point(244, 113)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(359, 17)
+        Me.Label2.Size = New System.Drawing.Size(174, 26)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Ingrese sus sintomas y obtenga un diagnostico primario"
+        Me.Label2.Text = "Ingrese sus sintomas y obtenga un" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "diagnóstico automático del sistema."
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(72, 335)
+        Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSalir.Location = New System.Drawing.Point(54, 272)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(142, 54)
-        Me.btnSalir.TabIndex = 3
+        Me.btnSalir.Size = New System.Drawing.Size(165, 44)
+        Me.btnSalir.TabIndex = 1
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'FrmMenuPrincipalPaciente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AcceptButton = Me.btnIngresoSintoma
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.CancelButton = Me.btnSalir
+        Me.ClientSize = New System.Drawing.Size(447, 366)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnIngresoSintoma)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmMenuPrincipalPaciente"
         Me.Text = "FrmMenuPrincipalPaciente"
         Me.ResumeLayout(False)

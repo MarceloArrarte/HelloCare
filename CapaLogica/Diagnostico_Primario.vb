@@ -3,7 +3,6 @@
 Public Class Diagnostico_Primario
     Private _CI_Paciente As String
     Private _FechaHora As DateTime
-    Private _ListaEnfermedades As List(Of Enfermedad)
 
     Public Property CI_Paciente As String
         Get
@@ -37,11 +36,5 @@ Public Class Diagnostico_Primario
                 MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
         End Set
-    End Property
-
-    Public ReadOnly Property ListaEnfermedades() As List(Of Enfermedad)
-        Get
-            Return _ListaEnfermedades
-        End Get
     End Property
 End Class

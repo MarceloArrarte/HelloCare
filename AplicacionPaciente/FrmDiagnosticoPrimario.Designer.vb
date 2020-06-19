@@ -36,76 +36,86 @@ Partial Class FrmDiagnosticoPrimario
         '
         Me.lblTitulo.AutoSize = True
         Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.Location = New System.Drawing.Point(267, 24)
+        Me.lblTitulo.Location = New System.Drawing.Point(142, 23)
+        Me.lblTitulo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(237, 29)
+        Me.lblTitulo.Size = New System.Drawing.Size(181, 24)
         Me.lblTitulo.TabIndex = 0
-        Me.lblTitulo.Text = "Diagnostico Primario"
+        Me.lblTitulo.Text = "Diagnóstico primario"
         '
         'lblSintomas
         '
         Me.lblSintomas.AutoSize = True
-        Me.lblSintomas.Location = New System.Drawing.Point(141, 111)
+        Me.lblSintomas.Location = New System.Drawing.Point(103, 89)
+        Me.lblSintomas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSintomas.Name = "lblSintomas"
-        Me.lblSintomas.Size = New System.Drawing.Size(66, 17)
+        Me.lblSintomas.Size = New System.Drawing.Size(55, 13)
         Me.lblSintomas.TabIndex = 1
-        Me.lblSintomas.Text = "Sintomas"
+        Me.lblSintomas.Text = "Síntomas:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(238, 106)
+        Me.TextBox1.Location = New System.Drawing.Point(178, 86)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(335, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(252, 20)
         Me.TextBox1.TabIndex = 2
         '
         'lblDiagnostico
         '
         Me.lblDiagnostico.AutoSize = True
-        Me.lblDiagnostico.Location = New System.Drawing.Point(125, 173)
+        Me.lblDiagnostico.Location = New System.Drawing.Point(94, 141)
+        Me.lblDiagnostico.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDiagnostico.Name = "lblDiagnostico"
-        Me.lblDiagnostico.Size = New System.Drawing.Size(82, 17)
+        Me.lblDiagnostico.Size = New System.Drawing.Size(66, 13)
         Me.lblDiagnostico.TabIndex = 3
-        Me.lblDiagnostico.Text = "Diagnostico"
+        Me.lblDiagnostico.Text = "Diagnóstico:"
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(238, 170)
+        Me.TextBox2.Location = New System.Drawing.Point(178, 138)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(335, 89)
+        Me.TextBox2.Size = New System.Drawing.Size(252, 73)
         Me.TextBox2.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 296)
+        Me.Label1.Location = New System.Drawing.Point(59, 240)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(195, 17)
+        Me.Label1.Size = New System.Drawing.Size(99, 13)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Recomendaciones Generales"
+        Me.Label1.Text = "Recomendaciones:"
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(238, 296)
+        Me.TextBox3.Location = New System.Drawing.Point(178, 240)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(335, 90)
+        Me.TextBox3.Size = New System.Drawing.Size(252, 74)
         Me.TextBox3.TabIndex = 6
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(15, 380)
+        Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSalir.Location = New System.Drawing.Point(11, 350)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(132, 44)
+        Me.btnSalir.Size = New System.Drawing.Size(99, 36)
         Me.btnSalir.TabIndex = 7
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'FrmDiagnosticoPrimario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.CancelButton = Me.btnSalir
+        Me.ClientSize = New System.Drawing.Size(463, 397)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label1)
@@ -114,6 +124,7 @@ Partial Class FrmDiagnosticoPrimario
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.lblSintomas)
         Me.Controls.Add(Me.lblTitulo)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmDiagnosticoPrimario"
         Me.Text = "DiagnosticoPrimario"
         Me.ResumeLayout(False)

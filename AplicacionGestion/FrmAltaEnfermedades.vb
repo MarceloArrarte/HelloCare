@@ -3,20 +3,19 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         FrmListadoEnfermedades.Show()
         Me.Hide()
 
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim enfermedad As New CapaLogica.Enfermedad()
-        enfermedad.Descripcion = txtDescripcionSintoma.Text
-        enfermedad.Nombre = txtNombreEnfermedad.Text
-        enfermedad.Recomendaciones = txtRecomendacionesSintoma.Text
-        enfermedad.Gravedad = Integer.Parse(txtGravedadSintoma.Text)
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        
+        Dim enfermedad As New CapaLogica.Enfermedad(txtDescripcion.Text, txtNombre.Text, txtRecomendacionesSintoma.Text, Integer.Parse(txtGravedad.Text))
         CapaLogica.Principal.IngresarEnfermedad(enfermedad)
+        MsgBox("Enfermedad agregada con éxito.")
+        Me.Close()
     End Sub
 
     Private Sub FrmAltaEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load

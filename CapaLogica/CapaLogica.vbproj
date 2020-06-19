@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDDDF5D9-48B3-4529-921B-A6AE6C57C97A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>CapaLogica.Module1</StartupObject>
+    <StartupObject>Sub Main</StartupObject>
     <RootNamespace>CapaLogica</RootNamespace>
     <AssemblyName>CapaLogica</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -67,10 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admnisitrativo.vb" />
+    <Compile Include="AsociacionSintoma.vb" />
     <Compile Include="Diagnostico_Primario.vb" />
     <Compile Include="Enfermedad.vb" />
     <Compile Include="Localidad.vb" />
-    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

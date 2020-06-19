@@ -6,8 +6,6 @@ Public Class Enfermedad
     Private _Recomendaciones As String
     Private _Gravedad As Integer
     Private _Descripcion As String
-    Private _Probabilidad As Decimal
-    Private ReadOnly _ListaSintomas As List(Of Sintoma)
 
 
     Public Property Nombre As String
@@ -87,36 +85,11 @@ Public Class Enfermedad
         End Set
     End Property
 
-    Public Property Probabilidad As Decimal
-        Get
-            Return _Probabilidad
-        End Get
-        Set(value As Decimal)
-            If value > 0 And value < 100 Then
-                _Probabilidad = value
-            Else
-                Throw New Exception("La probabilidad de diagnóstico correcto debe ser un valor entre 0 y 100.")
-            End If
-        End Set
-    End Property
-
-    Public ReadOnly Property ListaSintomas() As List(Of Sintoma)
-        Get
-            Return _ListaSintomas
-        End Get
-    End Property
-
-    Sub New()
-        _ListaSintomas = New List(Of Sintoma)
-    End Sub
-
     Sub New(nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String)
-        Me.New()
-        _Nombre = nombre
-        _Recomendaciones = recomendaciones
-        _Gravedad = gravedad
-        _Descripcion = descripcion
-        _Probabilidad = Nothing
+        Me.Nombre = nombre
+        Me.Recomendaciones = recomendaciones
+        Me.Gravedad = gravedad
+        Me.Descripcion = descripcion
     End Sub
 
     Public Overrides Function ToString() As String

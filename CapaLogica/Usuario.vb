@@ -3,7 +3,7 @@
 
     'Constructor Usuario'
     Public Sub New(contrasena As String)
-        _Contrasena = contrasena
+        Me.Contrasena = contrasena
     End Sub
 
     Public Property Contrasena As String
@@ -15,7 +15,7 @@
                 If value = Nothing Or value = "" Then
                     Throw New Exception("La contraseña se encuentra vacía.")
                 End If
-                If _Contrasena.Length > 100 Then
+                If value.Length > 100 Then
                     Throw New Exception("La clave es demasiado grande (más de 100 caracteres).")
                 End If
                 _Contrasena = value

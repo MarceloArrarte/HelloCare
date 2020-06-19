@@ -22,79 +22,79 @@ Partial Class FrmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.btnIngresar = New System.Windows.Forms.Button()
+        Me.txtContrasena = New System.Windows.Forms.TextBox()
+        Me.txtCedula = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkMostrarContrasena = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnIngresar
         '
-        Me.Button1.Location = New System.Drawing.Point(311, 326)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(149, 45)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "INGRESAR"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnIngresar.Location = New System.Drawing.Point(310, 331)
+        Me.btnIngresar.Name = "btnIngresar"
+        Me.btnIngresar.Size = New System.Drawing.Size(149, 45)
+        Me.btnIngresar.TabIndex = 3
+        Me.btnIngresar.Text = "INGRESAR"
+        Me.btnIngresar.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtContrasena
         '
-        Me.TextBox1.Location = New System.Drawing.Point(224, 266)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(301, 20)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.UseSystemPasswordChar = True
+        Me.txtContrasena.Location = New System.Drawing.Point(224, 248)
+        Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.Size = New System.Drawing.Size(301, 20)
+        Me.txtContrasena.TabIndex = 1
+        Me.txtContrasena.UseSystemPasswordChar = True
         '
-        'TextBox2
+        'txtCedula
         '
-        Me.TextBox2.Location = New System.Drawing.Point(224, 165)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(301, 20)
-        Me.TextBox2.TabIndex = 2
+        Me.txtCedula.Location = New System.Drawing.Point(224, 127)
+        Me.txtCedula.Name = "txtCedula"
+        Me.txtCedula.Size = New System.Drawing.Size(301, 20)
+        Me.txtCedula.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(122, 99)
+        Me.Label1.Location = New System.Drawing.Point(169, 66)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(502, 42)
+        Me.Label1.Size = New System.Drawing.Size(409, 42)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "INGRESE SU DOCUMENTO"
+        Me.Label1.Text = "INGRESE SU CÉDULA"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(187, 211)
+        Me.Label2.Location = New System.Drawing.Point(135, 191)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(380, 42)
+        Me.Label2.Size = New System.Drawing.Size(517, 42)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "INGRESE SU CLAVE"
+        Me.Label2.Text = "INGRESE SU CONTRASEÑA"
         '
-        'CheckBox1
+        'chkMostrarContrasena
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(327, 298)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(118, 17)
-        Me.CheckBox1.TabIndex = 7
-        Me.CheckBox1.Text = "Mostrar Contraseña"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkMostrarContrasena.AutoSize = True
+        Me.chkMostrarContrasena.Location = New System.Drawing.Point(327, 298)
+        Me.chkMostrarContrasena.Name = "chkMostrarContrasena"
+        Me.chkMostrarContrasena.Size = New System.Drawing.Size(117, 17)
+        Me.chkMostrarContrasena.TabIndex = 2
+        Me.chkMostrarContrasena.Text = "Mostrar contraseña"
+        Me.chkMostrarContrasena.UseVisualStyleBackColor = True
         '
         'FrmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.chkMostrarContrasena)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtCedula)
+        Me.Controls.Add(Me.txtContrasena)
+        Me.Controls.Add(Me.btnIngresar)
         Me.Name = "FrmLogin"
         Me.Text = "frmAdministrativo"
         Me.ResumeLayout(False)
@@ -102,10 +102,10 @@ Partial Class FrmLogin
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents btnIngresar As Button
+    Friend WithEvents txtContrasena As TextBox
+    Friend WithEvents txtCedula As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chkMostrarContrasena As CheckBox
 End Class

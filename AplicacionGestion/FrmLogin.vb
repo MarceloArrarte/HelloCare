@@ -13,10 +13,10 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim ci As String = TextBox2.Text
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+        Dim ci As String = txtCedula.Text
 
-        Dim contrasena As String = TextBox1.Text
+        Dim contrasena As String = txtContrasena.Text
         If CapaLogica.Usuario_Administrativo.Autenticar(ci, contrasena) Then
             FrmMenuPrincipal.Show()
             Me.Hide()
@@ -25,11 +25,11 @@
         End If
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If CheckBox1.Checked Then
-            TextBox1.UseSystemPasswordChar = False
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContrasena.CheckedChanged
+        If chkMostrarContrasena.Checked Then
+            txtContrasena.UseSystemPasswordChar = False
         Else
-            TextBox1.UseSystemPasswordChar = True
+            txtContrasena.UseSystemPasswordChar = True
 
         End If
     End Sub

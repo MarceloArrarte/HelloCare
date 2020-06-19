@@ -30,11 +30,12 @@ Partial Class FrmAltaSintomas
         Me.txtInfoSintoma = New System.Windows.Forms.TextBox()
         Me.txtRecomendacionSintoma = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
         Me.lblUrgenciaSintoma = New System.Windows.Forms.Label()
         Me.txtUrgencia = New System.Windows.Forms.TextBox()
         Me.tblPatologias = New System.Windows.Forms.DataGridView()
+        Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colAsociacion = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.colEnfermedades = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -110,23 +111,24 @@ Partial Class FrmAltaSintomas
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Patologias a asociar"
         '
-        'Button1
+        'btnAgregar
         '
-        Me.Button1.Location = New System.Drawing.Point(545, 605)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAgregar.Location = New System.Drawing.Point(545, 621)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.TabIndex = 9
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnVolver
         '
-        Me.Button2.Location = New System.Drawing.Point(192, 605)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 10
-        Me.Button2.Text = "Volver"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnVolver.Location = New System.Drawing.Point(193, 621)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 10
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
         '
         'lblUrgenciaSintoma
         '
@@ -153,12 +155,18 @@ Partial Class FrmAltaSintomas
         Me.tblPatologias.AllowUserToResizeRows = False
         Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAsociacion, Me.colEnfermedades, Me.colFrecuencia})
+        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colAsociacion, Me.colEnfermedades, Me.colFrecuencia})
         Me.tblPatologias.Location = New System.Drawing.Point(12, 411)
         Me.tblPatologias.Name = "tblPatologias"
         Me.tblPatologias.RowHeadersVisible = False
         Me.tblPatologias.Size = New System.Drawing.Size(724, 188)
         Me.tblPatologias.TabIndex = 15
+        '
+        'colObjeto
+        '
+        Me.colObjeto.HeaderText = "Objeto"
+        Me.colObjeto.Name = "colObjeto"
+        Me.colObjeto.Visible = False
         '
         'colAsociacion
         '
@@ -183,14 +191,16 @@ Partial Class FrmAltaSintomas
         '
         'FrmAltaSintomas
         '
+        Me.AcceptButton = Me.btnAgregar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnVolver
         Me.ClientSize = New System.Drawing.Size(759, 656)
         Me.Controls.Add(Me.tblPatologias)
         Me.Controls.Add(Me.lblUrgenciaSintoma)
         Me.Controls.Add(Me.txtUrgencia)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnVolver)
+        Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtRecomendacionSintoma)
         Me.Controls.Add(Me.txtInfoSintoma)
@@ -215,11 +225,12 @@ Partial Class FrmAltaSintomas
     Friend WithEvents txtInfoSintoma As TextBox
     Friend WithEvents txtRecomendacionSintoma As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnVolver As Button
     Friend WithEvents lblUrgenciaSintoma As Label
     Friend WithEvents txtUrgencia As TextBox
     Friend WithEvents tblPatologias As DataGridView
+    Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents colAsociacion As DataGridViewCheckBoxColumn
     Friend WithEvents colEnfermedades As DataGridViewTextBoxColumn
     Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn

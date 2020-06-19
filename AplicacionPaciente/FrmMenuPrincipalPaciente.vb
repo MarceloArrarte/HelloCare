@@ -1,14 +1,8 @@
 ﻿Public Class FrmMenuPrincipalPaciente
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
     Private Sub btnIngresoSintoma_Click(sender As Object, e As EventArgs) Handles btnIngresoSintoma.Click
-        FrmIngresoSintoma.Show()
+        Dim frm As New FrmIngresoSintoma
         Me.Hide()
-    End Sub
-
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 End Class

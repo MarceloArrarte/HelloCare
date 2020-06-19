@@ -99,11 +99,11 @@
     End Sub
 
     Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad)
-        _CI = ci
-        _Nombre = nombre
-        _Apellido = apellido
-        _Correo = correo
-        Me._Localidad = localidad
+        Me.CI = ci
+        Me.Nombre = nombre
+        Me.Apellido = apellido
+        Me.Correo = correo
+        Me.Localidad = localidad
     End Sub
 
 

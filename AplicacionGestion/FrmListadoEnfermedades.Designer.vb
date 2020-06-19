@@ -22,57 +22,59 @@ Partial Class FrmListadoEnfermedades
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Agregar = New System.Windows.Forms.Button()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.btnImportar = New System.Windows.Forms.Button()
+        Me.btnVer = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.tblPatologias = New System.Windows.Forms.DataGridView()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.tblEnfermedades = New System.Windows.Forms.DataGridView()
+        Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colGravedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tblEnfermedades, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button4
+        'btnImportar
         '
-        Me.Button4.Location = New System.Drawing.Point(294, 392)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 15
-        Me.Button4.Text = "Importar csv"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnImportar.Location = New System.Drawing.Point(294, 392)
+        Me.btnImportar.Name = "btnImportar"
+        Me.btnImportar.Size = New System.Drawing.Size(75, 23)
+        Me.btnImportar.TabIndex = 1
+        Me.btnImportar.Text = "Importar csv"
+        Me.btnImportar.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnVer
         '
-        Me.Button2.Location = New System.Drawing.Point(391, 392)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "Ver"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnVer.Location = New System.Drawing.Point(391, 392)
+        Me.btnVer.Name = "btnVer"
+        Me.btnVer.Size = New System.Drawing.Size(75, 23)
+        Me.btnVer.TabIndex = 2
+        Me.btnVer.Text = "Ver"
+        Me.btnVer.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnEliminar
         '
-        Me.Button1.Location = New System.Drawing.Point(587, 392)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Eliminar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnEliminar.Location = New System.Drawing.Point(587, 392)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 4
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
         '
-        'Agregar
+        'btnAgregar
         '
-        Me.Agregar.Location = New System.Drawing.Point(683, 392)
-        Me.Agregar.Name = "Agregar"
-        Me.Agregar.Size = New System.Drawing.Size(75, 23)
-        Me.Agregar.TabIndex = 11
-        Me.Agregar.Text = "Agregar"
-        Me.Agregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.Location = New System.Drawing.Point(683, 392)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.TabIndex = 5
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -92,38 +94,57 @@ Partial Class FrmListadoEnfermedades
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Bienvenido al ABM Enfermedades"
         '
-        'Button3
+        'btnVolver
         '
-        Me.Button3.Location = New System.Drawing.Point(15, 392)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 16
-        Me.Button3.Text = "Volver"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnVolver.Location = New System.Drawing.Point(15, 392)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 0
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnModificar
         '
-        Me.Button5.Location = New System.Drawing.Point(489, 392)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 17
-        Me.Button5.Text = "Modificar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnModificar.Location = New System.Drawing.Point(489, 392)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(75, 23)
+        Me.btnModificar.TabIndex = 3
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = True
         '
-        'tblPatologias
+        'tblEnfermedades
         '
-        Me.tblPatologias.AllowUserToAddRows = False
-        Me.tblPatologias.AllowUserToDeleteRows = False
-        Me.tblPatologias.AllowUserToResizeColumns = False
-        Me.tblPatologias.AllowUserToResizeRows = False
-        Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNombre, Me.colDesc, Me.colGravedad, Me.colRec})
-        Me.tblPatologias.Location = New System.Drawing.Point(15, 86)
-        Me.tblPatologias.Name = "tblPatologias"
-        Me.tblPatologias.RowHeadersVisible = False
-        Me.tblPatologias.Size = New System.Drawing.Size(743, 237)
-        Me.tblPatologias.TabIndex = 19
+        Me.tblEnfermedades.AllowUserToAddRows = False
+        Me.tblEnfermedades.AllowUserToDeleteRows = False
+        Me.tblEnfermedades.AllowUserToResizeColumns = False
+        Me.tblEnfermedades.AllowUserToResizeRows = False
+        Me.tblEnfermedades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tblEnfermedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblEnfermedades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colNombre, Me.colDesc, Me.colGravedad, Me.colRec})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tblEnfermedades.DefaultCellStyle = DataGridViewCellStyle1
+        Me.tblEnfermedades.Location = New System.Drawing.Point(15, 86)
+        Me.tblEnfermedades.Name = "tblEnfermedades"
+        Me.tblEnfermedades.ReadOnly = True
+        Me.tblEnfermedades.RowHeadersVisible = False
+        Me.tblEnfermedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tblEnfermedades.Size = New System.Drawing.Size(743, 258)
+        Me.tblEnfermedades.TabIndex = 19
+        Me.tblEnfermedades.TabStop = False
+        '
+        'colObjeto
+        '
+        Me.colObjeto.HeaderText = "Objeto"
+        Me.colObjeto.Name = "colObjeto"
+        Me.colObjeto.ReadOnly = True
+        Me.colObjeto.Visible = False
         '
         'colNombre
         '
@@ -152,7 +173,7 @@ Partial Class FrmListadoEnfermedades
         'colRec
         '
         Me.colRec.FillWeight = 20.0!
-        Me.colRec.HeaderText = "Recomendación"
+        Me.colRec.HeaderText = "Recomendaciones"
         Me.colRec.Name = "colRec"
         Me.colRec.ReadOnly = True
         Me.colRec.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -161,33 +182,35 @@ Partial Class FrmListadoEnfermedades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnVolver
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.tblPatologias)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Agregar)
+        Me.Controls.Add(Me.tblEnfermedades)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnVolver)
+        Me.Controls.Add(Me.btnImportar)
+        Me.Controls.Add(Me.btnVer)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmListadoEnfermedades"
         Me.Text = "Form1"
-        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tblEnfermedades, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Agregar As Button
+    Friend WithEvents btnImportar As Button
+    Friend WithEvents btnVer As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAgregar As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents tblPatologias As DataGridView
+    Friend WithEvents btnVolver As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents tblEnfermedades As DataGridView
+    Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colDesc As DataGridViewTextBoxColumn
     Friend WithEvents colGravedad As DataGridViewTextBoxColumn

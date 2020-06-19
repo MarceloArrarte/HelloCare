@@ -22,134 +22,222 @@ Partial Class FrmVerSintomas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtRecomendaciones = New System.Windows.Forms.TextBox()
+        Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.tblPatologias = New System.Windows.Forms.DataGridView()
+        Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtUrgencia = New System.Windows.Forms.TextBox()
+        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(311, 9)
+        Me.Label1.Location = New System.Drawing.Point(237, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(128, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Bienvenido al ver sintoma"
         '
-        'TextBox3
+        'txtRecomendaciones
         '
-        Me.TextBox3.Location = New System.Drawing.Point(172, 156)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(427, 187)
-        Me.TextBox3.TabIndex = 18
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(172, 156)
+        Me.txtRecomendaciones.Multiline = True
+        Me.txtRecomendaciones.Name = "txtRecomendaciones"
+        Me.txtRecomendaciones.ReadOnly = True
+        Me.txtRecomendaciones.Size = New System.Drawing.Size(427, 111)
+        Me.txtRecomendaciones.TabIndex = 18
         '
-        'TextBox2
+        'txtDescripcion
         '
-        Me.TextBox2.Location = New System.Drawing.Point(172, 78)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(427, 72)
-        Me.TextBox2.TabIndex = 17
+        Me.txtDescripcion.Location = New System.Drawing.Point(172, 75)
+        Me.txtDescripcion.Multiline = True
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.ReadOnly = True
+        Me.txtDescripcion.Size = New System.Drawing.Size(427, 72)
+        Me.txtDescripcion.TabIndex = 17
         '
-        'TextBox1
+        'txtNombre
         '
-        Me.TextBox1.Location = New System.Drawing.Point(172, 37)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(427, 25)
-        Me.TextBox1.TabIndex = 16
+        Me.txtNombre.Location = New System.Drawing.Point(172, 37)
+        Me.txtNombre.Multiline = True
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.ReadOnly = True
+        Me.txtNombre.Size = New System.Drawing.Size(427, 25)
+        Me.txtNombre.TabIndex = 16
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(5, 156)
+        Me.Label4.Location = New System.Drawing.Point(34, 159)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(155, 13)
+        Me.Label4.Size = New System.Drawing.Size(99, 13)
         Me.Label4.TabIndex = 15
-        Me.Label4.Text = "Recomendaciones del sintoma:"
+        Me.Label4.Text = "Recomendaciones:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(39, 78)
+        Me.Label3.Location = New System.Drawing.Point(67, 78)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 13)
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 14
-        Me.Label3.Text = "Informacion del sintoma:"
+        Me.Label3.Text = "Descripción:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(57, 40)
+        Me.Label2.Location = New System.Drawing.Point(30, 40)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(103, 13)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Nombre del sintoma:"
         '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(30, 376)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(621, 134)
-        Me.ListBox1.TabIndex = 19
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(30, 357)
+        Me.Label5.Location = New System.Drawing.Point(30, 340)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(110, 13)
         Me.Label5.TabIndex = 20
         Me.Label5.Text = "Patologias asociadas:"
         '
-        'Button1
+        'btnVolver
         '
-        Me.Button1.Location = New System.Drawing.Point(314, 528)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "Volver"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnVolver.Location = New System.Drawing.Point(276, 504)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 0
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'tblPatologias
+        '
+        Me.tblPatologias.AllowUserToAddRows = False
+        Me.tblPatologias.AllowUserToDeleteRows = False
+        Me.tblPatologias.AllowUserToResizeColumns = False
+        Me.tblPatologias.AllowUserToResizeRows = False
+        Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colNombre, Me.colDesc, Me.colFrecuencia})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tblPatologias.DefaultCellStyle = DataGridViewCellStyle1
+        Me.tblPatologias.Location = New System.Drawing.Point(33, 356)
+        Me.tblPatologias.MultiSelect = False
+        Me.tblPatologias.Name = "tblPatologias"
+        Me.tblPatologias.RowHeadersVisible = False
+        Me.tblPatologias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tblPatologias.Size = New System.Drawing.Size(566, 125)
+        Me.tblPatologias.TabIndex = 22
+        Me.tblPatologias.TabStop = False
+        '
+        'colObjeto
+        '
+        Me.colObjeto.HeaderText = "Objeto"
+        Me.colObjeto.Name = "colObjeto"
+        Me.colObjeto.Visible = False
+        '
+        'colNombre
+        '
+        Me.colNombre.FillWeight = 35.0!
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'colDesc
+        '
+        Me.colDesc.FillWeight = 50.0!
+        Me.colDesc.HeaderText = "Descripción"
+        Me.colDesc.Name = "colDesc"
+        Me.colDesc.ReadOnly = True
+        Me.colDesc.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'colFrecuencia
+        '
+        Me.colFrecuencia.FillWeight = 15.0!
+        Me.colFrecuencia.HeaderText = "Frecuencia"
+        Me.colFrecuencia.Name = "colFrecuencia"
+        Me.colFrecuencia.ReadOnly = True
+        Me.colFrecuencia.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(80, 286)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Urgencia:"
+        '
+        'txtUrgencia
+        '
+        Me.txtUrgencia.Location = New System.Drawing.Point(172, 283)
+        Me.txtUrgencia.Multiline = True
+        Me.txtUrgencia.Name = "txtUrgencia"
+        Me.txtUrgencia.ReadOnly = True
+        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
+        Me.txtUrgencia.TabIndex = 24
         '
         'FrmVerSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(685, 593)
-        Me.Controls.Add(Me.Button1)
+        Me.CancelButton = Me.btnVolver
+        Me.ClientSize = New System.Drawing.Size(626, 540)
+        Me.Controls.Add(Me.txtUrgencia)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.tblPatologias)
+        Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtRecomendaciones)
+        Me.Controls.Add(Me.txtDescripcion)
+        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmVerSintomas"
         Me.Text = "Form1"
+        CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtRecomendaciones As TextBox
+    Friend WithEvents txtDescripcion As TextBox
+    Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnVolver As Button
+    Friend WithEvents tblPatologias As DataGridView
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtUrgencia As TextBox
+    Friend WithEvents colObjeto As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
+    Friend WithEvents colDesc As DataGridViewTextBoxColumn
+    Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn
 End Class

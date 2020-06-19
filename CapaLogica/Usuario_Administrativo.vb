@@ -6,7 +6,7 @@
 
     Sub New(ci As String, contrasena As String)
         MyBase.New(contrasena)
-        _CI_Administrativo = ci
+        Me.CI_Administrativo = ci
     End Sub
 
     Public Property CI_Administrativo As String

@@ -24,27 +24,33 @@ Partial Class FrmIngresoSintoma
     Private Sub InitializeComponent()
         Me.LblIngresarSintoma = New System.Windows.Forms.Label()
         Me.Titulo = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.lblListado = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BtnAgregar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnQuitar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblSintomasSeleccionados = New System.Windows.Forms.Label()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.btnEnviar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tblDisponibles = New System.Windows.Forms.DataGridView()
+        Me.tblSeleccionados = New System.Windows.Forms.DataGridView()
+        Me.colObjeto1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tblSeleccionados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblIngresarSintoma
         '
         Me.LblIngresarSintoma.AutoSize = True
-        Me.LblIngresarSintoma.Location = New System.Drawing.Point(43, 42)
+        Me.LblIngresarSintoma.Location = New System.Drawing.Point(40, 151)
         Me.LblIngresarSintoma.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblIngresarSintoma.Name = "LblIngresarSintoma"
-        Me.LblIngresarSintoma.Size = New System.Drawing.Size(97, 13)
+        Me.LblIngresarSintoma.Size = New System.Drawing.Size(43, 13)
         Me.LblIngresarSintoma.TabIndex = 0
-        Me.LblIngresarSintoma.Text = "Ingrese su Sintoma"
+        Me.LblIngresarSintoma.Text = "Buscar:"
         '
         'Titulo
         '
@@ -53,127 +59,179 @@ Partial Class FrmIngresoSintoma
         Me.Titulo.Location = New System.Drawing.Point(225, 7)
         Me.Titulo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Titulo.Name = "Titulo"
-        Me.Titulo.Size = New System.Drawing.Size(182, 24)
+        Me.Titulo.Size = New System.Drawing.Size(179, 24)
         Me.Titulo.TabIndex = 1
-        Me.Titulo.Text = "Ingreso de Sintomas"
+        Me.Titulo.Text = "Ingreso de síntomas"
         '
-        'TextBox1
+        'txtBuscar
         '
-        Me.TextBox1.Location = New System.Drawing.Point(157, 42)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(118, 20)
-        Me.TextBox1.TabIndex = 2
-        '
-        'lblListado
-        '
-        Me.lblListado.AutoSize = True
-        Me.lblListado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblListado.Location = New System.Drawing.Point(42, 74)
-        Me.lblListado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblListado.Name = "lblListado"
-        Me.lblListado.Size = New System.Drawing.Size(54, 17)
-        Me.lblListado.TabIndex = 4
-        Me.lblListado.Text = "Listado"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(45, 127)
-        Me.ListBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(132, 108)
-        Me.ListBox1.TabIndex = 5
+        Me.txtBuscar.Location = New System.Drawing.Point(104, 148)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.Size = New System.Drawing.Size(139, 20)
+        Me.txtBuscar.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(43, 101)
+        Me.Label2.Location = New System.Drawing.Point(42, 64)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(267, 13)
+        Me.Label2.Size = New System.Drawing.Size(465, 26)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Seleccione de la lista su sintoma y presiona una opción"
+        Me.Label2.Text = "Seleccione sus síntomas de la lista a su izquierda y a continuacion presione ""Agr" &
+    "egar""." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Luego, presione ""Enviar"" para enviar sus síntomas al sistema y recibir u" &
+    "n diagnóstico automático."
         '
-        'BtnAgregar
+        'btnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(45, 247)
-        Me.BtnAgregar.Margin = New System.Windows.Forms.Padding(2)
-        Me.BtnAgregar.Name = "BtnAgregar"
-        Me.BtnAgregar.Size = New System.Drawing.Size(107, 28)
-        Me.BtnAgregar.TabIndex = 7
-        Me.BtnAgregar.Text = "Agregar"
-        Me.BtnAgregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.Location = New System.Drawing.Point(302, 228)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(81, 28)
+        Me.btnAgregar.TabIndex = 1
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'btnEliminar
+        'btnQuitar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(544, 247)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(96, 27)
-        Me.btnEliminar.TabIndex = 8
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
+        Me.btnQuitar.Location = New System.Drawing.Point(302, 289)
+        Me.btnQuitar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(81, 27)
+        Me.btnQuitar.TabIndex = 2
+        Me.btnQuitar.Text = "Quitar"
+        Me.btnQuitar.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(206, 303)
+        Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSalir.Location = New System.Drawing.Point(45, 394)
         Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(91, 32)
-        Me.btnSalir.TabIndex = 9
+        Me.btnSalir.TabIndex = 3
         Me.btnSalir.Text = "Volver"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'lblSintomasSeleccionados
         '
         Me.lblSintomasSeleccionados.AutoSize = True
-        Me.lblSintomasSeleccionados.Location = New System.Drawing.Point(389, 101)
+        Me.lblSintomasSeleccionados.Location = New System.Drawing.Point(401, 124)
         Me.lblSintomasSeleccionados.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSintomasSeleccionados.Name = "lblSintomasSeleccionados"
         Me.lblSintomasSeleccionados.Size = New System.Drawing.Size(123, 13)
         Me.lblSintomasSeleccionados.TabIndex = 10
-        Me.lblSintomasSeleccionados.Text = "Sintomas Seleccionados"
-        '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(544, 127)
-        Me.ListBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(121, 108)
-        Me.ListBox2.TabIndex = 11
+        Me.lblSintomasSeleccionados.Text = "Síntomas seleccionados"
         '
         'btnEnviar
         '
-        Me.btnEnviar.Location = New System.Drawing.Point(544, 303)
+        Me.btnEnviar.Location = New System.Drawing.Point(548, 394)
         Me.btnEnviar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEnviar.Name = "btnEnviar"
-        Me.btnEnviar.Size = New System.Drawing.Size(96, 28)
-        Me.btnEnviar.TabIndex = 12
+        Me.btnEnviar.Size = New System.Drawing.Size(96, 32)
+        Me.btnEnviar.TabIndex = 4
         Me.btnEnviar.Text = "Enviar"
         Me.btnEnviar.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(42, 124)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 13)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Síntomas disponibles"
+        '
+        'tblDisponibles
+        '
+        Me.tblDisponibles.AllowUserToAddRows = False
+        Me.tblDisponibles.AllowUserToDeleteRows = False
+        Me.tblDisponibles.AllowUserToResizeColumns = False
+        Me.tblDisponibles.AllowUserToResizeRows = False
+        Me.tblDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tblDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblDisponibles.ColumnHeadersVisible = False
+        Me.tblDisponibles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto1, Me.colNombre1})
+        Me.tblDisponibles.Location = New System.Drawing.Point(45, 185)
+        Me.tblDisponibles.Name = "tblDisponibles"
+        Me.tblDisponibles.ReadOnly = True
+        Me.tblDisponibles.RowHeadersVisible = False
+        Me.tblDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tblDisponibles.Size = New System.Drawing.Size(240, 185)
+        Me.tblDisponibles.TabIndex = 13
+        Me.tblDisponibles.TabStop = False
+        '
+        'tblSeleccionados
+        '
+        Me.tblSeleccionados.AllowUserToAddRows = False
+        Me.tblSeleccionados.AllowUserToDeleteRows = False
+        Me.tblSeleccionados.AllowUserToResizeColumns = False
+        Me.tblSeleccionados.AllowUserToResizeRows = False
+        Me.tblSeleccionados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tblSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblSeleccionados.ColumnHeadersVisible = False
+        Me.tblSeleccionados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.tblSeleccionados.Location = New System.Drawing.Point(404, 185)
+        Me.tblSeleccionados.Name = "tblSeleccionados"
+        Me.tblSeleccionados.ReadOnly = True
+        Me.tblSeleccionados.RowHeadersVisible = False
+        Me.tblSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tblSeleccionados.Size = New System.Drawing.Size(240, 185)
+        Me.tblSeleccionados.TabIndex = 14
+        Me.tblSeleccionados.TabStop = False
+        '
+        'colObjeto1
+        '
+        Me.colObjeto1.HeaderText = "Objeto"
+        Me.colObjeto1.Name = "colObjeto1"
+        Me.colObjeto1.ReadOnly = True
+        Me.colObjeto1.Visible = False
+        '
+        'colNombre1
+        '
+        Me.colNombre1.HeaderText = "Nombre"
+        Me.colNombre1.Name = "colNombre1"
+        Me.colNombre1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Objeto"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
         'FrmIngresoSintoma
         '
+        Me.AcceptButton = Me.btnEnviar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1014, 366)
+        Me.CancelButton = Me.btnSalir
+        Me.ClientSize = New System.Drawing.Size(684, 461)
+        Me.Controls.Add(Me.tblSeleccionados)
+        Me.Controls.Add(Me.tblDisponibles)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnEnviar)
-        Me.Controls.Add(Me.ListBox2)
         Me.Controls.Add(Me.lblSintomasSeleccionados)
         Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.btnEliminar)
-        Me.Controls.Add(Me.BtnAgregar)
+        Me.Controls.Add(Me.btnQuitar)
+        Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.lblListado)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.Titulo)
         Me.Controls.Add(Me.LblIngresarSintoma)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmIngresoSintoma"
         Me.Text = "MenuPrincipalPaciente"
+        CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tblSeleccionados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -181,14 +239,18 @@ Partial Class FrmIngresoSintoma
 
     Friend WithEvents LblIngresarSintoma As Windows.Forms.Label
     Friend WithEvents Titulo As Windows.Forms.Label
-    Friend WithEvents TextBox1 As Windows.Forms.TextBox
-    Friend WithEvents lblListado As Windows.Forms.Label
-    Friend WithEvents ListBox1 As Windows.Forms.ListBox
+    Friend WithEvents txtBuscar As Windows.Forms.TextBox
     Friend WithEvents Label2 As Windows.Forms.Label
-    Friend WithEvents BtnAgregar As Windows.Forms.Button
-    Friend WithEvents btnEliminar As Windows.Forms.Button
+    Friend WithEvents btnAgregar As Windows.Forms.Button
+    Friend WithEvents btnQuitar As Windows.Forms.Button
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents lblSintomasSeleccionados As Windows.Forms.Label
-    Friend WithEvents ListBox2 As Windows.Forms.ListBox
     Friend WithEvents btnEnviar As Windows.Forms.Button
+    Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents tblDisponibles As Windows.Forms.DataGridView
+    Friend WithEvents tblSeleccionados As Windows.Forms.DataGridView
+    Friend WithEvents colObjeto1 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colNombre1 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As Windows.Forms.DataGridViewTextBoxColumn
 End Class

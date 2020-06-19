@@ -3,7 +3,6 @@
     Private _Nombre As String
     Private _Descripcion As String
     Private _Urgencia As Integer
-    Private _Frecuencia As Integer
 
     Public Property Recomendaciones As String
         Get
@@ -76,32 +75,11 @@
         End Set
     End Property
 
-    Public Property Frecuencia As Integer
-        Get
-            Return _Frecuencia
-        End Get
-        Set(value As Integer)
-            Try
-                If value < 0 Or value > 100 Then
-                    Throw New Exception("La frecuencia de un síntoma en una enfermedad debe ser un valor entero entre 0 y 100.")
-                End If
-                _Urgencia = value
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            End Try
-        End Set
-    End Property
-
-    Public Sub New()
-        _Frecuencia = Nothing
-    End Sub
-
     Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
-        Me.New()
-        _Nombre = nombre
-        _Descripcion = descripcion
-        _Recomendaciones = recomendaciones
-        _Urgencia = urgencia
+        Me.Nombre = nombre
+        Me.Descripcion = descripcion
+        Me.Recomendaciones = recomendaciones
+        Me.Urgencia = urgencia
     End Sub
 
     Public Overrides Function ToString() As String

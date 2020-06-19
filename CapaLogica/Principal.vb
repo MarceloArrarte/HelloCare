@@ -1,8 +1,13 @@
 ﻿Public Module Principal
-    Private ListaEnfermedades As New List(Of Enfermedad)
-    Private ListaSintomas As New List(Of Sintoma)
-    Private ListaUsuariosPacientes As New List(Of Usuario_Paciente)
-    Private ListaUsuariosAdministrativos As New List(Of Usuario_Administrativo)
+    Friend ListaEnfermedades As New List(Of Enfermedad)
+    Friend ListaSintomas As New List(Of Sintoma)
+    Friend ListaAsociacionesSintomas As New List(Of AsociacionSintoma)
+    Friend ListaUsuariosPacientes As New List(Of Usuario_Paciente)
+    Friend ListaUsuariosAdministrativos As New List(Of Usuario_Administrativo)
+
+    Public Sub Main()
+
+    End Sub
 
     Public Sub IngresarEnfermedad(enfermedad As Enfermedad)
         Try
@@ -21,13 +26,16 @@
         End Try
     End Sub
 
-    Public Sub ModificarEnfermedad(enfermedad As Enfermedad, indiceModificado As Integer)
+    Public Sub ModificarEnfermedad(enfermedad As Enfermedad, indice As Integer)
         Try
             If enfermedad Is Nothing Then
                 Throw New Exception("La enfermedad tiene un valor nulo.")
             End If
-            If indiceModificado >= ListaEnfermedades.Count Then
+            If indice >= ListaEnfermedades.Count Then
                 Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            If indice < 0 Then
+                Throw New Exception("El índice indicado es negativo.")
             End If
             For Each e As Enfermedad In ListaEnfermedades
                 If enfermedad.Nombre = e.Nombre Then
@@ -35,11 +43,41 @@
                 End If
             Next
 
-            Dim registro As Enfermedad = ListaEnfermedades(indiceModificado)
+            Dim registro As Enfermedad = ListaEnfermedades(indice)
             registro.Nombre = enfermedad.Nombre
             registro.Descripcion = enfermedad.Descripcion
             registro.Recomendaciones = enfermedad.Recomendaciones
             registro.Gravedad = enfermedad.Gravedad
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ModificarEnfermedad(enfermedadVieja As Enfermedad, enfermedadNueva As Enfermedad)
+        Try
+            If enfermedadVieja Is Nothing Then
+                Throw New Exception("La enfermedad original tiene un valor nulo")
+            End If
+            If enfermedadNueva Is Nothing Then
+                Throw New Exception("La enfermedad a guardar tiene un valor nulo")
+            End If
+            Dim indice As Integer = -1
+            For Each e As Enfermedad In ListaEnfermedades
+                If e.Nombre = enfermedadVieja.Nombre Then
+                    indice = ListaEnfermedades.IndexOf(e)
+                End If
+            Next
+            If indice = -1 Then
+                Throw New Exception("La enfermedad original no está almacenada.")
+            End If
+            For Each e As Enfermedad In ListaEnfermedades
+                If enfermedadNueva.Nombre = e.Nombre Then
+                    Throw New Exception("Ya hay una enfermedad con este nombre.")
+                End If
+            Next
+
+            ListaEnfermedades.Remove(enfermedadVieja)
+            ListaEnfermedades.Insert(indice, enfermedadNueva)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -61,6 +99,28 @@
 
         Return listaResultados
     End Function
+
+    'Public Function BuscarEnfermedades(sintoma As Sintoma) As List(Of Enfermedad)
+    '    Dim listaResultados As New List(Of Enfermedad)
+
+    '    Try
+    '        If sintoma Is Nothing Then
+    '            Throw New Exception("El síntoma tiene un valor nulo.")
+    '        End If
+
+    '        For Each e As Enfermedad In ListaEnfermedades
+    '            For Each s As Sintoma In e.ListaSintomas
+    '                If s.Nombre = sintoma.Nombre Then
+    '                    listaResultados.Add(e)
+    '                End If
+    '            Next
+    '        Next
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+    '    End Try
+
+    '    Return listaResultados
+    'End Function
 
     Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
         Try
@@ -133,6 +193,41 @@
         End Try
     End Sub
 
+    Public Sub ModificarSintoma(sintomaViejo As Sintoma, sintomaNuevo As Sintoma)
+        Try
+            If sintomaViejo Is Nothing Then
+                Throw New Exception("El síntoma original tiene un valor nulo.")
+            End If
+            If sintomaNuevo Is Nothing Then
+                Throw New Exception("El síntoma a guardar tiene un valor nulo.")
+            End If
+            Dim indice As Integer = -1
+            For Each s As Sintoma In ListaSintomas
+                If s.Nombre = sintomaViejo.Nombre Then
+                    indice = ListaSintomas.IndexOf(s)
+                End If
+            Next
+            If indice = -1 Then
+                Throw New Exception("El síntoma original no está almacenado.")
+            End If
+            Dim cantidadNombresIguales As Integer = 0
+            Dim mantieneElNombre As Boolean = sintomaViejo.Nombre = sintomaNuevo.Nombre
+            For Each s As Sintoma In ListaSintomas
+                If sintomaNuevo.Nombre = s.Nombre Then
+                    cantidadNombresIguales += 1
+                End If
+            Next
+            If (cantidadNombresIguales > 1 And mantieneElNombre) Or (cantidadNombresIguales > 0 And Not mantieneElNombre) Then
+                Throw New Exception("Ya existe un síntoma con este nombre.")
+            End If
+
+            ListaSintomas.Remove(sintomaViejo)
+            ListaSintomas.Insert(indice, sintomaNuevo)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
     Public Function BuscarSintomas(busqueda As String, buscaSoloPorNombre As Boolean) As List(Of Sintoma)
         Dim listaResultados As New List(Of Sintoma)
 
@@ -178,6 +273,94 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Public Sub IngresarAsociacionSintoma(asociacion As AsociacionSintoma)
+        Try
+            If asociacion Is Nothing Then
+                Throw New Exception("El valor de la asociación es nulo.")
+            End If
+            For Each a As AsociacionSintoma In ListaAsociacionesSintomas
+                If a.NombreEnfermedad = asociacion.NombreEnfermedad And a.NombreSintoma = asociacion.NombreSintoma Then
+                    Throw New Exception("El síntoma y la enfermedad indicados ya se encuentran asociados.")
+                End If
+            Next
+
+            ListaAsociacionesSintomas.Add(asociacion)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ModificarAsociacionSintoma(asociacion As AsociacionSintoma, indice As Integer)
+        Try
+            If asociacion Is Nothing Then
+                Throw New Exception("El valor de la asociación es nulo.")
+            End If
+            If indice >= ListaAsociacionesSintomas.Count Then
+                Throw New Exception("El índice indicado excede el tamaño de la colección.")
+            End If
+            For Each a As AsociacionSintoma In ListaAsociacionesSintomas
+                If a.NombreEnfermedad = asociacion.NombreEnfermedad And a.NombreSintoma = asociacion.NombreSintoma Then
+                    Throw New Exception("El síntoma y la enfermedad indicados ya se encuentran asociados.")
+                End If
+            Next
+
+            Dim registro As AsociacionSintoma = ListaAsociacionesSintomas(indice)
+            registro.NombreEnfermedad = asociacion.NombreEnfermedad
+            registro.NombreSintoma = asociacion.NombreSintoma
+            registro.Frecuencia = asociacion.Frecuencia
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Function BuscarAsociacionesSintomas(sintoma As Sintoma) As List(Of AsociacionSintoma)
+        Dim listaResultados As New List(Of AsociacionSintoma)
+
+        For Each a As AsociacionSintoma In ListaAsociacionesSintomas
+            If a.NombreSintoma = sintoma.Nombre Then
+                listaResultados.Add(a)
+            End If
+        Next
+
+        Return listaResultados
+    End Function
+
+    Public Function BuscarAsociacionesSintomas(enfermedad As Enfermedad) As List(Of AsociacionSintoma)
+        Dim listaResultados As New List(Of AsociacionSintoma)
+
+        For Each a As AsociacionSintoma In ListaAsociacionesSintomas
+            If a.NombreEnfermedad = enfermedad.Nombre Then
+                listaResultados.Add(a)
+            End If
+        Next
+
+        Return listaResultados
+    End Function
+
+    Public Sub EliminarAsociacionSintoma(asociacion As AsociacionSintoma)
+        For Each a As AsociacionSintoma In ListaAsociacionesSintomas.ToList
+            If a.NombreEnfermedad = asociacion.NombreEnfermedad And a.NombreSintoma = asociacion.NombreSintoma Then
+                ListaAsociacionesSintomas.Remove(asociacion)
+            End If
+        Next
+    End Sub
+
+    Public Sub EliminarAsociacionSintoma(sintoma As Sintoma)
+        For Each a As AsociacionSintoma In ListaAsociacionesSintomas.ToList
+            If a.NombreSintoma = sintoma.Nombre Then
+                ListaAsociacionesSintomas.Remove(a)
+            End If
+        Next
+    End Sub
+
+    Public Sub EliminarAsociacionSintoma(enfermedad As Enfermedad)
+        For Each a As AsociacionSintoma In ListaAsociacionesSintomas.ToList
+            If a.NombreEnfermedad = enfermedad.Nombre Then
+                ListaAsociacionesSintomas.Remove(a)
+            End If
+        Next
     End Sub
 
     Public Sub IngresarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
@@ -343,20 +526,22 @@
     End Sub
 
     Public Sub GenerarDatos()
-        ListaEnfermedades.Add(New Enfermedad("Nombre: Gripe leve", "Recomendacion: Reposo", 40, "Descripcion: Tos y mocos"))
-        ListaEnfermedades.Add(New Enfermedad("Nombre: Hipertension", "Recomendacion: Comer sin sal", 50, "Descripcion: Presion alta"))
-        ListaEnfermedades.Add(New Enfermedad("Nombre: Sobrepeso", "Recomendacion: Hacer ejercicio", 20, "Descripcion: IMC mayor a 25"))
+        ListaEnfermedades.Add(New Enfermedad("Gripe leve", "Reposo", 40, "Tos y mocos"))
+        ListaEnfermedades.Add(New Enfermedad("Hipertension", "Comer sin sal", 50, "Presion alta"))
+        ListaEnfermedades.Add(New Enfermedad("Sobrepeso", "Hacer ejercicio", 20, "IMC mayor a 25"))
 
-        ListaSintomas.Add(New Sintoma("Nombre: Tos", "Descripcion: es un mecanismo de defensa de nuestro organismo. Protege las vías respiratorias dejándolas limpias para respirar con normalidad.", "Recomendaciones: mantenerse caliente y tomar miel", 10))
-        ListaSintomas.Add(New Sintoma("Nombre: Dolor de cabeza", "Descripcion: Dolor de muñeca", "Recomendaciones: hielo en zona", 60))
-        ListaSintomas.Add(New Sintoma("Nombre: Resfriado", "Descripcion: infección viral aguda del tracto respiratorio", "Recomendaciones: mantenerse caliente y tomar té con miel", 20))
+        ListaSintomas.Add(New Sintoma("Tos", "Es un mecanismo de defensa de nuestro organismo. Protege las vías respiratorias dejándolas limpias para respirar con normalidad.", "Mantenerse caliente y tomar miel", 10))
+        ListaSintomas.Add(New Sintoma("Dolor de cabeza", "Dolor de muñeca", "Hielo en zona", 60))
+        ListaSintomas.Add(New Sintoma("Resfriado", "Infección viral aguda del tracto respiratorio", "Mantenerse caliente y tomar té con miel", 20))
 
-        ListaUsuariosPacientes.Add(New Usuario_Paciente("51712282", "republica"))
-        ListaUsuariosPacientes.Add(New Usuario_Paciente("59273847", "constelaciones"))
-        ListaUsuariosPacientes.Add(New Usuario_Paciente("51273748", "informatica"))
+        ListaAsociacionesSintomas.Add(New AsociacionSintoma("Gripe leve", "Tos", 50))
 
-        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("52315584", "nashe"))
-        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("26715504", "televisor"))
-        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("52315504", "teclado"))
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("51712272", "republica"))
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("50681129", "constelaciones"))
+        ListaUsuariosPacientes.Add(New Usuario_Paciente("18727593", "informatica"))
+
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("19174761", "nashe"))
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("12071061", "televisor"))
+        ListaUsuariosAdministrativos.Add(New Usuario_Administrativo("51593248", "teclado"))
     End Sub
 End Module
