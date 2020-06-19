@@ -11,12 +11,6 @@ Public Class FrmVerSintomas
         txtRecomendaciones.Text = sintoma.Recomendaciones
         txtUrgencia.Text = sintoma.Urgencia
 
-        'Dim asociaciones As List(Of AsociacionSintoma) = BuscarAsociacionesSintomas(sintoma)
-        'Dim enfermedadesAsociadas As New List(Of Enfermedad)
-        'For i = 0 To asociaciones.Count - 1
-        '    enfermedadesAsociadas.Add()
-        'Next
-
         Dim asociacionesConEnfermedades As List(Of AsociacionSintoma) = BuscarAsociacionesSintomas(sintoma)
         Dim enfermedadesAsociadas As New List(Of Enfermedad)
         For i = 0 To asociacionesConEnfermedades.Count - 1
@@ -31,25 +25,6 @@ Public Class FrmVerSintomas
             valoresFila.Add(asociacionesConEnfermedades(i).Frecuencia & "%")
             tblPatologias.Rows.Add(valoresFila.ToArray)
         Next
-
-        'Dim enfermedadesAsociadas As List(Of Enfermedad) = CapaLogica.Principal.BuscarEnfermedades(sintoma)
-
-        'For Each e As Enfermedad In enfermedadesAsociadas
-        '    Dim valoresFila As New List(Of Object)
-        '    valoresFila.Add(e)
-        '    valoresFila.Add(e.Nombre)
-        '    valoresFila.Add(e.Descripcion)
-
-        '    Dim frecuencia As String = ""
-        '    For Each s As Sintoma In e.ListaSintomas
-        '        If s.Nombre = sintoma.Nombre Then
-        '            frecuencia = s.Frecuencia & "%"
-        '        End If
-        '    Next
-        '    valoresFila.Add(frecuencia)
-
-        '    tblPatologias.Rows.Add(valoresFila.ToArray)
-        'Next
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click

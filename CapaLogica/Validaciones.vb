@@ -41,6 +41,7 @@
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return False
         End Try
     End Function
 

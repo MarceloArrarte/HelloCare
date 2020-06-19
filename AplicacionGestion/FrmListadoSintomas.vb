@@ -2,19 +2,16 @@
 Imports CapaLogica
 
 Public Class FrmListadoSintomas
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim frm As New FrmAltaSintomas
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 
-    Private Sub Agregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        FrmAltaSintomas.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-
-        FrmMenuPrincipal.Show()
-        Me.Hide()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -27,13 +24,13 @@ Public Class FrmListadoSintomas
                 CapaLogica.EliminarSintoma(r.Cells(0).Value)
                 EliminarAsociacionSintoma(CType(r.Cells(0).Value, Sintoma))
             Next
-                MostrarSintomas()
+            MostrarSintomas()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVer.Click
+    Private Sub btnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
         Try
             If tblSintomas.SelectedRows.Count <> 1 Then
                 Throw New Exception("Seleccione una sola fila para ver los detalles del síntoma.")
@@ -49,8 +46,9 @@ Public Class FrmListadoSintomas
         End Try
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
-
+    Private Sub btnImportar_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
+        exploradorArchivos.ShowDialog()
+        MsgBox(exploradorArchivos.FileName)
     End Sub
 
     Private Sub tblPatologias_Load(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -67,7 +65,7 @@ Public Class FrmListadoSintomas
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If tblSintomas.SelectedRows.Count <> 1 Then
-            MsgBox("Seleccione una sola fila para modificar el síntoma correspondiente.")
+            MsgBox("Seleccione una sola fila para modificar el síntoma correspondiente.", MsgBoxStyle.Critical, "Error")
         Else
             Dim sintoma As CapaLogica.Sintoma = tblSintomas.SelectedRows(0).Cells(0).Value
             Dim frm As New FrmModificacionSintomas(sintoma)

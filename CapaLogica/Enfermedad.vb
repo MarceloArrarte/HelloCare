@@ -14,9 +14,6 @@ Public Class Enfermedad
         End Get
         Set(value As String)
             Try
-                If value = Nothing Or value = "" Then
-                    Throw New Exception("El nombre se encuentra vacío.")
-                End If
                 If value.Length >= 100 Then
                     Throw New Exception("El largo del nombre no puede superar los 100 caracteres")
                 End If
@@ -33,9 +30,6 @@ Public Class Enfermedad
         End Get
         Set(value As String)
             Try
-                If value = Nothing Or value = "" Then
-                    Throw New Exception("El atributo se encuentra vacío.")
-                End If
                 If value.Length >= 1000 Then
                     Throw New Exception("La cantidad de caracteres no puede ser superior a 1000 ")
                 End If
@@ -72,9 +66,6 @@ Public Class Enfermedad
         End Get
         Set(value As String)
             Try
-                If value = Nothing Or value = "" Then
-                    Throw New Exception("La Descripción se encuentra vacía.")
-                End If
                 If value.Length >= 1000 Then
                     Throw New Exception("La cantidad de caracteres debe ser menor a 1000.")
                 End If

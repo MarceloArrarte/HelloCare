@@ -1,4 +1,6 @@
-﻿Public Class Sintoma
+﻿Imports System.Security.Cryptography
+
+Public Class Sintoma
     Private _Recomendaciones As String
     Private _Nombre As String
     Private _Descripcion As String
@@ -45,7 +47,6 @@
         End Get
         Set(value As String)
             Try
-
                 If value.Length >= 1000 Then
                     Throw New Exception("La cantidad de caracteres debe ser menor a 1000.")
                 End If
@@ -76,7 +77,12 @@
     End Property
 
     Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
-        Me.Nombre = nombre
+        If urgencia < 0 Or urgencia > 100 Or descripcion.Length >= 1000 Or nombre.Length > 100 Or recomendaciones.Length >= 1000 Then
+            Throw New Exception("No se pudo crear el objeto.")
+        End If
+
+
+        Me.Nombre = nombre 'Then
         Me.Descripcion = descripcion
         Me.Recomendaciones = recomendaciones
         Me.Urgencia = urgencia

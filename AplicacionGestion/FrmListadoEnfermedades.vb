@@ -7,7 +7,7 @@ Public Class FrmListadoEnfermedades
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVer.Click
+    Private Sub btnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
         Try
             If tblEnfermedades.SelectedRows.Count = 0 Then
                 Throw New Exception("Seleccione al menos una fila para ver los detalles de la enfermedad")
@@ -27,9 +27,9 @@ Public Class FrmListadoEnfermedades
         End Try
     End Sub
 
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
-
+    Private Sub btnImportar_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
+        exploradorArchivos.ShowDialog()
+        MsgBox(exploradorArchivos.FileName)
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -50,10 +50,10 @@ Public Class FrmListadoEnfermedades
 
     Private Sub Agregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
 
-
-        FAltaEnfermedades.Show()
+        Dim frm As New FrmAltaEnfermedades
         Me.Hide()
-
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 
     Private Sub tblPatologia_Load(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -70,11 +70,22 @@ Public Class FrmListadoEnfermedades
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
 
+        Try
+            If tblEnfermedades.SelectedRows.Count = 0 Then
+                Throw New Exception("Seleccione al menos una fila para modificar la(s) enfermedad(es).")
+            End If
+            If tblEnfermedades.SelectedRows.Count <> 1 Then
+                Throw New Exception("Seleccione una sola fila para modificar una enfermedad.")
+            End If
 
-        Dim enfermedad As CapaLogica.Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
-        Dim frm As New FrmModificacionEnfermedades(enfermedad)
-        Me.Hide()
-        frm.ShowDialog()
-        Me.Show()
+            Dim enfermedad As CapaLogica.Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
+            Dim frm As New FrmModificacionEnfermedades(enfermedad)
+            Me.Hide()
+            frm.ShowDialog()
+            Me.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
     End Sub
 End Class

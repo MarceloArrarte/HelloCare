@@ -36,6 +36,7 @@ Partial Class FrmListadoSintomas
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colGravedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.exploradorArchivos = New System.Windows.Forms.OpenFileDialog()
         CType(Me.tblSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -169,6 +170,10 @@ Partial Class FrmListadoSintomas
         Me.colRec.ReadOnly = True
         Me.colRec.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'exploradorArchivos
+        '
+        Me.exploradorArchivos.FileName = "OpenFileDialog1"
+        '
         'FrmListadoSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -206,4 +211,5 @@ Partial Class FrmListadoSintomas
     Friend WithEvents colDesc As DataGridViewTextBoxColumn
     Friend WithEvents colGravedad As DataGridViewTextBoxColumn
     Friend WithEvents colRec As DataGridViewTextBoxColumn
+    Friend WithEvents exploradorArchivos As OpenFileDialog
 End Class

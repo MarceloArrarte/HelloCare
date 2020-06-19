@@ -70,11 +70,21 @@
             If indice = -1 Then
                 Throw New Exception("La enfermedad original no está almacenada.")
             End If
+            Dim cantidadNombresIguales As Integer = 0
+            Dim mantieneElNombre As Boolean = enfermedadVieja.Nombre = enfermedadNueva.Nombre
             For Each e As Enfermedad In ListaEnfermedades
                 If enfermedadNueva.Nombre = e.Nombre Then
-                    Throw New Exception("Ya hay una enfermedad con este nombre.")
+                    cantidadNombresIguales += 1
                 End If
             Next
+            If (cantidadNombresIguales > 1 And mantieneElNombre) Or (cantidadNombresIguales > 0 And Not mantieneElNombre) Then
+                Throw New Exception("Ya existe un síntoma con este nombre.")
+            End If
+            'For Each e As Enfermedad In ListaEnfermedades
+            '    If enfermedadNueva.Nombre = e.Nombre Then
+            '        Throw New Exception("Ya hay una enfermedad con este nombre.")
+            '    End If
+            'Next
 
             ListaEnfermedades.Remove(enfermedadVieja)
             ListaEnfermedades.Insert(indice, enfermedadNueva)
@@ -99,28 +109,6 @@
 
         Return listaResultados
     End Function
-
-    'Public Function BuscarEnfermedades(sintoma As Sintoma) As List(Of Enfermedad)
-    '    Dim listaResultados As New List(Of Enfermedad)
-
-    '    Try
-    '        If sintoma Is Nothing Then
-    '            Throw New Exception("El síntoma tiene un valor nulo.")
-    '        End If
-
-    '        For Each e As Enfermedad In ListaEnfermedades
-    '            For Each s As Sintoma In e.ListaSintomas
-    '                If s.Nombre = sintoma.Nombre Then
-    '                    listaResultados.Add(e)
-    '                End If
-    '            Next
-    '        Next
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-    '    End Try
-
-    '    Return listaResultados
-    'End Function
 
     Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
         Try

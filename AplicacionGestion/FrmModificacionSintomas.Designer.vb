@@ -149,7 +149,7 @@ Partial Class FrmModificacionSintomas
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(122, 167)
+        Me.Label8.Location = New System.Drawing.Point(119, 167)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(53, 13)
         Me.Label8.TabIndex = 26

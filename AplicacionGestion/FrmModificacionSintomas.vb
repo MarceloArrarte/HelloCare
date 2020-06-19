@@ -1,6 +1,8 @@
 ﻿Imports CapaLogica
 
 Public Class FrmModificacionSintomas
+
+
     Private sintomaAModificar As Sintoma
     Sub New(sintoma As Sintoma)
 
@@ -108,6 +110,7 @@ Public Class FrmModificacionSintomas
 
     Private Sub btnAgregarPatologia_Click(sender As Object, e As EventArgs) Handles btnAgregarPatologia.Click
         Try
+
             If tblPatologias.SelectedRows.Count = 0 Then
                 Throw New Exception("Debe seleccionar al menos una de las patologías disponibles.")
             End If
@@ -151,53 +154,58 @@ Public Class FrmModificacionSintomas
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        'For Each r As DataGridViewRow In tblAsociadas.Rows
-        '    For Each s As Sintoma In CType(r.Cells(0).Value, Enfermedad).ListaSintomas
-        '        If s.Nombre = sintomaAModificar.Nombre Then
-        '            s.Frecuencia = r.Cells(2).Value.ToString.Replace("%", "")
-        '        End If
-        '    Next
-        'Next
-
-        For Each asociacion As AsociacionSintoma In BuscarAsociacionesSintomas(sintomaAModificar).ToList
-            EliminarAsociacionSintoma(asociacion)
-        Next
-
-        Dim sintomaNuevo As New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtUrgencia.Text)
-
-        For Each s As Sintoma In BuscarSintomas("", True)
-            If s.Nombre = sintomaAModificar.Nombre Then
-                ModificarSintoma(sintomaAModificar, sintomaNuevo)
+        Try
+            If txtNombre.Text = "" Then
+                Throw New Exception("El nombre del sintoma no puede estar vacio")
             End If
-        Next
+            If txtUrgencia.Text = "" Then
+                Throw New Exception("La urgencia del sintoma no puede estar vacia")
+            End If
+            'If IsNumeric(txtUrgencia.Text) Then
+            '    Throw New Exception("La urgencia del sintoma no puede estar vacia")
+            'End If
+            'If Integer.Parse(txtUrgencia.Text) < 0 Or Integer.Parse(txtUrgencia.Text) > 100 Then
+            '    Throw New Exception("El índice de urgencia debe ser un valor entero entre 0 y 100.")
+            'End If
+            Dim sintomaNuevo As Sintoma
+            Try
+                sintomaNuevo = New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, Integer.Parse(txtUrgencia.Text))
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+            'Dim sintomaNuevo As New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, Integer.Parse(txtUrgencia.Text))
+            For Each s As Sintoma In BuscarSintomas("", True)
+                If s.Nombre = sintomaAModificar.Nombre Then
+                    ModificarSintoma(sintomaAModificar, sintomaNuevo)
+                End If
+            Next
 
-        For Each r As DataGridViewRow In tblAsociadas.Rows
-            Dim asociacion As New AsociacionSintoma(r.Cells(1).Value, sintomaNuevo.Nombre, r.Cells(2).Value.ToString.Replace("%", ""))
-            IngresarAsociacionSintoma(asociacion)
-        Next
+            For Each asociacion As AsociacionSintoma In BuscarAsociacionesSintomas(sintomaAModificar).ToList
+                EliminarAsociacionSintoma(asociacion)
+            Next
+
+            For Each r As DataGridViewRow In tblAsociadas.Rows
+                Dim asociacion As New AsociacionSintoma(r.Cells(1).Value, sintomaNuevo.Nombre, r.Cells(2).Value.ToString.Replace("%", ""))
+                IngresarAsociacionSintoma(asociacion)
+            Next
+            MsgBox("Modificación realizada con éxito")
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
 
         'Dim sintomaNuevo As New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtUrgencia.Text)
 
-        'For Each enfermedad In BuscarEnfermedades(sintomaAModificar)
-        '    Dim indiceSintoma As Integer
-        '    For Each s As Sintoma In enfermedad.ListaSintomas.ToList
-        '        If s.Nombre = sintomaAModificar.Nombre Then
-        '            indiceSintoma = enfermedad.ListaSintomas.IndexOf(s)
-        '            enfermedad.ListaSintomas.Remove(s)
-
-        '            Dim frecuencia As Integer
-        '            For Each r As DataGridViewRow In tblAsociadas.Rows
-        '                If r.Cells(1).Value = enfermedad.Nombre Then
-        '                    frecuencia = r.Cells(2).Value.ToString.Replace("%", "")
-        '                End If
-        '            Next
-        '            sintomaNuevo.Frecuencia = frecuencia
-
-        '            enfermedad.ListaSintomas.Insert(indiceSintoma, sintomaNuevo)
-        '        End If
-        '    Next
+        'For Each s As Sintoma In BuscarSintomas("", True)
+        '    If s.Nombre = sintomaAModificar.Nombre Then
+        '        ModificarSintoma(sintomaAModificar, sintomaNuevo)
+        '    End If
         'Next
 
-        Me.Close()
+
+
+        'Me.Close()
+        'Resume
     End Sub
 End Class

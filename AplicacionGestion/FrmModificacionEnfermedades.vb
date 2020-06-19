@@ -31,10 +31,23 @@
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        Dim enfermedadNueva As New CapaLogica.Enfermedad(txtNombre.Text, txtDescripcion.Text, Integer.Parse(txtGravedad.Text), txtRecomendaciones.Text)
-        CapaLogica.ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
-        MsgBox("Modificación realizada con éxito")
-        FrmListadoEnfermedades.Show()
-        Me.Hide()
+
+        Try
+            If txtNombre.Text = "" Then
+                Throw New Exception("El nombre de la enfermedad no puede estar vacio")
+            End If
+            If txtGravedad.Text = "" Then
+                Throw New Exception("La gravedad de la enfermedad no puede estar vacia")
+            End If
+
+            Dim enfermedadNueva As New CapaLogica.Enfermedad(txtNombre.Text, txtDescripcion.Text, Integer.Parse(txtGravedad.Text), txtRecomendaciones.Text)
+            CapaLogica.ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
+            MsgBox("Modificación realizada con éxito")
+            FrmListadoEnfermedades.Show()
+            Me.Hide()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
     End Sub
 End Class
