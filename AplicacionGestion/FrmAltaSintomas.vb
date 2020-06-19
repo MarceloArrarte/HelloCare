@@ -2,10 +2,8 @@
 
 Public Class FrmAltaSintomas
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        FrmListadoSintomas.Show()
-        Me.Hide()
-
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click

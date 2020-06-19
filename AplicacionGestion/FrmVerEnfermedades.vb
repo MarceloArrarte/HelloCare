@@ -18,8 +18,7 @@ Public Class FrmVerEnfermedades
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        FrmListadoEnfermedades.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 

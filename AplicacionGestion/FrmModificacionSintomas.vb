@@ -170,26 +170,42 @@ Public Class FrmModificacionSintomas
             Dim sintomaNuevo As Sintoma
             Try
                 sintomaNuevo = New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, Integer.Parse(txtUrgencia.Text))
+                For Each s As Sintoma In BuscarSintomas("", True)
+                    If s.Nombre = sintomaAModificar.Nombre Then
+                        ModificarSintoma(sintomaAModificar, sintomaNuevo)
+                    End If
+                Next
+
+                For Each asociacion As AsociacionSintoma In BuscarAsociacionesSintomas(sintomaAModificar).ToList
+                    EliminarAsociacionSintoma(asociacion)
+                Next
+
+                For Each r As DataGridViewRow In tblAsociadas.Rows
+                    Dim asociacion As New AsociacionSintoma(r.Cells(1).Value, sintomaNuevo.Nombre, r.Cells(2).Value.ToString.Replace("%", ""))
+                    IngresarAsociacionSintoma(asociacion)
+                Next
+                MsgBox("Modificación realizada con éxito")
+                Me.Close()
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
             'Dim sintomaNuevo As New Sintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, Integer.Parse(txtUrgencia.Text))
-            For Each s As Sintoma In BuscarSintomas("", True)
-                If s.Nombre = sintomaAModificar.Nombre Then
-                    ModificarSintoma(sintomaAModificar, sintomaNuevo)
-                End If
-            Next
+            'For Each s As Sintoma In BuscarSintomas("", True)
+            '    If s.Nombre = sintomaAModificar.Nombre Then
+            '        ModificarSintoma(sintomaAModificar, sintomaNuevo)
+            '    End If
+            'Next
 
-            For Each asociacion As AsociacionSintoma In BuscarAsociacionesSintomas(sintomaAModificar).ToList
-                EliminarAsociacionSintoma(asociacion)
-            Next
+            'For Each asociacion As AsociacionSintoma In BuscarAsociacionesSintomas(sintomaAModificar).ToList
+            '    EliminarAsociacionSintoma(asociacion)
+            'Next
 
-            For Each r As DataGridViewRow In tblAsociadas.Rows
-                Dim asociacion As New AsociacionSintoma(r.Cells(1).Value, sintomaNuevo.Nombre, r.Cells(2).Value.ToString.Replace("%", ""))
-                IngresarAsociacionSintoma(asociacion)
-            Next
-            MsgBox("Modificación realizada con éxito")
-            Me.Close()
+            'For Each r As DataGridViewRow In tblAsociadas.Rows
+            '    Dim asociacion As New AsociacionSintoma(r.Cells(1).Value, sintomaNuevo.Nombre, r.Cells(2).Value.ToString.Replace("%", ""))
+            '    IngresarAsociacionSintoma(asociacion)
+            'Next
+            'MsgBox("Modificación realizada con éxito")
+            'Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmMenuPrincipalPaciente
+Partial Class FrmMenuPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -71,7 +71,7 @@ Partial Class FrmMenuPrincipalPaciente
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'FrmMenuPrincipalPaciente
+        'FrmMenuPrincipal
         '
         Me.AcceptButton = Me.btnIngresoSintoma
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -83,7 +83,7 @@ Partial Class FrmMenuPrincipalPaciente
         Me.Controls.Add(Me.btnIngresoSintoma)
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "FrmMenuPrincipalPaciente"
+        Me.Name = "FrmMenuPrincipal"
         Me.Text = "FrmMenuPrincipalPaciente"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -5,11 +5,8 @@ Public Class FrmAltaEnfermedades
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        FrmListadoEnfermedades.Show()
-        Me.Hide()
-
-
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click

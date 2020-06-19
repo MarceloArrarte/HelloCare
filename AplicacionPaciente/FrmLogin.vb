@@ -3,8 +3,9 @@
         Dim ci As String = txtCedula.Text
         Dim contrasena As String = txtContrasena.Text
         If CapaLogica.Usuario_Paciente.Autenticar(ci, contrasena) Then
-            FrmMenuPrincipalPaciente.Show()
-            Me.Hide()
+            Dim frm As New FrmMenuPrincipal
+            frm.Show()
+            Me.Close()
         Else
             MsgBox("Contraseña incorrecta")
         End If

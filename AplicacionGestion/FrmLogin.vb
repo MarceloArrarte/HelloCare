@@ -1,25 +1,12 @@
 ﻿Public Class FrmLogin
-    Private Sub frmAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-   
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Dim ci As String = txtCedula.Text
 
         Dim contrasena As String = txtContrasena.Text
         If CapaLogica.Usuario_Administrativo.Autenticar(ci, contrasena) Then
-            FrmMenuPrincipal.Show()
-            Me.Hide()
+            Dim frm As New FrmMenuPrincipal
+            frm.Show()
+            Me.Close()
         Else
             MsgBox("Contraseña incorrecta")
         End If

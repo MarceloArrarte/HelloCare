@@ -5,37 +5,22 @@ Public Class FrmIngresoSintoma
 
         'Si la lista de sintomas seleccionados esta vacia manda un mensaje de error
         If tblSeleccionados.Rows.Count() = 0 Then
-            MsgBox("Debe ingrese un sintoma para recibir un diagnostico")
+            MsgBox("Debe ingrese un sintoma para recibir un diagnostico", MsgBoxStyle.Critical, "Error")
         Else
 
             'Abre la ventana de diagnostico y cierra la actual, ademas de limpiar todas las tablas utilizadas.
-
-
-
-
-
-
-            tblSeleccionados.Rows.Clear()
-            tblDisponibles.Rows.Clear()
-
-            Dim frm As New FrmDiagnosticoPrimario()
-
-            FrmDiagnosticoPrimario.Show()
-            Me.Hide()
+            Dim frm As New FrmDiagnosticoPrimario
+            frm.Show()
+            Me.Close()
 
         End If
 
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
-        tblSeleccionados.Rows.Clear()
-        tblDisponibles.Rows.Clear()
-
-        Dim frm As New FrmMenuPrincipalPaciente
-        Me.Hide()
-        frm.ShowDialog()
-        Me.Show()
+        Dim frm As New FrmMenuPrincipal
+        Me.Close()
+        frm.Show()
     End Sub
 
     'Agregar sintomas a la tabla izquierda'
@@ -44,7 +29,8 @@ Public Class FrmIngresoSintoma
             tblSeleccionados.Rows.Add(r.Cells(0).Value, r.Cells(1).Value)
             tblDisponibles.Rows.Remove(r)
         Next
-
+        tblDisponibles.ClearSelection()
+        tblSeleccionados.ClearSelection()
     End Sub
 
 

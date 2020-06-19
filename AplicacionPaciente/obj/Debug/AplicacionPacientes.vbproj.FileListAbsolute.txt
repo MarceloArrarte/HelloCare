@@ -39,9 +39,9 @@ C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.ex
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.pdb
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmIngresoSintoma.resources
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipalPaciente.resources
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmLogin.resources
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.vbproj.CopyComplete
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.exe
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipal.resources

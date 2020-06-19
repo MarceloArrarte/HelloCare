@@ -34,7 +34,7 @@ Partial Class FrmLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(148, 189)
+        Me.Label2.Location = New System.Drawing.Point(12, 158)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(517, 42)
         Me.Label2.TabIndex = 10
@@ -44,7 +44,7 @@ Partial Class FrmLogin
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(196, 67)
+        Me.Label1.Location = New System.Drawing.Point(60, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(409, 42)
         Me.Label1.TabIndex = 9
@@ -52,14 +52,14 @@ Partial Class FrmLogin
         '
         'txtCedula
         '
-        Me.txtCedula.Location = New System.Drawing.Point(251, 123)
+        Me.txtCedula.Location = New System.Drawing.Point(115, 92)
         Me.txtCedula.Name = "txtCedula"
         Me.txtCedula.Size = New System.Drawing.Size(301, 20)
         Me.txtCedula.TabIndex = 0
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(251, 243)
+        Me.txtContrasena.Location = New System.Drawing.Point(115, 212)
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(301, 20)
         Me.txtContrasena.TabIndex = 1
@@ -67,7 +67,7 @@ Partial Class FrmLogin
         '
         'btnIngresar
         '
-        Me.btnIngresar.Location = New System.Drawing.Point(333, 332)
+        Me.btnIngresar.Location = New System.Drawing.Point(197, 301)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(149, 45)
         Me.btnIngresar.TabIndex = 3
@@ -77,7 +77,7 @@ Partial Class FrmLogin
         'chkMostrarContrasena
         '
         Me.chkMostrarContrasena.AutoSize = True
-        Me.chkMostrarContrasena.Location = New System.Drawing.Point(347, 295)
+        Me.chkMostrarContrasena.Location = New System.Drawing.Point(211, 264)
         Me.chkMostrarContrasena.Name = "chkMostrarContrasena"
         Me.chkMostrarContrasena.Size = New System.Drawing.Size(118, 17)
         Me.chkMostrarContrasena.TabIndex = 2
@@ -88,7 +88,7 @@ Partial Class FrmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(543, 368)
         Me.Controls.Add(Me.chkMostrarContrasena)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)

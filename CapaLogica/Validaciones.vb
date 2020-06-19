@@ -4,19 +4,19 @@
             ' Manejo de errores de formato
             ' Valor nulo o cadena vacía
             If ci = Nothing Or ci = "" Then
-                Throw New Exception("La cédula no ha sido ingresada.")
+                Throw New ArgumentNullException("La cédula no ha sido ingresada.")
             End If
 
             ' La cédula posee más de 8 caracteres
             If ci.Length > 8 Then
-                Throw New Exception("La cédula no puede poseer más de 8 caracteres.")
+                Throw New ArgumentException("La cédula no puede poseer más de 8 caracteres.")
             End If
 
             ' Algún dígito no es un valor numérico (0-9)
             For Each c As Char In ci.ToCharArray
                 Dim valorASCII As Integer = Asc(c)
                 If valorASCII < 48 Or valorASCII > 57 Then
-                    Throw New Exception("El dígito " & c & "no es válido.")
+                    Throw New ArgumentException("El dígito " & c & " en la cédula " & ci & " no es válido.")
                 End If
             Next
 
@@ -47,14 +47,14 @@
 
     Public Shared Function CorreoElectronico(correo As String)
         ' Manejo de errores de formato
-        ' Valor nulo o cadena vacía
-        If correo = Nothing Or correo = "" Then
-            Throw New Exception("El correo no ha sido ingresada.")
+        ' Valor nulo
+        If correo = Nothing Then
+            Throw New ArgumentNullException("El correo no ha sido ingresada.")
         End If
 
         ' El correo posee más de 100 caracteres
         If correo.Length > 100 Then
-            Throw New Exception("El correo no puede poseer más de 100 caracteres.")
+            Throw New ArgumentException("El correo no puede poseer más de 100 caracteres.")
         End If
 
         ' Si la cadena tiene un formato adecuado, retorna True, sino retorna False

@@ -2,8 +2,7 @@
 
 Public Class FrmListadoEnfermedades
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        FrmMenuPrincipal.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 

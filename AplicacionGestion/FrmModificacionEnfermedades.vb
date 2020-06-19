@@ -21,8 +21,7 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        FrmListadoEnfermedades.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 
@@ -43,8 +42,7 @@
             Dim enfermedadNueva As New CapaLogica.Enfermedad(txtNombre.Text, txtDescripcion.Text, Integer.Parse(txtGravedad.Text), txtRecomendaciones.Text)
             CapaLogica.ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
             MsgBox("Modificación realizada con éxito")
-            FrmListadoEnfermedades.Show()
-            Me.Hide()
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
