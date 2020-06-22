@@ -1,51 +1,53 @@
-﻿Public Class FrmModificacionEnfermedades
+﻿Imports CapaLogica
 
-    Dim enfermedadAModificar As CapaLogica.Enfermedad
+Public Class FrmModificacionEnfermedades
+    ' Esta bandera se implementa para indicar al evento FormClosing 
+    ' si el formulario se cierra para volver sin guardar o habiendo ingresado datos
+    Private requiereConfirmacionSalida As Boolean = True
 
-    Sub New(enfermedad As CapaLogica.Enfermedad)
+    Dim enfermedadAModificar As Enfermedad
+
+    Sub New(enfermedad As Enfermedad)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        ' Precarga los datos de la enfermedad en los campos de texto correspondientes
         txtNombre.Text = enfermedad.Nombre
         txtDescripcion.Text = enfermedad.Descripcion
         txtGravedad.Text = enfermedad.Gravedad
         txtRecomendaciones.Text = enfermedad.Recomendaciones
 
+        ' Almacena la enfermedad que se va a estar modificando
         enfermedadAModificar = enfermedad
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
-
     End Sub
 
-    Private Sub FrmModificacionEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
+    ' Crea un objeto Enfermedad con los nuevos datos. Si no hay ningún error, sustituye en el sistema
+    ' la enfermedad vieja por la nueva
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-
         Try
-            If txtNombre.Text = "" Then
-                Throw New Exception("El nombre de la enfermedad no puede estar vacio")
-            End If
-            If txtGravedad.Text = "" Then
-                Throw New Exception("La gravedad de la enfermedad no puede estar vacia")
-            End If
-
-            Dim enfermedadNueva As New CapaLogica.Enfermedad(txtNombre.Text, txtDescripcion.Text, Integer.Parse(txtGravedad.Text), txtRecomendaciones.Text)
-            CapaLogica.ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
-            MsgBox("Modificación realizada con éxito")
+            Dim enfermedadNueva As New Enfermedad(txtNombre.Text, txtRecomendaciones.Text, txtGravedad.Text, txtDescripcion.Text)
+            ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
+            MsgBox("Modificación realizada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+            requiereConfirmacionSalida = False          ' Si no hubo errores, permite que el formulario se cierre automáticamente
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
 
+    ' Si intenta cerrar el formulario sin guardar cambios, solicita confirmación
+    Private Sub FrmModificacionEnfermedades_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If requiereConfirmacionSalida Then
+            If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+                MsgBoxResult.No Then
+                e.Cancel = True
+            End If
+        End If
     End Sub
 End Class

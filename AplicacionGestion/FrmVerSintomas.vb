@@ -6,11 +6,13 @@ Public Class FrmVerSintomas
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        ' Muestra los datos del síntoma seleccionado en la ventana anterior
         txtNombre.Text = sintoma.Nombre
         txtDescripcion.Text = sintoma.Descripcion
         txtRecomendaciones.Text = sintoma.Recomendaciones
         txtUrgencia.Text = sintoma.Urgencia
 
+        ' Muestra las enfermedades a las cuales este síntoma está asociado
         Dim asociacionesConEnfermedades As List(Of AsociacionSintoma) = BuscarAsociacionesSintomas(sintoma)
         Dim enfermedadesAsociadas As New List(Of Enfermedad)
         For i = 0 To asociacionesConEnfermedades.Count - 1
@@ -27,14 +29,11 @@ Public Class FrmVerSintomas
         Next
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
 
+    ' Evita que algún control quede seleccionado y distraiga al usuario
     Private Sub FrmVerSintomas_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Me.ActiveControl = Nothing
         tblPatologias.ClearSelection()

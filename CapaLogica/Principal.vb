@@ -113,6 +113,10 @@
         'Next
 
         ListaEnfermedades.Remove(enfermedadVieja)
+        For Each asociacionVieja As AsociacionSintoma In BuscarAsociacionesSintomas(enfermedadVieja).ToList
+            Dim asociacionModificada As New AsociacionSintoma(enfermedadNueva.Nombre, asociacionVieja.NombreSintoma, asociacionVieja.Frecuencia)
+            ModificarAsociacionSintoma(asociacionVieja, asociacionModificada)
+        Next
         ListaEnfermedades.Insert(indice, enfermedadNueva)
         'Catch ex As Exception
         '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

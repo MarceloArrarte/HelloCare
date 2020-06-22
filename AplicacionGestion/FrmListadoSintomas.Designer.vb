@@ -44,7 +44,7 @@ Partial Class FrmListadoSintomas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(343, 13)
+        Me.Label1.Location = New System.Drawing.Point(321, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(143, 13)
         Me.Label1.TabIndex = 0
@@ -103,6 +103,7 @@ Partial Class FrmListadoSintomas
         Me.btnImportar.TabIndex = 1
         Me.btnImportar.Text = "Importar csv"
         Me.btnImportar.UseVisualStyleBackColor = True
+        Me.btnImportar.Visible = False
         '
         'btnVolver
         '

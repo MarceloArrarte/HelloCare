@@ -44,16 +44,17 @@ Partial Class FrmListadoEnfermedades
         '
         'btnImportar
         '
-        Me.btnImportar.Location = New System.Drawing.Point(294, 392)
+        Me.btnImportar.Location = New System.Drawing.Point(359, 392)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(75, 23)
         Me.btnImportar.TabIndex = 1
         Me.btnImportar.Text = "Importar csv"
         Me.btnImportar.UseVisualStyleBackColor = True
+        Me.btnImportar.Visible = False
         '
         'btnVer
         '
-        Me.btnVer.Location = New System.Drawing.Point(391, 392)
+        Me.btnVer.Location = New System.Drawing.Point(440, 392)
         Me.btnVer.Name = "btnVer"
         Me.btnVer.Size = New System.Drawing.Size(75, 23)
         Me.btnVer.TabIndex = 2
@@ -62,7 +63,7 @@ Partial Class FrmListadoEnfermedades
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(587, 392)
+        Me.btnEliminar.Location = New System.Drawing.Point(602, 392)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 4
@@ -108,7 +109,7 @@ Partial Class FrmListadoEnfermedades
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(489, 392)
+        Me.btnModificar.Location = New System.Drawing.Point(521, 392)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
         Me.btnModificar.TabIndex = 3
@@ -137,7 +138,7 @@ Partial Class FrmListadoEnfermedades
         Me.tblEnfermedades.ReadOnly = True
         Me.tblEnfermedades.RowHeadersVisible = False
         Me.tblEnfermedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblEnfermedades.Size = New System.Drawing.Size(743, 258)
+        Me.tblEnfermedades.Size = New System.Drawing.Size(743, 285)
         Me.tblEnfermedades.TabIndex = 19
         Me.tblEnfermedades.TabStop = False
         '
@@ -189,7 +190,7 @@ Partial Class FrmListadoEnfermedades
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(776, 450)
         Me.Controls.Add(Me.tblEnfermedades)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnVolver)

@@ -18,16 +18,12 @@ Public Class FrmMenuPrincipal
     Private Sub FrmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If cierraSesion Then
             ' Si el usuario quiere cerrar sesión, pide confirmación
-            If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.OkCancel, "Cerrar sesión") = MsgBoxResult.Ok Then
+            If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.Ok Then
                 Dim frm As New FrmLogin
                 frm.Show()
             Else
                 e.Cancel = True
             End If
         End If
-    End Sub
-
-    Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

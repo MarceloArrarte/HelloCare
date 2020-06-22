@@ -122,7 +122,7 @@ Partial Class FrmModificacionSintomas
         '
         'btnConfirmar
         '
-        Me.btnConfirmar.Location = New System.Drawing.Point(536, 692)
+        Me.btnConfirmar.Location = New System.Drawing.Point(537, 614)
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.Size = New System.Drawing.Size(75, 23)
         Me.btnConfirmar.TabIndex = 8
@@ -132,7 +132,7 @@ Partial Class FrmModificacionSintomas
         'btnVolver
         '
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Location = New System.Drawing.Point(184, 692)
+        Me.btnVolver.Location = New System.Drawing.Point(184, 614)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
         Me.btnVolver.TabIndex = 7
@@ -169,7 +169,7 @@ Partial Class FrmModificacionSintomas
         Me.tblAsociadas.Name = "tblAsociadas"
         Me.tblAsociadas.RowHeadersVisible = False
         Me.tblAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblAsociadas.Size = New System.Drawing.Size(299, 334)
+        Me.tblAsociadas.Size = New System.Drawing.Size(299, 250)
         Me.tblAsociadas.TabIndex = 27
         '
         'colObjeto
@@ -206,7 +206,7 @@ Partial Class FrmModificacionSintomas
         Me.tblPatologias.ReadOnly = True
         Me.tblPatologias.RowHeadersVisible = False
         Me.tblPatologias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblPatologias.Size = New System.Drawing.Size(299, 327)
+        Me.tblPatologias.Size = New System.Drawing.Size(299, 243)
         Me.tblPatologias.TabIndex = 33
         '
         'colObjeto2
@@ -224,7 +224,7 @@ Partial Class FrmModificacionSintomas
         '
         'btnQuitarPatologia
         '
-        Me.btnQuitarPatologia.Location = New System.Drawing.Point(381, 548)
+        Me.btnQuitarPatologia.Location = New System.Drawing.Point(381, 488)
         Me.btnQuitarPatologia.Name = "btnQuitarPatologia"
         Me.btnQuitarPatologia.Size = New System.Drawing.Size(85, 23)
         Me.btnQuitarPatologia.TabIndex = 6
@@ -233,7 +233,7 @@ Partial Class FrmModificacionSintomas
         '
         'btnAgregarPatologia
         '
-        Me.btnAgregarPatologia.Location = New System.Drawing.Point(381, 457)
+        Me.btnAgregarPatologia.Location = New System.Drawing.Point(381, 411)
         Me.btnAgregarPatologia.Name = "btnAgregarPatologia"
         Me.btnAgregarPatologia.Size = New System.Drawing.Size(85, 23)
         Me.btnAgregarPatologia.TabIndex = 5
@@ -271,7 +271,7 @@ Partial Class FrmModificacionSintomas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(848, 730)
+        Me.ClientSize = New System.Drawing.Size(848, 653)
         Me.Controls.Add(Me.tblPatologias)
         Me.Controls.Add(Me.btnQuitarPatologia)
         Me.Controls.Add(Me.btnAgregarPatologia)

@@ -27,7 +27,7 @@ Public Class FrmLogin
     End Sub
 
     ' Permite al usuario ver su contraseña escrita en el campo de texto
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContrasena.CheckedChanged
+    Private Sub chkMostrarContrasena_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContrasena.CheckedChanged
         If chkMostrarContrasena.Checked Then
             txtContrasena.UseSystemPasswordChar = False
         Else
