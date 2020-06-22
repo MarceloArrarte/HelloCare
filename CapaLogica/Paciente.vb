@@ -1,5 +1,4 @@
 ﻿Public Class Paciente
-
     Inherits Persona
 
     Private ReadOnly _TelefonoMovil As String
@@ -9,7 +8,6 @@
     Private ReadOnly _Calle As String
     Private ReadOnly _NumeroPuerta As String
     Private ReadOnly _Apartamento As Integer
-    Private ReadOnly _ListaDiagnosticosPrimarios As List(Of Diagnostico_Primario)
 
     Public ReadOnly Property TelefonoMovil As String
         Get
@@ -135,14 +133,6 @@
         'End Set
     End Property
 
-    Public ReadOnly Property ListaDiagnosticoPrimario() As List(Of Diagnostico_Primario)
-        Get
-            Return _ListaDiagnosticosPrimarios
-        End Get
-    End Property
-
-
-
     Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
                    telefonoFijo As String, sexo As Char, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
 
@@ -151,7 +141,7 @@
         ' Manejo de errores de datos ingresados
         ' telefonoMovil tiene un valor nulo
         If telefonoMovil Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó el telefono móvil del paciente.")
+            Throw New ArgumentNullException("telefonoMovil", "No se ingresó el telefono móvil del paciente.")
         End If
 
         ' telefonoMovil excede el largo máximo
@@ -161,7 +151,7 @@
 
         ' telefonoFijo tiene un valor nulo
         If telefonoFijo Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó el teléfono fijo del paciente.")
+            Throw New ArgumentNullException("telefonoFijo", "No se ingresó el teléfono fijo del paciente.")
         End If
 
         ' telefonoFijo excede el largo máximo
@@ -171,7 +161,7 @@
 
         ' sexo tiene un valor nulo
         If sexo = Nothing Then
-            Throw New ArgumentNullException("No se ingresó el sexo del paciente.")
+            Throw New ArgumentNullException("sexo", "No se ingresó el sexo del paciente.")
         End If
 
         ' sexo no tiene un valor válido
@@ -181,7 +171,7 @@
 
         ' fechaNacimiento tiene un valor nulo
         If fechaNacimiento = Nothing Then
-            Throw New ArgumentNullException("No se ingresó la fecha de nacimiento.")
+            Throw New ArgumentNullException("fechaNacimiento", "No se ingresó la fecha de nacimiento.")
         End If
 
         ' fechaNacimiento representa un valor posterior al momento actual
@@ -191,7 +181,7 @@
 
         ' calle tiene un valor nulo
         If calle Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó la calle del paciente.")
+            Throw New ArgumentNullException("calle", "No se ingresó la calle del paciente.")
         End If
 
         ' calle excede el largo máximo
@@ -201,7 +191,7 @@
 
         ' numeroPuerta tiene un valor nulo
         If numeroPuerta Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó un número de puerta")
+            Throw New ArgumentNullException("numeroPuerta", "No se ingresó un número de puerta")
         End If
 
         ' numeroPuerta excede el largo máximo
@@ -221,9 +211,5 @@
         _Calle = calle
         _NumeroPuerta = numeroPuerta
         _Apartamento = apartamento
-        _ListaDiagnosticosPrimarios = New List(Of Diagnostico_Primario)
-    End Sub
-    Public Sub Diagnosticar(sintomas As List(Of Sintoma))
-
     End Sub
 End Class

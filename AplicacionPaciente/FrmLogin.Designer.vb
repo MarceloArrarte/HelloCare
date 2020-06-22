@@ -22,6 +22,7 @@ Partial Class FrmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCedula = New System.Windows.Forms.TextBox()
@@ -95,8 +96,11 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.txtCedula)
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.btnIngresar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmLogin"
-        Me.Text = "frmPaciente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.Text = "Login de pacientes"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

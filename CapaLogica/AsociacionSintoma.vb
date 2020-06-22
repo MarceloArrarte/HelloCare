@@ -66,11 +66,11 @@
         'End Set
     End Property
 
-    Public Sub New(nombreEnfermedad As String, nombreSintoma As String, frecuencia As Decimal)
+    Public Sub New(nombreEnfermedad As String, nombreSintoma As String, frecuencia As String)
         ' Manejo de errores de datos ingresados
         ' nombreEnfermedad es nulo
         If nombreEnfermedad Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó el nombre de la enfermedad.")
+            Throw New ArgumentNullException("nombreEnfermedad", "No se ingresó el nombre de la enfermedad.")
         End If
 
         ' No existe una enfermedad con este nombre
@@ -86,7 +86,7 @@
 
         ' nombreSintoma es nulo
         If nombreSintoma Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó el nombre del síntoma.")
+            Throw New ArgumentNullException("nombreSintoma", "No se ingresó el nombre del síntoma.")
         End If
 
         ' No existe un síntoma con este nombre
@@ -98,6 +98,13 @@
         Next
         If Not existeSintoma Then
             Throw New ArgumentException("El síntoma que se intenta asociar no existe.")
+        End If
+
+        ' La frecuencia no es un valor numérico válido
+        Dim frecuenciaDec As Decimal
+        If Not Decimal.TryParse(frecuencia, frecuenciaDec) Then
+            Throw New ArgumentException("Error al intentar asociar el síntoma con la enfermedad """ & nombreEnfermedad & """:" & vbNewLine & vbNewLine &
+                                        "La frecuencia debe tener un valor numérico decimal.")
         End If
 
         ' La frecuencia no es un porcentaje válido

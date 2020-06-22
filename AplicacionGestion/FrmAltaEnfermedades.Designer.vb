@@ -22,6 +22,7 @@ Partial Class FrmAltaEnfermedades
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAltaEnfermedades))
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.txtRecomendacionesSintoma = New System.Windows.Forms.TextBox()
@@ -38,7 +39,7 @@ Partial Class FrmAltaEnfermedades
         'btnVolver
         '
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Location = New System.Drawing.Point(220, 436)
+        Me.btnVolver.Location = New System.Drawing.Point(154, 435)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
         Me.btnVolver.TabIndex = 4
@@ -47,7 +48,7 @@ Partial Class FrmAltaEnfermedades
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(571, 436)
+        Me.btnAgregar.Location = New System.Drawing.Point(505, 435)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
         Me.btnAgregar.TabIndex = 5
@@ -56,7 +57,7 @@ Partial Class FrmAltaEnfermedades
         '
         'txtRecomendacionesSintoma
         '
-        Me.txtRecomendacionesSintoma.Location = New System.Drawing.Point(220, 203)
+        Me.txtRecomendacionesSintoma.Location = New System.Drawing.Point(154, 202)
         Me.txtRecomendacionesSintoma.Multiline = True
         Me.txtRecomendacionesSintoma.Name = "txtRecomendacionesSintoma"
         Me.txtRecomendacionesSintoma.Size = New System.Drawing.Size(426, 189)
@@ -64,7 +65,7 @@ Partial Class FrmAltaEnfermedades
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(219, 89)
+        Me.txtDescripcion.Location = New System.Drawing.Point(153, 88)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(427, 72)
@@ -72,7 +73,7 @@ Partial Class FrmAltaEnfermedades
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(219, 58)
+        Me.txtNombre.Location = New System.Drawing.Point(153, 57)
         Me.txtNombre.Multiline = True
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(427, 25)
@@ -81,7 +82,7 @@ Partial Class FrmAltaEnfermedades
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(86, 206)
+        Me.Label4.Location = New System.Drawing.Point(20, 205)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 13)
         Me.Label4.TabIndex = 14
@@ -90,7 +91,7 @@ Partial Class FrmAltaEnfermedades
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(119, 89)
+        Me.Label3.Location = New System.Drawing.Point(53, 88)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 13
@@ -99,7 +100,7 @@ Partial Class FrmAltaEnfermedades
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(138, 61)
+        Me.Label2.Location = New System.Drawing.Point(72, 60)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 12
@@ -108,7 +109,7 @@ Partial Class FrmAltaEnfermedades
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(340, 9)
+        Me.Label1.Location = New System.Drawing.Point(235, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(180, 13)
         Me.Label1.TabIndex = 11
@@ -117,7 +118,7 @@ Partial Class FrmAltaEnfermedades
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(128, 173)
+        Me.Label5.Location = New System.Drawing.Point(62, 172)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(57, 13)
         Me.Label5.TabIndex = 22
@@ -125,7 +126,7 @@ Partial Class FrmAltaEnfermedades
         '
         'txtGravedad
         '
-        Me.txtGravedad.Location = New System.Drawing.Point(219, 170)
+        Me.txtGravedad.Location = New System.Drawing.Point(153, 169)
         Me.txtGravedad.Multiline = True
         Me.txtGravedad.Name = "txtGravedad"
         Me.txtGravedad.Size = New System.Drawing.Size(427, 27)
@@ -137,7 +138,7 @@ Partial Class FrmAltaEnfermedades
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(828, 473)
+        Me.ClientSize = New System.Drawing.Size(598, 473)
         Me.Controls.Add(Me.txtGravedad)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnVolver)
@@ -149,8 +150,11 @@ Partial Class FrmAltaEnfermedades
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmAltaEnfermedades"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Alta de enfermedades"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

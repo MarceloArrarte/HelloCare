@@ -23,6 +23,7 @@ Partial Class FrmListadoEnfermedades
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoEnfermedades))
         Me.btnImportar = New System.Windows.Forms.Button()
         Me.btnVer = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
@@ -89,7 +90,7 @@ Partial Class FrmListadoEnfermedades
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(343, 27)
+        Me.Label1.Location = New System.Drawing.Point(267, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(168, 13)
         Me.Label1.TabIndex = 8
@@ -198,8 +199,11 @@ Partial Class FrmListadoEnfermedades
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmListadoEnfermedades"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "ABM Enfermedades"
         CType(Me.tblEnfermedades, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

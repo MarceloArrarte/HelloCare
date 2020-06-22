@@ -76,11 +76,11 @@ Public Class Enfermedad
         'End Set
     End Property
 
-    Sub New(nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String)
+    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
-        If nombre Is Nothing Then
-            Throw New ArgumentNullException("No se ingresó el nombre de la enfermedad.")
+        If nombre = Nothing Then
+            Throw New ArgumentNullException("nombre", "No se ingresó el nombre de la enfermedad.")
         End If
 
         ' nombre supera el largo máximo
@@ -88,25 +88,31 @@ Public Class Enfermedad
             Throw New ArgumentException("El largo del nombre no puede superar los 100 caracteres.")
         End If
 
-        ' recomendaciones supera el largo máximo
-        If recomendaciones.Length > 1000 Then
-            Throw New ArgumentException("El largo de las recomendaciones no puede superar los 1000 caracteres.")
-        End If
-
-        ' gravedad tiene un valor inválido
-        If gravedad < 1 Or gravedad > 100 Then
-            Throw New ArgumentException("El índice de gravedad de la enfermedad debe ser un entero entre 1 y 100.")
-        End If
-
         ' descripcion supera el largo máximo
         If descripcion.Length > 1000 Then
             Throw New ArgumentException("El largo de la descripción no puede superar los 1000 caracteres.")
         End If
 
+        ' gravedad no es un valor numérico entero
+        Dim gravedadInt As Integer
+        If Not Integer.TryParse(gravedad, gravedadInt) Then
+            Throw New ArgumentException("La gravedad debe tener un valor numérico.")
+        End If
+
+        ' gravedad tiene un valor inválido
+        If gravedadInt < 1 Or gravedadInt > 100 Then
+            Throw New ArgumentException("El índice de gravedad de la enfermedad debe ser un entero entre 1 y 100.")
+        End If
+
+        ' recomendaciones supera el largo máximo
+        If recomendaciones.Length > 1000 Then
+            Throw New ArgumentException("El largo de las recomendaciones no puede superar los 1000 caracteres.")
+        End If
+
         _Nombre = nombre
-        _Recomendaciones = recomendaciones
-        _Gravedad = gravedad
         _Descripcion = descripcion
+        _Gravedad = gravedad
+        _Recomendaciones = recomendaciones
     End Sub
 
     'Set(value As String)

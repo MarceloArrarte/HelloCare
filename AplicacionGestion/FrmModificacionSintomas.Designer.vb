@@ -22,6 +22,7 @@ Partial Class FrmModificacionSintomas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmModificacionSintomas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtRecomendaciones = New System.Windows.Forms.TextBox()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
@@ -290,8 +291,11 @@ Partial Class FrmModificacionSintomas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmModificacionSintomas"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Modificación de síntomas"
         CType(Me.tblAsociadas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

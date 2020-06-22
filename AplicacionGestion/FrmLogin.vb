@@ -1,4 +1,10 @@
 ﻿Public Class FrmLogin
+    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim x As Integer = Screen.PrimaryScreen.WorkingArea.Width - Me.Width - 50
+        Dim y As Integer = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
+        Me.Location = New Point(x, y)
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Dim ci As String = txtCedula.Text
 

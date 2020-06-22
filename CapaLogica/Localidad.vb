@@ -44,7 +44,7 @@
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
-            Throw New ArgumentNullException("No se ingresó el nombre de la localidad.")
+            Throw New ArgumentNullException("nombre", "No se ingresó el nombre de la localidad.")
         End If
 
         ' nombre excede el máximo de caracteres
@@ -54,7 +54,7 @@
 
         ' departamento tiene un valor nulo
         If departamento = Nothing Then
-            Throw New ArgumentNullException("No se ingresó el departamento de la localidad.")
+            Throw New ArgumentNullException("departamento", "No se ingresó el departamento de la localidad.")
         End If
 
         ' departamento excede el máximo de caracteres

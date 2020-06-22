@@ -104,7 +104,7 @@
 
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
-            Throw New ArgumentNullException("El apellido se encuentra vacío.")
+            Throw New ArgumentNullException("nombre", "El nombre se encuentra vacío.")
         End If
 
         ' nombre excede el largo máximo
@@ -114,7 +114,7 @@
 
         ' apellido tiene un valor nulo
         If apellido = Nothing Then
-            Throw New ArgumentNullException("El apellido se encuentra vacío.")
+            Throw New ArgumentNullException("apellido", "El apellido se encuentra vacío.")
         End If
 
         ' apellido excede el largo máximo
@@ -129,7 +129,7 @@
 
         ' localidad tiene un valor nulo
         If localidad Is Nothing Then
-            Throw New ArgumentNullException("La localidad se encuentra vacío.")
+            Throw New ArgumentNullException("localidad", "La localidad se encuentra vacía.")
         End If
 
         _CI = ci

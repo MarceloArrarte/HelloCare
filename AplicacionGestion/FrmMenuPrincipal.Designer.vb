@@ -22,6 +22,7 @@ Partial Class FrmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenuPrincipal))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnABMSintomas = New System.Windows.Forms.Button()
         Me.btnABMEnfermedades = New System.Windows.Forms.Button()
@@ -73,8 +74,11 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnABMEnfermedades)
         Me.Controls.Add(Me.btnABMSintomas)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmMenuPrincipal"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Menú principal"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

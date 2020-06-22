@@ -22,6 +22,7 @@ Partial Class FrmVerEnfermedades
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVerEnfermedades))
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.txtRecomendaciones = New System.Windows.Forms.TextBox()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
@@ -141,8 +142,11 @@ Partial Class FrmVerEnfermedades
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmVerEnfermedades"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Ver enfermedades"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

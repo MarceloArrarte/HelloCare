@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+Imports CapaLogica
 
 Public Class FrmIngresoSintoma
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
@@ -7,20 +8,22 @@ Public Class FrmIngresoSintoma
         If tblSeleccionados.Rows.Count() = 0 Then
             MsgBox("Debe ingrese un sintoma para recibir un diagnostico", MsgBoxStyle.Critical, "Error")
         Else
-
+            Dim sintomasSeleccionados As New List(Of Sintoma)
+            For Each r As DataGridViewRow In tblSeleccionados.Rows
+                sintomasSeleccionados.Add(r.Cells(0).Value)
+            Next
             'Abre la ventana de diagnostico y cierra la actual, ademas de limpiar todas las tablas utilizadas.
-            Dim frm As New FrmDiagnosticoPrimario
+            Dim frm As New FrmDiagnosticoPrimario(sintomasSeleccionados)
             frm.Show()
             Me.Close()
-
         End If
 
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Dim frm As New FrmMenuPrincipal
-        Me.Close()
         frm.Show()
+        Me.Close()
     End Sub
 
     'Agregar sintomas a la tabla izquierda'
@@ -49,7 +52,7 @@ Public Class FrmIngresoSintoma
         Next
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         For i = 0 To tblDisponibles.Rows.Count - 1
             If tblDisponibles.Rows(i).Cells(1).Value.ToString.ToLower Like ("*" & txtBuscar.Text & "*").ToLower Then
                 tblDisponibles.Rows(i).Visible = True

@@ -22,6 +22,7 @@ Partial Class FrmIngresoSintoma
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmIngresoSintoma))
         Me.LblIngresarSintoma = New System.Windows.Forms.Label()
         Me.Titulo = New System.Windows.Forms.Label()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
@@ -33,9 +34,9 @@ Partial Class FrmIngresoSintoma
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblDisponibles = New System.Windows.Forms.DataGridView()
-        Me.tblSeleccionados = New System.Windows.Forms.DataGridView()
         Me.colObjeto1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tblSeleccionados = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -163,6 +164,19 @@ Partial Class FrmIngresoSintoma
         Me.tblDisponibles.TabIndex = 13
         Me.tblDisponibles.TabStop = False
         '
+        'colObjeto1
+        '
+        Me.colObjeto1.HeaderText = "Objeto"
+        Me.colObjeto1.Name = "colObjeto1"
+        Me.colObjeto1.ReadOnly = True
+        Me.colObjeto1.Visible = False
+        '
+        'colNombre1
+        '
+        Me.colNombre1.HeaderText = "Nombre"
+        Me.colNombre1.Name = "colNombre1"
+        Me.colNombre1.ReadOnly = True
+        '
         'tblSeleccionados
         '
         Me.tblSeleccionados.AllowUserToAddRows = False
@@ -181,19 +195,6 @@ Partial Class FrmIngresoSintoma
         Me.tblSeleccionados.Size = New System.Drawing.Size(240, 185)
         Me.tblSeleccionados.TabIndex = 14
         Me.tblSeleccionados.TabStop = False
-        '
-        'colObjeto1
-        '
-        Me.colObjeto1.HeaderText = "Objeto"
-        Me.colObjeto1.Name = "colObjeto1"
-        Me.colObjeto1.ReadOnly = True
-        Me.colObjeto1.Visible = False
-        '
-        'colNombre1
-        '
-        Me.colNombre1.HeaderText = "Nombre"
-        Me.colNombre1.Name = "colNombre1"
-        Me.colNombre1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -227,9 +228,11 @@ Partial Class FrmIngresoSintoma
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.Titulo)
         Me.Controls.Add(Me.LblIngresarSintoma)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
         Me.Name = "FrmIngresoSintoma"
-        Me.Text = "MenuPrincipalPaciente"
+        Me.Text = "Ingreso de síntomas"
         CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tblSeleccionados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

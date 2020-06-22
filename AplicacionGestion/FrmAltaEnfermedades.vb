@@ -1,39 +1,34 @@
 ﻿Imports CapaLogica
 
 Public Class FrmAltaEnfermedades
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-
+    ' Esta bandera se implementa para indicar al evento FormClosing 
+    ' si el formulario se cierra para volver sin guardar o habiendo ingresado datos
+    Private requiereConfirmacionSalida As Boolean = True
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    ' Intenta crear un nuevo objeto y atrapa cualquier error que se produzca.
+    ' Si no hay ningún error informa al usuario que la creación fue exitosa y cierra la ventana.
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Try
-            If txtNombre.Text = "" Then
-                Throw New Exception("El nombre de la enfermedad no puede estar vacio")
-            End If
-            If txtGravedad.Text = "" Then
-                Throw New Exception("La gravedad de la enfermedad no puede estar vacia")
-            End If
-
-
-            Dim enfermedad As New Enfermedad(txtNombre.Text, txtRecomendacionesSintoma.Text, Integer.Parse(txtGravedad.Text), txtDescripcion.Text)
-            CapaLogica.Principal.IngresarEnfermedad(enfermedad)
-            MsgBox("Enfermedad agregada con éxito.")
+            Dim enfermedad As New Enfermedad(txtNombre.Text, txtRecomendacionesSintoma.Text, txtGravedad.Text, txtDescripcion.Text)
+            IngresarEnfermedad(enfermedad)
+            MsgBox("Enfermedad agregada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+            requiereConfirmacionSalida = False
             Me.Close()
-            'For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
-            '    CapaLogica.EliminarEnfermedad(r.Cells(0).Value)
-            '    EliminarAsociacionSintoma(CType(r.Cells(0).Value, Enfermedad))
-            'Next
-            'MostrarEnfermedades()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
-    Private Sub FrmAltaEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    ' Si el formulario se cierra sin crear una enfermedad, pide al usuario confirmación para abandonar la ventana.
+    Private Sub FrmAltaEnfermedades_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If requiereConfirmacionSalida Then
+            If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+                MsgBoxResult.No Then
+                e.Cancel = True
+            End If
+        End If
     End Sub
 End Class

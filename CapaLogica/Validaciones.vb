@@ -4,7 +4,7 @@
             ' Manejo de errores de formato
             ' Valor nulo o cadena vacía
             If ci = Nothing Or ci = "" Then
-                Throw New ArgumentNullException("La cédula no ha sido ingresada.")
+                Throw New ArgumentNullException("ci", "La cédula no ha sido ingresada.")
             End If
 
             ' La cédula posee más de 8 caracteres
@@ -49,7 +49,7 @@
         ' Manejo de errores de formato
         ' Valor nulo
         If correo = Nothing Then
-            Throw New ArgumentNullException("El correo no ha sido ingresada.")
+            Throw New ArgumentNullException("correo", "El correo no ha sido ingresado.")
         End If
 
         ' El correo posee más de 100 caracteres

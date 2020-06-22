@@ -22,6 +22,7 @@ Partial Class FrmAltaSintomas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAltaSintomas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,7 +46,7 @@ Partial Class FrmAltaSintomas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(139, 9)
+        Me.Label1.Location = New System.Drawing.Point(285, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(154, 13)
         Me.Label1.TabIndex = 0
@@ -84,7 +85,7 @@ Partial Class FrmAltaSintomas
         Me.txtNombreSintoma.Multiline = True
         Me.txtNombreSintoma.Name = "txtNombreSintoma"
         Me.txtNombreSintoma.Size = New System.Drawing.Size(427, 25)
-        Me.txtNombreSintoma.TabIndex = 4
+        Me.txtNombreSintoma.TabIndex = 0
         '
         'txtInfoSintoma
         '
@@ -92,7 +93,7 @@ Partial Class FrmAltaSintomas
         Me.txtInfoSintoma.Multiline = True
         Me.txtInfoSintoma.Name = "txtInfoSintoma"
         Me.txtInfoSintoma.Size = New System.Drawing.Size(427, 72)
-        Me.txtInfoSintoma.TabIndex = 5
+        Me.txtInfoSintoma.TabIndex = 1
         '
         'txtRecomendacionSintoma
         '
@@ -100,7 +101,7 @@ Partial Class FrmAltaSintomas
         Me.txtRecomendacionSintoma.Multiline = True
         Me.txtRecomendacionSintoma.Name = "txtRecomendacionSintoma"
         Me.txtRecomendacionSintoma.Size = New System.Drawing.Size(427, 127)
-        Me.txtRecomendacionSintoma.TabIndex = 6
+        Me.txtRecomendacionSintoma.TabIndex = 3
         '
         'Label5
         '
@@ -116,17 +117,17 @@ Partial Class FrmAltaSintomas
         Me.btnAgregar.Location = New System.Drawing.Point(545, 621)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAgregar.TabIndex = 9
+        Me.btnAgregar.TabIndex = 5
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
         'btnVolver
         '
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Location = New System.Drawing.Point(193, 621)
+        Me.btnVolver.Location = New System.Drawing.Point(12, 621)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
-        Me.btnVolver.TabIndex = 10
+        Me.btnVolver.TabIndex = 4
         Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = True
         '
@@ -145,7 +146,7 @@ Partial Class FrmAltaSintomas
         Me.txtUrgencia.Multiline = True
         Me.txtUrgencia.Name = "txtUrgencia"
         Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
-        Me.txtUrgencia.TabIndex = 13
+        Me.txtUrgencia.TabIndex = 2
         '
         'tblPatologias
         '
@@ -159,8 +160,9 @@ Partial Class FrmAltaSintomas
         Me.tblPatologias.Location = New System.Drawing.Point(12, 411)
         Me.tblPatologias.Name = "tblPatologias"
         Me.tblPatologias.RowHeadersVisible = False
-        Me.tblPatologias.Size = New System.Drawing.Size(724, 188)
+        Me.tblPatologias.Size = New System.Drawing.Size(608, 188)
         Me.tblPatologias.TabIndex = 15
+        Me.tblPatologias.TabStop = False
         '
         'colObjeto
         '
@@ -170,7 +172,7 @@ Partial Class FrmAltaSintomas
         '
         'colAsociacion
         '
-        Me.colAsociacion.FillWeight = 10.0!
+        Me.colAsociacion.FillWeight = 15.0!
         Me.colAsociacion.HeaderText = "Asociación"
         Me.colAsociacion.Name = "colAsociacion"
         Me.colAsociacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -178,14 +180,14 @@ Partial Class FrmAltaSintomas
         '
         'colEnfermedades
         '
-        Me.colEnfermedades.FillWeight = 80.0!
+        Me.colEnfermedades.FillWeight = 70.0!
         Me.colEnfermedades.HeaderText = "Enfermedades"
         Me.colEnfermedades.Name = "colEnfermedades"
         Me.colEnfermedades.ReadOnly = True
         '
         'colFrecuencia
         '
-        Me.colFrecuencia.FillWeight = 10.0!
+        Me.colFrecuencia.FillWeight = 15.0!
         Me.colFrecuencia.HeaderText = "Frecuencia"
         Me.colFrecuencia.Name = "colFrecuencia"
         '
@@ -195,7 +197,7 @@ Partial Class FrmAltaSintomas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(759, 656)
+        Me.ClientSize = New System.Drawing.Size(640, 656)
         Me.Controls.Add(Me.tblPatologias)
         Me.Controls.Add(Me.lblUrgenciaSintoma)
         Me.Controls.Add(Me.txtUrgencia)
@@ -209,8 +211,11 @@ Partial Class FrmAltaSintomas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmAltaSintomas"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Alta de síntomas"
         CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

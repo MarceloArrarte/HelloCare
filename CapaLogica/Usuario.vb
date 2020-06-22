@@ -23,7 +23,7 @@
         ' Manejo de errores de datos ingresados
         ' contrasena tiene un valor nulo
         If contrasena Is Nothing Then
-            Throw New ArgumentNullException("La contraseña se encuentra vacía.")
+            Throw New ArgumentNullException("contrasena", "La contraseña se encuentra vacía.")
         End If
 
         ' contrasena excede el largo máximo
