@@ -13,74 +13,24 @@
         Get
             Return _TelefonoMovil
         End Get
-        ' Set(value As String)
-        ' Try
-        ' If value = Nothing Or value = "" Then
-        '     Throw New Exception("El telefono movil se encuentra vacío.")
-        ' End If
-        'If value.Length > 9 Then
-        '   Throw New Exception("El largo del telefono no puede ser superior a 9 caracteres")
-        '  End If
-        '  _TelefonoMovil = value
-        '  Catch ex As Exception
-        '   MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '  End Try
-        ' End Set
     End Property
 
     Public ReadOnly Property TelefonoFijo As String
         Get
             Return _TelefonoFijo
         End Get
-        'Set(value As String)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("El telefono fijo se encuentra vacío.")
-        '        End If
-        '        If value.Length > 8 Then
-        '            Throw New Exception("El largo del telefono no puede ser superior a 8 caracteres")
-        '        End If
-        '        _TelefonoFijo = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-
-        'End Set
     End Property
 
     Public ReadOnly Property Sexo As Char
         Get
             Return _Sexo
         End Get
-        'Set(value As Char)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("El sexo se encuentra vacío.")
-        '        End If
-        '        If value <> "F" And value <> "M" And value <> "O" Then
-        '            Throw New Exception("El sexo no puede ser diferente de: Femenino(F), Masculino(M) u Otro(0)")
-        '        End If
-        '        _Sexo = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
     Public ReadOnly Property FechaNacimiento As Date
         Get
             Return _FechaNacimiento
         End Get
-        'Set(value As Date)
-        '    Try
-        '        If _FechaNacimiento >= Now Then
-        '            Throw New Exception("La fecha de nacimiento debe ser previa a la fecha actual")
-        '        End If
-        '        _FechaNacimiento = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
 
@@ -88,19 +38,6 @@
         Get
             Return _Calle
         End Get
-        'Set(value As String)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("La calle se encuentra vacía.")
-        '        End If
-        '        If value >= 100 Then
-        '            Throw New Exception("La cantidad de caracteres debe ser menor a 100")
-        '        End If
-        '        _Calle = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
 
@@ -108,19 +45,6 @@
         Get
             Return _NumeroPuerta
         End Get
-        'Set(value As String)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("El numero de puerta se encuentra vacío.")
-        '        End If
-        '        If value.Length >= 100 Then
-        '            Throw New Exception("El largo del numero de puerta no puede superar los 100 caracteres")
-        '        End If
-        '        _NumeroPuerta = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
 
@@ -128,9 +52,6 @@
         Get
             Return _Apartamento
         End Get
-        'Set(value As Integer)
-        '    _Apartamento = value
-        'End Set
     End Property
 
     Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,

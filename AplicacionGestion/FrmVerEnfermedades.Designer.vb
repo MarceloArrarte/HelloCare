@@ -102,11 +102,12 @@ Partial Class FrmVerEnfermedades
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(237, 18)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label1.Location = New System.Drawing.Point(194, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(148, 13)
+        Me.Label1.Size = New System.Drawing.Size(201, 24)
         Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Bienvenido al ver enfermedad"
+        Me.Label1.Text = "Detalle de enfermedad"
         '
         'Label5
         '

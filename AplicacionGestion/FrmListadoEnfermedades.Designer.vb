@@ -91,11 +91,12 @@ Partial Class FrmListadoEnfermedades
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(267, 9)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.Label1.Location = New System.Drawing.Point(277, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(168, 13)
+        Me.Label1.Size = New System.Drawing.Size(180, 24)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Bienvenido al ABM Enfermedades"
+        Me.Label1.Text = "ABM Enfermedades"
         '
         'btnVolver
         '

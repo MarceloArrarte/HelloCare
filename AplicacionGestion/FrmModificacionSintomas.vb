@@ -7,11 +7,8 @@ Public Class FrmModificacionSintomas
 
     Private sintomaAModificar As Sintoma
     Sub New(sintoma As Sintoma)
-
-        ' This call is required by the designer.
         InitializeComponent()
 
-        ' Add any initialization after the InitializeComponent() call.
         ' Precarga los datos del síntoma en los campos de texto correspondientes
         txtNombre.Text = sintoma.Nombre
         txtDescripcion.Text = sintoma.Descripcion
@@ -33,24 +30,6 @@ Public Class FrmModificacionSintomas
             tblAsociadas.Rows.Add(valoresFila.ToArray)
         Next
 
-        'Dim enfermedadesAsociadas As List(Of Enfermedad) = BuscarEnfermedades(sintoma)
-
-        'For Each e As Enfermedad In enfermedadesAsociadas
-        '    Dim valoresFila As New List(Of Object)
-        '    valoresFila.Add(e)
-        '    valoresFila.Add(e.Nombre)
-
-        '    Dim frecuencia As String = ""
-        '    For Each s As Sintoma In e.ListaSintomas
-        '        If s.Nombre = sintoma.Nombre Then
-        '            frecuencia = s.Frecuencia & "%"
-        '        End If
-        '    Next
-        '    valoresFila.Add(frecuencia)
-
-        '    tblAsociadas.Rows.Add(valoresFila.ToArray)
-        'Next
-
         ' Almacena el síntoma a modificar en una variable de la clase para su uso posterior
         sintomaAModificar = sintoma
     End Sub
@@ -65,7 +44,6 @@ Public Class FrmModificacionSintomas
         tblPatologias.ClearSelection()
 
         OcultarPatologiasSeleccionadasOFiltradas()
-        'OcultarYaSeleccionado()
     End Sub
 
     ' De la lista de patologías existentes, oculta aquellas que ya estén seleccionadas o no coincidan con el filtro de texto
@@ -93,30 +71,7 @@ Public Class FrmModificacionSintomas
     ' Actualiza el filtro de texto para ocultar patologías no coincidentes
     Private Sub txtBuscarPatologia_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarPatologia.TextChanged
         OcultarPatologiasSeleccionadasOFiltradas()
-        'OcultarSegunFiltro()
-        'OcultarYaSeleccionado()
     End Sub
-
-    'Private Sub OcultarSegunFiltro()
-    '    For Each r As DataGridViewRow In tblPatologias.Rows
-    '        If r.Cells(1).Value.ToString.ToLower Like ("*" & txtBuscarPatologia.Text & "*").ToLower Then
-    '            r.Visible = True
-    '        Else
-    '            r.Visible = False
-    '        End If
-    '    Next
-    'End Sub
-
-    'Private Sub OcultarYaSeleccionado()
-    '    For Each rSeleccionado As DataGridViewRow In tblAsociadas.Rows
-    '        For Each rPatologia As DataGridViewRow In tblPatologias.Rows
-    '            If rSeleccionado.Cells(1).Value = rPatologia.Cells(1).Value Then
-    '                rPatologia.Visible = False
-    '            End If
-    '        Next
-    '    Next
-    '    tblPatologias.ClearSelection()
-    'End Sub
 
     ' Agrega una patología a la lista de patologías asociadas
     Private Sub btnAgregarPatologia_Click(sender As Object, e As EventArgs) Handles btnAgregarPatologia.Click

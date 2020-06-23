@@ -1,13 +1,9 @@
 ﻿Imports CapaLogica
 
 Public Class FrmDiagnosticoPrimario
-    ' listaSintomasIngresados recibe todos la lista de síntomas seleccionados en el formulario anterior
+    ' listaSintomasIngresados recibe la lista de síntomas seleccionados en el formulario anterior
     Sub New(listaSintomasIngresados As List(Of Sintoma))
-
-        ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
 
         ' Muestra en pantalla los síntomas seleccionados en los cuales se basa el diagnóstico primario
         lstSintomas.Items.AddRange(listaSintomasIngresados.ToArray)
@@ -30,8 +26,8 @@ Public Class FrmDiagnosticoPrimario
             Next
             Dim cantidadSintomasExistentes As Integer = lstSintomasDeEnfermedad.Count           ' Luego, cuenta cuantos síntomas se asocian con la enfermedad
             Dim cantidadSintomasCoincidentes As Integer = 0
-            For Each s As Sintoma In listaSintomasIngresados        ' Para cada síntoma que se ingresó,
-                If lstSintomasDeEnfermedad.Contains(s) Then         ' verifica si pertenece a la lista de síntomas asociados a la enfermedad
+            For Each s As Sintoma In lstSintomasDeEnfermedad        ' Para cada síntoma que se ingresó,
+                If listaSintomasIngresados.Contains(s) Then         ' verifica si pertenece a la lista de síntomas asociados a la enfermedad
                     cantidadSintomasCoincidentes += 1               ' En caso afirmativo, lo contabiliza en los síntomas coincidentes
                     lstFrecuencias.Add(ObtenerFrecuencia(e, s))     ' y busca la frecuencia de dicho síntoma para esta enfermedad
                 Else
@@ -51,10 +47,10 @@ Public Class FrmDiagnosticoPrimario
             ' y el grado de certeza del programa es superior al mínimo especificado (podrá parametrizarse)
             ' muestra la enfermedad en pantalla, indicando
             ' la coincidencia en porcentaje y cantidad de síntomas coincidentes
-            If porcentajeCoincidencia > 0 And porcentajeProbabilidad > 50 Then
+            If porcentajeCoincidencia > 0 And porcentajeProbabilidad > 25 Then
                 tblEnfermedadesDiagnosticadas.Rows.Add(e,
-                                                       String.Format("{0}% ({1} de {2})", porcentajeCoincidencia, cantidadSintomasCoincidentes, cantidadSintomasExistentes),
-                                                       porcentajeProbabilidad & "%",
+                                                       String.Format("{0}% ({1} de {2})", Math.Round(porcentajeCoincidencia), cantidadSintomasCoincidentes, cantidadSintomasExistentes),
+                                                       Math.Round(porcentajeProbabilidad) & "%",
                                                        e.Nombre)
 
                 If porcentajeProbabilidad > certeza Then        ' Si se analizaron los síntomas de una enfermedad y se halló una enfermedad
@@ -67,12 +63,12 @@ Public Class FrmDiagnosticoPrimario
         ' Si ninguna enfermedad almacenada tiene una coincidencia superior al mínimo configurado (no implementado todavía),
         ' despliega el mensaje correspondiente
         If tblEnfermedadesDiagnosticadas.Rows.Count = 0 Then
-            tblEnfermedadesDiagnosticadas.Rows.Add("", "", "Ninguna enfermedad almacenada coincide con los síntomas seleccionados.")
+            tblEnfermedadesDiagnosticadas.Rows.Add("", "", "", "Ninguna enfermedad almacenada coincide con los síntomas seleccionados.")
             tblEnfermedadesDiagnosticadas.Rows(0).Height *= 2       ' Permite visualizar dicho mensaje mejor
             lblResultado.Visible = False                            ' Si no se determinó un resultado fiable, oculta el Label
         Else
             lblResultado.Text = "De acuerdo con los síntomas ingresados, la enfermedad que más probablemente padece es:" & vbNewLine &
-                                resultadoDiagnostico.Nombre & ", con una certeza del " & certeza & "%."
+                                resultadoDiagnostico.Nombre & ", con una certeza del " & Math.Round(certeza) & "%."
         End If
     End Sub
 

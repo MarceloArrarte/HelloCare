@@ -6,38 +6,12 @@
         Get
             Return _Nombre
         End Get
-        'Set(value As String)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("El atributo se encuentra vacío.")
-        '        End If
-        '        If value.Length >= 100 Then
-        '            Throw New Exception("El nombre de la localidad no puede superar los 100 caracteres")
-        '        End If
-        '        _Nombre = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
     Public ReadOnly Property Departamento As String
         Get
             Return _Departamento
         End Get
-        'Set(value As String)
-        '    Try
-        '        If value = Nothing Or value = "" Then
-        '            Throw New Exception("El atributo se encuentra vacío.")
-        '        End If
-        '        If value.Length >= 100 Then
-        '            Throw New Exception("El nombre del departamento no puede superar los 100 caracteres")
-        '        End If
-        '           _Departamento = value
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
     Public Sub New(nombre As String, departamento As String)

@@ -29,11 +29,12 @@ Partial Class FrmLogin
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.chkMostrarContrasena = New System.Windows.Forms.CheckBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnIngresar
         '
-        Me.btnIngresar.Location = New System.Drawing.Point(187, 297)
+        Me.btnIngresar.Location = New System.Drawing.Point(129, 214)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(149, 45)
         Me.btnIngresar.TabIndex = 3
@@ -42,55 +43,66 @@ Partial Class FrmLogin
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(101, 214)
+        Me.txtContrasena.Location = New System.Drawing.Point(225, 134)
         Me.txtContrasena.Name = "txtContrasena"
-        Me.txtContrasena.Size = New System.Drawing.Size(301, 20)
+        Me.txtContrasena.Size = New System.Drawing.Size(160, 20)
         Me.txtContrasena.TabIndex = 1
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'txtCedula
         '
-        Me.txtCedula.Location = New System.Drawing.Point(101, 93)
+        Me.txtCedula.Location = New System.Drawing.Point(225, 90)
         Me.txtCedula.Name = "txtCedula"
-        Me.txtCedula.Size = New System.Drawing.Size(301, 20)
+        Me.txtCedula.Size = New System.Drawing.Size(160, 20)
         Me.txtCedula.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(46, 32)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(34, 90)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(409, 42)
+        Me.Label1.Size = New System.Drawing.Size(139, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "INGRESE SU CÉDULA"
+        Me.Label1.Text = "Ingrese su cédula:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 157)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(34, 134)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(517, 42)
+        Me.Label2.Size = New System.Drawing.Size(172, 20)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "INGRESE SU CONTRASEÑA"
+        Me.Label2.Text = "Ingrese su contraseña:"
         '
         'chkMostrarContrasena
         '
         Me.chkMostrarContrasena.AutoSize = True
-        Me.chkMostrarContrasena.Location = New System.Drawing.Point(204, 264)
+        Me.chkMostrarContrasena.Location = New System.Drawing.Point(145, 181)
         Me.chkMostrarContrasena.Name = "chkMostrarContrasena"
         Me.chkMostrarContrasena.Size = New System.Drawing.Size(117, 17)
         Me.chkMostrarContrasena.TabIndex = 2
         Me.chkMostrarContrasena.Text = "Mostrar contraseña"
         Me.chkMostrarContrasena.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(71, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(291, 33)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Aplicación de gestión"
+        '
         'FrmLogin
         '
         Me.AcceptButton = Me.btnIngresar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(543, 365)
+        Me.ClientSize = New System.Drawing.Size(444, 271)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.chkMostrarContrasena)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -113,4 +125,5 @@ Partial Class FrmLogin
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents chkMostrarContrasena As CheckBox
+    Friend WithEvents Label3 As Label
 End Class

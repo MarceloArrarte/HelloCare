@@ -2,6 +2,9 @@
 Imports CapaLogica
 
 Public Class FrmIngresoSintoma
+    ' Esta bandera se implementa para indicar al evento FormClosing 
+    ' si el formulario se cierra para volver sin guardar o habiendo ingresado datos
+    Private requiereConfirmacionSalida As Boolean = True
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
 
         'Si la lista de sintomas seleccionados esta vacia manda un mensaje de error
@@ -15,9 +18,9 @@ Public Class FrmIngresoSintoma
             'Abre la ventana de diagnostico y cierra la actual, ademas de limpiar todas las tablas utilizadas.
             Dim frm As New FrmDiagnosticoPrimario(sintomasSeleccionados)
             frm.Show()
+            requiereConfirmacionSalida = False
             Me.Close()
         End If
-
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -52,6 +55,7 @@ Public Class FrmIngresoSintoma
         Next
     End Sub
 
+    ' Filtra las enfermedades que el usuario puede elegir según su nombre
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         For i = 0 To tblDisponibles.Rows.Count - 1
             If tblDisponibles.Rows(i).Cells(1).Value.ToString.ToLower Like ("*" & txtBuscar.Text & "*").ToLower Then
@@ -60,5 +64,14 @@ Public Class FrmIngresoSintoma
                 tblDisponibles.Rows(i).Visible = False
             End If
         Next
+    End Sub
+
+    Private Sub FrmIngresoSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If requiereConfirmacionSalida Then
+            If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+                MsgBoxResult.No Then
+                e.Cancel = True
+            End If
+        End If
     End Sub
 End Class

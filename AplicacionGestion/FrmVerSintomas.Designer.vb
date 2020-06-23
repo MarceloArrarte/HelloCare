@@ -46,15 +46,16 @@ Partial Class FrmVerSintomas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(237, 9)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label1.Location = New System.Drawing.Point(220, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(128, 13)
+        Me.Label1.Size = New System.Drawing.Size(173, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Bienvenido al ver sintoma"
+        Me.Label1.Text = "Detalle de síntomas"
         '
         'txtRecomendaciones
         '
-        Me.txtRecomendaciones.Location = New System.Drawing.Point(172, 156)
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(172, 168)
         Me.txtRecomendaciones.Multiline = True
         Me.txtRecomendaciones.Name = "txtRecomendaciones"
         Me.txtRecomendaciones.ReadOnly = True
@@ -63,7 +64,7 @@ Partial Class FrmVerSintomas
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(172, 75)
+        Me.txtDescripcion.Location = New System.Drawing.Point(172, 87)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.ReadOnly = True
@@ -72,7 +73,7 @@ Partial Class FrmVerSintomas
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(172, 37)
+        Me.txtNombre.Location = New System.Drawing.Point(172, 49)
         Me.txtNombre.Multiline = True
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.ReadOnly = True
@@ -82,7 +83,7 @@ Partial Class FrmVerSintomas
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 159)
+        Me.Label4.Location = New System.Drawing.Point(34, 171)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 13)
         Me.Label4.TabIndex = 15
@@ -91,7 +92,7 @@ Partial Class FrmVerSintomas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(67, 78)
+        Me.Label3.Location = New System.Drawing.Point(67, 90)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 14
@@ -100,7 +101,7 @@ Partial Class FrmVerSintomas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(30, 40)
+        Me.Label2.Location = New System.Drawing.Point(30, 52)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(103, 13)
         Me.Label2.TabIndex = 13
@@ -145,6 +146,7 @@ Partial Class FrmVerSintomas
         Me.tblPatologias.Location = New System.Drawing.Point(33, 356)
         Me.tblPatologias.MultiSelect = False
         Me.tblPatologias.Name = "tblPatologias"
+        Me.tblPatologias.ReadOnly = True
         Me.tblPatologias.RowHeadersVisible = False
         Me.tblPatologias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tblPatologias.Size = New System.Drawing.Size(566, 125)
@@ -155,6 +157,7 @@ Partial Class FrmVerSintomas
         '
         Me.colObjeto.HeaderText = "Objeto"
         Me.colObjeto.Name = "colObjeto"
+        Me.colObjeto.ReadOnly = True
         Me.colObjeto.Visible = False
         '
         'colNombre
@@ -184,7 +187,7 @@ Partial Class FrmVerSintomas
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(80, 286)
+        Me.Label6.Location = New System.Drawing.Point(80, 298)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 23
@@ -192,7 +195,7 @@ Partial Class FrmVerSintomas
         '
         'txtUrgencia
         '
-        Me.txtUrgencia.Location = New System.Drawing.Point(172, 283)
+        Me.txtUrgencia.Location = New System.Drawing.Point(172, 295)
         Me.txtUrgencia.Multiline = True
         Me.txtUrgencia.Name = "txtUrgencia"
         Me.txtUrgencia.ReadOnly = True
@@ -221,7 +224,7 @@ Partial Class FrmVerSintomas
         Me.MaximizeBox = False
         Me.Name = "FrmVerSintomas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Ver enfermedades"
+        Me.Text = "Ver síntomas"
         CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

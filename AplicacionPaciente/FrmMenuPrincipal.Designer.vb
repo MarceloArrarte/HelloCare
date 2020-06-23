@@ -87,6 +87,7 @@ Partial Class FrmMenuPrincipal
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "FrmMenuPrincipal"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú principal"
         Me.ResumeLayout(False)
         Me.PerformLayout()

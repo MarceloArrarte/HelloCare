@@ -232,6 +232,7 @@ Partial Class FrmIngresoSintoma
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "FrmIngresoSintoma"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ingreso de síntomas"
         CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tblSeleccionados, System.ComponentModel.ISupportInitialize).EndInit()

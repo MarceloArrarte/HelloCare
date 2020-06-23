@@ -36,10 +36,10 @@ C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\AplicacionGest
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\AplicacionGestion.exe
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\AplicacionGestion.pdb
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\AplicacionGestion.xml
-C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.exe
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.pdb
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.vbproj.CopyComplete
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.exe
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.pdb
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.dll

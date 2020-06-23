@@ -2,11 +2,8 @@
 
 Public Class FrmVerEnfermedades
     Sub New(enfermedad As Enfermedad)
-
-        ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         ' Muestra los datos de la enfermedad seleccionada en la ventana anterior
         txtNombre.Text = enfermedad.Nombre
         txtDescripcion.Text = enfermedad.Descripcion

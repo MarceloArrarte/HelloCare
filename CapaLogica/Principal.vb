@@ -6,13 +6,8 @@
     Friend ListaUsuariosPacientes As New List(Of Usuario_Paciente)
     Friend ListaUsuariosAdministrativos As New List(Of Usuario_Administrativo)
 
-    ' Método Main exigido por el compilador (no utilizado)
-    Public Sub Main()
-    End Sub
-
     ' Ingresa una enfermedad en el sistema
     Public Sub IngresarEnfermedad(enfermedad As Enfermedad)
-        'Try
         ' Manejo de errores de argumentos
         ' enfermedad tiene un valor nulo
         If enfermedad Is Nothing Then
@@ -27,14 +22,10 @@
         Next
 
         ListaEnfermedades.Add(enfermedad)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye la enfermedad del índice especificado por la ingresada
     Public Sub ModificarEnfermedad(enfermedad As Enfermedad, indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' enfermedad tiene un valor nulo
         If enfermedad Is Nothing Then
@@ -59,20 +50,11 @@
         Next
 
         Dim registro As Enfermedad = ListaEnfermedades(indice)
-        'Dim nuevaEnfermedad As New Enfermedad(enfermedad.Nombre, enfermedad.Recomendaciones, enfermedad.Gravedad, enfermedad.Descripcion)
         ModificarEnfermedad(registro, enfermedad)
-        'registro.Nombre = enfermedad.Nombre
-        'registro.Descripcion = enfermedad.Descripcion
-        'registro.Recomendaciones = enfermedad.Recomendaciones
-        'registro.Gravedad = enfermedad.Gravedad
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye enfermedadVieja por enfermedadNueva en el sistema
     Public Sub ModificarEnfermedad(enfermedadVieja As Enfermedad, enfermedadNueva As Enfermedad)
-        'Try
         ' Manejo de errores de argumentos
         ' enfermedadVieja tiene un valor nulo
         If enfermedadVieja Is Nothing Then
@@ -106,11 +88,6 @@
         If (cantidadNombresIguales > 1 And mantieneElNombre) Or (cantidadNombresIguales > 0 And Not mantieneElNombre) Then
             Throw New ArgumentException("Ya existe una enfermedad con este nombre.")
         End If
-        'For Each e As Enfermedad In ListaEnfermedades
-        '    If enfermedadNueva.Nombre = e.Nombre Then
-        '        Throw New Exception("Ya hay una enfermedad con este nombre.")
-        '    End If
-        'Next
 
         ListaEnfermedades.Remove(enfermedadVieja)
         For Each asociacionVieja As AsociacionSintoma In BuscarAsociacionesSintomas(enfermedadVieja).ToList
@@ -118,9 +95,6 @@
             ModificarAsociacionSintoma(asociacionVieja, asociacionModificada)
         Next
         ListaEnfermedades.Insert(indice, enfermedadNueva)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Retorna una lista con las enfermedades cuyo nombre coincide con un filtro de texto.
@@ -144,7 +118,6 @@
 
     ' Elimina una enfermedad de la lista
     Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
-        'Try
         ' Manejo de errores de argumentos
         ' enfermedad tiene un valor nulo
         If enfermedad Is Nothing Then
@@ -157,14 +130,10 @@
         End If
 
         ListaEnfermedades.Remove(enfermedad)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Elimina la enfermedad en el índice especificado de la lista
     Public Sub EliminarEnfermedad(indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' El índice excede el tamaño de la colección
         If indice >= ListaEnfermedades.Count Then
@@ -177,14 +146,10 @@
         End If
 
         ListaEnfermedades.RemoveAt(indice)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Ingresa un nuevo síntoma en el sistema
     Public Sub IngresarSintoma(sintoma As Sintoma)
-        'Try
         ' Manejo de errores de argumentos
         ' sintoma tiene un valor nulo
         If sintoma Is Nothing Then
@@ -199,14 +164,10 @@
         Next
 
         ListaSintomas.Add(sintoma)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye el síntoma del índice especificado por el ingresado
     Public Sub ModificarSintoma(sintoma As Sintoma, indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' sintoma tiene un valor nulo
         If sintoma Is Nothing Then
@@ -232,18 +193,10 @@
 
         Dim registro As Sintoma = ListaSintomas(indice)
         ModificarSintoma(registro, sintoma)
-        'registro.Nombre = sintoma.Nombre
-        'registro.Descripcion = sintoma.Descripcion
-        'registro.Recomendaciones = sintoma.Recomendaciones
-        'registro.Urgencia = sintoma.Urgencia
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye sintomaViejo por sintomaNuevo en el sistema
     Public Sub ModificarSintoma(sintomaViejo As Sintoma, sintomaNuevo As Sintoma)
-        'Try
         ' Manejo de errores de argumentos
         ' sintomaViejo tiene un valor nulo
         If sintomaViejo Is Nothing Then
@@ -280,9 +233,6 @@
 
         ListaSintomas.Remove(sintomaViejo)
         ListaSintomas.Insert(indice, sintomaNuevo)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Retorna una lista con los síntomas cuyo nombre coincide con un filtro de texto.
@@ -306,7 +256,6 @@
 
     ' Elimina un síntoma de la lista
     Public Sub EliminarSintoma(sintoma As Sintoma)
-        'Try
         ' Manejo de errores de argumentos
         ' sintoma tiene un valor nulo
         If sintoma Is Nothing Then
@@ -319,14 +268,10 @@
         End If
 
         ListaSintomas.Remove(sintoma)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Elimina el síntoma en el índice especificado de la lista
     Public Sub EliminarSintoma(indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' El índice excede el tamaño de la colección
         If indice >= ListaSintomas.Count Then
@@ -339,14 +284,10 @@
         End If
 
         ListaSintomas.RemoveAt(indice)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Ingresa una asociación entre un síntoma y una enfermedad en el sistema
     Public Sub IngresarAsociacionSintoma(asociacion As AsociacionSintoma)
-        'Try
         ' Manejo de errores de argumentos
         ' asociacion tiene un valor nulo
         If asociacion Is Nothing Then
@@ -361,14 +302,10 @@
         Next
 
         ListaAsociacionesSintomas.Add(asociacion)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye la asociación del índice especificado por la ingresada
     Public Sub ModificarAsociacionSintoma(asociacion As AsociacionSintoma, indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' asociacion tiene un valor nulo
         If asociacion Is Nothing Then
@@ -394,17 +331,10 @@
 
         Dim registro As AsociacionSintoma = ListaAsociacionesSintomas(indice)
         ModificarAsociacionSintoma(registro, asociacion)
-        'registro.NombreEnfermedad = asociacion.NombreEnfermedad
-        'registro.NombreSintoma = asociacion.NombreSintoma
-        'registro.Frecuencia = asociacion.Frecuencia
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye asociacionVieja por asociacionNueva en el sistema
     Public Sub ModificarAsociacionSintoma(asociacionVieja As AsociacionSintoma, asociacionNueva As AsociacionSintoma)
-        'Try
         ' Manejo de errores de argumentos
         ' asociacionVieja tiene un valor nulo
         If asociacionVieja Is Nothing Then
@@ -441,9 +371,6 @@
 
         ListaAsociacionesSintomas.Remove(asociacionVieja)
         ListaAsociacionesSintomas.Insert(indice, asociacionNueva)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Retorna una lista con las asociaciones que involucran a un síntoma determinado
@@ -547,7 +474,6 @@
 
     ' Ingresa un nuevo usuario de paciente en el sistema
     Public Sub IngresarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioPaciente tiene un valor nulo
         If usuarioPaciente Is Nothing Then
@@ -562,14 +488,10 @@
         Next
 
         ListaUsuariosPacientes.Add(usuarioPaciente)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye el usuario de paciente del índice especificado por el ingresado
     Public Sub ModificarUsuarioPaciente(usuarioPaciente As Usuario_Paciente, indiceModificado As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioPaciente tiene un valor nulo
         If usuarioPaciente Is Nothing Then
@@ -595,16 +517,10 @@
 
         Dim registro As Usuario_Paciente = ListaUsuariosPacientes(indiceModificado)
         ModificarUsuarioPaciente(registro, usuarioPaciente)
-        'registro.CI_Paciente = usuarioPaciente.CI_Paciente
-        'registro.Contrasena = usuarioPaciente.Contrasena
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye usuarioPacienteViejo por usuarioPacienteNuevo en el sistema
     Public Sub ModificarUsuarioPaciente(usuarioPacienteViejo As Usuario_Paciente, usuarioPacienteNuevo As Usuario_Paciente)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioPacienteViejo tiene un valor nulo
         If usuarioPacienteViejo Is Nothing Then
@@ -638,17 +554,9 @@
         If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
             Throw New ArgumentException("Ya existe un usuario de paciente con esta cédula.")
         End If
-        'For Each e As Enfermedad In ListaEnfermedades
-        '    If enfermedadNueva.Nombre = e.Nombre Then
-        '        Throw New Exception("Ya hay una enfermedad con este nombre.")
-        '    End If
-        'Next
 
         ListaUsuariosPacientes.Remove(usuarioPacienteViejo)
         ListaUsuariosPacientes.Insert(indice, usuarioPacienteNuevo)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Retorna una lista de todos los usuarios de pacientes cuya cédula coincide con un filtro de texto
@@ -666,7 +574,6 @@
 
     ' Elimina un usuario de paciente de la lista
     Public Sub EliminarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioPaciente tiene un valor nulo
         If usuarioPaciente Is Nothing Then
@@ -679,14 +586,10 @@
         End If
 
         ListaUsuariosPacientes.Remove(usuarioPaciente)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Elimina el usuario de paciente en el índice especificado de la lista
     Public Sub EliminarUsuarioPaciente(indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' El índice excede el tamaño de la colección
         If indice >= ListaUsuariosPacientes.Count Then
@@ -699,14 +602,10 @@
         End If
 
         ListaUsuariosPacientes.RemoveAt(indice)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Ingresa un nuevo usuario de administrativo en el sistema
     Public Sub IngresarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioAdministrativo tiene un valor nulo
         If usuarioAdministrativo Is Nothing Then
@@ -721,14 +620,10 @@
         Next
 
         ListaUsuariosAdministrativos.Add(usuarioAdministrativo)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye el usuario de administrativo del índice especificado por el ingresado
     Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo, indiceModificado As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioAdministrativo tiene un valor nulo
         If usuarioAdministrativo Is Nothing Then
@@ -753,18 +648,11 @@
         Next
 
         Dim registro As Usuario_Administrativo = ListaUsuariosAdministrativos(indiceModificado)
-        'Dim nuevoUsuarioAdministrativo As New Usuario_Administrativo(Usuario)
         ModificarUsuarioAdministrativo(registro, usuarioAdministrativo)
-        'registro.CI_Administrativo = usuarioAdministrativo.CI_Administrativo
-        'registro.Contrasena = usuarioAdministrativo.Contrasena
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Sustituye usuarioAdministrativoViejo por usuarioAdministrativoNuevo en el sistema
     Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativoViejo As Usuario_Administrativo, usuarioAdministrativoNuevo As Usuario_Administrativo)
-        'Try
         'Manejo de errores de argumentos
         ' usuarioAdministrativoViejo tiene un valor nulo
         If usuarioAdministrativoViejo Is Nothing Then
@@ -798,17 +686,9 @@
         If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
             Throw New ArgumentException("Ya existe un usuario administrativo con esta cédula.")
         End If
-        'For Each e As Enfermedad In ListaEnfermedades
-        '    If enfermedadNueva.Nombre = e.Nombre Then
-        '        Throw New Exception("Ya hay una enfermedad con este nombre.")
-        '    End If
-        'Next
 
         ListaUsuariosAdministrativos.Remove(usuarioAdministrativoViejo)
         ListaUsuariosAdministrativos.Insert(indice, usuarioAdministrativoNuevo)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Retorna una lista de todos los usuarios de administrativos cuya cédula coincide con un filtro de texto
@@ -826,7 +706,6 @@
 
     ' Elimina un usuario de administrativo de la lista
     Public Sub EliminarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
-        'Try
         ' Manejo de errores de argumentos
         ' usuarioAdministrativo tiene un valor nulo
         If usuarioAdministrativo Is Nothing Then
@@ -839,14 +718,10 @@
         End If
 
         ListaUsuariosAdministrativos.Remove(usuarioAdministrativo)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 
     ' Elimina el usuario de administrativo en el índice especificado de la lista
     Public Sub EliminarUsuarioAdministrativo(indice As Integer)
-        'Try
         ' Manejo de errores de argumentos
         ' El índice excede el tamaño de la colección
         If indice >= ListaUsuariosAdministrativos.Count Then
@@ -859,8 +734,5 @@
         End If
 
         ListaUsuariosAdministrativos.RemoveAt(indice)
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        'End Try
     End Sub
 End Module

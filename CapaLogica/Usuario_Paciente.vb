@@ -6,17 +6,6 @@
         Get
             Return _CI_Paciente
         End Get
-        'Set(value As String)
-        '    Try
-        '        If Validaciones.Cedula(value) Then
-        '            _CI_Paciente = value
-        '        Else
-        '            Throw New Exception("El número de cédula ingresado no corresponde con el dígito verificador.")
-        '        End If
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
-        'End Set
     End Property
 
     'Constructor Usuario_Paciente'
@@ -31,6 +20,7 @@
         _CI_Paciente = ci
     End Sub
 
+    ' Indica si una combinación de usuario y contraseña es válida, o lanza una excepción si no lo es
     Public Shared Function Autenticar(ci_usuario As String, contrasena As String) As Boolean
         Dim pacienteRegistrado As Usuario_Paciente = BuscarUsuariosPacientes(ci_usuario).SingleOrDefault
         If pacienteRegistrado Is Nothing Then

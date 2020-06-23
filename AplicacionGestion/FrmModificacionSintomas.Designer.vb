@@ -54,11 +54,12 @@ Partial Class FrmModificacionSintomas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(343, 9)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label1.Location = New System.Drawing.Point(289, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(160, 13)
+        Me.Label1.Size = New System.Drawing.Size(222, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Bienvenido al modificar sintomas"
+        Me.Label1.Text = "Modificación de síntomas"
         '
         'txtRecomendaciones
         '

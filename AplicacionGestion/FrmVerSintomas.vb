@@ -2,10 +2,8 @@
 
 Public Class FrmVerSintomas
     Sub New(sintoma As Sintoma)
-        ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         ' Muestra los datos del síntoma seleccionado en la ventana anterior
         txtNombre.Text = sintoma.Nombre
         txtDescripcion.Text = sintoma.Descripcion

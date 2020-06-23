@@ -46,11 +46,12 @@ Partial Class FrmAltaSintomas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(285, 9)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
+        Me.Label1.Location = New System.Drawing.Point(231, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 13)
+        Me.Label1.Size = New System.Drawing.Size(147, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Bienvenido al agregar sintomas"
+        Me.Label1.Text = "Alta de síntomas"
         '
         'Label2
         '

@@ -109,11 +109,12 @@ Partial Class FrmModificacionEnfermedades
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(233, 21)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label1.Location = New System.Drawing.Point(168, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(178, 13)
+        Me.Label1.Size = New System.Drawing.Size(250, 24)
         Me.Label1.TabIndex = 23
-        Me.Label1.Text = "Bienvenido al modificar enfermedad:"
+        Me.Label1.Text = "Modificación de enfermedad"
         '
         'Label5
         '
@@ -154,7 +155,7 @@ Partial Class FrmModificacionEnfermedades
         Me.MaximizeBox = False
         Me.Name = "FrmModificacionEnfermedades"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Modificación de síntomas"
+        Me.Text = "Modificación de enfermedades"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
