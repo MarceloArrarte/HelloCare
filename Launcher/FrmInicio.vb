@@ -28,12 +28,8 @@ Public Class FrmInicio
         IngresarAsociacionSintoma(New AsociacionSintoma("Gripe leve", "Garganta inflamada", 42))
 
         IngresarUsuarioPaciente(New Usuario_Paciente("51712272", "paciente"))
-        IngresarUsuarioPaciente(New Usuario_Paciente("50681129", "contraseña"))
-        IngresarUsuarioPaciente(New Usuario_Paciente("18727593", "secreto"))
 
         IngresarUsuarioAdministrativo(New Usuario_Administrativo("19174761", "administrativo"))
-        IngresarUsuarioAdministrativo(New Usuario_Administrativo("12071061", "clave"))
-        IngresarUsuarioAdministrativo(New Usuario_Administrativo("51593248", "asteriscos"))
     End Sub
 
     Private Sub tmrSplashWindow_Tick(sender As Object, e As EventArgs) Handles tmrSplashWindow.Tick
