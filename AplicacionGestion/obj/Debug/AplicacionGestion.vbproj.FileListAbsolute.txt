@@ -42,4 +42,4 @@ C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGest
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.exe
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.pdb
-C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.dll
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaLogica.exe

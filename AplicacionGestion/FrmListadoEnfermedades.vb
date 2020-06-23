@@ -57,11 +57,15 @@ Public Class FrmListadoEnfermedades
                 Throw New Exception("Seleccione al menos una fila para eliminar la(s) enfermedad(es).")
             End If
 
+            Dim listaAEliminar As New List(Of Enfermedad)
+            For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
+                listaAEliminar.Add(r.Cells(0).Value)
+            Next
+
             If MsgBox("¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine &
                       "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
 
-                For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
-                    Dim enfermedad As Enfermedad = r.Cells(0).Value
+                For Each enfermedad As Enfermedad In listaAEliminar
                     EliminarEnfermedad(enfermedad)
                     EliminarAsociacionSintoma(enfermedad)
                 Next

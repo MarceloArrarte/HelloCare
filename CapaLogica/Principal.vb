@@ -6,6 +6,10 @@
     Friend ListaUsuariosPacientes As New List(Of Usuario_Paciente)
     Friend ListaUsuariosAdministrativos As New List(Of Usuario_Administrativo)
 
+    Sub Main()
+
+    End Sub
+
     ' Ingresa una enfermedad en el sistema
     Public Sub IngresarEnfermedad(enfermedad As Enfermedad)
         ' Manejo de errores de argumentos

@@ -57,15 +57,20 @@ Public Class FrmListadoSintomas
                 Throw New Exception("Seleccione al menos una fila para eliminar el/los síntoma(s).")
             End If
 
-            If MsgBox("¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine &
+            Dim listaAEliminar As New List(Of Sintoma)
+            For Each r As DataGridViewRow In tblSintomas.SelectedRows
+                listaAEliminar.Add(r.Cells(0).Value)
+            Next
+
+            If MsgBox("¿Confirma que desea eliminar este/os síntoma(s)?" & vbNewLine &
                       "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
 
-                For Each r As DataGridViewRow In tblSintomas.SelectedRows
-                    CapaLogica.EliminarSintoma(r.Cells(0).Value)
-                    EliminarAsociacionSintoma(CType(r.Cells(0).Value, Sintoma))
+                For Each s As Sintoma In listaAEliminar
+                    EliminarSintoma(s)
+                    EliminarAsociacionSintoma(s)
                 Next
+                MostrarSintomas()
             End If
-            MostrarSintomas()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

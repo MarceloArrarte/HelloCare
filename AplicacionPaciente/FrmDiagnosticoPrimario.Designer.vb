@@ -87,6 +87,7 @@ Partial Class FrmDiagnosticoPrimario
         Me.txtRecomendaciones.Multiline = True
         Me.txtRecomendaciones.Name = "txtRecomendaciones"
         Me.txtRecomendaciones.ReadOnly = True
+        Me.txtRecomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtRecomendaciones.Size = New System.Drawing.Size(538, 74)
         Me.txtRecomendaciones.TabIndex = 6
         '

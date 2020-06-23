@@ -77,7 +77,7 @@ Public Class FrmModificacionSintomas
     Private Sub btnAgregarPatologia_Click(sender As Object, e As EventArgs) Handles btnAgregarPatologia.Click
         If tblPatologias.SelectedRows.Count > 0 Then
             For Each r As DataGridViewRow In tblPatologias.SelectedRows
-                tblAsociadas.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "%")
+                tblAsociadas.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "")
                 r.Visible = False
             Next
             tblPatologias.ClearSelection()

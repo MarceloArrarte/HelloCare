@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+
 Public Class FrmInicio
     Dim appGestion As AplicacionGestion.FrmLogin
     Dim appPacientes As AplicacionPacientes.FrmLogin

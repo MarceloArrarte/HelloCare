@@ -19,4 +19,4 @@ C:\Users\marce\source\repos\HelloCare\Launcher\obj\Debug\Launcher.pdb
 C:\Users\marce\source\repos\HelloCare\Launcher\obj\Debug\Launcher.FrmInicio.resources
 C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaLogica.pdb
 C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaLogica.xml
-C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaLogica.dll
+C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaLogica.exe

@@ -44,4 +44,4 @@ C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPac
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.pdb
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmMenuPrincipal.resources
-C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.dll
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaLogica.exe
