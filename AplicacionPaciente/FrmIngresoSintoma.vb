@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports CapaLogica
+Imports Clases
 
 Public Class FrmIngresoSintoma
     ' Esta bandera se implementa para indicar al evento FormClosing 
@@ -42,7 +43,7 @@ Public Class FrmIngresoSintoma
 
     'Refrescar la lista de sintomas a seleccionar'
     Private Sub FrmIngresoSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each sintoma As CapaLogica.Sintoma In CapaLogica.Principal.BuscarSintomas("", True).ToArray
+        For Each sintoma As Sintoma In CapaLogica.Principal.BuscarSintomas("", True).ToArray
             tblDisponibles.Rows.Add(sintoma, sintoma.Nombre)
         Next
     End Sub

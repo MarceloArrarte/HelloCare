@@ -1,10 +1,10 @@
 ﻿Imports System
 
-Public Class Diagnostico_Primario
+Public Class DiagnosticoPrimario
+    Private ReadOnly _ID As Integer
     Private ReadOnly _CI_Paciente As String
-    Private ReadOnly _NombreEnfermedad As String
     Private ReadOnly _FechaHora As Date
-    Private ReadOnly _Coincidencia As Double
+    Private ReadOnly _Tipo As TiposDiagnosticosPrimarios
 
     Public ReadOnly Property CI_Paciente As String
         Get
@@ -18,7 +18,7 @@ Public Class Diagnostico_Primario
         End Get
     End Property
 
-    Public Sub New(ciPaciente As String, nombreEnfermedad As String, fechaHora As Date, coincidencia As Double)
+    Public Sub New(ciPaciente As String, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
         ' Manejo de errores de datos ingresados
         ' Errores en la cédula
         If Not Validaciones.Cedula(ciPaciente) Then
@@ -40,14 +40,16 @@ Public Class Diagnostico_Primario
             Throw New ArgumentException("La fecha del diagnóstico primario es posterior al momento actual.")
         End If
 
-        ' La probabilidad es un valor no válido
-        If coincidencia <= 0 Or coincidencia > 100 Then
-            Throw New ArgumentException("El porcentaje de coincidencia debe ser un valor entre 0 y 100.")
-        End If
-
+        _ID = Integer.MinValue
         _CI_Paciente = ciPaciente
-        _NombreEnfermedad = nombreEnfermedad
         _FechaHora = fechaHora
-        _Coincidencia = coincidencia
+        _Tipo = tipo
+    End Sub
+
+    Public Sub New(id As Integer, ciPaciente As String, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+        _ID = id
+        _CI_Paciente = ciPaciente
+        _FechaHora = fechaHora
+        _Tipo = tipo
     End Sub
 End Class

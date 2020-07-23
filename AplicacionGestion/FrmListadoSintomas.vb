@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmListadoSintomas
     ' Cada vez que el formulario recibe el foco, actualiza los síntomas del sistema

@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmVerSintomas
     Sub New(sintoma As Sintoma)

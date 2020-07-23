@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmAltaEnfermedades
     ' Esta bandera se implementa para indicar al evento FormClosing 

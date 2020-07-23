@@ -1,14 +1,12 @@
-﻿Public Module Principal
+﻿Imports Clases
+
+Public Module Principal
     ' Listas que almacenan en memoria la información ingresada en el sistema
     Friend ListaEnfermedades As New List(Of Enfermedad)
     Friend ListaSintomas As New List(Of Sintoma)
     Friend ListaAsociacionesSintomas As New List(Of AsociacionSintoma)
     Friend ListaUsuariosPacientes As New List(Of Usuario_Paciente)
     Friend ListaUsuariosAdministrativos As New List(Of Usuario_Administrativo)
-
-    Sub Main()
-
-    End Sub
 
     ' Ingresa una enfermedad en el sistema
     Public Sub IngresarEnfermedad(enfermedad As Enfermedad)
@@ -477,266 +475,266 @@
     End Sub
 
     ' Ingresa un nuevo usuario de paciente en el sistema
-    Public Sub IngresarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
-        ' Manejo de errores de argumentos
-        ' usuarioPaciente tiene un valor nulo
-        If usuarioPaciente Is Nothing Then
-            Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
-        End If
+    'Public Sub IngresarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioPaciente tiene un valor nulo
+    '    If usuarioPaciente Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
+    '    End If
 
-        ' El usuario ya existe
-        For Each u As Usuario_Paciente In ListaUsuariosPacientes
-            If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
-                Throw New ArgumentException("Ya hay un usuario de paciente con esta cédula.")
-            End If
-        Next
+    '    ' El usuario ya existe
+    '    For Each u As Usuario_Paciente In ListaUsuariosPacientes
+    '        If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
+    '            Throw New ArgumentException("Ya hay un usuario de paciente con esta cédula.")
+    '        End If
+    '    Next
 
-        ListaUsuariosPacientes.Add(usuarioPaciente)
-    End Sub
+    '    ListaUsuariosPacientes.Add(usuarioPaciente)
+    'End Sub
 
-    ' Sustituye el usuario de paciente del índice especificado por el ingresado
-    Public Sub ModificarUsuarioPaciente(usuarioPaciente As Usuario_Paciente, indiceModificado As Integer)
-        ' Manejo de errores de argumentos
-        ' usuarioPaciente tiene un valor nulo
-        If usuarioPaciente Is Nothing Then
-            Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
-        End If
+    '' Sustituye el usuario de paciente del índice especificado por el ingresado
+    'Public Sub ModificarUsuarioPaciente(usuarioPaciente As Usuario_Paciente, indiceModificado As Integer)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioPaciente tiene un valor nulo
+    '    If usuarioPaciente Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
+    '    End If
 
-        ' El índice excede el tamaño de la colección
-        If indiceModificado >= ListaUsuariosPacientes.Count Then
-            Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
-        End If
+    '    ' El índice excede el tamaño de la colección
+    '    If indiceModificado >= ListaUsuariosPacientes.Count Then
+    '        Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
+    '    End If
 
-        ' El índice es negativo
-        If indiceModificado < 0 Then
-            Throw New IndexOutOfRangeException("El índice especificado es negativo.")
-        End If
+    '    ' El índice es negativo
+    '    If indiceModificado < 0 Then
+    '        Throw New IndexOutOfRangeException("El índice especificado es negativo.")
+    '    End If
 
-        ' Ya existe un usuario para esta cédula
-        For Each u As Usuario_Paciente In ListaUsuariosPacientes
-            If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
-                Throw New ArgumentException("Ya hay un usuario de paciente con esta cédula.")
-            End If
-        Next
+    '    ' Ya existe un usuario para esta cédula
+    '    For Each u As Usuario_Paciente In ListaUsuariosPacientes
+    '        If usuarioPaciente.CI_Paciente = u.CI_Paciente Then
+    '            Throw New ArgumentException("Ya hay un usuario de paciente con esta cédula.")
+    '        End If
+    '    Next
 
-        Dim registro As Usuario_Paciente = ListaUsuariosPacientes(indiceModificado)
-        ModificarUsuarioPaciente(registro, usuarioPaciente)
-    End Sub
+    '    Dim registro As Usuario_Paciente = ListaUsuariosPacientes(indiceModificado)
+    '    ModificarUsuarioPaciente(registro, usuarioPaciente)
+    'End Sub
 
-    ' Sustituye usuarioPacienteViejo por usuarioPacienteNuevo en el sistema
-    Public Sub ModificarUsuarioPaciente(usuarioPacienteViejo As Usuario_Paciente, usuarioPacienteNuevo As Usuario_Paciente)
-        ' Manejo de errores de argumentos
-        ' usuarioPacienteViejo tiene un valor nulo
-        If usuarioPacienteViejo Is Nothing Then
-            Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente original tiene un valor nulo")
-        End If
+    '' Sustituye usuarioPacienteViejo por usuarioPacienteNuevo en el sistema
+    'Public Sub ModificarUsuarioPaciente(usuarioPacienteViejo As Usuario_Paciente, usuarioPacienteNuevo As Usuario_Paciente)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioPacienteViejo tiene un valor nulo
+    '    If usuarioPacienteViejo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente original tiene un valor nulo")
+    '    End If
 
-        ' usuarioPacienteNuevo tiene un valor nulo
-        If usuarioPacienteViejo Is Nothing Then
-            Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente a guardar tiene un valor nulo")
-        End If
+    '    ' usuarioPacienteNuevo tiene un valor nulo
+    '    If usuarioPacienteViejo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente a guardar tiene un valor nulo")
+    '    End If
 
-        ' El usuario a modificar no existe
-        Dim indice As Integer = -1
-        For Each u As Usuario_Paciente In ListaUsuariosPacientes
-            If u.CI_Paciente = usuarioPacienteViejo.CI_Paciente Then
-                indice = ListaUsuariosPacientes.IndexOf(u)
-            End If
-        Next
-        If indice = -1 Then
-            Throw New ArgumentException("El usuario de paciente original no está almacenada.")
-        End If
+    '    ' El usuario a modificar no existe
+    '    Dim indice As Integer = -1
+    '    For Each u As Usuario_Paciente In ListaUsuariosPacientes
+    '        If u.CI_Paciente = usuarioPacienteViejo.CI_Paciente Then
+    '            indice = ListaUsuariosPacientes.IndexOf(u)
+    '        End If
+    '    Next
+    '    If indice = -1 Then
+    '        Throw New ArgumentException("El usuario de paciente original no está almacenada.")
+    '    End If
 
-        ' Ya existe un usuario con la nueva cédula
-        Dim cantidadCedulasIguales As Integer = 0
-        Dim mantieneLaCedula As Boolean = usuarioPacienteViejo.CI_Paciente = usuarioPacienteNuevo.CI_Paciente
-        For Each u As Usuario_Paciente In ListaUsuariosPacientes
-            If usuarioPacienteNuevo.CI_Paciente = u.CI_Paciente Then
-                cantidadCedulasIguales += 1
-            End If
-        Next
-        If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
-            Throw New ArgumentException("Ya existe un usuario de paciente con esta cédula.")
-        End If
+    '    ' Ya existe un usuario con la nueva cédula
+    '    Dim cantidadCedulasIguales As Integer = 0
+    '    Dim mantieneLaCedula As Boolean = usuarioPacienteViejo.CI_Paciente = usuarioPacienteNuevo.CI_Paciente
+    '    For Each u As Usuario_Paciente In ListaUsuariosPacientes
+    '        If usuarioPacienteNuevo.CI_Paciente = u.CI_Paciente Then
+    '            cantidadCedulasIguales += 1
+    '        End If
+    '    Next
+    '    If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
+    '        Throw New ArgumentException("Ya existe un usuario de paciente con esta cédula.")
+    '    End If
 
-        ListaUsuariosPacientes.Remove(usuarioPacienteViejo)
-        ListaUsuariosPacientes.Insert(indice, usuarioPacienteNuevo)
-    End Sub
+    '    ListaUsuariosPacientes.Remove(usuarioPacienteViejo)
+    '    ListaUsuariosPacientes.Insert(indice, usuarioPacienteNuevo)
+    'End Sub
 
-    ' Retorna una lista de todos los usuarios de pacientes cuya cédula coincide con un filtro de texto
-    Public Function BuscarUsuariosPacientes(busqueda As String) As List(Of Usuario_Paciente)
-        Dim listaResultados As New List(Of Usuario_Paciente)
+    '' Retorna una lista de todos los usuarios de pacientes cuya cédula coincide con un filtro de texto
+    'Public Function BuscarUsuariosPacientes(busqueda As String) As List(Of Usuario_Paciente)
+    '    Dim listaResultados As New List(Of Usuario_Paciente)
 
-        For Each u As Usuario_Paciente In ListaUsuariosPacientes
-            If u.CI_Paciente Like ("*" & busqueda & "*") Then
-                listaResultados.Add(u)
-            End If
-        Next
+    '    For Each u As Usuario_Paciente In ListaUsuariosPacientes
+    '        If u.CI_Paciente Like ("*" & busqueda & "*") Then
+    '            listaResultados.Add(u)
+    '        End If
+    '    Next
 
-        Return listaResultados
-    End Function
+    '    Return listaResultados
+    'End Function
 
-    ' Elimina un usuario de paciente de la lista
-    Public Sub EliminarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
-        ' Manejo de errores de argumentos
-        ' usuarioPaciente tiene un valor nulo
-        If usuarioPaciente Is Nothing Then
-            Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
-        End If
+    '' Elimina un usuario de paciente de la lista
+    'Public Sub EliminarUsuarioPaciente(usuarioPaciente As Usuario_Paciente)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioPaciente tiene un valor nulo
+    '    If usuarioPaciente Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioPaciente", "El usuario de paciente tiene un valor nulo.")
+    '    End If
 
-        ' El usuario no existe
-        If Not ListaUsuariosPacientes.Contains(usuarioPaciente) Then
-            Throw New ArgumentException("Este usuario de paciente no está almacenado.")
-        End If
+    '    ' El usuario no existe
+    '    If Not ListaUsuariosPacientes.Contains(usuarioPaciente) Then
+    '        Throw New ArgumentException("Este usuario de paciente no está almacenado.")
+    '    End If
 
-        ListaUsuariosPacientes.Remove(usuarioPaciente)
-    End Sub
+    '    ListaUsuariosPacientes.Remove(usuarioPaciente)
+    'End Sub
 
-    ' Elimina el usuario de paciente en el índice especificado de la lista
-    Public Sub EliminarUsuarioPaciente(indice As Integer)
-        ' Manejo de errores de argumentos
-        ' El índice excede el tamaño de la colección
-        If indice >= ListaUsuariosPacientes.Count Then
-            Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
-        End If
+    '' Elimina el usuario de paciente en el índice especificado de la lista
+    'Public Sub EliminarUsuarioPaciente(indice As Integer)
+    '    ' Manejo de errores de argumentos
+    '    ' El índice excede el tamaño de la colección
+    '    If indice >= ListaUsuariosPacientes.Count Then
+    '        Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
+    '    End If
 
-        ' El índice es negativo
-        If indice < 0 Then
-            Throw New IndexOutOfRangeException("El índice indicado es negativo.")
-        End If
+    '    ' El índice es negativo
+    '    If indice < 0 Then
+    '        Throw New IndexOutOfRangeException("El índice indicado es negativo.")
+    '    End If
 
-        ListaUsuariosPacientes.RemoveAt(indice)
-    End Sub
+    '    ListaUsuariosPacientes.RemoveAt(indice)
+    'End Sub
 
-    ' Ingresa un nuevo usuario de administrativo en el sistema
-    Public Sub IngresarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
-        ' Manejo de errores de argumentos
-        ' usuarioAdministrativo tiene un valor nulo
-        If usuarioAdministrativo Is Nothing Then
-            Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
-        End If
+    '' Ingresa un nuevo usuario de administrativo en el sistema
+    'Public Sub IngresarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioAdministrativo tiene un valor nulo
+    '    If usuarioAdministrativo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
+    '    End If
 
-        ' Ya existe un usuario para esta cédula
-        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
-            If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
-                Throw New ArgumentException("Ya hay un usuario de administrativo con esta cédula.")
-            End If
-        Next
+    '    ' Ya existe un usuario para esta cédula
+    '    For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+    '        If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
+    '            Throw New ArgumentException("Ya hay un usuario de administrativo con esta cédula.")
+    '        End If
+    '    Next
 
-        ListaUsuariosAdministrativos.Add(usuarioAdministrativo)
-    End Sub
+    '    ListaUsuariosAdministrativos.Add(usuarioAdministrativo)
+    'End Sub
 
-    ' Sustituye el usuario de administrativo del índice especificado por el ingresado
-    Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo, indiceModificado As Integer)
-        ' Manejo de errores de argumentos
-        ' usuarioAdministrativo tiene un valor nulo
-        If usuarioAdministrativo Is Nothing Then
-            Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
-        End If
+    '' Sustituye el usuario de administrativo del índice especificado por el ingresado
+    'Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo, indiceModificado As Integer)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioAdministrativo tiene un valor nulo
+    '    If usuarioAdministrativo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
+    '    End If
 
-        ' El índice excede el tamaño de la colección
-        If indiceModificado >= ListaUsuariosAdministrativos.Count Then
-            Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
-        End If
+    '    ' El índice excede el tamaño de la colección
+    '    If indiceModificado >= ListaUsuariosAdministrativos.Count Then
+    '        Throw New IndexOutOfRangeException("El índice indicado excede el tamaño de la colección.")
+    '    End If
 
-        ' El índice es negativo
-        If indiceModificado < 0 Then
-            Throw New IndexOutOfRangeException("El índice indicado es negativo.")
-        End If
+    '    ' El índice es negativo
+    '    If indiceModificado < 0 Then
+    '        Throw New IndexOutOfRangeException("El índice indicado es negativo.")
+    '    End If
 
-        ' Ya existe un usuario con esta cédula
-        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
-            If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
-                Throw New ArgumentException("Ya hay un usuario de administrativo con esta cédula.")
-            End If
-        Next
+    '    ' Ya existe un usuario con esta cédula
+    '    For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+    '        If usuarioAdministrativo.CI_Administrativo = u.CI_Administrativo Then
+    '            Throw New ArgumentException("Ya hay un usuario de administrativo con esta cédula.")
+    '        End If
+    '    Next
 
-        Dim registro As Usuario_Administrativo = ListaUsuariosAdministrativos(indiceModificado)
-        ModificarUsuarioAdministrativo(registro, usuarioAdministrativo)
-    End Sub
+    '    Dim registro As Usuario_Administrativo = ListaUsuariosAdministrativos(indiceModificado)
+    '    ModificarUsuarioAdministrativo(registro, usuarioAdministrativo)
+    'End Sub
 
-    ' Sustituye usuarioAdministrativoViejo por usuarioAdministrativoNuevo en el sistema
-    Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativoViejo As Usuario_Administrativo, usuarioAdministrativoNuevo As Usuario_Administrativo)
-        'Manejo de errores de argumentos
-        ' usuarioAdministrativoViejo tiene un valor nulo
-        If usuarioAdministrativoViejo Is Nothing Then
-            Throw New ArgumentNullException("usuarioAdministrativo", "El usuario administrativo original tiene un valor nulo")
-        End If
+    '' Sustituye usuarioAdministrativoViejo por usuarioAdministrativoNuevo en el sistema
+    'Public Sub ModificarUsuarioAdministrativo(usuarioAdministrativoViejo As Usuario_Administrativo, usuarioAdministrativoNuevo As Usuario_Administrativo)
+    '    'Manejo de errores de argumentos
+    '    ' usuarioAdministrativoViejo tiene un valor nulo
+    '    If usuarioAdministrativoViejo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioAdministrativo", "El usuario administrativo original tiene un valor nulo")
+    '    End If
 
-        ' usuarioAdministrativoNuevo tiene un valor nulo
-        If usuarioAdministrativoNuevo Is Nothing Then
-            Throw New ArgumentNullException("usuarioAdministrativo", "El usuario administrativo a guardar tiene un valor nulo")
-        End If
+    '    ' usuarioAdministrativoNuevo tiene un valor nulo
+    '    If usuarioAdministrativoNuevo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioAdministrativo", "El usuario administrativo a guardar tiene un valor nulo")
+    '    End If
 
-        ' El usuario a modificar no está almacenado
-        Dim indice As Integer = -1
-        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
-            If u.CI_Administrativo = usuarioAdministrativoViejo.CI_Administrativo Then
-                indice = ListaUsuariosAdministrativos.IndexOf(u)
-            End If
-        Next
-        If indice = -1 Then
-            Throw New ArgumentException("El usuario administrativo original no está almacenado.")
-        End If
+    '    ' El usuario a modificar no está almacenado
+    '    Dim indice As Integer = -1
+    '    For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+    '        If u.CI_Administrativo = usuarioAdministrativoViejo.CI_Administrativo Then
+    '            indice = ListaUsuariosAdministrativos.IndexOf(u)
+    '        End If
+    '    Next
+    '    If indice = -1 Then
+    '        Throw New ArgumentException("El usuario administrativo original no está almacenado.")
+    '    End If
 
-        ' La nueva cédula del usuario entra en conflicto con la de otro usuario
-        Dim cantidadCedulasIguales As Integer = 0
-        Dim mantieneLaCedula As Boolean = usuarioAdministrativoViejo.CI_Administrativo = usuarioAdministrativoNuevo.CI_Administrativo
-        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
-            If usuarioAdministrativoNuevo.CI_Administrativo = u.CI_Administrativo Then
-                cantidadCedulasIguales += 1
-            End If
-        Next
-        If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
-            Throw New ArgumentException("Ya existe un usuario administrativo con esta cédula.")
-        End If
+    '    ' La nueva cédula del usuario entra en conflicto con la de otro usuario
+    '    Dim cantidadCedulasIguales As Integer = 0
+    '    Dim mantieneLaCedula As Boolean = usuarioAdministrativoViejo.CI_Administrativo = usuarioAdministrativoNuevo.CI_Administrativo
+    '    For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+    '        If usuarioAdministrativoNuevo.CI_Administrativo = u.CI_Administrativo Then
+    '            cantidadCedulasIguales += 1
+    '        End If
+    '    Next
+    '    If (cantidadCedulasIguales > 1 And mantieneLaCedula) Or (cantidadCedulasIguales > 0 And Not mantieneLaCedula) Then
+    '        Throw New ArgumentException("Ya existe un usuario administrativo con esta cédula.")
+    '    End If
 
-        ListaUsuariosAdministrativos.Remove(usuarioAdministrativoViejo)
-        ListaUsuariosAdministrativos.Insert(indice, usuarioAdministrativoNuevo)
-    End Sub
+    '    ListaUsuariosAdministrativos.Remove(usuarioAdministrativoViejo)
+    '    ListaUsuariosAdministrativos.Insert(indice, usuarioAdministrativoNuevo)
+    'End Sub
 
-    ' Retorna una lista de todos los usuarios de administrativos cuya cédula coincide con un filtro de texto
-    Public Function BuscarUsuariosAdministrativos(busqueda As String) As List(Of Usuario_Administrativo)
-        Dim listaResultados As New List(Of Usuario_Administrativo)
+    '' Retorna una lista de todos los usuarios de administrativos cuya cédula coincide con un filtro de texto
+    'Public Function BuscarUsuariosAdministrativos(busqueda As String) As List(Of Usuario_Administrativo)
+    '    Dim listaResultados As New List(Of Usuario_Administrativo)
 
-        For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
-            If u.CI_Administrativo Like ("*" & busqueda & "*") Then
-                listaResultados.Add(u)
-            End If
-        Next
+    '    For Each u As Usuario_Administrativo In ListaUsuariosAdministrativos
+    '        If u.CI_Administrativo Like ("*" & busqueda & "*") Then
+    '            listaResultados.Add(u)
+    '        End If
+    '    Next
 
-        Return listaResultados
-    End Function
+    '    Return listaResultados
+    'End Function
 
-    ' Elimina un usuario de administrativo de la lista
-    Public Sub EliminarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
-        ' Manejo de errores de argumentos
-        ' usuarioAdministrativo tiene un valor nulo
-        If usuarioAdministrativo Is Nothing Then
-            Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
-        End If
+    '' Elimina un usuario de administrativo de la lista
+    'Public Sub EliminarUsuarioAdministrativo(usuarioAdministrativo As Usuario_Administrativo)
+    '    ' Manejo de errores de argumentos
+    '    ' usuarioAdministrativo tiene un valor nulo
+    '    If usuarioAdministrativo Is Nothing Then
+    '        Throw New ArgumentNullException("usuarioAdministrativo", "El usuario de administrativo tiene un valor nulo.")
+    '    End If
 
-        ' El usuario a eliminar no existe
-        If Not ListaUsuariosAdministrativos.Contains(usuarioAdministrativo) Then
-            Throw New ArgumentException("Este usuario de administrativo no está almacenado.")
-        End If
+    '    ' El usuario a eliminar no existe
+    '    If Not ListaUsuariosAdministrativos.Contains(usuarioAdministrativo) Then
+    '        Throw New ArgumentException("Este usuario de administrativo no está almacenado.")
+    '    End If
 
-        ListaUsuariosAdministrativos.Remove(usuarioAdministrativo)
-    End Sub
+    '    ListaUsuariosAdministrativos.Remove(usuarioAdministrativo)
+    'End Sub
 
-    ' Elimina el usuario de administrativo en el índice especificado de la lista
-    Public Sub EliminarUsuarioAdministrativo(indice As Integer)
-        ' Manejo de errores de argumentos
-        ' El índice excede el tamaño de la colección
-        If indice >= ListaUsuariosAdministrativos.Count Then
-            Throw New Exception("El índice indicado excede el tamaño de la colección.")
-        End If
+    '' Elimina el usuario de administrativo en el índice especificado de la lista
+    'Public Sub EliminarUsuarioAdministrativo(indice As Integer)
+    '    ' Manejo de errores de argumentos
+    '    ' El índice excede el tamaño de la colección
+    '    If indice >= ListaUsuariosAdministrativos.Count Then
+    '        Throw New Exception("El índice indicado excede el tamaño de la colección.")
+    '    End If
 
-        ' El índice es negativo
-        If indice < 0 Then
-            Throw New Exception("El índice indicado es negativo.")
-        End If
+    '    ' El índice es negativo
+    '    If indice < 0 Then
+    '        Throw New Exception("El índice indicado es negativo.")
+    '    End If
 
-        ListaUsuariosAdministrativos.RemoveAt(indice)
-    End Sub
+    '    ListaUsuariosAdministrativos.RemoveAt(indice)
+    'End Sub
 End Module

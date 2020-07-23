@@ -1,9 +1,17 @@
 ﻿Public MustInherit Class Persona
+    Private ReadOnly _ID As Integer
     Private ReadOnly _CI As String
     Private ReadOnly _Nombre As String
     Private ReadOnly _Apellido As String
     Private ReadOnly _Correo As String
-    Private ReadOnly _Localidad As Localidad
+    Private ReadOnly _IDLocalidad As Integer
+    Private ReadOnly _Tipo As TiposPersona
+
+    Protected ReadOnly Property ID As Integer
+        Get
+            Return _ID
+        End Get
+    End Property
 
     Protected ReadOnly Property CI As String
         Get
@@ -29,13 +37,19 @@
         End Get
     End Property
 
-    Protected ReadOnly Property Localidad As Localidad
+    Protected ReadOnly Property IDLocalidad As Integer
         Get
-            Return _Localidad
+            Return _IDLocalidad
         End Get
     End Property
 
-    Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad)
+    Protected ReadOnly Property Tipo As TiposPersona
+        Get
+            Return _Tipo
+        End Get
+    End Property
+
+    Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, idLocalidad As Integer)
         ' Manejo de errores de datos ingresados
         ' Célula equivocada o con formato equivocado
         If Not Validaciones.Cedula(ci) Then
@@ -67,15 +81,21 @@
             Throw New ArgumentException("El correo no tiene un formato válido.")
         End If
 
-        ' localidad tiene un valor nulo
-        If localidad Is Nothing Then
-            Throw New ArgumentNullException("localidad", "La localidad se encuentra vacía.")
-        End If
-
         _CI = ci
         _Nombre = nombre
         _Apellido = apellido
         _Correo = correo
-        _Localidad = localidad
+        _IDLocalidad = idLocalidad
+    End Sub
+
+    Protected Sub New(id As Integer, ci As String, nombre As String, apellido As String,
+                      correo As String, idLocalidad As Integer, tipo As Enumerados.TiposPersona)
+        _ID = id
+        _CI = ci
+        _Nombre = nombre
+        _Apellido = apellido
+        _Correo = correo
+        _IDLocalidad = idLocalidad
+        _Tipo = tipo
     End Sub
 End Class

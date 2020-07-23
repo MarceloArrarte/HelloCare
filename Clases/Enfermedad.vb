@@ -2,11 +2,19 @@
 
 Public Class Enfermedad
 
+    Private ReadOnly _ID As Integer
     Private ReadOnly _Nombre As String
     Private ReadOnly _Recomendaciones As String
     Private ReadOnly _Gravedad As Integer
     Private ReadOnly _Descripcion As String
+    Private ReadOnly _IDEspecialidad As Integer
+    Private ReadOnly _Probabilidad As Decimal
 
+    Public ReadOnly Property Id As Integer
+        Get
+            Return _ID
+        End Get
+    End Property
 
     Public ReadOnly Property Nombre As String
         Get
@@ -32,7 +40,13 @@ Public Class Enfermedad
         End Get
     End Property
 
-    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String)
+    Public ReadOnly Property IDEspecialidad As Integer
+        Get
+            Return _IDEspecialidad
+        End Get
+    End Property
+
+    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String, idEspecialidad As Integer, probabilidad As Decimal)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -65,9 +79,32 @@ Public Class Enfermedad
             Throw New ArgumentException("El largo de las recomendaciones no puede superar los 1000 caracteres.")
         End If
 
+        _ID = Integer.MinValue
         _Nombre = nombre
         _Descripcion = descripcion
         _Gravedad = gravedad
         _Recomendaciones = recomendaciones
+        _IDEspecialidad = idEspecialidad
+        _Probabilidad = probabilidad
+    End Sub
+
+    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, idEspecialidad As Integer)
+        _ID = id
+        _Nombre = nombre
+        _Descripcion = descripcion
+        _Gravedad = gravedad
+        _Recomendaciones = recomendaciones
+        _IDEspecialidad = idEspecialidad
+        _Probabilidad = Decimal.MinValue
+    End Sub
+
+    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, idEspecialidad As Integer, probabilidad As Decimal)
+        _ID = id
+        _Nombre = nombre
+        _Descripcion = descripcion
+        _Gravedad = gravedad
+        _Recomendaciones = recomendaciones
+        _IDEspecialidad = idEspecialidad
+        _Probabilidad = probabilidad
     End Sub
 End Class

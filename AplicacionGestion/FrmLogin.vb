@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmLogin
     ' Para esta versión inicial, se acomoda el login para permitir visualizar el de la otra aplicación
@@ -14,6 +15,7 @@ Public Class FrmLogin
         Dim ci As String = txtCedula.Text
         Dim contrasena As String = txtContrasena.Text
         Try
+            Validaciones.Cedula(ci)
             If Usuario_Administrativo.Autenticar(ci, contrasena) Then
                 Dim frm As New FrmMenuPrincipal
                 frm.Show()

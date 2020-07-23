@@ -1,6 +1,7 @@
 ﻿Imports System.Drawing
 Imports System.Windows.Forms
 Imports CapaLogica
+Imports Clases
 
 Public Class FrmLogin
     ' Para esta versión inicial, se acomoda el login para permitir visualizar el de la otra aplicación

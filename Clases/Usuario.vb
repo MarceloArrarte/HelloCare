@@ -1,20 +1,24 @@
-﻿Public Class Usuario_Administrativo
-    Inherits Usuario
-    Private ReadOnly _CI_Administrativo As String
-
-    Public ReadOnly Property CI_Administrativo As String
+﻿Public MustInherit Class Usuario
+    Private ReadOnly _Contrasena As String
+    Public ReadOnly Property Contrasena As String
         Get
-            Return _CI_Administrativo
+            Return _Contrasena
         End Get
     End Property
 
-    Sub New(ci As String, contrasena As String)
-        MyBase.New(contrasena)
-        If Not Validaciones.Cedula(ci) Then
-            Throw New Exception("El número de cédula ingresado no corresponde con el dígito verificador.")
+    Public Sub New(contrasena As String)
+        ' Manejo de errores de datos ingresados
+        ' contrasena tiene un valor nulo
+        If contrasena Is Nothing Then
+            Throw New ArgumentNullException("contrasena", "La contraseña se encuentra vacía.")
         End If
 
-        _CI_Administrativo = ci
+        ' contrasena excede el largo máximo
+        If contrasena.Length > 100 Then
+            Throw New ArgumentException("La clave es demasiado grande (más de 100 caracteres).")
+        End If
+
+        _Contrasena = contrasena
     End Sub
 
     ' Indica si una combinación de usuario y contraseña es válida, o lanza una excepción si no lo es

@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmDiagnosticoPrimario
     ' listaSintomasIngresados recibe la lista de síntomas seleccionados en el formulario anterior

@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports Clases
 
 Public Class FrmListadoEnfermedades
     ' Cada vez que el formulario recibe el foco, actualiza las enfermedades del sistema
