@@ -1,14 +1,25 @@
-﻿Imports System
+﻿Public Class DiagnosticoPrimario
+    Protected ReadOnly _ID As Integer
+    Protected ReadOnly _Paciente As Paciente
+    Protected ReadOnly _Enfermedades As New List(Of Enfermedad)
+    Protected ReadOnly _FechaHora As Date
+    Protected ReadOnly _Tipo As TiposDiagnosticosPrimarios
 
-Public Class DiagnosticoPrimario
-    Private ReadOnly _ID As Integer
-    Private ReadOnly _CI_Paciente As String
-    Private ReadOnly _FechaHora As Date
-    Private ReadOnly _Tipo As TiposDiagnosticosPrimarios
-
-    Public ReadOnly Property CI_Paciente As String
+    Public ReadOnly Property ID As Integer
         Get
-            Return _CI_Paciente
+            Return _ID
+        End Get
+    End Property
+
+    Public ReadOnly Property Paciente As Paciente
+        Get
+            Return _Paciente
+        End Get
+    End Property
+
+    Public ReadOnly Property Enfermedades As List(Of Enfermedad)
+        Get
+            Return _Enfermedades.ToList
         End Get
     End Property
 
@@ -18,7 +29,13 @@ Public Class DiagnosticoPrimario
         End Get
     End Property
 
-    Public Sub New(ciPaciente As String, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public ReadOnly Property Tipo As TiposDiagnosticosPrimarios
+        Get
+            Return _Tipo
+        End Get
+    End Property
+
+    Public Sub New(paciente As Paciente, enfermedades As List(Of Enfermedad), fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
         ' Manejo de errores de datos ingresados
         ' Errores en la cédula
         If Not Validaciones.Cedula(ciPaciente) Then
@@ -41,14 +58,16 @@ Public Class DiagnosticoPrimario
         End If
 
         _ID = Integer.MinValue
-        _CI_Paciente = ciPaciente
+        _Paciente = paciente
+        _Enfermedades = enfermedades
         _FechaHora = fechaHora
         _Tipo = tipo
     End Sub
 
-    Public Sub New(id As Integer, ciPaciente As String, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public Sub New(id As Integer, paciente As Paciente, enfermedades As List(Of Enfermedad), fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
         _ID = id
-        _CI_Paciente = ciPaciente
+        _Paciente = paciente
+        _Enfermedades = enfermedades
         _FechaHora = fechaHora
         _Tipo = tipo
     End Sub

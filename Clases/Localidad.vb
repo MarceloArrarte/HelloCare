@@ -1,6 +1,7 @@
 ﻿Public Class Localidad
+    Private ReadOnly _ID As Integer
     Private ReadOnly _Nombre As String
-    Private ReadOnly _Departamento As String
+    Private ReadOnly _IDDepartamento As String
 
     Public ReadOnly Property Nombre As String
         Get
@@ -8,13 +9,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property Departamento As String
+    Public ReadOnly Property IDDepartamento As String
         Get
-            Return _Departamento
+            Return _IDDepartamento
         End Get
     End Property
 
-    Public Sub New(nombre As String, departamento As String)
+    Public Sub New(nombre As String, idDepartamento As Integer)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -26,17 +27,13 @@
             Throw New ArgumentException("El nombre de la localidad excede los 100 caracteres de largo.")
         End If
 
-        ' departamento tiene un valor nulo
-        If departamento = Nothing Then
-            Throw New ArgumentNullException("departamento", "No se ingresó el departamento de la localidad.")
-        End If
-
-        ' departamento excede el máximo de caracteres
-        If departamento.Length > 100 Then
-            Throw New ArgumentException("El nombre del departamento excede los 100 caracteres de largo.")
-        End If
-
         _Nombre = nombre
-        _Departamento = departamento
+        _IDDepartamento = idDepartamento
+    End Sub
+
+    Public Sub New(id As Integer, nombre As String, idDepartamento As Integer)
+        _ID = id
+        _Nombre = nombre
+        _IDDepartamento = idDepartamento
     End Sub
 End Class

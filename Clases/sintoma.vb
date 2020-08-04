@@ -1,8 +1,10 @@
 ﻿Public Class Sintoma
+    Private ReadOnly _ID As Integer
     Private ReadOnly _Recomendaciones As String
     Private ReadOnly _Nombre As String
     Private ReadOnly _Descripcion As String
     Private ReadOnly _Urgencia As Integer
+    Private ReadOnly _Frecuencia As Decimal
 
     Public ReadOnly Property Recomendaciones As String
         Get
@@ -28,7 +30,13 @@
         End Get
     End Property
 
-    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String)
+    Public ReadOnly Property Frecuencia As Decimal
+        Get
+            Return _Frecuencia
+        End Get
+    End Property
+
+    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String, frecuencia As Decimal)
         ' Manejo de errores
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -61,10 +69,21 @@
             Throw New ArgumentException("El largo de las recomendaciones no debe superar los 1000 caracteres.")
         End If
 
+        _ID = Integer.MinValue
         _Nombre = nombre
         _Descripcion = descripcion
         _Urgencia = urgencia
         _Recomendaciones = recomendaciones
+        _Frecuencia = frecuencia
+    End Sub
+
+    Public Sub New(id As Integer, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
+        _ID = id
+        _Nombre = nombre
+        _Descripcion = descripcion
+        _Urgencia = urgencia
+        _Recomendaciones = recomendaciones
+        _Frecuencia = Decimal.MinValue
     End Sub
 
     Public Overrides Function ToString() As String

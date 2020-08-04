@@ -1,32 +1,13 @@
 ﻿Public Module Enumerados
-    'Public Enum ClasesSimples
-    '    DiagnosticoPrimario
-    '    DiagnosticoDiferencial
-    '    Enfermedad
-    '    Especialidad
-    '    Localidad
-    '    Sintoma
-    '    Usuario
-    '    Chat
-    '    Mensaje
-    'End Enum
-
-    'Public Enum ClasesConHerencia
-    '    Administrativo
-    '    Paciente
-    '    Medico
-    '    DiagnosticoPrimarioConConsulta
-    'End Enum
-
     Public Enum Clases
         DiagnosticoPrimario
         DiagnosticoDiferencial
         Enfermedad
         Especialidad
+        Departamento
         Localidad
         Sintoma
         Usuario
-        Chat
         Mensaje
         Administrativo
         Paciente
@@ -39,6 +20,12 @@
         Paciente
     End Enum
 
+    Public Enum TiposSexo
+        M
+        F
+        O
+    End Enum
+
     Public Enum TiposDiagnosticosPrimarios
         Sin_Consulta
         Con_Consulta
@@ -48,5 +35,18 @@
         Paciente
         Medico
         Administrativo
+    End Enum
+
+    Public Enum FormatosAdmitidos
+        PDF
+        JPG
+        JPEG
+        PNG
+        Texto
+    End Enum
+
+    Public Enum TiposRemitente
+        Medico
+        Paciente
     End Enum
 End Module

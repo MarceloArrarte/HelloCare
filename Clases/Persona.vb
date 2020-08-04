@@ -4,7 +4,7 @@
     Private ReadOnly _Nombre As String
     Private ReadOnly _Apellido As String
     Private ReadOnly _Correo As String
-    Private ReadOnly _IDLocalidad As Integer
+    Private ReadOnly _Localidad As Localidad
     Private ReadOnly _Tipo As TiposPersona
 
     Protected ReadOnly Property ID As Integer
@@ -37,9 +37,9 @@
         End Get
     End Property
 
-    Protected ReadOnly Property IDLocalidad As Integer
+    Protected ReadOnly Property Localidad As Localidad
         Get
-            Return _IDLocalidad
+            Return _Localidad
         End Get
     End Property
 
@@ -49,7 +49,7 @@
         End Get
     End Property
 
-    Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, idLocalidad As Integer)
+    Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, tipo As TiposPersona)
         ' Manejo de errores de datos ingresados
         ' Célula equivocada o con formato equivocado
         If Not Validaciones.Cedula(ci) Then
@@ -85,17 +85,18 @@
         _Nombre = nombre
         _Apellido = apellido
         _Correo = correo
-        _IDLocalidad = idLocalidad
+        _Localidad = localidad
+        _Tipo = tipo
     End Sub
 
     Protected Sub New(id As Integer, ci As String, nombre As String, apellido As String,
-                      correo As String, idLocalidad As Integer, tipo As Enumerados.TiposPersona)
+                      correo As String, localidad As Localidad, tipo As Enumerados.TiposPersona)
         _ID = id
         _CI = ci
         _Nombre = nombre
         _Apellido = apellido
         _Correo = correo
-        _IDLocalidad = idLocalidad
+        _Localidad = localidad
         _Tipo = tipo
     End Sub
 End Class

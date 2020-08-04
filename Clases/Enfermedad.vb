@@ -7,7 +7,7 @@ Public Class Enfermedad
     Private ReadOnly _Recomendaciones As String
     Private ReadOnly _Gravedad As Integer
     Private ReadOnly _Descripcion As String
-    Private ReadOnly _IDEspecialidad As Integer
+    Private ReadOnly _Especialidad As Especialidad
     Private ReadOnly _Probabilidad As Decimal
 
     Public ReadOnly Property Id As Integer
@@ -40,13 +40,19 @@ Public Class Enfermedad
         End Get
     End Property
 
-    Public ReadOnly Property IDEspecialidad As Integer
+    Public ReadOnly Property Especialidad As Especialidad
         Get
-            Return _IDEspecialidad
+            Return _Especialidad
         End Get
     End Property
 
-    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String, idEspecialidad As Integer, probabilidad As Decimal)
+    Public ReadOnly Property Probabilidad As Decimal
+        Get
+            Return _Probabilidad
+        End Get
+    End Property
+
+    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String, especialidad As Especialidad, probabilidad As Decimal)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -84,27 +90,17 @@ Public Class Enfermedad
         _Descripcion = descripcion
         _Gravedad = gravedad
         _Recomendaciones = recomendaciones
-        _IDEspecialidad = idEspecialidad
+        _Especialidad = especialidad
         _Probabilidad = probabilidad
     End Sub
 
-    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, idEspecialidad As Integer)
+    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, especialidad As Especialidad, probabilidad As Decimal)
         _ID = id
         _Nombre = nombre
         _Descripcion = descripcion
         _Gravedad = gravedad
         _Recomendaciones = recomendaciones
-        _IDEspecialidad = idEspecialidad
-        _Probabilidad = Decimal.MinValue
-    End Sub
-
-    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, idEspecialidad As Integer, probabilidad As Decimal)
-        _ID = id
-        _Nombre = nombre
-        _Descripcion = descripcion
-        _Gravedad = gravedad
-        _Recomendaciones = recomendaciones
-        _IDEspecialidad = idEspecialidad
+        _Especialidad = especialidad
         _Probabilidad = probabilidad
     End Sub
 End Class

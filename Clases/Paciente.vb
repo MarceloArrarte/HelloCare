@@ -3,7 +3,7 @@
 
     Private ReadOnly _TelefonoMovil As String
     Private ReadOnly _TelefonoFijo As String
-    Private ReadOnly _Sexo As Char
+    Private ReadOnly _Sexo As TiposSexo
     Private ReadOnly _FechaNacimiento As Date
     Private ReadOnly _Calle As String
     Private ReadOnly _NumeroPuerta As String
@@ -21,7 +21,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property Sexo As Char
+    Public ReadOnly Property Sexo As TiposSexo
         Get
             Return _Sexo
         End Get
@@ -55,9 +55,9 @@
     End Property
 
     Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
-                   telefonoFijo As String, sexo As Char, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
+                   telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
 
-        MyBase.New(ci, nombre, apellido, correo, localidad)
+        MyBase.New(ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
 
         ' Manejo de errores de datos ingresados
         ' telefonoMovil tiene un valor nulo
@@ -66,7 +66,7 @@
         End If
 
         ' telefonoMovil excede el largo máximo
-        If telefonoMovil.Length >= 9 Then
+        If telefonoMovil.Length > 9 Then
             Throw New ArgumentException("El telefono móvil no puede tener mas de 9 caracteres.")
         End If
 
@@ -76,17 +76,12 @@
         End If
 
         ' telefonoFijo excede el largo máximo
-        If telefonoMovil.Length >= 8 Then
+        If telefonoMovil.Length > 8 Then
             Throw New ArgumentException("El teléfono fijo no puede tener mas de 8 caracteres.")
         End If
 
-        ' sexo tiene un valor nulo
-        If sexo = Nothing Then
-            Throw New ArgumentNullException("sexo", "No se ingresó el sexo del paciente.")
-        End If
-
         ' sexo no tiene un valor válido
-        If sexo.ToString.ToUpper <> "M" And sexo.ToString.ToUpper <> "F" And sexo.ToString.ToUpper <> "O" Then
+        If Not {"M", "F", "O"}.Contains(sexo.ToString.ToUpper) Then
             Throw New ArgumentException("No se ingresó un sexo válido.")
         End If
 
@@ -106,7 +101,7 @@
         End If
 
         ' calle excede el largo máximo
-        If calle.Length >= 100 Then
+        If calle.Length > 100 Then
             Throw New ArgumentException("La calle no puede tener más de 100 caracteres")
         End If
 
@@ -120,11 +115,18 @@
             Throw New ArgumentException("La calle no puede tener más de 10 caracteres")
         End If
 
-        ' apartamento es un número negativo
-        If apartamento < 0 Then
-            Throw New ArgumentException("El apartamento no puede ser un número negativo.")
-        End If
+        _TelefonoMovil = telefonoMovil
+        _TelefonoFijo = telefonoFijo
+        _Sexo = sexo
+        _FechaNacimiento = fechaNacimiento
+        _Calle = calle
+        _NumeroPuerta = numeroPuerta
+        _Apartamento = apartamento
+    End Sub
 
+    Sub New(id As Integer, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
+                   telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
+        MyBase.New(id, ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
         _TelefonoMovil = telefonoMovil
         _TelefonoFijo = telefonoFijo
         _Sexo = sexo
