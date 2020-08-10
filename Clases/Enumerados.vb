@@ -1,5 +1,5 @@
 ﻿Public Module Enumerados
-    Public Enum Clases
+    Public Enum TiposObjeto
         DiagnosticoPrimario
         DiagnosticoDiferencial
         Enfermedad
