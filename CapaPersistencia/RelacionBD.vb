@@ -44,10 +44,10 @@
         _NombreClaveExterna = nombreClaveExterna
     End Sub
 
-    Public Sub AgregarRelacion(ByRef datos As DataSet)
+    Public Sub AgregarRelacionA(ByRef datos As DataSet)
         Dim tablaPrim As DataTable = datos.Tables(NombreTablaPrimaria)
         Dim tablaExt As DataTable = datos.Tables(NombreTablaExterna)
         Dim relacion As New DataRelation(Nombre, tablaPrim.Columns(NombreClavePrimaria), tablaExt.Columns(NombreClaveExterna))
-        datos.Relations.Add(relacion)
+        datos.Relations.Add(New DataRelation(relacion.RelationName, relacion.ParentColumns.Single, relacion.ChildColumns.Single, False))
     End Sub
 End Class

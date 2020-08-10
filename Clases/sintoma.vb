@@ -4,7 +4,14 @@
     Private ReadOnly _Nombre As String
     Private ReadOnly _Descripcion As String
     Private ReadOnly _Urgencia As Integer
-    Private ReadOnly _Frecuencia As Decimal
+    Private ReadOnly _Enfermedades As EnfermedadesAsociadas
+    Private ReadOnly _Habilitado As Boolean
+
+    Public ReadOnly Property ID As Integer
+        Get
+            Return _ID
+        End Get
+    End Property
 
     Public ReadOnly Property Recomendaciones As String
         Get
@@ -30,13 +37,31 @@
         End Get
     End Property
 
-    Public ReadOnly Property Frecuencia As Decimal
+    Public ReadOnly Property Enfermedades As List(Of Enfermedad)
         Get
-            Return _Frecuencia
+            Return _Enfermedades.Items
         End Get
     End Property
 
-    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String, frecuencia As Decimal)
+    Public ReadOnly Property Enfermedad(indice As Integer) As Enfermedad
+        Get
+            Return _Enfermedades.Item(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property Frecuencia(indice As Integer) As Decimal
+        Get
+            Return _Enfermedades.Frecuencia(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property Habilitado As Boolean
+        Get
+            Return _Habilitado
+        End Get
+    End Property
+
+    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String, enfermedades As EnfermedadesAsociadas)
         ' Manejo de errores
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -74,16 +99,19 @@
         _Descripcion = descripcion
         _Urgencia = urgencia
         _Recomendaciones = recomendaciones
-        _Frecuencia = frecuencia
+        _Enfermedades = enfermedades
+        _Habilitado = True
     End Sub
 
-    Public Sub New(id As Integer, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
+    Public Sub New(id As Integer, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
+                   enfermedades As EnfermedadesAsociadas, habilitado As Boolean)
         _ID = id
         _Nombre = nombre
         _Descripcion = descripcion
         _Urgencia = urgencia
         _Recomendaciones = recomendaciones
-        _Frecuencia = Decimal.MinValue
+        _Enfermedades = enfermedades
+        _Habilitado = habilitado
     End Sub
 
     Public Overrides Function ToString() As String

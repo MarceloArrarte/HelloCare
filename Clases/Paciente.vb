@@ -7,7 +7,7 @@
     Private ReadOnly _FechaNacimiento As Date
     Private ReadOnly _Calle As String
     Private ReadOnly _NumeroPuerta As String
-    Private ReadOnly _Apartamento As Integer
+    Private ReadOnly _Apartamento As String
 
     Public ReadOnly Property TelefonoMovil As String
         Get
@@ -33,13 +33,11 @@
         End Get
     End Property
 
-
     Public ReadOnly Property Calle As String
         Get
             Return _Calle
         End Get
     End Property
-
 
     Public ReadOnly Property NumeroPuerta As String
         Get
@@ -47,15 +45,14 @@
         End Get
     End Property
 
-
-    Public ReadOnly Property Apartamento As Integer
+    Public ReadOnly Property Apartamento As String
         Get
             Return _Apartamento
         End Get
     End Property
 
     Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
-                   telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
+            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As String)
 
         MyBase.New(ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
 
@@ -101,7 +98,7 @@
         End If
 
         ' calle excede el largo máximo
-        If calle.Length > 100 Then
+        If calle.Length >= 100 Then
             Throw New ArgumentException("La calle no puede tener más de 100 caracteres")
         End If
 
@@ -125,7 +122,7 @@
     End Sub
 
     Sub New(id As Integer, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
-                   telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As Integer)
+            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As String)
         MyBase.New(id, ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
         _TelefonoMovil = telefonoMovil
         _TelefonoFijo = telefonoFijo

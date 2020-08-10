@@ -1,18 +1,13 @@
 ﻿Public Class Usuario
     Private ReadOnly _ID As Integer
-    Private ReadOnly _CIPaciente As String
     Private ReadOnly _Contrasena As String
-    Private ReadOnly _Tipo As TiposUsuarios
+    Private ReadOnly _Persona As Persona
+    Private ReadOnly _Tipo As TiposUsuario
+    Private ReadOnly _Habilitado As Boolean
 
     Public ReadOnly Property ID As Integer
         Get
             Return _ID
-        End Get
-    End Property
-
-    Public ReadOnly Property CIPaciente As String
-        Get
-            Return _CIPaciente
         End Get
     End Property
 
@@ -22,17 +17,27 @@
         End Get
     End Property
 
-    Public ReadOnly Property Tipo As TiposUsuarios
+    Public ReadOnly Property Persona As Persona
+        Get
+            Return _Persona
+        End Get
+    End Property
+
+    Public ReadOnly Property Tipo As TiposUsuario
         Get
             Return _Tipo
         End Get
     End Property
 
-    Public Sub New(ciPaciente As String, contrasena As String, tipo As TiposUsuarios)
+    Public Sub New(contrasena As String, persona As Persona)
         ' Manejo de errores de datos ingresados
         ' contrasena tiene un valor nulo
         If contrasena Is Nothing Then
             Throw New ArgumentNullException("contrasena", "La contraseña se encuentra vacía.")
+        End If
+
+        If ID.Equals(Nothing) Then
+            Throw New ArgumentNullException("ID", "ID se encuentra vacía.")
         End If
 
         ' contrasena excede el largo máximo
@@ -41,28 +46,33 @@
         End If
 
         _ID = Integer.MinValue
-        _CIPaciente = ciPaciente
         _Contrasena = contrasena
-        _Tipo = tipo
+        _Persona = persona
+        '_Tipo = persona.Tipo
+        Select Case persona.GetType
+            Case GetType(Paciente)
+                _Tipo = TiposUsuario.Paciente
+            Case GetType(Medico)
+                _Tipo = TiposUsuario.Medico
+            Case GetType(Administrativo)
+                _Tipo = TiposUsuario.Administrativo
+        End Select
+        _Habilitado = True
     End Sub
 
-    Public Sub New(id As Integer, ciPaciente As String, contrasena As String, tipo As TiposUsuarios)
+    Public Sub New(id As Integer, contrasena As String, persona As Persona, habilitado As Boolean)
         _ID = id
-        _CIPaciente = ciPaciente
         _Contrasena = contrasena
-        _Tipo = tipo
+        _Persona = persona
+        '_Tipo = persona.Tipo
+        Select Case persona.GetType
+            Case GetType(Paciente)
+                _Tipo = TiposUsuario.Paciente
+            Case GetType(Medico)
+                _Tipo = TiposUsuario.Medico
+            Case GetType(Administrativo)
+                _Tipo = TiposUsuario.Administrativo
+        End Select
+        _Habilitado = habilitado
     End Sub
-
-    ' Indica si una combinación de usuario y contraseña es válida, o lanza una excepción si no lo es
-    Public Shared Function Autenticar(ByVal ci_usuario As String, ByVal contrasena As String) As Boolean
-        Dim administrativoRegistrado As Usuario_Administrativo = BuscarUsuariosAdministrativos(ci_usuario).SingleOrDefault
-        If administrativoRegistrado Is Nothing Then
-            Throw New Exception("No se encontró un usuario de administrativo para esta cédula.")
-        End If
-        If administrativoRegistrado.Contrasena = contrasena Then
-            Return True
-        Else
-            Throw New Exception("La contraseña en incorrecta.")
-        End If
-    End Function
 End Class

@@ -7,8 +7,9 @@ Public Class Enfermedad
     Private ReadOnly _Recomendaciones As String
     Private ReadOnly _Gravedad As Integer
     Private ReadOnly _Descripcion As String
+    Private ReadOnly _Sintomas As SintomasAsociados
     Private ReadOnly _Especialidad As Especialidad
-    Private ReadOnly _Probabilidad As Decimal
+    Private ReadOnly _Habilitada As Boolean
 
     Public ReadOnly Property Id As Integer
         Get
@@ -40,19 +41,38 @@ Public Class Enfermedad
         End Get
     End Property
 
+    Public ReadOnly Property Sintoma(indice As Integer) As Sintoma
+        Get
+            Return _Sintomas.Item(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property FrecuenciaSintoma(indice As Integer) As Decimal
+        Get
+            Return _Sintomas.Frecuencia(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property Sintomas As List(Of Sintoma)
+        Get
+            Return _Sintomas.Items
+        End Get
+    End Property
+
     Public ReadOnly Property Especialidad As Especialidad
         Get
             Return _Especialidad
         End Get
     End Property
 
-    Public ReadOnly Property Probabilidad As Decimal
+    Public ReadOnly Property Habilitada As Boolean
         Get
-            Return _Probabilidad
+            Return _Habilitada
         End Get
     End Property
 
-    Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String, especialidad As Especialidad, probabilidad As Decimal)
+    Public Sub New(nombre As String, recomendaciones As String, gravedad As String, descripcion As String, sintomas As SintomasAsociados,
+            especialidad As Especialidad)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -91,16 +111,23 @@ Public Class Enfermedad
         _Gravedad = gravedad
         _Recomendaciones = recomendaciones
         _Especialidad = especialidad
-        _Probabilidad = probabilidad
+        _Sintomas = sintomas
+        _Habilitada = True
     End Sub
 
-    Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, especialidad As Especialidad, probabilidad As Decimal)
+    Public Sub New(id As Integer, nombre As String, recomendaciones As String, gravedad As Integer, descripcion As String, sintomas As SintomasAsociados,
+            especialidad As Especialidad, habilitada As Boolean)
         _ID = id
         _Nombre = nombre
         _Descripcion = descripcion
         _Gravedad = gravedad
         _Recomendaciones = recomendaciones
         _Especialidad = especialidad
-        _Probabilidad = probabilidad
+        _Sintomas = sintomas
+        _Habilitada = habilitada
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return _Nombre
+    End Function
 End Class

@@ -1,7 +1,7 @@
 ﻿Public Class DiagnosticoPrimario
     Protected ReadOnly _ID As Integer
     Protected ReadOnly _Paciente As Paciente
-    Protected ReadOnly _Enfermedades As New List(Of Enfermedad)
+    Protected ReadOnly _Enfermedades As EnfermedadesDiagnosticadas
     Protected ReadOnly _FechaHora As Date
     Protected ReadOnly _Tipo As TiposDiagnosticosPrimarios
 
@@ -17,9 +17,21 @@
         End Get
     End Property
 
+    Public ReadOnly Property Enfermedad(indice As Integer) As Enfermedad
+        Get
+            Return _Enfermedades.Item(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property Probabilidad(indice As Integer) As Decimal
+        Get
+            Return _Enfermedades.Probabilidad(indice)
+        End Get
+    End Property
+
     Public ReadOnly Property Enfermedades As List(Of Enfermedad)
         Get
-            Return _Enfermedades.ToList
+            Return _Enfermedades.Items
         End Get
     End Property
 
@@ -35,27 +47,27 @@
         End Get
     End Property
 
-    Public Sub New(paciente As Paciente, enfermedades As List(Of Enfermedad), fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public Sub New(paciente As Paciente, enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
         ' Manejo de errores de datos ingresados
         ' Errores en la cédula
-        If Not Validaciones.Cedula(ciPaciente) Then
-            Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
-        End If
+        'If Not Validaciones.Cedula(ciPaciente) Then
+        '    Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
+        'End If
 
-        ' El nombre de la enfermedad está vacío
-        If nombreEnfermedad Is Nothing Then
-            Throw New ArgumentNullException("nombreEnfermedad", "El nombre de la enfermedad diagnosticada se encuentra vacío.")
-        End If
+        '' El nombre de la enfermedad está vacío
+        'If nombreEnfermedad Is Nothing Then
+        '    Throw New ArgumentNullException("nombreEnfermedad", "El nombre de la enfermedad diagnosticada se encuentra vacío.")
+        'End If
 
-        ' El nombre de la enfermedad excede el largo máximo
-        If nombreEnfermedad.Length > 100 Then
-            Throw New ArgumentException("El nombre de la enfermedad diagnosticada excede el largo máximo.")
-        End If
+        '' El nombre de la enfermedad excede el largo máximo
+        'If nombreEnfermedad.Length > 100 Then
+        '    Throw New ArgumentException("El nombre de la enfermedad diagnosticada excede el largo máximo.")
+        'End If
 
-        ' La fecha del diagnóstico es posterior al momento actual
-        If fechaHora > Now Then
-            Throw New ArgumentException("La fecha del diagnóstico primario es posterior al momento actual.")
-        End If
+        '' La fecha del diagnóstico es posterior al momento actual
+        'If fechaHora > Now Then
+        '    Throw New ArgumentException("La fecha del diagnóstico primario es posterior al momento actual.")
+        'End If
 
         _ID = Integer.MinValue
         _Paciente = paciente
@@ -64,7 +76,7 @@
         _Tipo = tipo
     End Sub
 
-    Public Sub New(id As Integer, paciente As Paciente, enfermedades As List(Of Enfermedad), fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public Sub New(id As Integer, paciente As Paciente, enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
         _ID = id
         _Paciente = paciente
         _Enfermedades = enfermedades

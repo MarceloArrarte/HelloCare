@@ -15,9 +15,20 @@
         DiagnosticoPrimarioConConsulta
     End Enum
 
+    Public Enum TiposSeleccionBD
+        Habilitados
+        Deshabilitados
+        Ambos
+    End Enum
+
     Public Enum TiposPersona
         Funcionario
         Paciente
+    End Enum
+
+    Public Enum TiposFuncionario
+        Administrativo
+        Medico
     End Enum
 
     Public Enum TiposSexo
@@ -31,18 +42,18 @@
         Con_Consulta
     End Enum
 
-    Public Enum TiposUsuarios
+    Public Enum TiposUsuario
         Paciente
         Medico
         Administrativo
     End Enum
 
-    Public Enum FormatosAdmitidos
+    Public Enum FormatosMensajeAdmitidos
         PDF
         JPG
         JPEG
         PNG
-        Texto
+        TXT
     End Enum
 
     Public Enum TiposRemitente

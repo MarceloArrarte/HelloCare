@@ -1,7 +1,13 @@
 ﻿Public Class Localidad
     Private ReadOnly _ID As Integer
     Private ReadOnly _Nombre As String
-    Private ReadOnly _IDDepartamento As String
+    Private ReadOnly _Departamento As Departamento
+
+    Public ReadOnly Property ID As Integer
+        Get
+            Return _ID
+        End Get
+    End Property
 
     Public ReadOnly Property Nombre As String
         Get
@@ -9,13 +15,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property IDDepartamento As String
+    Public ReadOnly Property Departamento As Departamento
         Get
-            Return _IDDepartamento
+            Return _Departamento
         End Get
     End Property
 
-    Public Sub New(nombre As String, idDepartamento As Integer)
+    Public Sub New(nombre As String, departamento As Departamento)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -28,12 +34,16 @@
         End If
 
         _Nombre = nombre
-        _IDDepartamento = idDepartamento
+        _Departamento = departamento
     End Sub
 
-    Public Sub New(id As Integer, nombre As String, idDepartamento As Integer)
+    Public Sub New(id As Integer, nombre As String, departamento As Departamento)
         _ID = id
         _Nombre = nombre
-        _IDDepartamento = idDepartamento
+        _Departamento = departamento
     End Sub
+
+    Public Overrides Function ToString() As String
+        Return _Nombre
+    End Function
 End Class
