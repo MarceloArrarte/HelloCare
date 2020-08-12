@@ -63,7 +63,7 @@ Partial Class FrmModificacionSintomas
         '
         'txtRecomendaciones
         '
-        Me.txtRecomendaciones.Location = New System.Drawing.Point(184, 191)
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(184, 195)
         Me.txtRecomendaciones.Multiline = True
         Me.txtRecomendaciones.Name = "txtRecomendaciones"
         Me.txtRecomendaciones.Size = New System.Drawing.Size(461, 99)
@@ -88,7 +88,7 @@ Partial Class FrmModificacionSintomas
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 194)
+        Me.Label4.Location = New System.Drawing.Point(17, 198)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(155, 13)
         Me.Label4.TabIndex = 9
@@ -145,7 +145,7 @@ Partial Class FrmModificacionSintomas
         Me.txtUrgencia.Location = New System.Drawing.Point(184, 164)
         Me.txtUrgencia.Multiline = True
         Me.txtUrgencia.Name = "txtUrgencia"
-        Me.txtUrgencia.Size = New System.Drawing.Size(461, 21)
+        Me.txtUrgencia.Size = New System.Drawing.Size(461, 25)
         Me.txtUrgencia.TabIndex = 2
         '
         'Label8

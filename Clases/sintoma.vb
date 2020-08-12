@@ -43,13 +43,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property Enfermedad(indice As Integer) As Enfermedad
+    Public ReadOnly Property Enfermedades(indice As Integer) As Enfermedad
         Get
             Return _Enfermedades.Item(indice)
         End Get
     End Property
 
-    Public ReadOnly Property Frecuencia(indice As Integer) As Decimal
+    Public ReadOnly Property FrecuenciaEnfermedad(indice As Integer) As Decimal
         Get
             Return _Enfermedades.Frecuencia(indice)
         End Get
@@ -61,7 +61,7 @@
         End Get
     End Property
 
-    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String, enfermedades As EnfermedadesAsociadas)
+    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer, enfermedades As EnfermedadesAsociadas)
         ' Manejo de errores
         ' nombre tiene un valor nulo
         If nombre = Nothing Then

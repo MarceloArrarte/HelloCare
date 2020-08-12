@@ -1,4 +1,5 @@
 ﻿Public Module Enumerados
+#Region "Atributos de clases"
     Public Enum TiposObjeto
         DiagnosticoPrimario
         DiagnosticoDiferencial
@@ -59,5 +60,12 @@
     Public Enum TiposRemitente
         Medico
         Paciente
+    End Enum
+#End Region
+
+    Public Enum ResultadosLogin
+        [Error]
+        OK
+        SinUsuario
     End Enum
 End Module

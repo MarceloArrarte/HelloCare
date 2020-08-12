@@ -4,13 +4,13 @@ Imports Clases
 Public Class FrmListadoEnfermedades
     ' Cada vez que el formulario recibe el foco, actualiza las enfermedades del sistema
     Private Sub FrmListadoEnfermedades_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        MostrarEnfermedades()
+        ActualizarEnfermedades()
     End Sub
 
-    Private Sub MostrarEnfermedades()
+    Private Sub ActualizarEnfermedades()
         tblEnfermedades.Rows.Clear()
-        For Each enfermedad As Enfermedad In BuscarEnfermedades("", True).ToArray
-            tblEnfermedades.Rows.Add(enfermedad, enfermedad.Nombre, enfermedad.Descripcion, enfermedad.Gravedad, enfermedad.Recomendaciones)
+        For Each e As Enfermedad In CargarTodasLasEnfermedades()
+            tblEnfermedades.Rows.Add(e, e.Nombre, e.Descripcion, e.Gravedad, e.Recomendaciones)
         Next
         tblEnfermedades.ClearSelection()
     End Sub
@@ -70,7 +70,7 @@ Public Class FrmListadoEnfermedades
                     EliminarEnfermedad(enfermedad)
                     EliminarAsociacionSintoma(enfermedad)
                 Next
-                MostrarEnfermedades()
+                ActualizarEnfermedades()
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

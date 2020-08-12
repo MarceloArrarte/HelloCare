@@ -1,10 +1,163 @@
 ﻿Imports Clases
+Imports CapaPersistencia
+Imports System.CodeDom
+Imports System.Windows.Forms
 
 Public Module Principal
-#Region "Sección aplicación pacientes"
+    Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
+        If Not TienePersonaRegistrada(ci, TiposPersona.Paciente) Then
+            Return ResultadosLogin.Error
+        End If
 
-#End Region
+        Dim paciente As Paciente = ObtenerPacientePorCI(ci)
+        If Not TieneUsuarioRegistrado(paciente) Then
+            Return ResultadosLogin.SinUsuario
+        End If
 
+        Dim usuarioPaciente As Usuario = ObtenerUsuarioPorPersona(paciente)
+        If contrasena = usuarioPaciente.Contrasena Then
+            Return ResultadosLogin.OK
+        Else
+            Return ResultadosLogin.Error
+        End If
+    End Function
+
+    Public Function AutenticarUsuarioFuncionario(ci As String, contrasena As String, tipoUsuario As TiposFuncionario) As ResultadosLogin
+        If Not TienePersonaRegistrada(ci, TiposPersona.Funcionario) Then
+            Return ResultadosLogin.Error
+        End If
+
+        Dim funcionario As Persona = Nothing
+        Select Case tipoUsuario
+            Case TiposFuncionario.Medico
+                funcionario = ObtenerMedicoPorCI(ci)
+            Case TiposFuncionario.Administrativo
+                funcionario = ObtenerAdministrativoPorCI(ci)
+        End Select
+
+        If Not TieneUsuarioRegistrado(funcionario) Then
+            Return ResultadosLogin.SinUsuario
+        End If
+
+        Dim usuarioFuncionario As Usuario = ObtenerUsuarioPorPersona(funcionario)
+        If contrasena = usuarioFuncionario.Contrasena Then
+            Return ResultadosLogin.OK
+        Else
+            Return ResultadosLogin.Error
+        End If
+    End Function
+
+    Public Function CargarTodosLosSintomas() As List(Of Sintoma)
+        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Sintoma)
+        Dim listaConvertida As New List(Of Sintoma)
+        For Each s As Sintoma In listaBase
+            listaConvertida.Add(s)
+        Next
+        Return listaConvertida
+    End Function
+
+    Public Function CargarTodasLasEnfermedades() As List(Of Enfermedad)
+        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Enfermedad)
+        Dim listaConvertida As New List(Of Enfermedad)
+        For Each e As Enfermedad In listaBase
+            listaConvertida.Add(e)
+        Next
+        Return listaConvertida
+    End Function
+
+    Public Function CargarTodasLasEspecialidades() As List(Of Especialidad)
+        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Especialidad)
+        Dim listaConvertida As New List(Of Especialidad)
+        For Each e As Especialidad In listaBase
+            listaConvertida.Add(e)
+        Next
+        Return listaConvertida
+    End Function
+
+    Public Function DuplicarFila(filaADuplicar As DataGridViewRow) As DataGridViewRow
+        Dim nuevaFila As DataGridViewRow = filaADuplicar.Clone
+        For i = 0 To filaADuplicar.Cells.Count - 1
+            nuevaFila.Cells(i).Value = filaADuplicar.Cells(0).Value
+        Next
+        Return nuevaFila
+    End Function
+
+    Public Function RealizarDiagnostico(sintomasIngresados As List(Of Sintoma), ByRef enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas,
+                                        ByRef certeza As Decimal) As Enfermedad
+
+        Dim listaEnfermedadesPosibles As New List(Of Enfermedad)
+        Dim listaProbabilidades As New List(Of Decimal)
+        Dim enfermedadMasProbable As Enfermedad = Nothing
+
+        For Each e As Enfermedad In CargarTodasLasEnfermedades()
+            Dim cantidadSintomasExistentes As Integer = e.Sintomas.Count
+            Dim cantidadSintomasCoincidentes As Integer = 0
+            Dim listaFrecuencias As New List(Of Decimal)
+            For i = 0 To cantidadSintomasExistentes
+                If sintomasIngresados.Contains(e.Sintomas(i)) Then
+                    cantidadSintomasCoincidentes += 1
+                    listaFrecuencias.Add(e.FrecuenciaSintoma(i))
+                Else
+                    listaFrecuencias.Add(0)
+                End If
+            Next
+
+            Dim porcentajeSintomasCoincidentes As Double = (Double.Parse(cantidadSintomasCoincidentes) / Double.Parse(cantidadSintomasExistentes)) * 100
+
+            Dim porcentajeProbabilidad As Double = 0
+            For Each frecuencia As Decimal In listaFrecuencias
+                porcentajeProbabilidad += frecuencia
+            Next
+            porcentajeProbabilidad /= cantidadSintomasExistentes
+
+            If porcentajeSintomasCoincidentes > 0 Then
+                listaEnfermedadesPosibles.Add(e)
+                listaProbabilidades.Add(porcentajeProbabilidad)
+
+                If porcentajeProbabilidad > certeza Then
+                    certeza = porcentajeProbabilidad
+                    enfermedadMasProbable = e
+                End If
+            End If
+        Next
+
+        enfermedadesDiagnosticadas = New EnfermedadesDiagnosticadas(listaEnfermedadesPosibles, listaProbabilidades)
+        Return enfermedadMasProbable
+    End Function
+
+    Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
+                              listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
+
+        Dim nuevoSintoma As New Sintoma(nombre, descripcion, recomendaciones, urgencia, New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias))
+        InsertarObjeto(nuevoSintoma, TiposObjeto.Sintoma)
+    End Sub
+
+    Public Sub CrearEnfermedad(nombre As String, descripcion As String, recomendaciones As String, gravedad As Integer,
+                               listaSintomas As List(Of Sintoma), listaFrecuencias As List(Of Decimal), especialidad As Especialidad)
+
+        Dim nuevaEnfermedad As New Enfermedad(nombre, recomendaciones, gravedad, descripcion,
+                                              New SintomasAsociados(listaSintomas, listaFrecuencias), especialidad)
+
+        InsertarObjeto(nuevaEnfermedad, TiposObjeto.Enfermedad)
+    End Sub
+
+    Public Sub ActualizarSintoma(sintomaViejo As Sintoma, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
+                                      listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
+
+        Dim nuevoSintoma As New Sintoma(sintomaViejo.ID, nombre, descripcion, recomendaciones, urgencia,
+                                        New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias), sintomaViejo.Habilitado)
+        ModificarObjeto(nuevoSintoma, TiposObjeto.Sintoma)
+    End Sub
+
+    Public Sub ActualizarEnfermedad(enfermedadVieja As Enfermedad, nombre As String, descripcion As String, recomendaciones As String, gravedad As Integer,
+                                    listaSintomas As List(Of Sintoma), listaFrecuencias As List(Of Decimal), especialidad As Especialidad)
+
+        Dim nuevaEnfermedad As New Enfermedad(enfermedadVieja.Id, nombre, recomendaciones, gravedad, descripcion,
+                                              New SintomasAsociados(listaSintomas, listaFrecuencias), especialidad, enfermedadVieja.Habilitada)
+        ModificarObjeto(nuevaEnfermedad, TiposObjeto.Enfermedad)
+    End Sub
+
+    Public Sub EliminarSintoma(sintoma As Sintoma)
 
 
 

@@ -20,26 +20,130 @@ Public Class FrmModificacionEnfermedades
         txtGravedad.Text = enfermedad.Gravedad
         txtRecomendaciones.Text = enfermedad.Recomendaciones
 
+        ' Precarga los datos de los síntomas asociados a la enfermedad
+        For i = 0 To enfermedad.Sintomas.Count - 1
+            tblAsociados.Rows.Add(enfermedad.Sintomas(i), enfermedad.Sintomas(i).Nombre, enfermedad.FrecuenciaSintoma(i) & "%")
+        Next
+
         ' Almacena la enfermedad que se va a estar modificando
         enfermedadAModificar = enfermedad
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Close()
+    Private Sub FrmModificacionEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each sintoma As Sintoma In CargarTodosLosSintomas()
+            tblSintomas.Rows.Add(sintoma, sintoma.Nombre)
+        Next
+        For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
+            tblEspecialidades.Rows.Add(especialidad)
+        Next
     End Sub
 
-    ' Crea un objeto Enfermedad con los nuevos datos. Si no hay ningún error, sustituye en el sistema
-    ' la enfermedad vieja por la nueva
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
+    Private Sub txtBuscarSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarSintoma.TextChanged
+        OcultarSintomasSeleccionadosOFiltrados()
+    End Sub
+
+    Private Sub txtBuscarEspecialidades_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidades.TextChanged
+        For Each r As DataGridViewRow In tblEspecialidades.Rows
+            If r.Cells(0).ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                If Not r.Selected Then
+                    r.Visible = False
+                End If
+            End If
+        Next
+    End Sub
+
+    Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
+        If tblSintomas.SelectedRows.Count > 0 Then
+            For Each r As DataGridViewRow In tblSintomas.SelectedRows
+                tblAsociados.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "")
+            Next
+            OcultarSintomasSeleccionadosOFiltrados()
+        Else
+            MsgBox("Debe seleccionar al menos uno de los síntomas disponibles.", MsgBoxStyle.Critical, "Error")
+        End If
+    End Sub
+
+    Private Sub btnQuitarSintoma_Click(sender As Object, e As EventArgs) Handles btnQuitarSintoma.Click
+        If tblAsociados.SelectedRows.Count > 0 Then
+            For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
+                For Each rPatologia As DataGridViewRow In tblSintomas.Rows
+                    If rPatologia.Cells(1).Value = rAsociada.Cells(1).Value Then
+                        rPatologia.Visible = True
+                    End If
+                Next
+                tblAsociados.Rows.Remove(rAsociada)
+            Next
+            OcultarSintomasSeleccionadosOFiltrados()
+        Else
+            MsgBox("Debe seleccionar al menos uno de los síntomas asociados.", MsgBoxStyle.Critical, "Error")
+        End If
+    End Sub
+
+    Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         Try
-            Dim enfermedadNueva As New Enfermedad(txtNombre.Text, txtRecomendaciones.Text, txtGravedad.Text, txtDescripcion.Text)
-            ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
-            MsgBox("Modificación realizada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
-            requiereConfirmacionSalida = False          ' Si no hubo errores, permite que el formulario se cierre automáticamente
+            Dim especialidad As Especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
+            Dim listaSintomas As New List(Of Sintoma)
+            Dim listaFrecuencias As New List(Of Decimal)
+            For Each r As DataGridViewRow In tblAsociados.Rows
+                listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
+                listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+            Next
+
+            ActualizarEnfermedad(enfermedadAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text,
+                                 listaSintomas, listaFrecuencias, especialidad)
+
+            MsgBox("Modificación realizada con éxito")
+            requiereConfirmacionSalida = False
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    '' Crea un objeto Enfermedad con los nuevos datos. Si no hay ningún error, sustituye en el sistema
+    '' la enfermedad vieja por la nueva
+    'Private Sub btnModificar_Click(sender As Object, e As EventArgs)
+    '    Try
+    '        Dim enfermedadNueva As New Enfermedad(txtNombre.Text, txtRecomendaciones.Text, txtGravedad.Text, txtDescripcion.Text)
+    '        ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
+    '        MsgBox("Modificación realizada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+    '        requiereConfirmacionSalida = False          ' Si no hubo errores, permite que el formulario se cierre automáticamente
+    '        Me.Close()
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+    '    End Try
+    'End Sub
+
+    Private Sub OcultarSintomasSeleccionadosOFiltrados()
+        ' Oculta por filtro de texto
+        For Each r As DataGridViewRow In tblSintomas.Rows
+            If r.Cells(1).Value.ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                r.Visible = False
+            End If
+        Next
+
+        ' Oculta las patologías ya seleccionadas
+        For Each rAsociada As DataGridViewRow In tblAsociados.Rows
+            For Each rPatologia As DataGridViewRow In tblSintomas.Rows
+                If rAsociada.Cells(1).Value = rPatologia.Cells(1).Value Then
+                    rPatologia.Visible = False
+                End If
+            Next
+        Next
+        DeseleccionarTablas()
+    End Sub
+
+    Private Sub DeseleccionarTablas()
+        tblAsociados.ClearSelection()
+        tblSintomas.ClearSelection()
+    End Sub
+
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 
     ' Si intenta cerrar el formulario sin guardar cambios, solicita confirmación

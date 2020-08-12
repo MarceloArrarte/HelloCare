@@ -5,22 +5,109 @@ Public Class FrmAltaEnfermedades
     ' Esta bandera se implementa para indicar al evento FormClosing 
     ' si el formulario se cierra para volver sin guardar o habiendo ingresado datos
     Private requiereConfirmacionSalida As Boolean = True
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Close()
+
+    Private Sub FrmAltaEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each sintoma As Sintoma In CargarTodosLosSintomas()
+            tblSintomas.Rows.Add(sintoma, sintoma.Nombre)
+        Next
+        For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
+            tblEspecialidades.Rows.Add(especialidad)
+        Next
+    End Sub
+
+    Private Sub txtBuscarSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarSintoma.TextChanged
+        OcultarSintomasSeleccionadosOFiltrados()
+    End Sub
+
+    Private Sub txtBuscarEspecialidades_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidades.TextChanged
+        For Each r As DataGridViewRow In tblEspecialidades.Rows
+            If r.Cells(0).ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                If Not r.Selected Then
+                    r.Visible = False
+                End If
+            End If
+        Next
     End Sub
 
     ' Intenta crear un nuevo objeto y atrapa cualquier error que se produzca.
     ' Si no hay ningún error informa al usuario que la creación fue exitosa y cierra la ventana.
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         Try
-            Dim enfermedad As New Enfermedad(txtNombre.Text, txtRecomendacionesSintoma.Text, txtGravedad.Text, txtDescripcion.Text)
-            IngresarEnfermedad(enfermedad)
+            Dim especialidad As Especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
+            Dim listaSintomas As New List(Of Sintoma)
+            Dim listaFrecuencias As New List(Of Decimal)
+            For Each r As DataGridViewRow In tblAsociados.Rows
+                listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
+                listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+            Next
+
+            CrearEnfermedad(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text, listaSintomas, listaFrecuencias, especialidad)
+
             MsgBox("Enfermedad agregada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
             requiereConfirmacionSalida = False
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
+        If tblSintomas.SelectedRows.Count > 0 Then
+            For Each r As DataGridViewRow In tblSintomas.SelectedRows
+                tblAsociados.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "")
+            Next
+            OcultarSintomasSeleccionadosOFiltrados()
+        Else
+            MsgBox("Debe seleccionar al menos uno de los síntomas disponibles.", MsgBoxStyle.Critical, "Error")
+        End If
+    End Sub
+
+    Private Sub btnQuitarSintoma_Click(sender As Object, e As EventArgs) Handles btnQuitarSintoma.Click
+        If tblAsociados.SelectedRows.Count > 0 Then
+            For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
+                For Each rPatologia As DataGridViewRow In tblSintomas.Rows
+                    If rPatologia.Cells(1).Value = rAsociada.Cells(1).Value Then
+                        rPatologia.Visible = True
+                    End If
+                Next
+                tblAsociados.Rows.Remove(rAsociada)
+            Next
+            OcultarSintomasSeleccionadosOFiltrados()
+        Else
+            MsgBox("Debe seleccionar al menos uno de los síntomas asociados.", MsgBoxStyle.Critical, "Error")
+        End If
+    End Sub
+
+    Private Sub OcultarSintomasSeleccionadosOFiltrados()
+        ' Oculta por filtro de texto
+        For Each r As DataGridViewRow In tblSintomas.Rows
+            If r.Cells(1).Value.ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                r.Visible = False
+            End If
+        Next
+
+        ' Oculta las patologías ya seleccionadas
+        For Each rAsociada As DataGridViewRow In tblAsociados.Rows
+            For Each rPatologia As DataGridViewRow In tblSintomas.Rows
+                If rAsociada.Cells(1).Value = rPatologia.Cells(1).Value Then
+                    rPatologia.Visible = False
+                End If
+            Next
+        Next
+        DeseleccionarTablas()
+    End Sub
+
+    Private Sub DeseleccionarTablas()
+        tblAsociados.ClearSelection()
+        tblSintomas.ClearSelection()
+    End Sub
+
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 
     ' Si el formulario se cierra sin crear una enfermedad, pide al usuario confirmación para abandonar la ventana.

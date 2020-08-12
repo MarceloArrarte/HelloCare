@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 Imports MySql.Data.Types
 Imports Clases
 
-Module AccesoDatos
+Public Module AccesoDatos
     Private Sub Main()
         Dim ci As String = "44623501"
         MsgBox(TienePersonaRegistrada(ci, TiposPersona.Paciente))
@@ -483,7 +483,7 @@ Module AccesoDatos
                     Dim tipoUsuario As TiposUsuario = [Enum].Parse(GetType(TiposUsuario), rUsuario("TIPO"))
                     Dim habilitadoUsuario As Boolean = rUsuario("HABILITADO")
 
-                    Dim personaUsuario As Persona
+                    Dim personaUsuario As Persona = Nothing
                     Dim rPersona As DataRow = rUsuario.GetParentRow("usuarios_ibfk_1")
                     Select Case tipoUsuario
                         Case TiposUsuario.Paciente
@@ -778,7 +778,7 @@ Module AccesoDatos
     ' Para el caso de los objetos que utilizan borrado lógico, se verifica previo a las sentencias INSERT si el registro a insertar
     ' ya existe y se encuentra deshabilitado, en cuyo caso es habilitado.
     ' Cuando la operación requiere más de un comando, dichos comandos se encuentran encapsulados por BEGIN, COMMIT y ROLLBACK en un bloque Try/Catch.
-    Private Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto)
+    Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto)
         Select Case entidad
             Case TiposObjeto.DiagnosticoPrimario
                 Try
@@ -1218,12 +1218,8 @@ Module AccesoDatos
                     comando = ""
                     For i = 0 To enfermedad.Sintomas.Count - 1
                         comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                 enfermedad.Sintoma(i).ID, enfermedad.Id, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                                                 enfermedad.Sintomas(i).ID, enfermedad.Id, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
                     Next
-                    'For Each s As Sintoma In enfermedad.ListaSintomas
-                    '    comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                    '                                s.ID, enfermedad.Id, s.Frecuencia.ToString.Replace(",", "."))
-                    'Next
                     comando &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
 
@@ -1263,12 +1259,31 @@ Module AccesoDatos
 
 
             Case TiposObjeto.Sintoma
-                Dim sintoma As Sintoma = objetoAModificar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE sintomas SET NOMBRE='{0}', DESCRIPCION='{1}', RECOMENDACIONES='{2}', URGENCIA={3} WHERE ID={4}",
-                                                      sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                Try
+                    Dim sintoma As Sintoma = objetoAModificar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("UPDATE sintomas SET NOMBRE='{0}', DESCRIPCION='{1}', RECOMENDACIONES='{2}', URGENCIA={3} WHERE ID={4}",
+                                                          sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.ID)
+                    ConexionBD.EjecutarTransaccion(comando)
+
+                    comando = String.Format("DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA={0};", sintoma.ID)
+                    ConexionBD.EjecutarTransaccion(comando)
+
+                    comando = ""
+                    For i = 0 To sintoma.Enfermedades.Count - 1
+                        comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
+                                                 sintoma.ID, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                    Next
+                    comando &= "COMMIT;"
+                    ConexionBD.EjecutarTransaccion(comando)
+                Catch ex As Exception
+                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Administrativo
@@ -1329,12 +1344,12 @@ Module AccesoDatos
         End Select
     End Sub
 
-    Private Function TienePersonaRegistrada(ci As String, tipo As TiposPersona) As Boolean
+    Public Function TienePersonaRegistrada(ci As String, tipo As TiposPersona) As Boolean
         Dim cantidadUsuarios As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT COUNT(*) FROM personas WHERE CI='{0}' AND TIPO='{1}'", ci, tipo.ToString), "usuarios").Rows(0)(0)
         Return cantidadUsuarios = 1
     End Function
 
-    Private Function ObtenerMedicoPorCI(ci As String) As Medico
+    Public Function ObtenerMedicoPorCI(ci As String) As Medico
         Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Funcionario'", ci), "personas").Rows(0)
         Dim idMedico As Integer = rPersona("ID")
         Dim ciMedico As String = rPersona("CI")
@@ -1370,7 +1385,7 @@ Module AccesoDatos
         Return medico
     End Function
 
-    Private Function ObtenerPacientePorCI(ci As String) As Paciente
+    Public Function ObtenerPacientePorCI(ci As String) As Paciente
         Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Paciente'", ci), "personas").Rows(0)
         Dim idPaciente As Integer = rPersona("ID")
         Dim ciPaciente As String = rPersona("CI")
@@ -1408,7 +1423,7 @@ Module AccesoDatos
         Return paciente
     End Function
 
-    Private Function ObtenerAdministrativoPorCI(ci As String) As Administrativo
+    Public Function ObtenerAdministrativoPorCI(ci As String) As Administrativo
         Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Funcionario'", ci), "personas").Rows(0)
         Dim idAdministrativo As Integer = rPersona("ID")
         Dim ciAdministrativo As String = rPersona("CI")
@@ -1439,12 +1454,12 @@ Module AccesoDatos
         Return administrativo
     End Function
 
-    Private Function TieneUsuarioRegistrado(persona As Persona) As Boolean
+    Public Function TieneUsuarioRegistrado(persona As Persona) As Boolean
         Dim cantidadUsuarios As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT COUNT(*) FROM usuarios WHERE ID_PERSONA={0} ", persona.ID), "usuarios").Rows(0)(0)
         Return cantidadUsuarios = 1
     End Function
 
-    Private Function ObtenerUsuarioPorPersona(persona As Persona) As Usuario
+    Public Function ObtenerUsuarioPorPersona(persona As Persona) As Usuario
         Dim rUsuario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM usuarios WHERE ID_PERSONA='{0}'", persona.ID), "usuarios").Rows(0)
         Dim idUsuario As Integer = rUsuario("ID")
         Dim contrasenaUsuario As String = rUsuario("CONTRASENIA")
@@ -1453,7 +1468,7 @@ Module AccesoDatos
         Return usuario
     End Function
 
-    Private Function ObtenerDiagnosticosPrimariosPorPaciente(paciente As Paciente) As List(Of DiagnosticoPrimario)
+    Public Function ObtenerDiagnosticosPrimariosPorPaciente(paciente As Paciente) As List(Of DiagnosticoPrimario)
         Dim lista As New List(Of DiagnosticoPrimario)
         For Each rDiagnosticoPrimario As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_primarios WHERE ID_PACIENTE={0}", paciente.ID), "diagnosticos_primarios").Rows
             Dim idDiagnosticoPrimario As Integer = rDiagnosticoPrimario("ID")
@@ -1529,7 +1544,7 @@ Module AccesoDatos
         Return lista
     End Function
 
-    Private Function ObtenerDiagnosticosPrimariosConConsultaPorMedico(medico As Medico) As List(Of DiagnosticoPrimarioConConsulta)
+    Public Function ObtenerDiagnosticosPrimariosConConsultaPorMedico(medico As Medico) As List(Of DiagnosticoPrimarioConConsulta)
         Dim lista As New List(Of DiagnosticoPrimarioConConsulta)
         For Each rDiagnosticoPrimarioConConsulta As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_primarios_con_consulta WHERE ID_MEDICO={0}", medico.ID), "diagnosticos_primarios_con_consulta").Rows
             Dim idDiagnosticoPrimarioConConsulta As Integer = rDiagnosticoPrimarioConConsulta("ID_DIAGNOSTICO_PRIMARIO")
@@ -1597,7 +1612,7 @@ Module AccesoDatos
         Return lista
     End Function
 
-    Private Function ObtenerUltimosMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidad As Integer) As List(Of Mensaje)
+    Public Function ObtenerUltimosMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidad As Integer) As List(Of Mensaje)
         Dim lista As New List(Of Mensaje)
         For Each rMensaje As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM mensajes WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0} ORDER BY FECHAHORA DESC LIMIT {1}", diagnosticoPrimarioConConsulta.ID, cantidad), "especialidades").Rows
             Dim idMensaje As Integer = rMensaje("ID")
@@ -1611,7 +1626,7 @@ Module AccesoDatos
         Return lista
     End Function
 
-    Private Function ObtenerDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As List(Of DiagnosticoDiferencial)
+    Public Function ObtenerDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As List(Of DiagnosticoDiferencial)
         Dim lista As New List(Of DiagnosticoDiferencial)
         For Each rDiagnosticoDiferencial As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_diferenciales WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0}", diagnosticoPrimarioConConsulta.ID), "diagnosticos_diferenciales").Rows
             Dim idDiagnosticoDiferencial As Integer = rDiagnosticoDiferencial("ID")

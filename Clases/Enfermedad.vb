@@ -41,7 +41,7 @@ Public Class Enfermedad
         End Get
     End Property
 
-    Public ReadOnly Property Sintoma(indice As Integer) As Sintoma
+    Public ReadOnly Property Sintomas(indice As Integer) As Sintoma
         Get
             Return _Sintomas.Item(indice)
         End Get

@@ -27,9 +27,9 @@ Partial Class FrmAltaSintomas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtNombreSintoma = New System.Windows.Forms.TextBox()
-        Me.txtInfoSintoma = New System.Windows.Forms.TextBox()
-        Me.txtRecomendacionSintoma = New System.Windows.Forms.TextBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.txtRecomendaciones = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
@@ -80,29 +80,29 @@ Partial Class FrmAltaSintomas
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Recomendaciones del sintoma:"
         '
-        'txtNombreSintoma
+        'txtNombre
         '
-        Me.txtNombreSintoma.Location = New System.Drawing.Point(193, 54)
-        Me.txtNombreSintoma.Multiline = True
-        Me.txtNombreSintoma.Name = "txtNombreSintoma"
-        Me.txtNombreSintoma.Size = New System.Drawing.Size(427, 25)
-        Me.txtNombreSintoma.TabIndex = 0
+        Me.txtNombre.Location = New System.Drawing.Point(193, 54)
+        Me.txtNombre.Multiline = True
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(427, 25)
+        Me.txtNombre.TabIndex = 0
         '
-        'txtInfoSintoma
+        'txtDescripcion
         '
-        Me.txtInfoSintoma.Location = New System.Drawing.Point(193, 95)
-        Me.txtInfoSintoma.Multiline = True
-        Me.txtInfoSintoma.Name = "txtInfoSintoma"
-        Me.txtInfoSintoma.Size = New System.Drawing.Size(427, 72)
-        Me.txtInfoSintoma.TabIndex = 1
+        Me.txtDescripcion.Location = New System.Drawing.Point(193, 95)
+        Me.txtDescripcion.Multiline = True
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Size = New System.Drawing.Size(427, 72)
+        Me.txtDescripcion.TabIndex = 1
         '
-        'txtRecomendacionSintoma
+        'txtRecomendaciones
         '
-        Me.txtRecomendacionSintoma.Location = New System.Drawing.Point(193, 233)
-        Me.txtRecomendacionSintoma.Multiline = True
-        Me.txtRecomendacionSintoma.Name = "txtRecomendacionSintoma"
-        Me.txtRecomendacionSintoma.Size = New System.Drawing.Size(427, 127)
-        Me.txtRecomendacionSintoma.TabIndex = 3
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(193, 233)
+        Me.txtRecomendaciones.Multiline = True
+        Me.txtRecomendaciones.Name = "txtRecomendaciones"
+        Me.txtRecomendaciones.Size = New System.Drawing.Size(427, 127)
+        Me.txtRecomendaciones.TabIndex = 3
         '
         'Label5
         '
@@ -205,9 +205,9 @@ Partial Class FrmAltaSintomas
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txtRecomendacionSintoma)
-        Me.Controls.Add(Me.txtInfoSintoma)
-        Me.Controls.Add(Me.txtNombreSintoma)
+        Me.Controls.Add(Me.txtRecomendaciones)
+        Me.Controls.Add(Me.txtDescripcion)
+        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -227,9 +227,9 @@ Partial Class FrmAltaSintomas
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtNombreSintoma As TextBox
-    Friend WithEvents txtInfoSintoma As TextBox
-    Friend WithEvents txtRecomendacionSintoma As TextBox
+    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents txtDescripcion As TextBox
+    Friend WithEvents txtRecomendaciones As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnVolver As Button
