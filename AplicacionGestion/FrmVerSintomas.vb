@@ -11,21 +11,25 @@ Public Class FrmVerSintomas
         txtRecomendaciones.Text = sintoma.Recomendaciones
         txtUrgencia.Text = sintoma.Urgencia
 
-        ' Muestra las enfermedades a las cuales este síntoma está asociado
-        Dim asociacionesConEnfermedades As List(Of AsociacionSintoma) = BuscarAsociacionesSintomas(sintoma)
-        Dim enfermedadesAsociadas As New List(Of Enfermedad)
-        For i = 0 To asociacionesConEnfermedades.Count - 1
-            enfermedadesAsociadas.Add(BuscarEnfermedades(asociacionesConEnfermedades(i).NombreEnfermedad, True).Single)
+        For i = 0 To sintoma.Enfermedades.Count - 1
+            tblPatologias.Rows.Add(sintoma.Enfermedades(i), sintoma.Enfermedades(i).Descripcion, sintoma.FrecuenciaEnfermedad(i))
         Next
 
-        For i = 0 To enfermedadesAsociadas.Count - 1
-            Dim valoresFila As New List(Of Object)
-            valoresFila.Add(enfermedadesAsociadas(i))
-            valoresFila.Add(enfermedadesAsociadas(i).Nombre)
-            valoresFila.Add(enfermedadesAsociadas(i).Descripcion)
-            valoresFila.Add(asociacionesConEnfermedades(i).Frecuencia & "%")
-            tblPatologias.Rows.Add(valoresFila.ToArray)
-        Next
+        ' Muestra las enfermedades a las cuales este síntoma está asociado
+        'Dim asociacionesConEnfermedades As List(Of AsociacionSintoma) = BuscarAsociacionesSintomas(sintoma)
+        'Dim enfermedadesAsociadas As New List(Of Enfermedad)
+        'For i = 0 To asociacionesConEnfermedades.Count - 1
+        '    enfermedadesAsociadas.Add(BuscarEnfermedades(asociacionesConEnfermedades(i).NombreEnfermedad, True).Single)
+        'Next
+
+        'For i = 0 To enfermedadesAsociadas.Count - 1
+        '    Dim valoresFila As New List(Of Object)
+        '    valoresFila.Add(enfermedadesAsociadas(i))
+        '    valoresFila.Add(enfermedadesAsociadas(i).Nombre)
+        '    valoresFila.Add(enfermedadesAsociadas(i).Descripcion)
+        '    valoresFila.Add(asociacionesConEnfermedades(i).Frecuencia & "%")
+        '    tblPatologias.Rows.Add(valoresFila.ToArray)
+        'Next
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

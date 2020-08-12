@@ -34,12 +34,11 @@ Partial Class FrmVerSintomas
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.tblPatologias = New System.Windows.Forms.DataGridView()
-        Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtUrgencia = New System.Windows.Forms.TextBox()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtUrgencia = New System.Windows.Forms.TextBox()
         CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -134,7 +133,7 @@ Partial Class FrmVerSintomas
         Me.tblPatologias.AllowUserToResizeRows = False
         Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colNombre, Me.colDesc, Me.colFrecuencia})
+        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNombre, Me.colDesc, Me.colFrecuencia})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -153,12 +152,23 @@ Partial Class FrmVerSintomas
         Me.tblPatologias.TabIndex = 22
         Me.tblPatologias.TabStop = False
         '
-        'colObjeto
+        'Label6
         '
-        Me.colObjeto.HeaderText = "Objeto"
-        Me.colObjeto.Name = "colObjeto"
-        Me.colObjeto.ReadOnly = True
-        Me.colObjeto.Visible = False
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(80, 298)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Urgencia:"
+        '
+        'txtUrgencia
+        '
+        Me.txtUrgencia.Location = New System.Drawing.Point(172, 295)
+        Me.txtUrgencia.Multiline = True
+        Me.txtUrgencia.Name = "txtUrgencia"
+        Me.txtUrgencia.ReadOnly = True
+        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
+        Me.txtUrgencia.TabIndex = 24
         '
         'colNombre
         '
@@ -183,24 +193,6 @@ Partial Class FrmVerSintomas
         Me.colFrecuencia.Name = "colFrecuencia"
         Me.colFrecuencia.ReadOnly = True
         Me.colFrecuencia.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(80, 298)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 13)
-        Me.Label6.TabIndex = 23
-        Me.Label6.Text = "Urgencia:"
-        '
-        'txtUrgencia
-        '
-        Me.txtUrgencia.Location = New System.Drawing.Point(172, 295)
-        Me.txtUrgencia.Multiline = True
-        Me.txtUrgencia.Name = "txtUrgencia"
-        Me.txtUrgencia.ReadOnly = True
-        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
-        Me.txtUrgencia.TabIndex = 24
         '
         'FrmVerSintomas
         '
@@ -243,7 +235,6 @@ Partial Class FrmVerSintomas
     Friend WithEvents tblPatologias As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents txtUrgencia As TextBox
-    Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colDesc As DataGridViewTextBoxColumn
     Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn

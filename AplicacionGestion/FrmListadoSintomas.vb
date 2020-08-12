@@ -9,7 +9,7 @@ Public Class FrmListadoSintomas
 
     Private Sub MostrarSintomas()
         tblSintomas.Rows.Clear()
-        For Each sintoma As Sintoma In BuscarSintomas("", True).ToArray
+        For Each sintoma As Sintoma In CargarTodosLosSintomas()
             tblSintomas.Rows.Add(sintoma, sintoma.Nombre, sintoma.Descripcion, sintoma.Urgencia, sintoma.Recomendaciones)
         Next
         tblSintomas.ClearSelection()
@@ -58,17 +58,11 @@ Public Class FrmListadoSintomas
                 Throw New Exception("Seleccione al menos una fila para eliminar el/los síntoma(s).")
             End If
 
-            Dim listaAEliminar As New List(Of Sintoma)
-            For Each r As DataGridViewRow In tblSintomas.SelectedRows
-                listaAEliminar.Add(r.Cells(0).Value)
-            Next
-
             If MsgBox("¿Confirma que desea eliminar este/os síntoma(s)?" & vbNewLine &
                       "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
 
-                For Each s As Sintoma In listaAEliminar
-                    EliminarSintoma(s)
-                    EliminarAsociacionSintoma(s)
+                For Each r As DataGridViewRow In tblSintomas.SelectedRows
+                    EliminarSintoma(r.Cells(0).Value)
                 Next
                 MostrarSintomas()
             End If

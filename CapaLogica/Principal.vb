@@ -158,6 +158,12 @@ Public Module Principal
     End Sub
 
     Public Sub EliminarSintoma(sintoma As Sintoma)
+        EliminarObjeto(sintoma, TiposObjeto.Sintoma)
+    End Sub
+
+    Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
+        EliminarObjeto(enfermedad, TiposObjeto.Enfermedad)
+    End Sub
 
 
 

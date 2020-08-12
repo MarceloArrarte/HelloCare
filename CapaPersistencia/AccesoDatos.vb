@@ -1102,7 +1102,7 @@ Public Module AccesoDatos
     ' lógico para preservar la integridad referencial de las tablas. Cuando se "elimina" uno de estos objetos, se realiza un UPDATE
     ' en la tabla correspondiente para distinguir el registro de aquellos que no han sido dados de baja.
     ' Cuando la operación requiere más de un comando, dichos comandos se encuentran encapsulados por BEGIN, COMMIT y ROLLBACK en un bloque Try/Catch.
-    Private Sub EliminarObjeto(objetoAEliminar As Object, entidad As TiposObjeto)
+    Public Sub EliminarObjeto(objetoAEliminar As Object, entidad As TiposObjeto)
         Select Case entidad
             Case TiposObjeto.Enfermedad
                 Dim enfermedad As Enfermedad = objetoAEliminar
@@ -1200,7 +1200,7 @@ Public Module AccesoDatos
 
     ' Modifica un objeto en las tablas correspondientes de acuerdo al parámetro "entidad" mediante sentencias SQL.
     ' Cuando la operación requiere más de un comando, dichos comandos se encuentran encapsulados por BEGIN, COMMIT y ROLLBACK en un bloque Try/Catch.
-    Private Sub ModificarObjeto(objetoAModificar As Object, entidad As TiposObjeto)
+    Public Sub ModificarObjeto(objetoAModificar As Object, entidad As TiposObjeto)
         Select Case entidad
             Case TiposObjeto.Enfermedad
                 Try

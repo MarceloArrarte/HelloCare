@@ -92,7 +92,7 @@
     </Compile>
     <Compile Include="Paciente.vb" />
     <Compile Include="Persona.vb" />
-    <Compile Include="sintoma.vb" />
+    <Compile Include="Sintoma.vb" />
     <Compile Include="SintomasAsociados.vb" />
     <Compile Include="Usuario.vb" />
   </ItemGroup>
