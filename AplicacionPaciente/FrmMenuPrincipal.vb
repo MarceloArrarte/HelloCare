@@ -26,4 +26,10 @@ Public Class FrmMenuPrincipal
             End If
         End If
     End Sub
+
+    Private Sub btnHistorialDiagnosticos_Click(sender As Object, e As EventArgs) Handles btnHistorialDiagnosticos.Click
+        Dim frm As New FrmHistorialDiagnosticos
+        frm.Show()
+        Me.Hide()
+    End Sub
 End Class

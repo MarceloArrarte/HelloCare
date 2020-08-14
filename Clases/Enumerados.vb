@@ -68,4 +68,9 @@
         OK
         SinUsuario
     End Enum
+
+    Public Enum Idiomas
+        Español
+        Inglés
+    End Enum
 End Module

@@ -1,6 +1,7 @@
 ﻿Public Class DiagnosticoPrimario
     Protected ReadOnly _ID As Integer
     Protected ReadOnly _Paciente As Paciente
+    Protected ReadOnly _Sintomas As List(Of Sintoma)
     Protected ReadOnly _Enfermedades As EnfermedadesDiagnosticadas
     Protected ReadOnly _FechaHora As Date
     Protected ReadOnly _Tipo As TiposDiagnosticosPrimarios
@@ -17,7 +18,31 @@
         End Get
     End Property
 
-    Public ReadOnly Property Enfermedad(indice As Integer) As Enfermedad
+    Public ReadOnly Property Sintomas As List(Of Sintoma)
+        Get
+            Return _Sintomas
+        End Get
+    End Property
+
+    Public ReadOnly Property Sintomas(indice As Integer) As Sintoma
+        Get
+            Return _Sintomas(indice)
+        End Get
+    End Property
+
+    Public ReadOnly Property Enfermedades As List(Of Enfermedad)
+        Get
+            Return _Enfermedades.Items
+        End Get
+    End Property
+
+    Public ReadOnly Property EnfermedadesDiagnosticadas As EnfermedadesDiagnosticadas
+        Get
+            Return _Enfermedades
+        End Get
+    End Property
+
+    Public ReadOnly Property Enfermedades(indice As Integer) As Enfermedad
         Get
             Return _Enfermedades.Item(indice)
         End Get
@@ -26,12 +51,6 @@
     Public ReadOnly Property Probabilidad(indice As Integer) As Decimal
         Get
             Return _Enfermedades.Probabilidad(indice)
-        End Get
-    End Property
-
-    Public ReadOnly Property Enfermedades As List(Of Enfermedad)
-        Get
-            Return _Enfermedades.Items
         End Get
     End Property
 
@@ -47,7 +66,8 @@
         End Get
     End Property
 
-    Public Sub New(paciente As Paciente, enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public Sub New(paciente As Paciente, sintomas As List(Of Sintoma), enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date,
+                   tipo As TiposDiagnosticosPrimarios)
         ' Manejo de errores de datos ingresados
         ' Errores en la cédula
         'If Not Validaciones.Cedula(ciPaciente) Then
@@ -71,14 +91,17 @@
 
         _ID = Integer.MinValue
         _Paciente = paciente
+        _Sintomas = sintomas
         _Enfermedades = enfermedades
         _FechaHora = fechaHora
         _Tipo = tipo
     End Sub
 
-    Public Sub New(id As Integer, paciente As Paciente, enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+    Public Sub New(id As Integer, paciente As Paciente, sintomas As List(Of Sintoma), enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date,
+                   tipo As TiposDiagnosticosPrimarios)
         _ID = id
         _Paciente = paciente
+        _Sintomas = sintomas
         _Enfermedades = enfermedades
         _FechaHora = fechaHora
         _Tipo = tipo

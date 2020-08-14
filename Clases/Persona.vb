@@ -90,7 +90,7 @@
     End Sub
 
     Protected Sub New(id As Integer, ci As String, nombre As String, apellido As String,
-                      correo As String, localidad As Localidad, tipo As Enumerados.TiposPersona)
+                      correo As String, localidad As Localidad, tipo As TiposPersona)
         _ID = id
         _CI = ci
         _Nombre = nombre

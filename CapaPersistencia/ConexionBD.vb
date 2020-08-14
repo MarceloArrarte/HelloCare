@@ -35,7 +35,7 @@ Public NotInheritable Class ConexionBD
     End Function
 
     Public Shared Sub EjecutarTransaccion(comando As String)
-        MsgBox(comando)
+        'MsgBox(comando)
         Dim comandoMysql As New MySqlCommand(comando, Conexion)
         comandoMysql.ExecuteNonQuery()
     End Sub

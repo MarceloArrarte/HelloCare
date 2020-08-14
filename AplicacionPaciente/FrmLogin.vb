@@ -4,8 +4,10 @@ Imports Clases
 Public Class FrmLogin
     ' Veifica que el usuario y la contraseña sean correctos, en caso contrario muestra un error
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
-        Dim ci As String = txtCedula.Text
-        Dim contrasena As String = txtContrasena.Text
+        'Dim ci As String = txtCedula.Text
+        'Dim contrasena As String = txtContrasena.Text
+        Dim ci As String = "44623501"
+        Dim contrasena As String = "bolso2002"
         Try
             Select Case AutenticarUsuarioPaciente(ci, contrasena)
                 Case ResultadosLogin.OK

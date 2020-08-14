@@ -24,9 +24,17 @@
     '    _ComentariosAdicionales = comentariosAdicionales
     'End Sub
 
-    Public Sub New(id As Integer, paciente As Paciente, enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date, medico As Medico,
-                   comentariosAdicionales As String)
-        MyBase.New(id, paciente, enfermedades, fechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
+    Public Sub New(diagnosticoPrimario As DiagnosticoPrimario, comentariosAdicionales As String)
+        MyBase.New(diagnosticoPrimario.ID, diagnosticoPrimario.Paciente, diagnosticoPrimario.Sintomas, diagnosticoPrimario.EnfermedadesDiagnosticadas,
+                   diagnosticoPrimario.FechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
+        _Medico = Nothing
+        _ComentariosAdicionales = comentariosAdicionales
+    End Sub
+
+    Public Sub New(id As Integer, paciente As Paciente, sintomas As List(Of Sintoma), enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date,
+                   medico As Medico, comentariosAdicionales As String)
+
+        MyBase.New(id, paciente, sintomas, enfermedades, fechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
         _Medico = medico
         _ComentariosAdicionales = comentariosAdicionales
     End Sub

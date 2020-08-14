@@ -27,6 +27,8 @@ Partial Class FrmMenuPrincipal
         Me.btnIngresoSintoma = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnHistorialDiagnosticos = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -42,7 +44,7 @@ Partial Class FrmMenuPrincipal
         '
         'btnIngresoSintoma
         '
-        Me.btnIngresoSintoma.Location = New System.Drawing.Point(54, 102)
+        Me.btnIngresoSintoma.Location = New System.Drawing.Point(54, 82)
         Me.btnIngresoSintoma.Margin = New System.Windows.Forms.Padding(2)
         Me.btnIngresoSintoma.Name = "btnIngresoSintoma"
         Me.btnIngresoSintoma.Size = New System.Drawing.Size(165, 57)
@@ -53,8 +55,7 @@ Partial Class FrmMenuPrincipal
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(244, 113)
+        Me.Label2.Location = New System.Drawing.Point(241, 94)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(174, 26)
@@ -64,7 +65,7 @@ Partial Class FrmMenuPrincipal
         'btnSalir
         '
         Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnSalir.Location = New System.Drawing.Point(54, 272)
+        Me.btnSalir.Location = New System.Drawing.Point(54, 311)
         Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(165, 44)
@@ -72,13 +73,33 @@ Partial Class FrmMenuPrincipal
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'btnHistorialDiagnosticos
+        '
+        Me.btnHistorialDiagnosticos.Location = New System.Drawing.Point(54, 152)
+        Me.btnHistorialDiagnosticos.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnHistorialDiagnosticos.Name = "btnHistorialDiagnosticos"
+        Me.btnHistorialDiagnosticos.Size = New System.Drawing.Size(165, 57)
+        Me.btnHistorialDiagnosticos.TabIndex = 3
+        Me.btnHistorialDiagnosticos.Text = "Historial de diagnósticos"
+        Me.btnHistorialDiagnosticos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnHistorialDiagnosticos.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(241, 169)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(171, 35)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Vea los diagnósticos recibidos por el sistema y médicos."
+        '
         'FrmMenuPrincipal
         '
-        Me.AcceptButton = Me.btnIngresoSintoma
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnSalir
         Me.ClientSize = New System.Drawing.Size(447, 366)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.btnHistorialDiagnosticos)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnIngresoSintoma)
@@ -98,4 +119,6 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents btnIngresoSintoma As Windows.Forms.Button
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents btnSalir As Windows.Forms.Button
+    Friend WithEvents btnHistorialDiagnosticos As Windows.Forms.Button
+    Friend WithEvents Label3 As Windows.Forms.Label
 End Class

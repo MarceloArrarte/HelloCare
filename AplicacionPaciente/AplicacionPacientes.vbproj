@@ -11,7 +11,7 @@
     <AssemblyName>AplicacionPacientes</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsFormsWithCustomSubMain</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -25,6 +25,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>AplicacionPacientes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>AplicacionPacientes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -74,10 +76,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmChatPaciente.designer.vb">
+      <DependentUpon>FrmChatPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChatPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComentariosAdicionales.Designer.vb">
+      <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmComentariosAdicionales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmDiagnosticoPrimario.Designer.vb">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmDiagnosticoPrimario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDiagnosticosDiferenciales.Designer.vb">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDiagnosticosDiferenciales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmIngresoSintoma.Designer.vb">
@@ -98,6 +118,12 @@
     <Compile Include="FrmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmHistorialDiagnosticos.Designer.vb">
+      <DependentUpon>FrmHistorialDiagnosticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorialDiagnosticos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -115,8 +141,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmChatPaciente.resx">
+      <DependentUpon>FrmChatPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComentariosAdicionales.resx">
+      <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiagnosticoPrimario.resx">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticosDiferenciales.resx">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresoSintoma.resx">
       <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
@@ -126,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialDiagnosticos.resx">
+      <DependentUpon>FrmHistorialDiagnosticos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

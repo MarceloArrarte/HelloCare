@@ -18,16 +18,6 @@ Public Class Mensaje
         _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
     End Sub
 
-    Public Sub New(id As Integer, fechaHora As Date, formato As FormatosMensajeAdmitidos, contenido As Byte(), remitente As TiposRemitente,
-                   diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta)
-        _ID = id
-        _FechaHora = fechaHora
-        _Formato = formato
-        _Contenido = contenido
-        _Remitente = remitente
-        _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
-    End Sub
-
     Public ReadOnly Property ID As Integer
         Get
             Return _ID
@@ -63,6 +53,16 @@ Public Class Mensaje
             Return _DiagnosticoPrimarioConConsulta
         End Get
     End Property
+
+    Public Sub New(id As Integer, fechaHora As Date, formato As FormatosMensajeAdmitidos, contenido As Byte(), remitente As TiposRemitente,
+                   diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta)
+        _ID = id
+        _FechaHora = fechaHora
+        _Formato = formato
+        _Contenido = contenido
+        _Remitente = remitente
+        _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
+    End Sub
 
     Public Overrides Function ToString() As String
         If _Formato = FormatosMensajeAdmitidos.TXT Then

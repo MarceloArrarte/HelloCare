@@ -32,10 +32,12 @@ Partial Class FrmDiagnosticoPrimario
         Me.lstSintomas = New System.Windows.Forms.ListBox()
         Me.tblEnfermedadesDiagnosticadas = New System.Windows.Forms.DataGridView()
         Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCoincidentes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colProbabilidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblResultado = New System.Windows.Forms.Label()
+        Me.btnRealizarConsulta = New System.Windows.Forms.Button()
+        Me.lblDiagnosticosDiferenciales = New System.Windows.Forms.Label()
+        Me.btnDiagnosticosDiferenciales = New System.Windows.Forms.Button()
         CType(Me.tblEnfermedadesDiagnosticadas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -73,7 +75,7 @@ Partial Class FrmDiagnosticoPrimario
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 284)
+        Me.Label1.Location = New System.Drawing.Point(24, 273)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 26)
@@ -82,7 +84,7 @@ Partial Class FrmDiagnosticoPrimario
         '
         'txtRecomendaciones
         '
-        Me.txtRecomendaciones.Location = New System.Drawing.Point(132, 281)
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(132, 273)
         Me.txtRecomendaciones.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRecomendaciones.Multiline = True
         Me.txtRecomendaciones.Name = "txtRecomendaciones"
@@ -94,7 +96,7 @@ Partial Class FrmDiagnosticoPrimario
         'btnSalir
         '
         Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnSalir.Location = New System.Drawing.Point(11, 367)
+        Me.btnSalir.Location = New System.Drawing.Point(11, 390)
         Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(99, 36)
@@ -118,7 +120,7 @@ Partial Class FrmDiagnosticoPrimario
         Me.tblEnfermedadesDiagnosticadas.AllowUserToResizeRows = False
         Me.tblEnfermedadesDiagnosticadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tblEnfermedadesDiagnosticadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblEnfermedadesDiagnosticadas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colCoincidentes, Me.colProbabilidad, Me.colNombre})
+        Me.tblEnfermedadesDiagnosticadas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto, Me.colProbabilidad, Me.colNombre})
         Me.tblEnfermedadesDiagnosticadas.Location = New System.Drawing.Point(258, 88)
         Me.tblEnfermedadesDiagnosticadas.Name = "tblEnfermedadesDiagnosticadas"
         Me.tblEnfermedadesDiagnosticadas.ReadOnly = True
@@ -133,13 +135,6 @@ Partial Class FrmDiagnosticoPrimario
         Me.colObjeto.Name = "colObjeto"
         Me.colObjeto.ReadOnly = True
         Me.colObjeto.Visible = False
-        '
-        'colCoincidentes
-        '
-        Me.colCoincidentes.FillWeight = 20.0!
-        Me.colCoincidentes.HeaderText = "Síntomas coincidentes"
-        Me.colCoincidentes.Name = "colCoincidentes"
-        Me.colCoincidentes.ReadOnly = True
         '
         'colProbabilidad
         '
@@ -161,16 +156,50 @@ Partial Class FrmDiagnosticoPrimario
         Me.lblResultado.Location = New System.Drawing.Point(11, 223)
         Me.lblResultado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblResultado.Name = "lblResultado"
-        Me.lblResultado.Size = New System.Drawing.Size(659, 50)
+        Me.lblResultado.Size = New System.Drawing.Size(659, 48)
         Me.lblResultado.TabIndex = 10
         Me.lblResultado.Text = "Resultado del diagnóstico"
+        '
+        'btnRealizarConsulta
+        '
+        Me.btnRealizarConsulta.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnRealizarConsulta.Location = New System.Drawing.Point(572, 390)
+        Me.btnRealizarConsulta.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnRealizarConsulta.Name = "btnRealizarConsulta"
+        Me.btnRealizarConsulta.Size = New System.Drawing.Size(99, 36)
+        Me.btnRealizarConsulta.TabIndex = 11
+        Me.btnRealizarConsulta.Text = "Realizar consulta"
+        Me.btnRealizarConsulta.UseVisualStyleBackColor = True
+        '
+        'lblDiagnosticosDiferenciales
+        '
+        Me.lblDiagnosticosDiferenciales.AutoSize = True
+        Me.lblDiagnosticosDiferenciales.Location = New System.Drawing.Point(277, 367)
+        Me.lblDiagnosticosDiferenciales.Name = "lblDiagnosticosDiferenciales"
+        Me.lblDiagnosticosDiferenciales.Size = New System.Drawing.Size(143, 13)
+        Me.lblDiagnosticosDiferenciales.TabIndex = 12
+        Me.lblDiagnosticosDiferenciales.Text = "Diagnósticos diferenciales: #"
+        '
+        'btnDiagnosticosDiferenciales
+        '
+        Me.btnDiagnosticosDiferenciales.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnDiagnosticosDiferenciales.Location = New System.Drawing.Point(268, 390)
+        Me.btnDiagnosticosDiferenciales.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnDiagnosticosDiferenciales.Name = "btnDiagnosticosDiferenciales"
+        Me.btnDiagnosticosDiferenciales.Size = New System.Drawing.Size(165, 36)
+        Me.btnDiagnosticosDiferenciales.TabIndex = 13
+        Me.btnDiagnosticosDiferenciales.Text = "Ver diagnósticos diferenciales"
+        Me.btnDiagnosticosDiferenciales.UseVisualStyleBackColor = True
         '
         'FrmDiagnosticoPrimario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnSalir
-        Me.ClientSize = New System.Drawing.Size(682, 414)
+        Me.ClientSize = New System.Drawing.Size(682, 437)
+        Me.Controls.Add(Me.btnDiagnosticosDiferenciales)
+        Me.Controls.Add(Me.lblDiagnosticosDiferenciales)
+        Me.Controls.Add(Me.btnRealizarConsulta)
         Me.Controls.Add(Me.lblResultado)
         Me.Controls.Add(Me.tblEnfermedadesDiagnosticadas)
         Me.Controls.Add(Me.lstSintomas)
@@ -202,7 +231,9 @@ Partial Class FrmDiagnosticoPrimario
     Friend WithEvents tblEnfermedadesDiagnosticadas As Windows.Forms.DataGridView
     Friend WithEvents lblResultado As Windows.Forms.Label
     Friend WithEvents colObjeto As Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCoincidentes As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colProbabilidad As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colNombre As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnRealizarConsulta As Windows.Forms.Button
+    Friend WithEvents lblDiagnosticosDiferenciales As Windows.Forms.Label
+    Friend WithEvents btnDiagnosticosDiferenciales As Windows.Forms.Button
 End Class

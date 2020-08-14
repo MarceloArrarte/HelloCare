@@ -14,6 +14,11 @@
         End Get
     End Property
 
+    Public Sub New(nombre As String)
+        _ID = Integer.MinValue
+        _Nombre = nombre
+    End Sub
+
     Public Sub New(id As Integer, nombre As String)
         _ID = id
         _Nombre = nombre
