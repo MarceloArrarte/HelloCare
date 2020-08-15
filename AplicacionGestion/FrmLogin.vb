@@ -7,7 +7,7 @@ Public Class FrmLogin
         Dim ci As String = txtCedula.Text
         Dim contrasena As String = txtContrasena.Text
         Try
-            Select Case AutenticarUsuarioFuncionario(ci, contrasena, TiposFuncionario.Administrativo)
+            Select Case AutenticarUsuarioAdministrativo(ci, contrasena)
                 Case ResultadosLogin.OK
                     Dim frm As New FrmMenuPrincipal
                     frm.Show()

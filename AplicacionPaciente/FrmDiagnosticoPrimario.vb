@@ -37,7 +37,7 @@ Public Class FrmDiagnosticoPrimario
                                 resultadoDiagnostico.Nombre & ", con una certeza del " & Math.Round(certeza, 1) & "%."
         End If
 
-        Dim diagnosticoRealizado As DiagnosticoPrimario = AlmacenarDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
+        Dim diagnosticoRealizado As DiagnosticoPrimario = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
         nuevoDiagnostico = True
         diagnosticoMostrado = diagnosticoRealizado
     End Sub

@@ -41,3 +41,7 @@ C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\Clases.xml
 C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaPersistencia.pdb
 C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\CapaPersistencia.xml
 C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\MySql.Data.xml
+C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\AplicacionMedico.exe
+C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\AplicacionMedico.pdb
+C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\AplicacionMedico.xml
+C:\Users\marce\source\repos\HelloCare\Launcher\bin\Debug\AplicacionMedico.exe.config

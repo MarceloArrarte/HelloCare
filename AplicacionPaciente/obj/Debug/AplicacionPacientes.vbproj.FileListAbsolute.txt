@@ -70,3 +70,4 @@ C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaPersisten
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\CapaPersistencia.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\bin\Debug\MySql.Data.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.exe.config
+C:\Users\marce\source\repos\HelloCare\AplicacionPaciente\obj\Debug\AplicacionPacientes.FrmInicio.resources

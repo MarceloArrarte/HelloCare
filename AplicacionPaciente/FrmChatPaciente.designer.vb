@@ -74,6 +74,7 @@ Partial Class FrmChatPaciente
         Me.btnAdjuntar.TabIndex = 6
         Me.btnAdjuntar.Text = "Adjuntar"
         Me.btnAdjuntar.UseVisualStyleBackColor = True
+        Me.btnAdjuntar.Visible = False
         '
         'Label3
         '
@@ -89,7 +90,7 @@ Partial Class FrmChatPaciente
         '
         Me.lblNombreMedico.AutoSize = True
         Me.lblNombreMedico.Font = New System.Drawing.Font("Lato", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreMedico.Location = New System.Drawing.Point(77, 43)
+        Me.lblNombreMedico.Location = New System.Drawing.Point(6, 47)
         Me.lblNombreMedico.Name = "lblNombreMedico"
         Me.lblNombreMedico.Size = New System.Drawing.Size(70, 18)
         Me.lblNombreMedico.TabIndex = 11

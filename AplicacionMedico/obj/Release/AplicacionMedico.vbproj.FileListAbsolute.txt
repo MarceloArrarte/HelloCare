@@ -1,0 +1,8 @@
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.vbprojAssemblyReference.cache
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.ChatMedico.resources
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.FrmLogin.resources
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.FrmMenuMedico.resources
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.FrmNuevoDiagnostico.resources
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.Resources.resources
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.vbproj.GenerateResource.cache
+C:\Users\AGUST\Desktop\SegundaEntrega\HelloCare-master\AplicacionMedico\obj\Release\AplicacionMedico.vbproj.CoreCompileInputs.cache

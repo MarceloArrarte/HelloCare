@@ -64,3 +64,4 @@ C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaPersistenc
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\CapaPersistencia.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\bin\Debug\MySql.Data.xml
 C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.exe.config
+C:\Users\marce\source\repos\HelloCare\AplicacionGestion\obj\Debug\AplicacionGestion.FrmInicio.resources

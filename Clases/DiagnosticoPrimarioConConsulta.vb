@@ -15,14 +15,19 @@
         End Get
     End Property
 
-    'Public Sub New(paciente As Paciente, enfermedades As List(Of Enfermedad), fechaHora As Date, medico As Medico,
-    '               diagnosticosDiferenciales As List(Of DiagnosticoDiferencial), mensajes As List(Of Mensaje), comentariosAdicionales As String)
-    '    MyBase.New(paciente, enfermedades, fechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
-    '    _Medico = medico
-    '    _DiagnosticosDiferenciales = diagnosticosDiferenciales
-    '    _Mensajes = mensajes
-    '    _ComentariosAdicionales = comentariosAdicionales
-    'End Sub
+    Public ReadOnly Property IndiceEnfermedadMasProbable As Integer
+        Get
+            Dim indiceMasProbable As Integer = 0
+            Dim mayorProbabilidad As Decimal = 0
+            For i = 0 To _Enfermedades.Items.Count - 1
+                If _Enfermedades.Probabilidad(i) > mayorProbabilidad Then
+                    mayorProbabilidad = _Enfermedades.Probabilidad(i)
+                    indiceMasProbable = i
+                End If
+            Next
+            Return indiceMasProbable
+        End Get
+    End Property
 
     Public Sub New(diagnosticoPrimario As DiagnosticoPrimario, comentariosAdicionales As String)
         MyBase.New(diagnosticoPrimario.ID, diagnosticoPrimario.Paciente, diagnosticoPrimario.Sintomas, diagnosticoPrimario.EnfermedadesDiagnosticadas,

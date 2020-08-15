@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{68CBE3EA-EB73-430F-AB67-C715306AB55E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>AplicacionPacientes.FrmLogin</StartupObject>
+    <StartupObject>AplicacionPacientes.My.MyApplication</StartupObject>
     <RootNamespace>AplicacionPacientes</RootNamespace>
     <AssemblyName>AplicacionPacientes</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -106,6 +106,12 @@
     <Compile Include="FrmIngresoSintoma.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmInicio.designer.vb">
+      <DependentUpon>FrmInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMenuPrincipal.Designer.vb">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresoSintoma.resx">
       <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInicio.resx">
+      <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>

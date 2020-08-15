@@ -13,8 +13,7 @@ Public NotInheritable Class ConexionBD
                 Dim usuario As String = "root"
                 Dim contrasena As String = "rootmariadb"
 
-                Dim cadenaConexion As String = String.Format("server={0};database={1};userid={2};password={3};
-                                                              allowzerodatetime=True;convertzerodatetime=True",
+                Dim cadenaConexion As String = String.Format("server={0};database={1};userid={2};password={3};allowzerodatetime=True;convertzerodatetime=True;charset=utf8;",
                                                               url, nombreBD, usuario, contrasena)
 
                 _Conexion = New MySqlConnection(cadenaConexion)

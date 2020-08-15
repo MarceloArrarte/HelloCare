@@ -6,8 +6,8 @@ Public Class FrmLogin
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         'Dim ci As String = txtCedula.Text
         'Dim contrasena As String = txtContrasena.Text
-        Dim ci As String = "44623501"
-        Dim contrasena As String = "bolso2002"
+        Dim ci As String = "45117094"
+        Dim contrasena As String = "carlosyana20"
         Try
             Select Case AutenticarUsuarioPaciente(ci, contrasena)
                 Case ResultadosLogin.OK
