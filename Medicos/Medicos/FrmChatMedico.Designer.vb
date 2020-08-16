@@ -47,7 +47,7 @@ Partial Class FrmChatMedico
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 23)
         Me.btnSalir.TabIndex = 3
-        Me.btnSalir.Text = "SALIR"
+        Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'txtMensaje

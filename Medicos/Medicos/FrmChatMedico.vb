@@ -35,10 +35,9 @@ Public Class FrmChatMedico
         EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Medico, consultaEnCurso)
         txtMensaje.Clear()
         ActualizarMensajes()
-        'mensajesMostrados.Add(EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, diagnosticoEnCurso))
-        'cantidadTotalMensajes += 1
     End Sub
 
+    ' NO IMPLEMENTADO
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
         If expAdjuntar.ShowDialog() = DialogResult.OK Then
             Dim ruta As String = expAdjuntar.FileName
@@ -56,8 +55,6 @@ Public Class FrmChatMedico
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
             EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, consultaEnCurso)
-            'mensajesMostrados.Add(EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso))
-            'cantidadTotalMensajes += 1
             ActualizarMensajes()
         End If
     End Sub

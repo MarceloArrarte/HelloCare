@@ -9,15 +9,6 @@ Public Class FrmHistorialChats
             Dim ultimoMensaje As Mensaje = CargarUltimosMensajesDiagnostico(d, 1).Single
             tblChats.Rows.Add(d, d.Paciente, ultimoMensaje.Remitente.ToString.Chars(0) & ": " & ultimoMensaje.ToString,
                               ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
-            'If ContarDiagnosticosDiferenciales(d) = 0 Then
-            '    tblChats.Rows.Add(d, d.Paciente, "No realizado", ultimoMensaje.Remitente.ToString.Chars(0) & ": " & ultimoMensaje.ToString,
-            '                      ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
-            'Else
-            '    Dim ultimoDiagnosticoDiferencial As DiagnosticoDiferencial = CargarUltimoDiagnosticoDiferencialConsulta(d)
-            '    tblChats.Rows.Add(d, d.Paciente, ultimoDiagnosticoDiferencial.EnfermedadDiagnosticada,
-            '                      ultimoMensaje.Remitente.ToString.Chars(0) & ": " & ultimoMensaje.ToString,
-            '                      ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
-            'End If
         Next
     End Sub
 

@@ -1,8 +1,4 @@
 ﻿Public Class FrmMenuPrincipal
-    ' Esta bandera se implementa para indicar al evento FormClosing 
-    ' si el formulario se cierra para salir al login, o para abrir la siguiente ventana
-    Private cierraSesion As Boolean = True
-
     Private Sub btnPeticiones_Click(sender As Object, e As EventArgs) Handles btnPeticiones.Click
         Dim frm As New FrmPeticionesChat
         Me.Hide()
@@ -29,14 +25,8 @@
     End Sub
 
     Private Sub FrmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If cierraSesion Then
-            ' Si el usuario quiere cerrar sesión, pide confirmación
-            If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.Yes Then
-                Dim frm As New FrmLogin
-                frm.Show()
-            Else
-                e.Cancel = True
-            End If
+        If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.No Then
+            e.Cancel = True
         End If
     End Sub
 End Class

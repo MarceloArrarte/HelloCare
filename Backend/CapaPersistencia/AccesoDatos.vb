@@ -629,18 +629,6 @@ Public Module AccesoDatos
 
                     Dim localidadPaciente As New Localidad(idLocalidad, nombreLocalidad, Nothing)
 
-                    'Dim listaDiagnosticosPrimariosPaciente As New List(Of DiagnosticoPrimario)
-                    'For Each rDiagnosticoPrimario As DataRow In datos.Tables("diagnosticos_primarios").Rows
-                    '    If rDiagnosticoPrimario.GetChildRows("diagnosticos_primarios_ibfk_1").Single Is rPaciente Then
-                    '        Dim idDiagnosticoPrimario As Integer = rDiagnosticoPrimario("ID")
-                    '        Dim fechaHoraDiagnosticoPrimario As Date = CType(rDiagnosticoPrimario("FECHA_HORA"), MySqlDateTime).Value
-                    '        Dim tipoDiagnosticoPrimario As TiposDiagnosticosPrimarios = [Enum].Parse(GetType(TiposDiagnosticosPrimarios), rDiagnosticoPrimario("TIPO"))
-
-                    '        listaDiagnosticosPrimariosPaciente.Add(New DiagnosticoPrimario(idDiagnosticoPrimario, Nothing, Nothing,
-                    '                                                                       fechaHoraDiagnosticoPrimario, tipoDiagnosticoPrimario))
-                    '    End If
-                    'Next
-
                     lista.Add(New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente,
                                            telefonoMovilPaciente, telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente,
                                            callePaciente, numeroPuertaPaciente, apartamentoPaciente))
@@ -674,19 +662,6 @@ Public Module AccesoDatos
 
                         listaEspecialidadesMedico.Add(New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, habilitadoEspecialidad))
                     Next
-
-                    'Dim listaDiagnosticosAtendidosMedico As New List(Of DiagnosticoPrimarioConConsulta)
-                    'For Each rDiagnosticoPrimarioConConsulta As DataRow In rMedico.GetParentRows("diagnosticos_primarios_con_consulta_ibfk_2")
-                    '    Dim rDiagnosticoPrimario As DataRow = rDiagnosticoPrimarioConConsulta.GetChildRows("diagnosticos_primarios_con_consulta_ibfk_1").Single
-
-                    '    Dim idDiagnosticoPrimarioConConsulta As Integer = rDiagnosticoPrimario("ID")
-                    '    Dim fechaHoraDiagnosticoPrimarioConConsulta As Date = CType(rDiagnosticoPrimario("FECHA_HORA"), MySqlDateTime).Value
-                    '    Dim comentariosAdicionalesDiagnosticosPrimariosConConsulta As String = rDiagnosticoPrimarioConConsulta("COMENTARIOS_ADICIONALES")
-
-                    '    listaDiagnosticosAtendidosMedico.Add(
-                    '        New DiagnosticoPrimarioConConsulta(idDiagnosticoPrimarioConConsulta, Nothing, Nothing, fechaHoraDiagnosticoPrimarioConConsulta,
-                    '                                           Nothing, comentariosAdicionalesDiagnosticosPrimariosConConsulta))
-                    'Next
 
                     lista.Add(New Medico(idMedico, ciMedico, nombreMedico, apellidoMedico, correoMedico, localidadMedico, listaEspecialidadesMedico,
                                          habilitadoMedico))
@@ -774,28 +749,6 @@ Public Module AccesoDatos
                     Next
                     Dim enfermedadesDiagnosticadasDiagnosticoPrimarioConConsulta As _
                         New EnfermedadesDiagnosticadas(enfermedadesDiagnosticoPrimarioConConsulta, probabilidadesEnfermedadesDiagnosticoPrimarioConConsulta)
-
-                    'Dim diagnosticosDiferencialesDiagnosticoPrimarioConConsulta As New List(Of DiagnosticoDiferencial)
-                    'For Each rDiagnosticoDiferencial As DataRow In rDiagnosticoPrimarioConConsulta.GetParentRows("diagnosticos_diferenciales_ibfk_3")
-                    '    Dim idDiagnosticoDiferencial As Integer = rDiagnosticoDiferencial("ID")
-                    '    Dim conductaASeguirDiagnosticoDiferencial As String = rDiagnosticoDiferencial("CONDUCTA_A_SEGUIR")
-
-                    '    diagnosticosDiferencialesDiagnosticoPrimarioConConsulta.Add(
-                    '        New DiagnosticoDiferencial(idDiagnosticoDiferencial, Nothing, Nothing,
-                    '                                   conductaASeguirDiagnosticoDiferencial))
-                    'Next
-
-                    'Dim mensajesDiagnosticoPrimarioConConsulta As New List(Of Mensaje)
-                    'For Each rMensaje As DataRow In rDiagnosticoPrimarioConConsulta.GetParentRows("mensajes_ibfk_1")
-                    '    Dim idMensaje As Integer = rMensaje("ID")
-                    '    Dim fechaHoraMensaje As Date = CType(rMensaje("FECHAHORA"), MySqlDateTime).Value
-                    '    Dim formatoMensaje As FormatosMensajeAdmitidos = [Enum].Parse(GetType(FormatosMensajeAdmitidos), rMensaje("TIPO"))
-                    '    Dim contenidoMensaje() As Byte = rMensaje("CONTENIDO")
-                    '    Dim remitenteMensaje As TiposRemitente = [Enum].Parse(GetType(TiposRemitente), rMensaje("REMITENTE"))
-
-                    '    mensajesDiagnosticoPrimarioConConsulta.Add(
-                    '        New Mensaje(idMensaje, fechaHoraMensaje, formatoMensaje, contenidoMensaje, remitenteMensaje, Nothing))
-                    'Next
 
                     If medicoDiagnosticoPrimarioConConsulta IsNot Nothing Then
                         lista.Add(New DiagnosticoPrimarioConConsulta(

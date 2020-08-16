@@ -2,12 +2,7 @@
 Imports Clases
 
 Public Class FrmPeticionesChat
-    Public Sub New()
-
-        ' Esta llamada es exigida por el diseñador.
-        InitializeComponent()
-
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    Private Sub FrmPeticionesChat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefrescarPeticiones()
     End Sub
 
@@ -20,7 +15,6 @@ Public Class FrmPeticionesChat
 
     Private Sub btnAceptarConsulta_Click(sender As Object, e As EventArgs) Handles btnAceptarConsulta.Click
         If tblPeticiones.SelectedRows.Count = 1 Then
-            ' marcar diagnostico como atendido, asignar medico
             Dim peticion As DiagnosticoPrimarioConConsulta = tblPeticiones.SelectedRows(0).Cells(0).Value
             Dim frm As New FrmChatMedico(peticion)
             Me.Hide()

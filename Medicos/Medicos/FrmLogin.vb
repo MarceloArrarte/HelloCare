@@ -14,8 +14,9 @@ Public Class FrmLogin
             Select Case AutenticarUsuarioMedico(ci, contrasena)
                 Case ResultadosLogin.OK
                     Dim frm As New FrmMenuPrincipal
-                    frm.Show()
-                    Me.Close()
+                    Me.Hide()
+                    frm.ShowDialog()
+                    Me.Show()
 
                 Case ResultadosLogin.Error
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
