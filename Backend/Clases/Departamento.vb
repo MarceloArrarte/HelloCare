@@ -16,12 +16,24 @@
 
     Public Sub New(nombre As String)
         _ID = Integer.MinValue
+        ValidarDatos(nombre)
         _Nombre = nombre
     End Sub
 
     Public Sub New(id As Integer, nombre As String)
         _ID = id
+        ValidarDatos(nombre)
         _Nombre = nombre
+    End Sub
+
+    Private Sub ValidarDatos(nombre As String)
+        If nombre = Nothing Or nombre = "" Then
+            Throw New ArgumentException("No se ingresó el nombre del departamento.")
+        End If
+
+        If nombre.Length > 100 Then
+            Throw New ArgumentException("El nombre del departamento no puede exceder los 100 caracteres.")
+        End If
     End Sub
 
     Public Overrides Function ToString() As String

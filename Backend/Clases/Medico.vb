@@ -16,7 +16,6 @@
     End Property
 
     Public Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, especialidades As List(Of Especialidad))
-
         MyBase.New(ci, nombre, apellido, correo, localidad, TiposPersona.Funcionario)
         _Especialidades = especialidades
         _Habilitado = True
@@ -24,7 +23,6 @@
 
     Public Sub New(id As Integer, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad,
                    especialidades As List(Of Especialidad), habilitado As Boolean)
-
         MyBase.New(id, ci, nombre, apellido, correo, localidad, TiposPersona.Funcionario)
         _Especialidades = especialidades
         _Habilitado = habilitado

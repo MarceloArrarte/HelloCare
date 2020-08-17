@@ -51,12 +51,24 @@
 
     Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, tipo As TiposPersona)
         ValidarDatos(ci, nombre, apellido, correo, localidad, tipo)
+        _CI = ci
+        _Nombre = nombre
+        _Apellido = apellido
+        _Correo = correo
+        _Localidad = localidad
+        _Tipo = tipo
     End Sub
 
     Protected Sub New(id As Integer, ci As String, nombre As String, apellido As String,
                       correo As String, localidad As Localidad, tipo As TiposPersona)
         _ID = id
         ValidarDatos(ci, nombre, apellido, correo, localidad, tipo)
+        _CI = ci
+        _Nombre = nombre
+        _Apellido = apellido
+        _Correo = correo
+        _Localidad = localidad
+        _Tipo = tipo
     End Sub
 
     Private Sub ValidarDatos(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, tipo As TiposPersona)
@@ -94,13 +106,6 @@
         If Not [Enum].IsDefined(GetType(TiposPersona), tipo) Then
             Throw New ArgumentException("El tipo de persona es inválido.")
         End If
-
-        _CI = ci
-        _Nombre = nombre
-        _Apellido = apellido
-        _Correo = correo
-        _Localidad = localidad
-        _Tipo = tipo
     End Sub
 
     Protected Shared Function CedulaValida(ci As String) As Boolean

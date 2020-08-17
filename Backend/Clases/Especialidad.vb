@@ -30,6 +30,7 @@
 
     Public Sub New(nombre As String, medicos As List(Of Medico))
         _ID = Integer.MinValue
+        ValidarDatos(nombre)
         _Nombre = nombre
         _Medicos = medicos
         _Habilitada = True
@@ -37,9 +38,20 @@
 
     Public Sub New(id As Integer, nombre As String, medicos As List(Of Medico), habilitada As Boolean)
         _ID = id
+        ValidarDatos(nombre)
         _Nombre = nombre
         _Medicos = medicos
         _Habilitada = habilitada
+    End Sub
+
+    Private Sub ValidarDatos(nombre As String)
+        If nombre = Nothing Or nombre = "" Then
+            Throw New ArgumentException("No se ingresó el nombre de la especialidad.")
+        End If
+
+        If nombre.Length > 100 Then
+            Throw New ArgumentException("El nombre de la enfermedad no puede exceder los 100 caracteres.")
+        End If
     End Sub
 
     Public Overrides Function ToString() As String

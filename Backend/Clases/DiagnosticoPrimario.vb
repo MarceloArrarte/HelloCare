@@ -68,28 +68,8 @@
 
     Public Sub New(paciente As Paciente, sintomas As List(Of Sintoma), enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date,
                    tipo As TiposDiagnosticosPrimarios)
-        ' Manejo de errores de datos ingresados
-        ' Errores en la cédula
-        'If Not Validaciones.Cedula(ciPaciente) Then
-        '    Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
-        'End If
-
-        '' El nombre de la enfermedad está vacío
-        'If nombreEnfermedad Is Nothing Then
-        '    Throw New ArgumentNullException("nombreEnfermedad", "El nombre de la enfermedad diagnosticada se encuentra vacío.")
-        'End If
-
-        '' El nombre de la enfermedad excede el largo máximo
-        'If nombreEnfermedad.Length > 100 Then
-        '    Throw New ArgumentException("El nombre de la enfermedad diagnosticada excede el largo máximo.")
-        'End If
-
-        '' La fecha del diagnóstico es posterior al momento actual
-        'If fechaHora > Now Then
-        '    Throw New ArgumentException("La fecha del diagnóstico primario es posterior al momento actual.")
-        'End If
-
         _ID = Integer.MinValue
+        ValidarDatos(fechaHora, tipo)
         _Paciente = paciente
         _Sintomas = sintomas
         _Enfermedades = enfermedades
@@ -100,10 +80,21 @@
     Public Sub New(id As Integer, paciente As Paciente, sintomas As List(Of Sintoma), enfermedades As EnfermedadesDiagnosticadas, fechaHora As Date,
                    tipo As TiposDiagnosticosPrimarios)
         _ID = id
+        ValidarDatos(fechaHora, tipo)
         _Paciente = paciente
         _Sintomas = sintomas
         _Enfermedades = enfermedades
         _FechaHora = fechaHora
         _Tipo = tipo
+    End Sub
+
+    Private Sub ValidarDatos(fechaHora As Date, tipo As TiposDiagnosticosPrimarios)
+        If fechaHora = Nothing Or fechaHora < New Date(2010, 1, 1) Or fechaHora > Now Then
+            Throw New ArgumentException("La fecha registrada en el diagnóstico diferencial no es válida.")
+        End If
+
+        If Not [Enum].IsDefined(GetType(TiposDiagnosticosPrimarios), tipo) Then
+            Throw New ArgumentException("No se especificó un tipo de diagnóstico primario válido.")
+        End If
     End Sub
 End Class

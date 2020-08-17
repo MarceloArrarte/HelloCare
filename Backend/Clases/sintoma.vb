@@ -62,10 +62,33 @@
     End Property
 
     Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer, enfermedades As EnfermedadesAsociadas)
+        _ID = Integer.MinValue
+        ValidarDatos(nombre, descripcion, recomendaciones, urgencia)
+        _Nombre = nombre
+        _Descripcion = descripcion
+        _Urgencia = urgencia
+        _Recomendaciones = recomendaciones
+        _Enfermedades = enfermedades
+        _Habilitado = True
+    End Sub
+
+    Public Sub New(id As Integer, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
+                   enfermedades As EnfermedadesAsociadas, habilitado As Boolean)
+        _ID = id
+        ValidarDatos(nombre, descripcion, recomendaciones, urgencia)
+        _Nombre = nombre
+        _Descripcion = descripcion
+        _Urgencia = urgencia
+        _Recomendaciones = recomendaciones
+        _Enfermedades = enfermedades
+        _Habilitado = habilitado
+    End Sub
+
+    Private Sub ValidarDatos(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
         ' Manejo de errores
         ' nombre tiene un valor nulo
-        If nombre = Nothing Then
-            Throw New ArgumentNullException("nombre", "No se ingresó el nombre del síntoma.")
+        If nombre = Nothing Or nombre = "" Then
+            Throw New ArgumentException("No se ingresó el nombre del síntoma.")
         End If
 
         ' nombre excede el largo máximo
@@ -93,25 +116,6 @@
         If recomendaciones.Length > 1000 Then
             Throw New ArgumentException("El largo de las recomendaciones no debe superar los 1000 caracteres.")
         End If
-
-        _ID = Integer.MinValue
-        _Nombre = nombre
-        _Descripcion = descripcion
-        _Urgencia = urgencia
-        _Recomendaciones = recomendaciones
-        _Enfermedades = enfermedades
-        _Habilitado = True
-    End Sub
-
-    Public Sub New(id As Integer, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
-                   enfermedades As EnfermedadesAsociadas, habilitado As Boolean)
-        _ID = id
-        _Nombre = nombre
-        _Descripcion = descripcion
-        _Urgencia = urgencia
-        _Recomendaciones = recomendaciones
-        _Enfermedades = enfermedades
-        _Habilitado = habilitado
     End Sub
 
     Public Overrides Function ToString() As String

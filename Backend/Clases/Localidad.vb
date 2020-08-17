@@ -22,6 +22,20 @@
     End Property
 
     Public Sub New(nombre As String, departamento As Departamento)
+        _ID = Integer.MinValue
+        ValidarDatos(nombre)
+        _Nombre = nombre
+        _Departamento = departamento
+    End Sub
+
+    Public Sub New(id As Integer, nombre As String, departamento As Departamento)
+        _ID = id
+        ValidarDatos(nombre)
+        _Nombre = nombre
+        _Departamento = departamento
+    End Sub
+
+    Private Sub ValidarDatos(nombre As String)
         ' Manejo de errores de datos ingresados
         ' nombre tiene un valor nulo
         If nombre = Nothing Then
@@ -32,15 +46,6 @@
         If nombre.Length > 100 Then
             Throw New ArgumentException("El nombre de la localidad excede los 100 caracteres de largo.")
         End If
-
-        _Nombre = nombre
-        _Departamento = departamento
-    End Sub
-
-    Public Sub New(id As Integer, nombre As String, departamento As Departamento)
-        _ID = id
-        _Nombre = nombre
-        _Departamento = departamento
     End Sub
 
     Public Overrides Function ToString() As String

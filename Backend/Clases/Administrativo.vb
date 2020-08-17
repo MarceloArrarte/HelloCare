@@ -17,13 +17,6 @@
 
     Public Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, esEncargado As Boolean)
         MyBase.New(ci, nombre, apellido, correo, localidad, TiposPersona.Funcionario)
-
-        '' Manejo de errores de datos ingresados
-        '' Errores en la cédula
-        'If Not Validaciones.Cedula(ci) Then
-        '    Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
-        'End If
-
         _EsEncargado = esEncargado
         _Habilitado = True
     End Sub

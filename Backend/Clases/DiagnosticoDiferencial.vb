@@ -38,6 +38,7 @@
     Public Sub New(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad, conductaASeguir As String,
                    fechaHora As Date)
         _ID = Integer.MinValue
+        ValidarDatos(fechaHora)
         _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
         _EnfermedadDiagnosticada = enfermedadDiagnosticada
         _ConductaASeguir = conductaASeguir
@@ -47,9 +48,16 @@
     Public Sub New(id As Integer, diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad,
                    conductaASeguir As String, fechaHora As Date)
         _ID = id
+        ValidarDatos(fechaHora)
         _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
         _EnfermedadDiagnosticada = enfermedadDiagnosticada
         _ConductaASeguir = conductaASeguir
         _FechaHora = fechaHora
+    End Sub
+
+    Private Sub ValidarDatos(fechaHora As Date)
+        If fechaHora = Nothing Or fechaHora < New Date(2010, 1, 1) Or fechaHora > Now Then
+            Throw New ArgumentException("La fecha registrada en el diagnóstico diferencial no es válida.")
+        End If
     End Sub
 End Class

@@ -43,4 +43,10 @@
         _Medico = medico
         _ComentariosAdicionales = comentariosAdicionales
     End Sub
+
+    Private Sub ValidarDatos(comentariosAdicionales As String)
+        If comentariosAdicionales IsNot Nothing AndAlso comentariosAdicionales.Length > 1000 Then
+            Throw New ArgumentException("La longitud de los comentarios no puede exceder los 1000 caracteres.")
+        End If
+    End Sub
 End Class
