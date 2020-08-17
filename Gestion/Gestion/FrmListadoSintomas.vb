@@ -2,8 +2,12 @@
 Imports Clases
 
 Public Class FrmListadoSintomas
-    ' Cada vez que el formulario recibe el foco, actualiza los síntomas del sistema
-    Private Sub tblPatologias_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Public Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         MostrarSintomas()
     End Sub
 
@@ -39,6 +43,7 @@ Public Class FrmListadoSintomas
         Dim frm As New FrmAltaSintomas
         Me.Hide()
         frm.ShowDialog()
+        MostrarSintomas()
         Me.Show()
     End Sub
 
@@ -49,6 +54,7 @@ Public Class FrmListadoSintomas
             Dim frm As New FrmModificacionSintomas(sintoma)
             Me.Hide()
             frm.ShowDialog()
+            MostrarSintomas()
             Me.Show()
         Else
             MsgBox("Seleccione una sola fila para modificar el síntoma correspondiente.", MsgBoxStyle.Critical, "Error")

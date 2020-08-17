@@ -29,13 +29,14 @@ Partial Class FrmMenuPrincipal
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnHistorialDiagnosticos = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblLogeado = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label1.Location = New System.Drawing.Point(149, 22)
+        Me.Label1.Location = New System.Drawing.Point(50, 21)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(135, 24)
@@ -92,12 +93,22 @@ Partial Class FrmMenuPrincipal
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Vea los diagnósticos recibidos por el sistema y médicos."
         '
+        'lblLogeado
+        '
+        Me.lblLogeado.AutoSize = True
+        Me.lblLogeado.Location = New System.Drawing.Point(241, 19)
+        Me.lblLogeado.Name = "lblLogeado"
+        Me.lblLogeado.Size = New System.Drawing.Size(74, 26)
+        Me.lblLogeado.TabIndex = 5
+        Me.lblLogeado.Text = "Bienvenido/a," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
+        '
         'FrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnSalir
         Me.ClientSize = New System.Drawing.Size(447, 366)
+        Me.Controls.Add(Me.lblLogeado)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnHistorialDiagnosticos)
         Me.Controls.Add(Me.btnSalir)
@@ -121,4 +132,5 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents btnHistorialDiagnosticos As Windows.Forms.Button
     Friend WithEvents Label3 As Windows.Forms.Label
+    Friend WithEvents lblLogeado As Windows.Forms.Label
 End Class

@@ -3,7 +3,7 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmDiagnosticoPrimario
-    Private nuevoDiagnostico As Boolean
+    'Private nuevoDiagnostico As Boolean
     Private diagnosticoMostrado As DiagnosticoPrimario
 
     ' listaSintomasIngresados recibe la lista de síntomas seleccionados en el formulario anterior
@@ -38,7 +38,7 @@ Public Class FrmDiagnosticoPrimario
         End If
 
         Dim diagnosticoRealizado As DiagnosticoPrimario = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
-        nuevoDiagnostico = True
+        'nuevoDiagnostico = True
         diagnosticoMostrado = diagnosticoRealizado
     End Sub
 
@@ -63,7 +63,7 @@ Public Class FrmDiagnosticoPrimario
             txtRecomendaciones.Text &= s.Recomendaciones & vbNewLine & vbNewLine
         Next
 
-        nuevoDiagnostico = False
+        'nuevoDiagnostico = False
         diagnosticoMostrado = diagnostico
     End Sub
 
@@ -72,7 +72,7 @@ Public Class FrmDiagnosticoPrimario
         tblEnfermedadesDiagnosticadas.ClearSelection()
         Me.ActiveControl = lblTitulo
 
-        If TryCast(diagnosticoMostrado, DiagnosticoPrimarioConConsulta) IsNot Nothing Then
+        If TypeOf diagnosticoMostrado Is DiagnosticoPrimarioConConsulta Then
             Dim cantidadDiagnosticosDiferenciales As Integer = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
             lblDiagnosticosDiferenciales.Text = lblDiagnosticosDiferenciales.Text.Replace("#", cantidadDiagnosticosDiferenciales)
             If cantidadDiagnosticosDiferenciales > 0 Then
@@ -109,22 +109,21 @@ Public Class FrmDiagnosticoPrimario
                 diagnosticoConConsulta = diagnosticoMostrado
             End If
             Dim frmChat As New FrmChatPaciente(diagnosticoConConsulta)
-            frmChat.Show()
-            Me.Close()
+            Me.Hide()
+            frmChat.ShowDialog()
+            Me.Show()
         End If
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        If nuevoDiagnostico Then
-            Dim frm As New FrmHistorialDiagnosticos
-            frm.Show()
-            Me.Close()
-        Else
-            Me.Close()
-        End If
-    End Sub
+        Me.Close()
 
-    Private Sub FrmDiagnosticoPrimario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
+        'If nuevoDiagnostico Then
+        '    Dim frm As New FrmHistorialDiagnosticos
+        '    frm.Show()
+        '    Me.Close()
+        'Else
+        '    Me.Close()
+        'End If
     End Sub
 End Class

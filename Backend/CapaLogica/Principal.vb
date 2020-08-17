@@ -2,6 +2,7 @@
 Imports CapaPersistencia
 Imports System.CodeDom
 Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
 
 Public Module Principal
     Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
@@ -221,11 +222,20 @@ Public Module Principal
         Return ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medicoLogeado, mesesHistorial)
     End Function
 
-    Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
+    Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As String,
                               listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
 
         Dim nuevoSintoma As New Sintoma(nombre, descripcion, recomendaciones, urgencia, New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias))
-        InsertarObjeto(nuevoSintoma, TiposObjeto.Sintoma)
+        Try
+            InsertarObjeto(nuevoSintoma, TiposObjeto.Sintoma)
+        Catch ex As MySqlException
+            Select Case ex.Number
+                Case 1062
+                    Throw New Exception("Ya existe un síntoma con ese nombre.")
+                Case Else
+                    Throw ex
+            End Select
+        End Try
     End Sub
 
     Public Sub CrearEnfermedad(nombre As String, descripcion As String, recomendaciones As String, gravedad As Integer,
@@ -234,7 +244,16 @@ Public Module Principal
         Dim nuevaEnfermedad As New Enfermedad(nombre, recomendaciones, gravedad, descripcion,
                                               New SintomasAsociados(listaSintomas, listaFrecuencias), especialidad)
 
-        InsertarObjeto(nuevaEnfermedad, TiposObjeto.Enfermedad)
+        Try
+            InsertarObjeto(nuevaEnfermedad, TiposObjeto.Sintoma)
+        Catch ex As MySqlException
+            Select Case ex.Number
+                Case 1062
+                    Throw New Exception("Ya existe una enfermedad con ese nombre.")
+                Case Else
+                    Throw ex
+            End Select
+        End Try
     End Sub
 
     Public Function CrearDiagnosticoPrimario(paciente As Paciente, sintomas As List(Of Sintoma), enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas) As DiagnosticoPrimario

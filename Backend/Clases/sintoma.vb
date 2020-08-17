@@ -61,7 +61,7 @@
         End Get
     End Property
 
-    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer, enfermedades As EnfermedadesAsociadas)
+    Public Sub New(nombre As String, descripcion As String, recomendaciones As String, urgencia As String, enfermedades As EnfermedadesAsociadas)
         _ID = Integer.MinValue
         ValidarDatos(nombre, descripcion, recomendaciones, urgencia)
         _Nombre = nombre
@@ -84,7 +84,7 @@
         _Habilitado = habilitado
     End Sub
 
-    Private Sub ValidarDatos(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer)
+    Private Sub ValidarDatos(nombre As String, descripcion As String, recomendaciones As String, urgencia As String)
         ' Manejo de errores
         ' nombre tiene un valor nulo
         If nombre = Nothing Or nombre = "" Then

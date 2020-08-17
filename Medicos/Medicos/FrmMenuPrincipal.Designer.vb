@@ -29,6 +29,7 @@ Partial Class FrmMenuPrincipal
         Me.btnHistorialPacientes = New System.Windows.Forms.Button()
         Me.btnHistorialChat = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblLogeado = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -96,11 +97,21 @@ Partial Class FrmMenuPrincipal
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'lblLogeado
+        '
+        Me.lblLogeado.AutoSize = True
+        Me.lblLogeado.Location = New System.Drawing.Point(590, 12)
+        Me.lblLogeado.Name = "lblLogeado"
+        Me.lblLogeado.Size = New System.Drawing.Size(74, 26)
+        Me.lblLogeado.TabIndex = 4
+        Me.lblLogeado.Text = "Bienvenido/a," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
+        '
         'FrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblLogeado)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmMenuPrincipal"
@@ -108,6 +119,7 @@ Partial Class FrmMenuPrincipal
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -117,4 +129,5 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents btnHistorialPacientes As Button
     Friend WithEvents btnHistorialChat As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblLogeado As Label
 End Class

@@ -25,7 +25,7 @@ Public Module AccesoDatos
 
         Dim datos As New DataSet
         For Each t As String In tablasASeleccionar
-            datos.Tables.Add(SeleccionarTabla(t, TiposSeleccionBD.Ambos))
+            datos.Tables.Add(SeleccionarTabla(t, TiposSeleccionBD.Habilitados))
         Next
         ConexionBD.AplicarClavesExternas(datos)
 
@@ -87,54 +87,6 @@ Public Module AccesoDatos
         End Select
     End Sub
 
-
-#Region "Código comentado"
-    ' Dado un valor del enumerado Clases y una condicion con un ID, retorna el objeto de ese tipo que contiene el ID deseado
-    'Public Function ObtenerObjetoPorID(entidad As Clases, condicion As String) As Object
-    '    ' Registra en una lista los nombres de las tablas a seleccionar
-    '    Dim tablasASeleccionar As New List(Of String)
-    '    AnotarTablas(tablasASeleccionar, entidad)
-
-    '    ' Inicializa un DataSet vacío
-    '    Dim datos As New DataSet
-    '    ' Realiza la primer consulta sobre la tabla primaria según el ID especificado.
-    '    ' Las demás tablas no requieren condiciones, ya que se navega por el DataSet usando las relaciones entre los datos de las claves externas.
-    '    If condicion <> "" Then
-    '        datos.Tables.Add(SeleccionarTabla(tablasASeleccionar(0), TiposSeleccionBD.Ambos, condicion))
-    '        tablasASeleccionar.RemoveAt(0)      ' Elimina la tabla ya seleccionada
-    '    End If
-
-    '    For Each t As String In tablasASeleccionar
-    '        datos.Tables.Add(SeleccionarTabla(t, TiposSeleccionBD.Ambos))
-    '    Next
-    '    ConexionBD.AplicarClavesExternas(datos)
-
-    '    Dim listaObjetos As New List(Of Object)
-    '    PoblarLista(listaObjetos, entidad, datos)
-    '    Return listaObjetos
-    'End Function
-
-    ' Llena una tabla con los datos de todos los registros de una tabla de la BD.
-    'Private Function SeleccionarTabla(nombreTabla As String, tipoSeleccion As TiposSeleccionBD) As DataTable
-    '    Dim comando As String = String.Format("SELECT * FROM {0}", nombreTabla)
-
-    '    Select Case tipoSeleccion
-    '        Case TiposSeleccionBD.Habilitados
-    '            If {"funcionarios", "enfermedades", "sintomas", "especialidades", "usuarios"}.Contains(nombreTabla) Then
-    '                comando &= " WHERE HABILITADO=TRUE"
-    '            End If
-
-    '        Case TiposSeleccionBD.Deshabilitados
-    '            If {"funcionarios", "enfermedades", "sintomas", "especialidades", "usuarios"}.Contains(nombreTabla) Then
-    '                comando &= " WHERE HABILITADO=FALSE"
-    '            End If
-    '    End Select
-
-    '    Dim datos As DataSet = ConexionBD.EjecutarConsulta(comando, nombreTabla)
-    '    Dim tabla As DataTable = datos.Tables(nombreTabla)
-    '    Return tabla
-    'End Function
-#End Region
 
     ' Llena una tabla con los datos de los registros de una tabla de la BD que cumplen con una condición.
     ' La condición pasada como argumento debe tener el siguiente formato: "columna""operador""valor"[, "columna2""operador2""valor"...]
@@ -347,19 +299,6 @@ Public Module AccesoDatos
                                                                 habilitadoMedico))
                     Next
 
-                    'Dim listaEnfermedadesEspecialidad As New List(Of Enfermedad)
-                    'For Each rEnfermedad As DataRow In rEspecialidad.GetParentRows("enfermedades_ibfk_1")
-                    '    Dim idEnfermedad As Integer = rEnfermedad("ID")
-                    '    Dim nombreEnfermedad As String = rEnfermedad("NOMBRE")
-                    '    Dim recomendacionesEnfermedad As String = rEnfermedad("RECOMENDACIONES")
-                    '    Dim gravedadEnfermedad As String = rEnfermedad("GRAVEDAD")
-                    '    Dim descripcionEnfermedad As String = rEnfermedad("DESCRIPCION")
-                    '    Dim habilitadoEnfermedad As Boolean = rEnfermedad("HABILITADO")
-
-                    '    listaEnfermedadesEspecialidad.Add(New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad, gravedadEnfermedad,
-                    '                                                     descripcionEnfermedad, Nothing, Nothing, Nothing, habilitadoEnfermedad))
-                    'Next
-
                     lista.Add(New Especialidad(idEspecialidad, nombreEspecialidad, listaMedicosEspecialidad, habilitadoEspecialidad))
                 Next
 
@@ -367,17 +306,6 @@ Public Module AccesoDatos
                 For Each rDepartamento As DataRow In datos.Tables("departamentos").Rows
                     Dim idDepartamento As Integer = rDepartamento("ID")
                     Dim nombreDepartamento As String = rDepartamento("NOMBRE")
-
-                    'Dim listaLocalidadesDepartamento As New List(Of Localidad)
-                    'For Each rLocalidad As DataRow In datos.Tables("localidades").Rows
-                    '    If rLocalidad.GetChildRows("localidades_ibfk_1").Single Is rDepartamento Then
-                    '        Dim idLocalidad As Integer = rLocalidad("ID")
-                    '        Dim nombreLocalidad As String = rLocalidad("NOMBRE")
-
-                    '        listaLocalidadesDepartamento.Add(New Localidad(idLocalidad, nombreLocalidad, Nothing))
-                    '    End If
-                    'Next
-
                     lista.Add(New Departamento(idDepartamento, nombreDepartamento))
                 Next
 
@@ -391,65 +319,6 @@ Public Module AccesoDatos
                     Dim nombreDepartamento As String = rDepartamento("NOMBRE")
 
                     Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
-
-                    'Dim listaPersonasLocalidad As New List(Of Persona)
-                    'For Each rPersona As DataRow In rLocalidad.GetParentRows("personas_ibfk_1")
-                    '    Select Case [Enum].Parse(GetType(Enumerados.TiposPersona), rPersona("TIPO"))
-                    '        Case TiposPersona.Paciente
-                    '            Dim rPaciente As DataRow = rPersona.GetParentRow("pacientes_ibfk_1")
-
-                    '            Dim idPaciente As Integer = rPersona("ID")
-                    '            Dim ciPaciente As String = rPersona("CI")
-                    '            Dim nombrePaciente As String = rPersona("NOMBRE")
-                    '            Dim apellidoPaciente As String = rPersona("APELLIDO")
-                    '            Dim correoPaciente As String = rPersona("CORREO")
-                    '            Dim telefonoMovilPaciente As String = rPaciente("TELEFONOMOVIL")
-                    '            Dim telefonoFijoPaciente As String = rPaciente("TELEFONOFIJO")
-                    '            Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), rPaciente("SEXO"))
-                    '            Dim fechaNacimientoPaciente As Date = CType(rPaciente("FECHANACIMIENTO"), MySqlDateTime).Value
-                    '            Dim callePaciente As String = rPaciente("CALLE")
-                    '            Dim numeroPuertaPaciente As String = rPaciente("NUMEROPUERTA")
-                    '            Dim apartamentoPaciente As String = ""
-                    '            If TypeOf rPaciente("APARTAMENTO") IsNot DBNull Then
-                    '                apartamentoPaciente = rPaciente("APARTAMENTO")
-                    '            End If
-
-                    '            listaPersonasLocalidad.Add(New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, Nothing,
-                    '                                           telefonoMovilPaciente, telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente,
-                    '                                           callePaciente, numeroPuertaPaciente, apartamentoPaciente))
-
-                    '        Case TiposPersona.Funcionario
-                    '            Dim rFuncionario As DataRow = rPersona.GetParentRow("funcionarios_ibfk_1")
-                    '            Select Case [Enum].Parse(GetType(Enumerados.TiposFuncionario), rFuncionario("TIPO"))
-                    '                Case TiposFuncionario.Administrativo
-                    '                    Dim rAdministrativo As DataRow = rFuncionario.GetParentRow("administrativos_ibfk_1")
-
-                    '                    Dim idAdministrativo As Integer = rPersona("ID")
-                    '                    Dim ciAdministrativo As String = rPersona("CI")
-                    '                    Dim nombreAdministrativo As String = rPersona("NOMBRE")
-                    '                    Dim apellidoAdministrativo As String = rPersona("APELLIDO")
-                    '                    Dim correoAdministrativo As String = rPersona("CORREO")
-                    '                    Dim esEncargadoAdministrativo As Boolean = rAdministrativo("ES_ENCARGADO")
-                    '                    Dim habilitadoAdministrativo As Boolean = rFuncionario("HABILITADO")
-
-                    '                    listaPersonasLocalidad.Add(New Administrativo(idAdministrativo, ciAdministrativo, nombreAdministrativo,
-                    '                                                                  apellidoAdministrativo, correoAdministrativo, Nothing,
-                    '                                                                  esEncargadoAdministrativo, habilitadoAdministrativo))
-
-                    '                Case TiposFuncionario.Medico
-                    '                    Dim idMedico As Integer = rPersona("ID")
-                    '                    Dim ciMedico As String = rPersona("CI")
-                    '                    Dim nombreMedico As String = rPersona("NOMBRE")
-                    '                    Dim apellidoMedico As String = rPersona("APELLIDO")
-                    '                    Dim correoMedico As String = rPersona("CORREO")
-                    '                    Dim habilitadoMedico As Boolean = rFuncionario("HABILITADO")
-
-                    '                    listaPersonasLocalidad.Add(New Medico(idMedico, ciMedico, nombreMedico, apellidoMedico, correoMedico,
-                    '                                                          Nothing, Nothing, habilitadoMedico))
-                    '            End Select
-                    '    End Select
-                    'Next
-
                     lista.Add(New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad))
                 Next
 
@@ -457,8 +326,14 @@ Public Module AccesoDatos
                 For Each rSintoma As DataRow In datos.Tables("sintomas").Rows
                     Dim idSintoma As Integer = rSintoma("ID")
                     Dim nombreSintoma As String = rSintoma("NOMBRE")
-                    Dim descripcionSintoma As String = rSintoma("DESCRIPCION")
-                    Dim recomendacionesSintoma As String = rSintoma("RECOMENDACIONES")
+                    Dim descripcionSintoma As String = ""
+                    If TypeOf rSintoma("DESCRIPCION") IsNot DBNull Then
+                        descripcionSintoma = rSintoma("DESCRIPCION")
+                    End If
+                    Dim recomendacionesSintoma As String = ""
+                    If TypeOf rSintoma("RECOMENDACIONES") IsNot DBNull Then
+                        recomendacionesSintoma = rSintoma("RECOMENDACIONES")
+                    End If
                     Dim urgenciaSintoma As String = rSintoma("URGENCIA")
                     Dim habilitadoSintoma As Boolean = rSintoma("HABILITADO")
 
@@ -700,7 +575,7 @@ Public Module AccesoDatos
                                      callePaciente, numeroPuertaPaciente, apartamentoPaciente)
 
                     Dim medicoDiagnosticoPrimarioConConsulta As Medico = Nothing
-                    If TypeOf rDiagnosticoPrimarioConConsulta("ID_MEDICO") Is DBNull Then
+                    If TypeOf rDiagnosticoPrimarioConConsulta("ID_MEDICO") IsNot DBNull Then
                         Dim rMedico As DataRow = rDiagnosticoPrimarioConConsulta.GetParentRow("diagnosticos_primarios_con_consulta_ibfk_2")
                         Dim rFuncionario As DataRow = rMedico.GetParentRow("medicos_ibfk_1")
                         Dim rPersonaMedico As DataRow = rFuncionario.GetParentRow("funcionarios_ibfk_1")
@@ -798,14 +673,9 @@ Public Module AccesoDatos
                     comando &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
 
-                    'For Each e As Enfermedad In diagnosticoPrimario.Enfermedades
-                    '    comando &= String.Format("INSERT INTO sistema_diagnostica VALUES ({0},{1},{2});" & vbNewLine,
-                    '                              idDiagnosticoPrimarioBD, e.Id, e.Probabilidad.ToString.Replace(",", "."))
-                    'Next
-
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -814,14 +684,21 @@ Public Module AccesoDatos
 
 
             Case TiposObjeto.DiagnosticoDiferencial
-                Dim diagnosticoDiferencial As DiagnosticoDiferencial = objetoAInsertar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES ({0},{1},'{2}','{3}');",
-                                                       diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID,
-                                                       diagnosticoDiferencial.EnfermedadDiagnosticada.Id,
-                                                       diagnosticoDiferencial.ConductaASeguir, diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                Try
+                    Dim diagnosticoDiferencial As DiagnosticoDiferencial = objetoAInsertar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES ({0},{1},'{2}','{3}');",
+                                                           diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID,
+                                                           diagnosticoDiferencial.EnfermedadDiagnosticada.Id,
+                                                           diagnosticoDiferencial.ConductaASeguir, diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                    ConexionBD.EjecutarTransaccion(comando)
+                Catch ex As MySqlException
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Enfermedad
@@ -842,6 +719,16 @@ Public Module AccesoDatos
                                                               enfermedad.Descripcion, enfermedad.Recomendaciones, enfermedad.Gravedad,
                                                               enfermedad.Especialidad.ID, enfermedad.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
+
+                        Dim idEnfermedadBD As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT ID FROM enfermedades WHERE NOMBRE='{0}'", enfermedad.Nombre), "enfermedades").Rows(0)(0)
+
+                        comando = ""
+                        For i = 0 To enfermedad.Sintomas.Count - 1
+                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
+                                                      enfermedad.Sintomas(i).ID, idEnfermedadBD, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                        Next
+                        comando &= "COMMIT;"
+                        ConexionBD.EjecutarTransaccion(comando)
                     Else        ' Jamás existió
                         Dim comando As String = "BEGIN;" & vbNewLine
 
@@ -853,19 +740,17 @@ Public Module AccesoDatos
                         Dim idEnfermedadBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
 
                         comando = ""
-
-
-                        'For Each s As Sintoma In enfermedad.ListaSintomas
-                        '    comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                        '                             s.ID, idEnfermedadBD, s.Frecuencia.ToString.Replace(",", "."))
-                        'Next
+                        For i = 0 To enfermedad.Sintomas.Count - 1
+                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
+                                                     enfermedad.Sintomas(i).ID, idEnfermedadBD, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                        Next
                         comando &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -874,86 +759,153 @@ Public Module AccesoDatos
 
 
             Case TiposObjeto.Especialidad
-                Dim especialidad As Especialidad = objetoAInsertar
-                ConexionBD.Conexion.Open()
+                Try
+                    Dim especialidad As Especialidad = objetoAInsertar
+                    ConexionBD.Conexion.Open()
 
-                Dim estaDeshabilitado As Boolean = False
-                For Each r As DataRow In SeleccionarTabla("especialidades", TiposSeleccionBD.Deshabilitados).Rows
-                    If r("NOMBRE") = especialidad.Nombre Then
-                        estaDeshabilitado = True
-                        Exit For
+                    Dim estaDeshabilitado As Boolean = False
+                    For Each r As DataRow In SeleccionarTabla("especialidades", TiposSeleccionBD.Deshabilitados).Rows
+                        If r("NOMBRE") = especialidad.Nombre Then
+                            estaDeshabilitado = True
+                            Exit For
+                        End If
+                    Next
+
+                    If estaDeshabilitado Then
+                        Dim comando As String = String.Format("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE='{0}'", especialidad.Nombre)
+                        ConexionBD.EjecutarTransaccion(comando)
+                    Else
+                        Dim comando As String = String.Format("INSERT INTO especialidades (NOMBRE) VALUES ('{0}');", especialidad.Nombre)
+                        ConexionBD.EjecutarTransaccion(comando)
                     End If
-                Next
 
-                If estaDeshabilitado Then
-                    Dim comando As String = String.Format("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE='{0}'", especialidad.Nombre)
-                    ConexionBD.EjecutarTransaccion(comando)
-                Else
-                    Dim comando As String = String.Format("INSERT INTO especialidades (NOMBRE) VALUES ('{0}');", especialidad.Nombre)
-                    ConexionBD.EjecutarTransaccion(comando)
-                End If
-                ConexionBD.Conexion.Close()
+                Catch ex As MySqlException
+                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Departamento
-                Dim departamento As Departamento = objetoAInsertar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("INSERT INTO departamentos (NOMBRE) VALUES ('{0}');", departamento.Nombre)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                Try
+                    Dim departamento As Departamento = objetoAInsertar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("INSERT INTO departamentos (NOMBRE) VALUES ('{0}');", departamento.Nombre)
+                    ConexionBD.EjecutarTransaccion(comando)
+                    ConexionBD.Conexion.Close()
+                Catch ex As MySqlException
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
+
 
 
             Case TiposObjeto.Localidad
-                Dim localidad As Localidad = objetoAInsertar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES ('{0}',{1})",
+                Try
+                    Dim localidad As Localidad = objetoAInsertar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES ('{0}',{1})",
                                                       localidad.Nombre, localidad.Departamento.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                    ConexionBD.EjecutarTransaccion(comando)
+                    ConexionBD.Conexion.Close()
+                Catch ex As MySqlException
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Sintoma
-                Dim sintoma As Sintoma = objetoAInsertar
-                ConexionBD.Conexion.Open()
+                Try
+                    Dim sintoma As Sintoma = objetoAInsertar
+                    ConexionBD.Conexion.Open()
 
-                Dim estaDeshabilitado As Boolean = False
-                For Each r As DataRow In SeleccionarTabla("sintomas", TiposSeleccionBD.Deshabilitados).Rows
-                    If r("NOMBRE") = sintoma.Nombre Then
-                        estaDeshabilitado = True
-                        Exit For
-                    End If
-                Next
+                    Dim estaDeshabilitado As Boolean = False
+                    For Each r As DataRow In SeleccionarTabla("sintomas", TiposSeleccionBD.Deshabilitados).Rows
+                        If r("NOMBRE") = sintoma.Nombre Then
+                            estaDeshabilitado = True
+                            Exit For
+                        End If
+                    Next
 
-                If estaDeshabilitado Then
-                    Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', URGENCIA={2} WHERE NOMBRE='{3}'",
+                    If estaDeshabilitado Then
+                        Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', URGENCIA={2} WHERE NOMBRE='{3}'",
                                                           sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.Nombre)
-                    ConexionBD.EjecutarTransaccion(comando)
-                Else
-                    Dim comando As String = String.Format("INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES ('{0}','{1}','{2}',{3});",
+                        ConexionBD.EjecutarTransaccion(comando)
+                        Dim idSintomaBD As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT ID FROM sintomas WHERE NOMBRE='{0}'", sintoma.Nombre), "sintomas").Rows(0)(0)
+
+                        comando = ""
+                        For i = 0 To sintoma.Enfermedades.Count - 1
+                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
+                                                  sintoma.Enfermedades(i).Id, idSintomaBD, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                        Next
+                        comando &= "COMMIT;"
+                        ConexionBD.EjecutarTransaccion(comando)
+                    Else
+                        Dim comando As String = String.Format("INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES ('{0}','{1}','{2}',{3});",
                                                        sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia)
-                    ConexionBD.EjecutarTransaccion(comando)
-                End If
-                ConexionBD.Conexion.Close()
+                        ConexionBD.EjecutarTransaccion(comando)
+                        Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+
+                        comando = ""
+                        For i = 0 To sintoma.Enfermedades.Count - 1
+                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
+                                                  sintoma.Enfermedades(i).Id, idSintomaBD, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                        Next
+                        comando &= "COMMIT;"
+                        ConexionBD.EjecutarTransaccion(comando)
+                    End If
+                Catch ex As MySqlException
+                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
+
 
 
             Case TiposObjeto.Usuario
-                Dim usuario As Usuario = objetoAInsertar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES ('{0}','{1}',{2});",
+                Try
+                    Dim usuario As Usuario = objetoAInsertar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES ('{0}','{1}',{2});",
                                                        usuario.Contrasena, usuario.Tipo.ToString, usuario.Persona.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                    ConexionBD.EjecutarTransaccion(comando)
+                Catch ex As MySqlException
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Mensaje
-                Dim mensaje As Mensaje = objetoAInsertar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES ('{0}','{1}','{2}','{3}',{4});",
+                Try
+                    Dim mensaje As Mensaje = objetoAInsertar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As String = String.Format("INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES ('{0}','{1}','{2}','{3}',{4});",
                                                        mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"), mensaje.Formato,
                                                        Encoding.UTF8.GetString(mensaje.Contenido), mensaje.Remitente,
                                                        mensaje.DiagnosticoPrimarioConConsulta.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                    ConexionBD.EjecutarTransaccion(comando)
+                Catch ex As MySqlException
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Administrativo
@@ -993,9 +945,9 @@ Public Module AccesoDatos
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1019,9 +971,9 @@ Public Module AccesoDatos
                                             paciente.Apartamento)
                     comando &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1062,9 +1014,9 @@ Public Module AccesoDatos
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1085,9 +1037,9 @@ Public Module AccesoDatos
                     comando = String.Format("UPDATE diagnosticos_primarios SET TIPO='Con_Consulta' WHERE ID={0};", diagnosticoPrimarioConConsulta.ID)
                     comando &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
-                Catch ex As Exception
+                Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()

@@ -112,7 +112,7 @@ Partial Class FrmLogin
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Login de pacientes"
+        Me.Text = "Login de médicos"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

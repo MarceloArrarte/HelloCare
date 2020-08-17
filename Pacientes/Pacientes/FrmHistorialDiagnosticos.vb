@@ -16,14 +16,15 @@ Public Class FrmHistorialDiagnosticos
 
     Private Sub btnVerDetalles_Click(sender As Object, e As EventArgs) Handles btnVerDetalles.Click
         If tblDiagnosticos.SelectedRows.Count = 1 Then
-            Dim frm As New FrmDiagnosticoPrimario(CType(tblDiagnosticos.SelectedRows(0).Cells(0).Value, DiagnosticoPrimario))
-            frm.Show()
-            Me.Close()
+            Dim diagnosticoSeleccionado As DiagnosticoPrimario = CType(tblDiagnosticos.SelectedRows(0).Cells(0).Value, DiagnosticoPrimario)
+            Dim frm As New FrmDiagnosticoPrimario(diagnosticoSeleccionado)
+            Me.Hide()
+            frm.ShowDialog()
+            Me.Show()
         End If
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        My.Forms.FrmMenuPrincipal.Show()
         Me.Close()
     End Sub
 End Class

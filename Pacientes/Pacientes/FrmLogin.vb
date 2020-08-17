@@ -4,16 +4,15 @@ Imports Clases
 Public Class FrmLogin
     ' Veifica que el usuario y la contraseña sean correctos, en caso contrario muestra un error
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
-        'Dim ci As String = txtCedula.Text
-        'Dim contrasena As String = txtContrasena.Text
-        Dim ci As String = "45117094"
-        Dim contrasena As String = "carlosyana20"
+        Dim ci As String = txtCedula.Text
+        Dim contrasena As String = txtContrasena.Text
         Try
             Select Case AutenticarUsuarioPaciente(ci, contrasena)
                 Case ResultadosLogin.OK
                     Dim frm As New FrmMenuPrincipal
-                    frm.Show()
-                    Me.Close()
+                    Me.Hide()
+                    frm.ShowDialog()
+                    Me.Show()
 
                 Case ResultadosLogin.Error
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")

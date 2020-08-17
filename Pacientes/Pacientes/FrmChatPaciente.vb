@@ -37,6 +37,7 @@ Public Class FrmChatPaciente
         'cantidadTotalMensajes += 1
     End Sub
 
+    'NO IMPLEMENTADO
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
         If expAdjuntar.ShowDialog() = Windows.Forms.DialogResult.OK Then
             Dim ruta As String = expAdjuntar.FileName
@@ -90,8 +91,6 @@ Public Class FrmChatPaciente
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Dim frm As New FrmHistorialDiagnosticos
-        frm.Show()
         Me.Close()
     End Sub
 End Class

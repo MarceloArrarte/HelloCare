@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.CodeDom
+Imports MySql.Data.MySqlClient
 Public NotInheritable Class ConexionBD
     Private Shared _Conexion As MySqlConnection
     Private Shared Adaptador As MySqlDataAdapter
@@ -26,22 +27,34 @@ Public NotInheritable Class ConexionBD
     Public Shared Function EjecutarConsulta(comando As String, nombreTabla As String) As DataTable
         Dim datos As New DataSet                                        ' Declara un DataSet vacío
         Adaptador = New MySqlDataAdapter(comando, Conexion)             ' Reinicializa el adaptador para ejecutar el nuevo comando SQL
+        'Try
         Adaptador.Fill(datos, nombreTabla)                              ' Llena el DataSet con los datos de la tabla
         Adaptador.FillSchema(datos, SchemaType.Mapped, nombreTabla)     ' Carga en la tabla del DataSet la clave primaria, de acuerdo con la BD
+        'Catch ex As MySqlException
+        '    Select Case ex.Number
+        '        Case 
+        '    End Select
+        'End Try
+
         Dim tabla As DataTable = datos.Tables(nombreTabla)              ' Carga una variable con el DataTable a devolver
         datos.Tables.Remove(tabla)                                      ' Desvincula el DataTable del DataSet
         Return tabla
     End Function
 
     Public Shared Sub EjecutarTransaccion(comando As String)
-        'MsgBox(comando)
         Dim comandoMysql As New MySqlCommand(comando, Conexion)
-        comandoMysql.ExecuteNonQuery()
+        Try
+            comandoMysql.ExecuteNonQuery()
+        Catch ex As MySqlException
+            If ex.Number = 1042 Then
+                Throw New Exception("No se puede establecer la conexión con la base de datos.")
+            Else
+                Throw ex
+            End If
+        End Try
     End Sub
 
     Public Shared Function ObtenerUltimoIdInsertado() As Integer
-        'Dim datos As DataSet = EjecutarConsulta("SELECT LAST_INSERT_ID()", "tabla")
-        'Return datos.Tables(0).Rows(0)(0)
         Dim datos As DataTable = EjecutarConsulta("SELECT LAST_INSERT_ID()", "tabla")
         Return datos.Rows(0)(0)
     End Function

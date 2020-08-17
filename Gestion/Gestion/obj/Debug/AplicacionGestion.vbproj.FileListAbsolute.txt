@@ -1,4 +1,3 @@
-C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.exe.config
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmInicio.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmLogin.resources
@@ -44,3 +43,4 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestio
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.exe
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.xml
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.pdb
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache

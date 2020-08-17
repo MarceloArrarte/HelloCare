@@ -1,4 +1,10 @@
-﻿Public Class FrmMenuPrincipal
+﻿Imports CapaLogica
+
+Public Class FrmMenuPrincipal
+    Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblLogeado.Text = lblLogeado.Text.Replace("#", medicoLogeado.ToString)
+    End Sub
+
     Private Sub btnPeticiones_Click(sender As Object, e As EventArgs) Handles btnPeticiones.Click
         Dim frm As New FrmPeticionesChat
         Me.Hide()
