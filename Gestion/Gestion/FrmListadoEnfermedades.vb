@@ -15,10 +15,6 @@ Public Class FrmListadoEnfermedades
         tblEnfermedades.ClearSelection()
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Close()
-    End Sub
-
     ' NO IMPLEMENTADO
     Private Sub btnImportar_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
         exploradorArchivos.ShowDialog()
@@ -38,6 +34,14 @@ Public Class FrmListadoEnfermedades
         End If
     End Sub
 
+    ' Abre un formulario que permite al usuario ingresar una nueva patología
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim frm As New FrmAltaEnfermedades
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+    End Sub
+
     ' Abre un formulario para que el usuario pueda ingresar nuevos datos para una enfermedad ya almacenada
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If tblEnfermedades.SelectedRows.Count = 1 Then
@@ -53,11 +57,7 @@ Public Class FrmListadoEnfermedades
 
     ' Permite eliminar una o varias de las enfermedades del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Try
-            If tblEnfermedades.SelectedRows.Count = 0 Then
-                Throw New Exception("Seleccione al menos una fila para eliminar la(s) enfermedad(es).")
-            End If
-
+        If tblEnfermedades.SelectedRows.Count > 0 Then
             If MsgBox("¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine &
                       "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
 
@@ -66,16 +66,12 @@ Public Class FrmListadoEnfermedades
                 Next
                 ActualizarEnfermedades()
             End If
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+        Else
+            MsgBox("Seleccione al menos una fila para eliminar la(s) enfermedad(es).")
+        End If
     End Sub
 
-    ' Abre un formulario que permite al usuario ingresar una nueva patología
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim frm As New FrmAltaEnfermedades
-        Me.Hide()
-        frm.ShowDialog()
-        Me.Show()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 End Class

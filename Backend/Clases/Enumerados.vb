@@ -1,76 +1,76 @@
 ﻿Public Module Enumerados
 #Region "Atributos de clases"
     Public Enum TiposObjeto
-        DiagnosticoPrimario
-        DiagnosticoDiferencial
-        Enfermedad
-        Especialidad
-        Departamento
-        Localidad
-        Sintoma
-        Usuario
-        Mensaje
-        Administrativo
-        Paciente
-        Medico
-        DiagnosticoPrimarioConConsulta
+        DiagnosticoPrimario = 1
+        DiagnosticoDiferencial = 2
+        Enfermedad = 3
+        Especialidad = 4
+        Departamento = 5
+        Localidad = 6
+        Sintoma = 7
+        Usuario = 8
+        Mensaje = 9
+        Administrativo = 10
+        Paciente = 11
+        Medico = 12
+        DiagnosticoPrimarioConConsulta = 13
     End Enum
 
     Public Enum TiposSeleccionBD
-        Habilitados
-        Deshabilitados
-        Ambos
+        Habilitados = 1
+        Deshabilitados = 2
+        Ambos = 3
     End Enum
 
     Public Enum TiposPersona
-        Funcionario
-        Paciente
+        Funcionario = 1
+        Paciente = 2
     End Enum
 
     Public Enum TiposFuncionario
-        Administrativo
-        Medico
+        Administrativo = 1
+        Medico = 2
     End Enum
 
     Public Enum TiposSexo
-        M
-        F
-        O
+        M = 1
+        F = 2
+        O = 3
     End Enum
 
     Public Enum TiposDiagnosticosPrimarios
-        Sin_Consulta
-        Con_Consulta
+        Sin_Consulta = 1
+        Con_Consulta = 2
     End Enum
 
     Public Enum TiposUsuario
-        Paciente
-        Medico
-        Administrativo
+        Paciente = 1
+        Medico = 2
+        Administrativo = 3
     End Enum
 
     Public Enum FormatosMensajeAdmitidos
-        PDF
-        JPG
-        JPEG
-        PNG
-        TXT
+        PDF = 1
+        JPG = 2
+        JPEG = 3
+        PNG = 4
+        TXT = 5
     End Enum
 
     Public Enum TiposRemitente
-        Medico
-        Paciente
+        Medico = 1
+        Paciente = 2
     End Enum
 #End Region
 
     Public Enum ResultadosLogin
-        [Error]
-        OK
-        SinUsuario
+        [Error] = 1
+        OK = 2
+        SinUsuario = 3
     End Enum
 
     Public Enum Idiomas
-        Español
-        Inglés
+        Español = 1
+        Inglés = 2
     End Enum
 End Module

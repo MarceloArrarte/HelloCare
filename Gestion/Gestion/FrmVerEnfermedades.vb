@@ -16,4 +16,8 @@ Public Class FrmVerEnfermedades
     Private Sub FrmVerEnfermedades_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Me.ActiveControl = Nothing
     End Sub
+
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
+    End Sub
 End Class

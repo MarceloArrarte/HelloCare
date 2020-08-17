@@ -50,48 +50,51 @@
     End Property
 
     Protected Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, tipo As TiposPersona)
-        ' Manejo de errores de datos ingresados
-        ' Célula equivocada o con formato equivocado
-        'If Not Validaciones.Cedula(ci) Then
-        '    Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
-        'End If
-
-        '' nombre tiene un valor nulo
-        'If nombre = Nothing Then
-        '    Throw New ArgumentNullException("nombre", "El nombre se encuentra vacío.")
-        'End If
-
-        '' nombre excede el largo máximo
-        'If nombre.Length >= 100 Then
-        '    Throw New ArgumentException("El largo del apellido no debe superar los 100 caracteres.")
-        'End If
-
-        '' apellido tiene un valor nulo
-        'If apellido = Nothing Then
-        '    Throw New ArgumentNullException("apellido", "El apellido se encuentra vacío.")
-        'End If
-
-        '' apellido excede el largo máximo
-        'If apellido.Length >= 100 Then
-        '    Throw New ArgumentException("El largo del apellido no debe superar los 100 caracteres.")
-        'End If
-
-        '' Correo con un formato inválido
-        'If Not Validaciones.CorreoElectronico(correo) Then
-        '    Throw New ArgumentException("El correo no tiene un formato válido.")
-        'End If
-
-        _CI = ci
-        _Nombre = nombre
-        _Apellido = apellido
-        _Correo = correo
-        _Localidad = localidad
-        _Tipo = tipo
+        ValidarDatos(ci, nombre, apellido, correo, localidad, tipo)
     End Sub
 
     Protected Sub New(id As Integer, ci As String, nombre As String, apellido As String,
                       correo As String, localidad As Localidad, tipo As TiposPersona)
         _ID = id
+        ValidarDatos(ci, nombre, apellido, correo, localidad, tipo)
+    End Sub
+
+    Private Sub ValidarDatos(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, tipo As TiposPersona)
+        ' Manejo de errores de datos ingresados
+        ' Célula equivocada o con formato equivocado
+        If Not CedulaValida(ci) Then
+            Throw New ArgumentException("El número de cédula ingresado no corresponde con el dígito verificador.")
+        End If
+
+        ' nombre tiene un valor nulo
+        If nombre = Nothing Or nombre = "" Then
+            Throw New ArgumentNullException("nombre", "El nombre se encuentra vacío.")
+        End If
+
+        ' nombre excede el largo máximo
+        If nombre.Length >= 100 Then
+            Throw New ArgumentException("El largo del nombre no debe superar los 100 caracteres.")
+        End If
+
+        ' apellido tiene un valor nulo
+        If apellido = Nothing Or apellido = "" Then
+            Throw New ArgumentNullException("apellido", "El apellido se encuentra vacío.")
+        End If
+
+        ' apellido excede el largo máximo
+        If apellido.Length >= 100 Then
+            Throw New ArgumentException("El largo del apellido no debe superar los 100 caracteres.")
+        End If
+
+        ' Correo con un formato inválido
+        If Not CorreoValido(correo) Then
+            Throw New ArgumentException("El correo no tiene un formato válido.")
+        End If
+
+        If Not [Enum].IsDefined(GetType(TiposPersona), tipo) Then
+            Throw New ArgumentException("El tipo de persona es inválido.")
+        End If
+
         _CI = ci
         _Nombre = nombre
         _Apellido = apellido
@@ -99,6 +102,67 @@
         _Localidad = localidad
         _Tipo = tipo
     End Sub
+
+    Protected Shared Function CedulaValida(ci As String) As Boolean
+        ' Manejo de errores de formato
+        ' Valor nulo o cadena vacía
+        If ci = Nothing Or ci = "" Then
+            Throw New ArgumentNullException("ci", "La cédula no ha sido ingresada.")
+        End If
+
+        ' La cédula posee más de 8 caracteres
+        If ci.Length > 8 Then
+            Throw New ArgumentException("La cédula no puede poseer más de 8 caracteres. Ingrésela sin puntos ni guiones.")
+        End If
+
+        ' Algún dígito no es un valor numérico (0-9)
+        For Each c As Char In ci.ToCharArray
+            Dim valorASCIICaracter As Integer = Asc(c)
+            If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
+                Throw New ArgumentException("El caracter " & c & " en la cédula " & ci & " no es un dígito válido.")
+            End If
+        Next
+
+        ' Completa la cédula con ceros a la izquierda en caso de que tenga menos de 8 dígitos
+        While ci.Length < 8
+            ci = "0" & ci
+        End While
+
+        ' Calcula el dígito verificador a través de los dígitos numéricos, y lo compara con el ingresado
+        Dim constantesVerificacion() As Integer = {2, 9, 8, 7, 6, 3, 4}
+        Dim suma As Integer = 0
+        For i = 0 To constantesVerificacion.Length - 1
+            suma += (Val(ci(i)) * constantesVerificacion(i)) Mod 10
+        Next
+        Dim digitoVerificador As Integer = 10 - (suma Mod 10)
+
+        ' Si el digito verificador calculado coincide con el ingresado, retorna True, sino retorna False
+        If digitoVerificador = Integer.Parse(ci.ToCharArray.Last()) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Shared Function CorreoValido(correo As String) As Boolean
+        ' Manejo de errores de formato
+        ' Valor nulo
+        If correo = Nothing Or correo = "" Then
+            Throw New ArgumentNullException("correo", "El correo no ha sido ingresado.")
+        End If
+
+        ' El correo posee más de 100 caracteres
+        If correo.Length > 100 Then
+            Throw New ArgumentException("El correo no puede poseer más de 100 caracteres.")
+        End If
+
+        ' Si la cadena tiene un formato adecuado, retorna True, sino retorna False
+        If correo Like "*@*.*" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
     Public Overrides Function ToString() As String
         Return _Nombre & " " & _Apellido

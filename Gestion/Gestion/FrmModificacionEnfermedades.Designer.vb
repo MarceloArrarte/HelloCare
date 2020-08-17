@@ -247,7 +247,7 @@ Partial Class FrmModificacionEnfermedades
         'btnVolver
         '
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Location = New System.Drawing.Point(184, 611)
+        Me.btnVolver.Location = New System.Drawing.Point(236, 611)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
         Me.btnVolver.TabIndex = 44
@@ -275,7 +275,7 @@ Partial Class FrmModificacionEnfermedades
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(601, 125)
+        Me.Label9.Location = New System.Drawing.Point(601, 106)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(70, 13)
         Me.Label9.TabIndex = 52
@@ -283,7 +283,7 @@ Partial Class FrmModificacionEnfermedades
         '
         'txtBuscarEspecialidades
         '
-        Me.txtBuscarEspecialidades.Location = New System.Drawing.Point(677, 97)
+        Me.txtBuscarEspecialidades.Location = New System.Drawing.Point(677, 71)
         Me.txtBuscarEspecialidades.Name = "txtBuscarEspecialidades"
         Me.txtBuscarEspecialidades.Size = New System.Drawing.Size(159, 20)
         Me.txtBuscarEspecialidades.TabIndex = 53
@@ -291,7 +291,7 @@ Partial Class FrmModificacionEnfermedades
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(628, 104)
+        Me.Label10.Location = New System.Drawing.Point(628, 74)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(43, 13)
         Me.Label10.TabIndex = 54
@@ -307,13 +307,13 @@ Partial Class FrmModificacionEnfermedades
         Me.tblEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblEspecialidades.ColumnHeadersVisible = False
         Me.tblEspecialidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.tblEspecialidades.Location = New System.Drawing.Point(677, 123)
+        Me.tblEspecialidades.Location = New System.Drawing.Point(677, 97)
         Me.tblEspecialidades.MultiSelect = False
         Me.tblEspecialidades.Name = "tblEspecialidades"
         Me.tblEspecialidades.ReadOnly = True
         Me.tblEspecialidades.RowHeadersVisible = False
         Me.tblEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblEspecialidades.Size = New System.Drawing.Size(159, 157)
+        Me.tblEspecialidades.Size = New System.Drawing.Size(159, 206)
         Me.tblEspecialidades.TabIndex = 55
         '
         'Column1

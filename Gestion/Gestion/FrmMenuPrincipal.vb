@@ -14,17 +14,12 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        'Dim frm As New FrmLogin
-        'frm.Show()
         Me.Close()
     End Sub
 
     ' Pide confirmación al usuario antes de cerrar sesión
     Private Sub FrmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.Yes Then
-            Dim frm As New FrmLogin
-            frm.Show()
-        Else
+        If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.No Then
             e.Cancel = True
         End If
     End Sub

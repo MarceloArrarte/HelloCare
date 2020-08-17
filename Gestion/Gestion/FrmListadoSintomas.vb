@@ -3,7 +3,7 @@ Imports Clases
 
 Public Class FrmListadoSintomas
     ' Cada vez que el formulario recibe el foco, actualiza los síntomas del sistema
-    Private Sub tblPatologias_Load(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Private Sub tblPatologias_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         MostrarSintomas()
     End Sub
 
@@ -13,10 +13,6 @@ Public Class FrmListadoSintomas
             tblSintomas.Rows.Add(sintoma, sintoma.Nombre, sintoma.Descripcion, sintoma.Urgencia, sintoma.Recomendaciones)
         Next
         tblSintomas.ClearSelection()
-    End Sub
-
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Close()
     End Sub
 
     ' NO IMPLEMENTADO
@@ -38,6 +34,14 @@ Public Class FrmListadoSintomas
         End If
     End Sub
 
+    ' Abre un formulario que permite al usuario ingresar un nuevo síntoma
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim frm As New FrmAltaSintomas
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+    End Sub
+
     ' Abre un formulario para que el usuario pueda ingresar nuevos datos para un síntoma ya almacenado
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If tblSintomas.SelectedRows.Count = 1 Then
@@ -53,11 +57,7 @@ Public Class FrmListadoSintomas
 
     ' Permite eliminar uno o varios de los síntomas del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Try
-            If tblSintomas.SelectedRows.Count = 0 Then
-                Throw New Exception("Seleccione al menos una fila para eliminar el/los síntoma(s).")
-            End If
-
+        If tblSintomas.SelectedRows.Count > 0 Then
             If MsgBox("¿Confirma que desea eliminar este/os síntoma(s)?" & vbNewLine &
                       "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
 
@@ -66,16 +66,12 @@ Public Class FrmListadoSintomas
                 Next
                 MostrarSintomas()
             End If
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+        Else
+            MsgBox("Seleccione al menos una fila para eliminar el/los síntoma(s).")
+        End If
     End Sub
 
-    ' Abre un formulario que permite al usuario ingresar un nuevo síntoma
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim frm As New FrmAltaSintomas
-        Me.Hide()
-        frm.ShowDialog()
-        Me.Show()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
     End Sub
 End Class

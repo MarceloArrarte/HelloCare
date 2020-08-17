@@ -174,7 +174,7 @@ Partial Class FrmAltaSintomas
         'colAsociacion
         '
         Me.colAsociacion.FillWeight = 15.0!
-        Me.colAsociacion.HeaderText = "Asociación"
+        Me.colAsociacion.HeaderText = ""
         Me.colAsociacion.Name = "colAsociacion"
         Me.colAsociacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.colAsociacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
@@ -182,7 +182,7 @@ Partial Class FrmAltaSintomas
         'colEnfermedades
         '
         Me.colEnfermedades.FillWeight = 70.0!
-        Me.colEnfermedades.HeaderText = "Enfermedades"
+        Me.colEnfermedades.HeaderText = "Enfermedad"
         Me.colEnfermedades.Name = "colEnfermedades"
         Me.colEnfermedades.ReadOnly = True
         '
