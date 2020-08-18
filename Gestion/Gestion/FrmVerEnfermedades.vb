@@ -10,6 +10,10 @@ Public Class FrmVerEnfermedades
         txtDescripcion.Text = enfermedad.Descripcion
         txtRecomendaciones.Text = enfermedad.Recomendaciones
         txtGravedad.Text = enfermedad.Gravedad
+
+        For i = 0 To enfermedad.Sintomas.Count - 1
+            tblSintomas.Rows.Add(enfermedad.Sintomas(i), enfermedad.Sintomas(i).Descripcion, enfermedad.FrecuenciaSintoma(i))
+        Next
     End Sub
 
     ' Evita que algún control quede seleccionado y distraiga al usuario

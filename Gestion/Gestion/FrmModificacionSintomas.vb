@@ -99,7 +99,11 @@ Public Class FrmModificacionSintomas
             Dim listaFrecuencias As New List(Of Decimal)
             For Each r As DataGridViewRow In tblAsociadas.Rows
                 listaEnfermedades.Add(CType(r.Cells(0).Value, Enfermedad))
-                listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Try
+                    listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Catch ex As Exception
+                    Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
+                End Try
             Next
 
             ActualizarSintoma(sintomaAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtUrgencia.Text,

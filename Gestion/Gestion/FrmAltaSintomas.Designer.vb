@@ -174,7 +174,7 @@ Partial Class FrmAltaSintomas
         'colAsociacion
         '
         Me.colAsociacion.FillWeight = 15.0!
-        Me.colAsociacion.HeaderText = ""
+        Me.colAsociacion.HeaderText = "Asociar"
         Me.colAsociacion.Name = "colAsociacion"
         Me.colAsociacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.colAsociacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
@@ -194,7 +194,6 @@ Partial Class FrmAltaSintomas
         '
         'FrmAltaSintomas
         '
-        Me.AcceptButton = Me.btnAgregar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver

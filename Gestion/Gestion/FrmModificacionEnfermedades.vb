@@ -83,12 +83,21 @@ Public Class FrmModificacionEnfermedades
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         Try
+            For Each r As DataGridViewRow In tblAsociados.Rows
+                If r.Cells(2).Value Is Nothing Then
+                    Throw New Exception("No se ha ingresado la frecuencia del síntoma """ & r.Cells(0).Value.ToString & """.")
+                End If
+            Next
             Dim especialidad As Especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
             Dim listaSintomas As New List(Of Sintoma)
             Dim listaFrecuencias As New List(Of Decimal)
             For Each r As DataGridViewRow In tblAsociados.Rows
                 listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
-                listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Try
+                    listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Catch ex As Exception
+                    Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
+                End Try
             Next
 
             ActualizarEnfermedad(enfermedadAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text,
@@ -102,20 +111,6 @@ Public Class FrmModificacionEnfermedades
         End Try
     End Sub
 
-    '' Crea un objeto Enfermedad con los nuevos datos. Si no hay ningún error, sustituye en el sistema
-    '' la enfermedad vieja por la nueva
-    'Private Sub btnModificar_Click(sender As Object, e As EventArgs)
-    '    Try
-    '        Dim enfermedadNueva As New Enfermedad(txtNombre.Text, txtRecomendaciones.Text, txtGravedad.Text, txtDescripcion.Text)
-    '        ModificarEnfermedad(enfermedadAModificar, enfermedadNueva)
-    '        MsgBox("Modificación realizada con éxito.", MsgBoxStyle.OkOnly, "Éxito")
-    '        requiereConfirmacionSalida = False          ' Si no hubo errores, permite que el formulario se cierre automáticamente
-    '        Me.Close()
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-    '    End Try
-    'End Sub
-
     Private Sub OcultarSintomasSeleccionadosOFiltrados()
         ' Oculta por filtro de texto
         For Each r As DataGridViewRow In tblSintomas.Rows
@@ -126,11 +121,11 @@ Public Class FrmModificacionEnfermedades
             End If
         Next
 
-        ' Oculta las patologías ya seleccionadas
-        For Each rAsociada As DataGridViewRow In tblAsociados.Rows
-            For Each rPatologia As DataGridViewRow In tblSintomas.Rows
-                If rAsociada.Cells(1).Value = rPatologia.Cells(1).Value Then
-                    rPatologia.Visible = False
+        ' Oculta los síntomas ya seleccionadas
+        For Each rAsociado As DataGridViewRow In tblAsociados.Rows
+            For Each rSintoma As DataGridViewRow In tblSintomas.Rows
+                If rAsociado.Cells(1).Value = rAsociado.Cells(1).Value Then
+                    rSintoma.Visible = False
                 End If
             Next
         Next

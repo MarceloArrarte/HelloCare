@@ -1158,7 +1158,7 @@ Public Module AccesoDatos
                     Dim enfermedad As Enfermedad = objetoAModificar
                     ConexionBD.Conexion.Open()
                     Dim comando As String = "BEGIN;" & vbNewLine
-                    comando &= String.Format("UPDATE enfermedades SET NOMBRE='{0}' DESCRIPCION='{1}', RECOMENDACIONES='{2}', GRAVEDAD={3}, ID_ESPECIALIDAD={4} WHERE ID={5};",
+                    comando &= String.Format("UPDATE enfermedades SET NOMBRE='{0}', DESCRIPCION='{1}', RECOMENDACIONES='{2}', GRAVEDAD={3}, ID_ESPECIALIDAD={4} WHERE ID={5};",
                                               enfermedad.Nombre, enfermedad.Descripcion, enfermedad.Recomendaciones, enfermedad.Gravedad,
                                               enfermedad.Especialidad.ID, enfermedad.Id)
                     ConexionBD.EjecutarTransaccion(comando)

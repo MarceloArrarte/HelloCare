@@ -13,6 +13,8 @@ Public Class FrmAltaEnfermedades
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
         Next
+        tblSintomas.ClearSelection()
+        tblEspecialidades.ClearSelection()
     End Sub
 
     Private Sub txtBuscarSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarSintoma.TextChanged
@@ -40,7 +42,11 @@ Public Class FrmAltaEnfermedades
             Dim listaFrecuencias As New List(Of Decimal)
             For Each r As DataGridViewRow In tblAsociados.Rows
                 listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
-                listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Try
+                    listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
+                Catch ex As Exception
+                    Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
+                End Try
             Next
 
             CrearEnfermedad(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text, listaSintomas, listaFrecuencias, especialidad)

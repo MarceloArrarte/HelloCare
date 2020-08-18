@@ -245,7 +245,7 @@ Public Module Principal
                                               New SintomasAsociados(listaSintomas, listaFrecuencias), especialidad)
 
         Try
-            InsertarObjeto(nuevaEnfermedad, TiposObjeto.Sintoma)
+            InsertarObjeto(nuevaEnfermedad, TiposObjeto.Enfermedad)
         Catch ex As MySqlException
             Select Case ex.Number
                 Case 1062
@@ -289,7 +289,7 @@ Public Module Principal
     End Function
 
     Public Sub ActualizarSintoma(sintomaViejo As Sintoma, nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
-                                      listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
+                                 listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
 
         Dim nuevoSintoma As New Sintoma(sintomaViejo.ID, nombre, descripcion, recomendaciones, urgencia,
                                         New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias), sintomaViejo.Habilitado)

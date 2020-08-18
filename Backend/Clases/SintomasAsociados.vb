@@ -22,6 +22,11 @@
 
     Public Sub New(sintomas As List(Of Sintoma), frecuencias As List(Of Decimal))
         _Items = sintomas
+        For Each f As Decimal In frecuencias
+            If f < 0 Or f > 100 Then
+                Throw New Exception("La frecuencia de cada síntoma debe estar entre 0 y 100.")
+            End If
+        Next
         _Frecuencias = frecuencias
     End Sub
 End Class
