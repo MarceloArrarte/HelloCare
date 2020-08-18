@@ -97,7 +97,7 @@ Public Class FrmDiagnosticoPrimario
     Private Sub btnRealizarConsulta_Click(sender As Object, e As EventArgs) Handles btnRealizarConsulta.Click
         Dim frmComentarios As FrmComentariosAdicionales
         Dim confirmacion As DialogResult = DialogResult.OK
-        If TryCast(diagnosticoMostrado, DiagnosticoPrimarioConConsulta) Is Nothing Then
+        If diagnosticoMostrado.Tipo = TiposDiagnosticosPrimarios.Sin_Consulta Then
             frmComentarios = New FrmComentariosAdicionales
             confirmacion = frmComentarios.ShowDialog()
         End If
@@ -111,19 +111,12 @@ Public Class FrmDiagnosticoPrimario
             Dim frmChat As New FrmChatPaciente(diagnosticoConConsulta)
             Me.Hide()
             frmChat.ShowDialog()
+            Me.DialogResult = DialogResult.None
             Me.Show()
         End If
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
-
-        'If nuevoDiagnostico Then
-        '    Dim frm As New FrmHistorialDiagnosticos
-        '    frm.Show()
-        '    Me.Close()
-        'Else
-        '    Me.Close()
-        'End If
     End Sub
 End Class

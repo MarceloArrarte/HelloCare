@@ -22,13 +22,10 @@ Public Class FrmModificacionSintomas
         Next
 
         sintomaAModificar = sintoma
-    End Sub
-
-    ' Carga las patologías que existen en el sistema
-    Private Sub FrmModificacionSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For Each enfermedad As Enfermedad In CargarTodasLasEnfermedades()
             tblPatologias.Rows.Add(enfermedad, enfermedad.Nombre)
         Next
+        OcultarPatologiasSeleccionadasOFiltradas()
     End Sub
 
     ' Actualiza el filtro de texto para ocultar patologías no coincidentes

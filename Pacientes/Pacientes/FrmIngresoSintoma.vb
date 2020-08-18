@@ -11,8 +11,8 @@ Public Class FrmIngresoSintoma
     Private Sub FrmIngresoSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For Each s As Sintoma In CargarTodosLosSintomas()
             tblDisponibles.Rows.Add(s, s.Nombre)
-            tblSeleccionados.Rows.Add(s, s.Nombre)
-            tblSeleccionados.Rows(tblSeleccionados.Rows.Count - 1).Visible = False
+            'tblSeleccionados.Rows.Add(s, s.Nombre)
+            'tblSeleccionados.Rows(tblSeleccionados.Rows.Count - 1).Visible = False
         Next
     End Sub
 
@@ -56,7 +56,7 @@ Public Class FrmIngresoSintoma
             Dim frm As New FrmDiagnosticoPrimario(sintomasSeleccionados)
             Me.Hide()
             frm.ShowDialog()
-            Me.Show()
+            Me.Close()
         Else
             MsgBox("Debe ingresar al menos un síntoma para recibir un diagnóstico.", MsgBoxStyle.Critical, "Error")
         End If

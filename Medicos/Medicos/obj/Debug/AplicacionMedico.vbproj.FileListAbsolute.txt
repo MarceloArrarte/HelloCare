@@ -25,7 +25,6 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\Clases.xml
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\CapaPersistencia.pdb
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\CapaPersistencia.xml
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MySql.Data.xml
-C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.exe.config
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbproj.GenerateResource.cache
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbproj.CopyComplete
@@ -41,3 +40,4 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmNuevoDiagnostico.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.Resources.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache

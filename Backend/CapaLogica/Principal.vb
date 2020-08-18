@@ -139,17 +139,19 @@ Public Module Principal
         Return enfermedadMasProbable
     End Function
 
-    Public Function DeterminarProbabilidadEnfermedad(sintomas As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
+    Public Function DeterminarProbabilidadEnfermedad(sintomasIngresados As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
         Dim cantidadSintomasExistentes As Integer = enfermedad.Sintomas.Count
         Dim cantidadSintomasCoincidentes As Integer = 0
         Dim listaFrecuencias As New List(Of Decimal)
         For i = 0 To cantidadSintomasExistentes - 1
-            If sintomas.Contains(enfermedad.Sintomas(i)) Then
-                cantidadSintomasCoincidentes += 1
-                listaFrecuencias.Add(enfermedad.FrecuenciaSintoma(i))
-            Else
-                listaFrecuencias.Add(0)
-            End If
+            For Each sintomaIngresado As Sintoma In sintomasIngresados
+                If sintomasIngresados(i).ID = sintomaIngresado.ID Then
+                    cantidadSintomasCoincidentes += 1
+                    listaFrecuencias.Add(enfermedad.FrecuenciaSintoma(i))
+                Else
+                    listaFrecuencias.Add(0)
+                End If
+            Next
         Next
 
         Dim porcentajeProbabilidad As Double = 0
@@ -257,11 +259,16 @@ Public Module Principal
     End Sub
 
     Public Function CrearDiagnosticoPrimario(paciente As Paciente, sintomas As List(Of Sintoma), enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas) As DiagnosticoPrimario
-        Dim nuevoDiagnostico As New DiagnosticoPrimario(paciente, sintomas, enfermedadesDiagnosticadas, Now, TiposDiagnosticosPrimarios.Sin_Consulta)
+        Dim fechaHoraDiagnostico As Date = Now
+        Dim nuevoDiagnostico As New DiagnosticoPrimario(paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
+                                                        TiposDiagnosticosPrimarios.Sin_Consulta)
 
-        InsertarObjeto(nuevoDiagnostico, TiposObjeto.DiagnosticoPrimario)
+        Dim idAsignado As Integer
+        InsertarObjeto(nuevoDiagnostico, TiposObjeto.DiagnosticoPrimario, idAsignado)
+        Dim diagnosticoInsertado As New DiagnosticoPrimario(idAsignado, paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
+                                                            TiposDiagnosticosPrimarios.Sin_Consulta)
 
-        Return nuevoDiagnostico
+        Return diagnosticoInsertado
     End Function
 
     Public Sub CrearDiagnosticoDiferencial(consulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad, conductaASeguir As String)

@@ -12,6 +12,8 @@ Public Class FrmLogin
                     Dim frm As New FrmMenuPrincipal
                     Me.Hide()
                     frm.ShowDialog()
+                    txtCedula.Clear()
+                    txtContrasena.Clear()
                     Me.Show()
 
                 Case ResultadosLogin.Error

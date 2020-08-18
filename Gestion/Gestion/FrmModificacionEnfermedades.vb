@@ -27,14 +27,22 @@ Public Class FrmModificacionEnfermedades
 
         ' Almacena la enfermedad que se va a estar modificando
         enfermedadAModificar = enfermedad
-    End Sub
-
-    Private Sub FrmModificacionEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For Each sintoma As Sintoma In CargarTodosLosSintomas()
             tblSintomas.Rows.Add(sintoma, sintoma.Nombre)
         Next
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
+        Next
+
+        OcultarSintomasSeleccionadosOFiltrados()
+    End Sub
+
+    Private Sub FrmModificacionEnfermedades_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        tblEspecialidades.ClearSelection()
+        For Each r As DataGridViewRow In tblEspecialidades.Rows
+            If CType(r.Cells(0).Value, Especialidad).ID = enfermedadAModificar.Especialidad.ID Then
+                r.Selected = True
+            End If
         Next
     End Sub
 
@@ -44,7 +52,7 @@ Public Class FrmModificacionEnfermedades
 
     Private Sub txtBuscarEspecialidades_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidades.TextChanged
         For Each r As DataGridViewRow In tblEspecialidades.Rows
-            If r.Cells(0).ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+            If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEspecialidades.Text & "*").ToLower Then
                 r.Visible = True
             Else
                 If Not r.Selected Then

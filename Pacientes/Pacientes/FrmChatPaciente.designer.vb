@@ -27,8 +27,7 @@ Partial Class FrmChatPaciente
         Me.txtMensaje = New System.Windows.Forms.RichTextBox()
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.btnAdjuntar = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblNombreMedico = New System.Windows.Forms.Label()
+        Me.lblMedico = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lstArchivos = New System.Windows.Forms.ListBox()
@@ -76,30 +75,18 @@ Partial Class FrmChatPaciente
         Me.btnAdjuntar.UseVisualStyleBackColor = True
         Me.btnAdjuntar.Visible = False
         '
-        'Label3
+        'lblMedico
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Lato", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(223, 18)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Usted se está comunicando con"
-        '
-        'lblNombreMedico
-        '
-        Me.lblNombreMedico.AutoSize = True
-        Me.lblNombreMedico.Font = New System.Drawing.Font("Lato", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreMedico.Location = New System.Drawing.Point(6, 47)
-        Me.lblNombreMedico.Name = "lblNombreMedico"
-        Me.lblNombreMedico.Size = New System.Drawing.Size(70, 18)
-        Me.lblNombreMedico.TabIndex = 11
-        Me.lblNombreMedico.Text = "@medico"
+        Me.lblMedico.Font = New System.Drawing.Font("Lato", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMedico.Location = New System.Drawing.Point(4, 16)
+        Me.lblMedico.Name = "lblMedico"
+        Me.lblMedico.Size = New System.Drawing.Size(223, 58)
+        Me.lblMedico.TabIndex = 10
+        Me.lblMedico.Text = "Usted se está comunicando con" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.lblNombreMedico)
+        Me.GroupBox1.Controls.Add(Me.lblMedico)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(231, 77)
@@ -169,7 +156,6 @@ Partial Class FrmChatPaciente
         Me.Name = "FrmChatPaciente"
         Me.Text = "ChatPaciente"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -180,8 +166,7 @@ Partial Class FrmChatPaciente
     Friend WithEvents txtMensaje As Windows.Forms.RichTextBox
     Friend WithEvents btnEnviar As Windows.Forms.Button
     Friend WithEvents btnAdjuntar As Windows.Forms.Button
-    Friend WithEvents Label3 As Windows.Forms.Label
-    Friend WithEvents lblNombreMedico As Windows.Forms.Label
+    Friend WithEvents lblMedico As Windows.Forms.Label
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
     Friend WithEvents lstArchivos As Windows.Forms.ListBox

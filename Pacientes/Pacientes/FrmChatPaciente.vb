@@ -19,7 +19,11 @@ Public Class FrmChatPaciente
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         diagnosticoEnCurso = diagnosticoPrimarioConConsulta
 
-        lblNombreMedico.Text = diagnosticoEnCurso.Medico.ToString
+        If diagnosticoPrimarioConConsulta.Medico IsNot Nothing Then
+            lblMedico.Text = lblMedico.Text.Replace("#", diagnosticoEnCurso.Medico.ToString)
+        Else
+            lblMedico.Text = "Un médico se comunicará con usted a la brevedad."
+        End If
 
         cantidadTotalMensajes = ContarMensajes(diagnosticoPrimarioConConsulta)
         mensajesMostrados = CargarUltimosMensajesDiagnostico(diagnosticoEnCurso, lotesMensajes * tamanoLote)

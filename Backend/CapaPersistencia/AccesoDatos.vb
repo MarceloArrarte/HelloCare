@@ -645,7 +645,7 @@ Public Module AccesoDatos
     ' Para el caso de los objetos que utilizan borrado lógico, se verifica previo a las sentencias INSERT si el registro a insertar
     ' ya existe y se encuentra deshabilitado, en cuyo caso es habilitado.
     ' Cuando la operación requiere más de un comando, dichos comandos se encuentran encapsulados por BEGIN, COMMIT y ROLLBACK en un bloque Try/Catch.
-    Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto)
+    Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto, Optional ByRef idAsignadoAlObjeto As Integer = Integer.MinValue)
         Select Case entidad
             Case TiposObjeto.DiagnosticoPrimario
                 Try
@@ -672,6 +672,7 @@ Public Module AccesoDatos
                     Next
                     comando &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
+                    idAsignadoAlObjeto = idDiagnosticoPrimarioBD
 
                 Catch ex As MySqlException
                     ConexionBD.EjecutarTransaccion("ROLLBACK;")
@@ -1032,7 +1033,7 @@ Public Module AccesoDatos
                     ConexionBD.Conexion.Open()
                     Dim comando As String = "BEGIN;" & vbNewLine
                     comando = String.Format("INSERT INTO diagnosticos_primarios_con_consulta VALUES ({0},{1},'{2}');",
-                                             diagnosticoPrimarioConConsulta.ID, DBNull.Value,
+                                             diagnosticoPrimarioConConsulta.ID, "NULL",
                                              diagnosticoPrimarioConConsulta.ComentariosAdicionales)
                     ConexionBD.EjecutarTransaccion(comando)
 
@@ -1490,7 +1491,7 @@ Public Module AccesoDatos
                     Dim medicoDiagnosticoPrimarioConConsulta As Medico = Nothing
                     If TypeOf rDiagnosticoPrimarioConConsulta("ID_MEDICO") IsNot DBNull Then
                         Dim idMedico As Integer = rDiagnosticoPrimarioConConsulta("ID_MEDICO")
-                        Dim rMedico As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM medicos WHERE ID_FUNCIONARIO={0}", idDiagnosticoPrimario), "medicos").Rows(0)
+                        Dim rMedico As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM medicos WHERE ID_FUNCIONARIO={0}", idMedico), "medicos").Rows(0)
 
                         Dim especialidadesMedico As New List(Of Especialidad)
                         For Each rEspecialidadesMedico As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM especialidades_medicos WHERE ID_MEDICO={0}", idMedico), "especialidades_medicos").Rows

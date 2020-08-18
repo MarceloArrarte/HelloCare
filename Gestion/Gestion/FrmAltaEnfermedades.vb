@@ -23,7 +23,7 @@ Public Class FrmAltaEnfermedades
 
     Private Sub txtBuscarEspecialidades_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidades.TextChanged
         For Each r As DataGridViewRow In tblEspecialidades.Rows
-            If r.Cells(0).ToString.ToLower Like ("*" & txtBuscarSintoma.Text & "*").ToLower Then
+            If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEspecialidades.Text & "*").ToLower Then
                 r.Visible = True
             Else
                 If Not r.Selected Then

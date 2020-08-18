@@ -76,6 +76,7 @@ Partial Class FrmComentariosAdicionales
         Me.Controls.Add(Me.txtComentariosAdicionales)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmComentariosAdicionales"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmComentariosAdicionales"
         Me.ResumeLayout(False)
         Me.PerformLayout()
