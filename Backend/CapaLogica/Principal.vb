@@ -145,7 +145,7 @@ Public Module Principal
         Dim listaFrecuencias As New List(Of Decimal)
         For i = 0 To cantidadSintomasExistentes - 1
             For Each sintomaIngresado As Sintoma In sintomasIngresados
-                If sintomasIngresados(i).ID = sintomaIngresado.ID Then
+                If sintomaIngresado.ID = enfermedad.Sintomas(i).ID Then
                     cantidadSintomasCoincidentes += 1
                     listaFrecuencias.Add(enfermedad.FrecuenciaSintoma(i))
                 Else
