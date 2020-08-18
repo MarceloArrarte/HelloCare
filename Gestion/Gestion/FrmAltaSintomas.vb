@@ -10,7 +10,10 @@ Public Class FrmAltaSintomas
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Close()
+        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+            MsgBoxResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -41,20 +44,17 @@ Public Class FrmAltaSintomas
                     End If
                 Next
 
-                CrearSintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtUrgencia.Text, listaEnfermedades, listaFrecuencias)
+                Dim urgenciaParseado As Integer
+                If Not Integer.TryParse(txtUrgencia.Text, urgenciaParseado) Then
+                    Throw New Exception("La gravedad debe ser un valor numérico entero.")
+                End If
+
+                CrearSintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, urgenciaParseado, listaEnfermedades, listaFrecuencias)
                 MsgBox("Síntoma agregado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
                 Me.Close()
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
-        End If
-    End Sub
-
-    ' Si el formulario se cierra sin crear un síntoma, pide al usuario confirmación para abandonar la ventana.
-    Private Sub FrmAltaSintomas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
-            MsgBoxResult.No Then
-            e.Cancel = True
         End If
     End Sub
 End Class

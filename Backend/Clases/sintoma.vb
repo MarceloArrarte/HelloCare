@@ -101,12 +101,6 @@
             Throw New ArgumentException("El largo de la descripción no debe superar los 1000 caracteres.")
         End If
 
-        ' urgencia no es un valor numérico entero
-        Dim urgenciaInt As Integer
-        If Not Integer.TryParse(urgencia, urgenciaInt) Then
-            Throw New ArgumentException("La urgencia debe tener un valor numérico entero.")
-        End If
-
         ' urgencia tiene un valor inválido
         If urgencia < 1 Or urgencia > 100 Then
             Throw New ArgumentException("La urgencia debe tener un valor numérico entero entre 1 y 100.")

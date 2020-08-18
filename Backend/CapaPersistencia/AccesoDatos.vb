@@ -837,7 +837,8 @@ Public Module AccesoDatos
                     Next
 
                     If estaDeshabilitado Then
-                        Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', URGENCIA={2} WHERE NOMBRE='{3}'",
+                        Dim comando As String = "BEGIN;"
+                        comando = String.Format("UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', URGENCIA={2} WHERE NOMBRE='{3}'",
                                                           sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
                         Dim idSintomaBD As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT ID FROM sintomas WHERE NOMBRE='{0}'", sintoma.Nombre), "sintomas").Rows(0)(0)
@@ -845,12 +846,13 @@ Public Module AccesoDatos
                         comando = ""
                         For i = 0 To sintoma.Enfermedades.Count - 1
                             comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                  sintoma.Enfermedades(i).Id, idSintomaBD, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                                                  idSintomaBD, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
                         Next
                         comando &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     Else
-                        Dim comando As String = String.Format("INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES ('{0}','{1}','{2}',{3});",
+                        Dim comando As String = "BEGIN;"
+                        comando = String.Format("INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES ('{0}','{1}','{2}',{3});",
                                                        sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia)
                         ConexionBD.EjecutarTransaccion(comando)
                         Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
@@ -858,7 +860,7 @@ Public Module AccesoDatos
                         comando = ""
                         For i = 0 To sintoma.Enfermedades.Count - 1
                             comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                  sintoma.Enfermedades(i).Id, idSintomaBD, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                                                  idSintomaBD, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
                         Next
                         comando &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
@@ -1059,6 +1061,7 @@ Public Module AccesoDatos
                 Dim enfermedad As Enfermedad = objetoAEliminar
                 ConexionBD.Conexion.Open()
                 Dim comando As String = String.Format("UPDATE enfermedades SET HABILITADO=FALSE WHERE ID={0}", enfermedad.Id)
+                comando &= String.Format("DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD={0};", enfermedad.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1090,8 +1093,13 @@ Public Module AccesoDatos
                 Try
                     ConexionBD.Conexion.Open()
                     Dim comando As String = String.Format("DELETE FROM localidades WHERE ID={0}", localidad.ID)
-                Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                Catch ex As MySqlException
+                    Select Case ex.number
+                        Case 1062
+                            Throw New System.Exception("No se puede eliminar una localidad en la que haya personas registradas.")
+                        Case Else
+                            Throw ex
+                    End Select
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1102,7 +1110,8 @@ Public Module AccesoDatos
             Case TiposObjeto.Sintoma
                 Dim sintoma As Sintoma = objetoAEliminar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=FALSE WHERE ID={0}", sintoma.ID)
+                Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=FALSE WHERE ID={0};", sintoma.ID)
+                comando &= String.Format("DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA={0};", sintoma.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 

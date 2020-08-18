@@ -100,6 +100,11 @@ Public Class FrmModificacionEnfermedades
                 End Try
             Next
 
+            Dim gravedadParseado As Integer
+            If Not Integer.TryParse(txtGravedad.Text, gravedadParseado) Then
+                Throw New Exception("La gravedad debe ser un valor numérico entero.")
+            End If
+
             ActualizarEnfermedad(enfermedadAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text,
                                  listaSintomas, listaFrecuencias, especialidad)
 

@@ -106,7 +106,12 @@ Public Class FrmModificacionSintomas
                 End Try
             Next
 
-            ActualizarSintoma(sintomaAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtUrgencia.Text,
+            Dim urgenciaParseado As Integer
+            If Not Integer.TryParse(txtUrgencia.Text, urgenciaParseado) Then
+                Throw New Exception("La gravedad debe ser un valor numérico entero.")
+            End If
+
+            ActualizarSintoma(sintomaAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, urgenciaParseado,
                               listaEnfermedades, listaFrecuencias)
 
             MsgBox("Modificación realizada con éxito")

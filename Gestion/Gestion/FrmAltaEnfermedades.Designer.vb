@@ -131,7 +131,7 @@ Partial Class FrmAltaEnfermedades
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!)
-        Me.Label1.Location = New System.Drawing.Point(200, 9)
+        Me.Label1.Location = New System.Drawing.Point(321, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(195, 24)
         Me.Label1.TabIndex = 11

@@ -222,7 +222,7 @@ Public Module Principal
         Return ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medicoLogeado, mesesHistorial)
     End Function
 
-    Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As String,
+    Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
                               listaEnfermedades As List(Of Enfermedad), listaFrecuencias As List(Of Decimal))
 
         Dim nuevoSintoma As New Sintoma(nombre, descripcion, recomendaciones, urgencia, New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias))
