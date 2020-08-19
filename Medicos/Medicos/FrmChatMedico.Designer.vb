@@ -178,7 +178,7 @@ Partial Class FrmChatMedico
         Me.Controls.Add(Me.txtMensaje)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "FrmChatMedico"
-        Me.Text = "ChatPaciente"
+        Me.Text = "ChatMedico"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

@@ -41,4 +41,3 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPa
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.exe
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.xml
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.pdb
-C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
