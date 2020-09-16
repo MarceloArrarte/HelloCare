@@ -5,6 +5,9 @@ Imports MySql.Data.MySqlClient
 Imports MySql.Data.Types
 Imports Clases
 Imports System.Text
+Imports System.Runtime.InteropServices.ComTypes
+Imports System.Runtime.Serialization
+Imports System.CodeDom
 
 Public Module AccesoDatos
     Private Sub Main()
@@ -645,37 +648,38 @@ Public Module AccesoDatos
     ' Para el caso de los objetos que utilizan borrado lógico, se verifica previo a las sentencias INSERT si el registro a insertar
     ' ya existe y se encuentra deshabilitado, en cuyo caso es habilitado.
     ' Cuando la operación requiere más de un comando, dichos comandos se encuentran encapsulados por BEGIN, COMMIT y ROLLBACK en un bloque Try/Catch.
-    Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto, Optional ByRef idAsignadoAlObjeto As Integer = Integer.MinValue)
+    Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto)
         Select Case entidad
             Case TiposObjeto.DiagnosticoPrimario
                 Try
                     Dim diagnosticoPrimario As DiagnosticoPrimario = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine
-
-                    comando &= String.Format("INSERT INTO diagnosticos_primarios (ID_PACIENTE, FECHA_HORA, TIPO) VALUES ({0},'{1}','{2}');" & vbNewLine,
-                                             diagnosticoPrimario.Paciente.ID, diagnosticoPrimario.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"), diagnosticoPrimario.Tipo.ToString)
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "INSERT INTO diagnosticos_primarios (ID_PACIENTE, FECHA_HORA, TIPO) VALUES (@ID_PACIENTE, @FECHA_HORA, @TIPO);"
+                    comando.Parameters.AddWithValue("@ID_PACIENTE", diagnosticoPrimario.Paciente.ID)
+                    comando.Parameters.AddWithValue("@FECHA_HORA", diagnosticoPrimario.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@TIPO", diagnosticoPrimario.Tipo.ToString)
                     ConexionBD.EjecutarTransaccion(comando)
+
                     Dim idDiagnosticoPrimarioBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-
-                    comando = ""
+                    comando.CommandText = ""
+                    comando.Parameters.Clear()
                     For i = 0 To diagnosticoPrimario.Enfermedades.Count - 1
-                        comando &= String.Format("INSERT INTO sistema_diagnostica VALUES ({0},{1},{2});" & vbNewLine, idDiagnosticoPrimarioBD,
-                                                 diagnosticoPrimario.Enfermedades(i).Id,
-                                                 diagnosticoPrimario.Probabilidad(i).ToString.Replace(",", "."))
+                        comando.CommandText &= String.Format("INSERT INTO sistema_diagnostica VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_ENFERMEDAD{0}, @PROBABILIDAD{0});", i)
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, diagnosticoPrimario.Enfermedades(i).Id)
+                        comando.Parameters.AddWithValue("@PROBABILIDAD" & i, diagnosticoPrimario.Probabilidad(i).ToString.Replace(",", "."))
                     Next
-                    ConexionBD.EjecutarTransaccion(comando)
 
-                    comando = ""
-                    For Each s As Sintoma In diagnosticoPrimario.Sintomas
-                        comando &= String.Format("INSERT INTO sistema_evalua VALUES ({0},{1});" & vbNewLine, idDiagnosticoPrimarioBD, s.ID)
+                    For i = 0 To diagnosticoPrimario.Sintomas.Count - 1
+                        comando.CommandText &= String.Format("INSERT INTO sistema_evalua VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_SINTOMA{0});", i)
+                        comando.Parameters.AddWithValue("@ID_SINTOMA" & i, diagnosticoPrimario.Sintomas(i).ID)
                     Next
-                    comando &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO", idDiagnosticoPrimarioBD)
+                    comando.CommandText &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
-                    idAsignadoAlObjeto = idDiagnosticoPrimarioBD
 
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -688,10 +692,11 @@ Public Module AccesoDatos
                 Try
                     Dim diagnosticoDiferencial As DiagnosticoDiferencial = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES ({0},{1},'{2}','{3}');",
-                                                           diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID,
-                                                           diagnosticoDiferencial.EnfermedadDiagnosticada.Id,
-                                                           diagnosticoDiferencial.ConductaASeguir, diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                    Dim comando As New MySqlCommand("INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES (@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, @ID_ENFERMEDAD, @CONDUCTA_A_SEGUIR, @FECHAHORA);")
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID)
+                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD", diagnosticoDiferencial.EnfermedadDiagnosticada.Id)
+                    comando.Parameters.AddWithValue("@CONDUCTA_A_SEGUIR", diagnosticoDiferencial.ConductaASeguir)
+                    comando.Parameters.AddWithValue("@FECHAHORA", diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
                     ConexionBD.EjecutarTransaccion(comando)
                 Catch ex As MySqlException
                     Throw ex
@@ -716,41 +721,50 @@ Public Module AccesoDatos
                     Next
 
                     If estaDeshabilitado Then       ' Existe, y se deshabilitó
-                        Dim comando As String = String.Format("UPDATE enfermedades SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', GRAVEDAD={2}, ID_ESPECIALIDAD={3} WHERE NOMBRE='{4}'",
-                                                              enfermedad.Descripcion, enfermedad.Recomendaciones, enfermedad.Gravedad,
-                                                              enfermedad.Especialidad.ID, enfermedad.Nombre)
+                        Dim comando As New MySqlCommand("UPDATE enfermedades SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, GRAVEDAD=@GRAVEDAD, ID_ESPECIALIDAD=@ID_ESPECIALIDAD WHERE NOMBRE=@NOMBRE")
+                        comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
+                        comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
+                        comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
 
                         Dim idEnfermedadBD As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT ID FROM enfermedades WHERE NOMBRE='{0}'", enfermedad.Nombre), "enfermedades").Rows(0)(0)
-
-                        comando = ""
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
                         For i = 0 To enfermedad.Sintomas.Count - 1
-                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                      enfermedad.Sintomas(i).ID, idEnfermedadBD, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i))
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
                         Next
-                        comando &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
+                        comando.CommandText &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     Else        ' Jamás existió
-                        Dim comando As String = "BEGIN;" & vbNewLine
-
-                        comando &= String.Format("INSERT INTO enfermedades (NOMBRE, DESCRIPCION, RECOMENDACIONES, GRAVEDAD, ID_ESPECIALIDAD) VALUES ('{0}','{1}','{2}',{3},{4});",
-                                                              enfermedad.Nombre, enfermedad.Descripcion, enfermedad.Recomendaciones, enfermedad.Gravedad,
-                                                              enfermedad.Especialidad.ID)
-
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "INSERT INTO enfermedades (NOMBRE, DESCRIPCION, RECOMENDACIONES, GRAVEDAD, ID_ESPECIALIDAD) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @GRAVEDAD, @ID_ESPECIALIDAD);"
+                        comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+                        comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
+                        comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
                         ConexionBD.EjecutarTransaccion(comando)
-                        Dim idEnfermedadBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
 
-                        comando = ""
+                        Dim idEnfermedadBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
                         For i = 0 To enfermedad.Sintomas.Count - 1
-                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                     enfermedad.Sintomas(i).ID, idEnfermedadBD, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i))
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
                         Next
-                        comando &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
+                        comando.CommandText &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -773,15 +787,17 @@ Public Module AccesoDatos
                     Next
 
                     If estaDeshabilitado Then
-                        Dim comando As String = String.Format("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE='{0}'", especialidad.Nombre)
+                        Dim comando As New MySqlCommand("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE=@NOMBRE;")
+                        comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
                     Else
-                        Dim comando As String = String.Format("INSERT INTO especialidades (NOMBRE) VALUES ('{0}');", especialidad.Nombre)
+                        Dim comando As New MySqlCommand("INSERT INTO especialidades (NOMBRE) VALUES (@NOMBRE);")
+                        comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -794,9 +810,10 @@ Public Module AccesoDatos
                 Try
                     Dim departamento As Departamento = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("INSERT INTO departamentos (NOMBRE) VALUES ('{0}');", departamento.Nombre)
+                    Dim comando As New MySqlCommand("INSERT INTO departamentos (NOMBRE) VALUES (@NOMBRE);")
+                    comando.Parameters.AddWithValue("@NOMBRE", departamento.Nombre)
                     ConexionBD.EjecutarTransaccion(comando)
-                    ConexionBD.Conexion.Close()
+
                 Catch ex As MySqlException
                     Throw ex
                 Finally
@@ -806,15 +823,15 @@ Public Module AccesoDatos
                 End Try
 
 
-
             Case TiposObjeto.Localidad
                 Try
                     Dim localidad As Localidad = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES ('{0}',{1})",
-                                                      localidad.Nombre, localidad.Departamento.ID)
+                    Dim comando As New MySqlCommand("INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES (@NOMBRE, @ID_DEPARTAMENTO)")
+                    comando.Parameters.AddWithValue("@NOMBRE", localidad.Nombre)
+                    comando.Parameters.AddWithValue("@NOMBRE", localidad.Departamento.ID)
                     ConexionBD.EjecutarTransaccion(comando)
-                    ConexionBD.Conexion.Close()
+
                 Catch ex As MySqlException
                     Throw ex
                 Finally
@@ -838,36 +855,50 @@ Public Module AccesoDatos
                     Next
 
                     If estaDeshabilitado Then
-                        Dim comando As String = "BEGIN;"
-                        comando = String.Format("UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION='{0}', RECOMENDACIONES='{1}', URGENCIA={2} WHERE NOMBRE='{3}'",
-                                                          sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.Nombre)
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, URGENCIA=@URGENCIA WHERE NOMBRE=@NOMBRE;"
+                        comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
+                        comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
+                        comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
                         ConexionBD.EjecutarTransaccion(comando)
+
                         Dim idSintomaBD As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT ID FROM sintomas WHERE NOMBRE='{0}'", sintoma.Nombre), "sintomas").Rows(0)(0)
-
-                        comando = ""
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
                         For i = 0 To sintoma.Enfermedades.Count - 1
-                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                  idSintomaBD, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
                         Next
-                        comando &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
+                        comando.CommandText &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
+
                     Else
-                        Dim comando As String = "BEGIN;"
-                        comando = String.Format("INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES ('{0}','{1}','{2}',{3});",
-                                                       sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia)
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @URGENCIA);"
+                        comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
+                        comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
+                        comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
                         ConexionBD.EjecutarTransaccion(comando)
-                        Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
 
-                        comando = ""
+                        Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
                         For i = 0 To sintoma.Enfermedades.Count - 1
-                            comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                  idSintomaBD, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
                         Next
-                        comando &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
+                        comando.CommandText &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
+
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -876,14 +907,16 @@ Public Module AccesoDatos
                 End Try
 
 
-
             Case TiposObjeto.Usuario
                 Try
                     Dim usuario As Usuario = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES ('{0}','{1}',{2});",
-                                                       usuario.Contrasena, usuario.Tipo.ToString, usuario.Persona.ID)
+                    Dim comando As New MySqlCommand("INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES (@CONTRASENIA, @TIPO, @ID_PERSONA);")
+                    comando.Parameters.AddWithValue("@CONTRASENIA", usuario.Contrasena)
+                    comando.Parameters.AddWithValue("@TIPO", usuario.Tipo)
+                    comando.Parameters.AddWithValue("@ID_PERSONA", usuario.Persona.ID)
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As MySqlException
                     Throw ex
                 Finally
@@ -897,11 +930,14 @@ Public Module AccesoDatos
                 Try
                     Dim mensaje As Mensaje = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES ('{0}','{1}','{2}','{3}',{4});",
-                                                       mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"), mensaje.Formato,
-                                                       Encoding.UTF8.GetString(mensaje.Contenido), mensaje.Remitente,
-                                                       mensaje.DiagnosticoPrimarioConConsulta.ID)
+                    Dim comando As New MySqlCommand("INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES (@FECHAHORA, @FORMATO, @CONTENIDO, @REMITENTE, @ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA);")
+                    comando.Parameters.AddWithValue("@FECHAHORA", mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@FORMATO", mensaje.Formato)
+                    comando.Parameters.AddWithValue("@CONTENIDO", Encoding.UTF8.GetString(mensaje.Contenido))
+                    comando.Parameters.AddWithValue("@REMITENTE", mensaje.Remitente)
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", mensaje.DiagnosticoPrimarioConConsulta.ID)
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As MySqlException
                     Throw ex
                 Finally
@@ -917,39 +953,57 @@ Public Module AccesoDatos
                     ConexionBD.Conexion.Open()
 
                     Dim estaDeshabilitado As Boolean = False
+                    Dim idAdministrativoBD As Integer = -1
                     For Each a As Administrativo In ObtenerListadoCompleto(TiposObjeto.Administrativo)
                         If a.CI = administrativo.CI And a.Habilitado = False Then
                             estaDeshabilitado = True
+                            idAdministrativoBD = a.ID
                         End If
                     Next
 
                     If estaDeshabilitado Then
-                        Dim comando As String = "BEGIN;" & vbNewLine
-                        comando &= String.Format("UPDATE personas SET CI='{0}', NOMBRE='{1}', APELLIDO='{2}', CORREO='{3}', ID_LOCALIDAD={4}, TIPO='{5}' WHERE ID={6};" & vbNewLine,
-                                                  administrativo.CI, administrativo.Nombre, administrativo.Apellido, administrativo.Correo,
-                                                  administrativo.Localidad.ID, administrativo.Tipo, administrativo.ID)
-                        comando &= String.Format("UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA={0};" & vbNewLine, administrativo.ID)
-                        comando &= String.Format("UPDATE administrativos SET ES_ENCARGADO={0};", administrativo.EsEncargado)
-                        comando &= "COMMIT;"
+
+                        ' ERROR?? cláusula WHERE debe comparar CI??
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
+                        comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID;"
+                        comando.CommandText &= "UPDATE administrativos SET ES_ENCARGADO=@ES_ENCARGADO WHERE ID_FUNCIONARIO=@ID;"
+                        comando.CommandText &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@CI", administrativo.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", administrativo.Tipo)
+                        comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
+                        comando.Parameters.AddWithValue("@ID", administrativo.ID)
                         ConexionBD.EjecutarTransaccion(comando)
+
                     Else
-                        Dim comando As String = "BEGIN;" & vbNewLine
-                        comando = String.Format("INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES ('{0}','{1}','{2}','{3}',{4},'{5}');",
-                                                administrativo.CI, administrativo.Nombre, administrativo.Apellido, administrativo.Correo,
-                                                administrativo.Localidad.ID, administrativo.Tipo.ToString)
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
+                        comando.Parameters.AddWithValue("@CI", administrativo.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", TiposPersona.Funcionario.ToString)
                         ConexionBD.EjecutarTransaccion(comando)
-                        Dim idAdministrativoBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
 
-                        comando = String.Format("INSERT INTO funcionarios VALUES ({0},'{1}');", idAdministrativoBD, TiposFuncionario.Administrativo.ToString)
-                        ConexionBD.EjecutarTransaccion(comando)
-
-                        comando = String.Format("INSERT INTO administrativos VALUES ({0},{1});", idAdministrativoBD, administrativo.EsEncargado)
-                        comando &= "COMMIT;"
+                        idAdministrativoBD = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        comando.CommandText &= "INSERT INTO funcionarios VALUES (@ID, @TIPO);"
+                        comando.CommandText &= "INSERT INTO administrativos VALUES (@ID, @ES_ENCARGADO);"
+                        comando.CommandText &= "COMMIT;"
+                        comando.Parameters.AddWithValue("@ID", idAdministrativoBD)
+                        comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Administrativo.ToString)
+                        comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -962,20 +1016,32 @@ Public Module AccesoDatos
                 Try
                     Dim paciente As Paciente = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine
-                    comando = String.Format("INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES ('{0}','{1}','{2}','{3}',{4},'{5}');",
-                                            paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad.ID, paciente.Tipo.ToString)
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
+                    comando.Parameters.AddWithValue("@CI", paciente.CI)
+                    comando.Parameters.AddWithValue("@NOMBRE", paciente.Nombre)
+                    comando.Parameters.AddWithValue("@APELLIDO", paciente.Apellido)
+                    comando.Parameters.AddWithValue("@CORREO", paciente.Correo)
+                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", paciente.Localidad.ID)
+                    comando.Parameters.AddWithValue("@TIPO", paciente.Tipo.ToString)
                     ConexionBD.EjecutarTransaccion(comando)
-                    Dim idPacienteBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
 
-                    comando = String.Format("INSERT INTO pacientes VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}',{7});",
-                                            idPacienteBD, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo.ToString,
-                                            paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"), paciente.Calle, paciente.NumeroPuerta,
-                                            paciente.Apartamento)
-                    comando &= "COMMIT;"
+                    Dim idPacienteBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                    comando.Parameters.Clear()
+                    comando.CommandText = "INSERT INTO pacientes VALUES (@ID, @TELEFONO_MOVIL, @TELEFONO_FIJO, @SEXO, @FECHA_NACIMIENTO, @CALLE, @NUMERO_PUERTA, @APARTAMENTO);"
+                    comando.Parameters.AddWithValue("@ID", idPacienteBD)
+                    comando.Parameters.AddWithValue("@TELEFONO_MOVIL", paciente.TelefonoMovil)
+                    comando.Parameters.AddWithValue("@TELEFONO_FIJO", paciente.TelefonoFijo)
+                    comando.Parameters.AddWithValue("@SEXO", paciente.Sexo.ToString)
+                    comando.Parameters.AddWithValue("@FECHA_NACIMIENTO", paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@CALLE", paciente.Calle)
+                    comando.Parameters.AddWithValue("@NUMERO_PUERTA", paciente.NumeroPuerta)
+                    comando.Parameters.AddWithValue("@APARTAMENTO", paciente.Apartamento)
+                    comando.CommandText &= "COMMIT;"
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -997,28 +1063,41 @@ Public Module AccesoDatos
                     Next
 
                     If estaDeshabilitado Then
-                        Dim comando As String = "BEGIN;" & vbNewLine
-                        comando &= String.Format("UPDATE personas SET CI='{0}', NOMBRE='{1}', APELLIDO='{2}', CORREO='{3}', ID_LOCALIDAD={4}, TIPO='{5}' WHERE ID={6};" & vbNewLine,
-                                                  medico.CI, medico.Nombre, medico.Apellido, medico.Correo, medico.Localidad.ID, medico.Tipo, medico.ID)
-                        comando &= String.Format("UPDATE funciontaios SET HABILITADO=TRUE WHERE ID={0};" & vbNewLine, medico.ID)
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
+                        comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID=@ID;"
+                        comando.Parameters.AddWithValue("@CI", medico.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", medico.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
+                        comando.Parameters.AddWithValue("@ID", medico.ID)
                         ConexionBD.EjecutarTransaccion(comando)
+
                     Else
-                        Dim comando As String = "BEGIN;" & vbNewLine
-                        comando = String.Format("INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES ('{0}','{1}','{2}','{3}',{4},'{5}');",
-                                                medico.CI, medico.Nombre, medico.Apellido, medico.Correo, medico.Localidad.ID, medico.Tipo.ToString)
+                        Dim comando As New MySqlCommand("BEGIN;")
+                        comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
+                        comando.Parameters.AddWithValue("@CI", medico.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", medico.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
                         ConexionBD.EjecutarTransaccion(comando)
+
                         Dim idMedicoBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-
-                        comando = String.Format("INSERT INTO funcionarios VALUES ({0},'{1}');", idMedicoBD, TiposFuncionario.Medico.ToString)
-                        ConexionBD.EjecutarTransaccion(comando)
-
-                        comando = String.Format("INSERT INTO medicos VALUES ({0});", idMedicoBD)
-                        comando &= "COMMIT;"
+                        comando.Parameters.Clear()
+                        comando.CommandText = "INSERT INTO funcionarios VALUES (@ID, @TIPO);"
+                        comando.CommandText &= "INSERT INTO medicos VALUES (@ID);"
+                        comando.Parameters.AddWithValue("@ID", idMedicoBD)
+                        comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Medico.ToString)
+                        comando.CommandText &= "COMMIT;"
                         ConexionBD.EjecutarTransaccion(comando)
                     End If
 
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -1031,17 +1110,16 @@ Public Module AccesoDatos
                 Try
                     Dim diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta = objetoAInsertar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine
-                    comando = String.Format("INSERT INTO diagnosticos_primarios_con_consulta VALUES ({0},{1},'{2}');",
-                                             diagnosticoPrimarioConConsulta.ID, "NULL",
-                                             diagnosticoPrimarioConConsulta.ComentariosAdicionales)
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "INSERT INTO diagnosticos_primarios_con_consulta VALUES (@ID_DIAGNOSTICO, @ID_MEDICO, @COMENTARIOS_ADICIONALES);"
+                    comando.CommandText &= "UPDATE diagnosticos_primarios SET TIPO='Con_Consulta' WHERE ID=@ID_DIAGNOSTICO;"
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+                    comando.Parameters.AddWithValue("@ID_MEDICO", DBNull.Value)
+                    comando.Parameters.AddWithValue("@COMENTARIOS_ADICIONALES", diagnosticoPrimarioConConsulta.ComentariosAdicionales)
                     ConexionBD.EjecutarTransaccion(comando)
 
-                    comando = String.Format("UPDATE diagnosticos_primarios SET TIPO='Con_Consulta' WHERE ID={0};", diagnosticoPrimarioConConsulta.ID)
-                    comando &= "COMMIT;"
-                    ConexionBD.EjecutarTransaccion(comando)
                 Catch ex As MySqlException
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
                     Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
@@ -1059,29 +1137,44 @@ Public Module AccesoDatos
     Public Sub EliminarObjeto(objetoAEliminar As Object, entidad As TiposObjeto)
         Select Case entidad
             Case TiposObjeto.Enfermedad
-                Dim enfermedad As Enfermedad = objetoAEliminar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE enfermedades SET HABILITADO=FALSE WHERE ID={0}", enfermedad.Id)
-                comando &= String.Format("DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD={0};", enfermedad.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                Try
+                    Dim enfermedad As Enfermedad = objetoAEliminar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "UPDATE enfermedades SET HABILITADO=FALSE WHERE ID=@ID;"
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID;"
+                    comando.Parameters.AddWithValue("@ID", enfermedad.Id)
+                    ConexionBD.EjecutarTransaccion(comando)
+
+                Catch ex As MySqlException
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Especialidad
                 Dim especialidad As Especialidad = objetoAEliminar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE especialidades SET HABILITADO=FALSE WHERE ID={0}", especialidad.ID)
+                Dim comando As New MySqlCommand("UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID")
+                comando.Parameters.AddWithValue("@ID", especialidad.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
 
             Case TiposObjeto.Departamento
-                Dim departamento As Departamento = objetoAEliminar
                 Try
+                    Dim departamento As Departamento = objetoAEliminar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("DELETE FROM departamentos WHERE ID={0}", departamento.ID)
+                    Dim comando As New MySqlCommand("DELETE FROM departamentos WHERE ID=@ID")
+                    comando.Parameters.AddWithValue("@ID", departamento.ID)
+                    ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1090,14 +1183,17 @@ Public Module AccesoDatos
 
 
             Case TiposObjeto.Localidad
-                Dim localidad As Localidad = objetoAEliminar
                 Try
+                    Dim localidad As Localidad = objetoAEliminar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("DELETE FROM localidades WHERE ID={0}", localidad.ID)
+                    Dim comando As New MySqlCommand("DELETE FROM localidades WHERE ID=@ID")
+                    comando.Parameters.AddWithValue("@ID", localidad.ID)
+                    ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As MySqlException
-                    Select Case ex.number
+                    Select Case ex.Number
                         Case 1062
-                            Throw New System.Exception("No se puede eliminar una localidad en la que haya personas registradas.")
+                            Throw New Exception("No se puede eliminar una localidad en la que haya personas registradas.")
                         Case Else
                             Throw ex
                     End Select
@@ -1109,18 +1205,28 @@ Public Module AccesoDatos
 
 
             Case TiposObjeto.Sintoma
-                Dim sintoma As Sintoma = objetoAEliminar
-                ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE sintomas SET HABILITADO=FALSE WHERE ID={0};", sintoma.ID)
-                comando &= String.Format("DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA={0};", sintoma.ID)
-                ConexionBD.EjecutarTransaccion(comando)
-                ConexionBD.Conexion.Close()
+                Try
+                    Dim sintoma As Sintoma = objetoAEliminar
+                    ConexionBD.Conexion.Open()
+                    Dim comando As New MySqlCommand("UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;")
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
+                    comando.Parameters.AddWithValue("@ID", sintoma.ID)
+                    ConexionBD.EjecutarTransaccion(comando)
+
+                Catch ex As Exception
+                    Throw ex
+                Finally
+                    If ConexionBD.Conexion.State = ConnectionState.Open Then
+                        ConexionBD.Conexion.Close()
+                    End If
+                End Try
 
 
             Case TiposObjeto.Usuario
                 Dim usuario As Usuario = objetoAEliminar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE usuarios SET HABILITADO=FALSE WHERE ID={0}", usuario.ID)
+                Dim comando As New MySqlCommand("UPDATE usuarios SET HABILITADO=FALSE WHERE ID=@ID;")
+                comando.Parameters.AddWithValue("@ID", usuario.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1128,7 +1234,8 @@ Public Module AccesoDatos
             Case TiposObjeto.Administrativo
                 Dim administrativo As Administrativo = objetoAEliminar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA={0}", administrativo.ID)
+                Dim comando As New MySqlCommand("UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID")
+                comando.Parameters.AddWithValue("@ID", administrativo.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1137,12 +1244,14 @@ Public Module AccesoDatos
                 Try
                     Dim paciente As Paciente = objetoAEliminar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine                                                ' Se considera una transacción porque la BD
-                    comando = String.Format("DELETE FROM personas WHERE ID={0};" & vbNewLine, paciente.ID)      ' se configura para permitir que los datos
-                    comando &= "COMMIT;"                                                                        ' relacionados se eliminen en cascada
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "DELETE FROM personas WHERE ID=@ID;"
+                    comando.CommandText &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@ID", paciente.ID)
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1153,7 +1262,8 @@ Public Module AccesoDatos
             Case TiposObjeto.Medico
                 Dim medico As Medico = objetoAEliminar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA={0}", medico.ID)
+                Dim comando As New MySqlCommand("UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;")
+                comando.Parameters.AddWithValue("@ID", medico.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
         End Select
@@ -1167,26 +1277,26 @@ Public Module AccesoDatos
                 Try
                     Dim enfermedad As Enfermedad = objetoAModificar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine
-                    comando &= String.Format("UPDATE enfermedades SET NOMBRE='{0}', DESCRIPCION='{1}', RECOMENDACIONES='{2}', GRAVEDAD={3}, ID_ESPECIALIDAD={4} WHERE ID={5};",
-                                              enfermedad.Nombre, enfermedad.Descripcion, enfermedad.Recomendaciones, enfermedad.Gravedad,
-                                              enfermedad.Especialidad.ID, enfermedad.Id)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    comando = String.Format("DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD={0};", enfermedad.Id)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    comando = ""
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "UPDATE enfermedades SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, GRAVEDAD=@GRAVEDAD, ID_ESPECIALIDAD=@ID_ESPECIALIDAD WHERE ID=@ID_ENFERMEDAD;"
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID_ENFERMEDAD;"
                     For i = 0 To enfermedad.Sintomas.Count - 1
-                        comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                 enfermedad.Sintomas(i).ID, enfermedad.Id, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
+                        comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i).ID)
+                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
                     Next
-                    comando &= "COMMIT;"
+                    comando.CommandText &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+                    comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
+                    comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
+                    comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
+                    comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
+                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD", enfermedad.Id)
                     ConexionBD.EjecutarTransaccion(comando)
 
                 Catch ex As Exception
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1197,7 +1307,9 @@ Public Module AccesoDatos
             Case TiposObjeto.Especialidad
                 Dim especialidad As Especialidad = objetoAModificar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE especialidades SET NOMBRE='{0}' WHERE ID={1}", especialidad.Nombre, especialidad.ID)
+                Dim comando As New MySqlCommand("UPDATE especialidades SET NOMBRE=@NOMBRE WHERE ID=@ID;")
+                comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
+                comando.Parameters.AddWithValue("@ID", especialidad.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1205,7 +1317,9 @@ Public Module AccesoDatos
             Case TiposObjeto.Departamento
                 Dim departamento As Departamento = objetoAModificar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE departamentos SET NOMBRE='{0}' WHERE ID={1}", departamento.Nombre, departamento.ID)
+                Dim comando As New MySqlCommand("UPDATE departamentos SET NOMBRE=@NOMBRE WHERE ID=@ID;")
+                comando.Parameters.AddWithValue("@NOMBRE", departamento.Nombre)
+                comando.Parameters.AddWithValue("@ID", departamento.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1213,8 +1327,10 @@ Public Module AccesoDatos
             Case TiposObjeto.Localidad
                 Dim localidad As Localidad = objetoAModificar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE localidades SET NOMBRE='{0}', ID_DEPARTAMENTO={1} WHERE ID={2}",
-                                                      localidad.Nombre, localidad.Departamento.ID, localidad.ID)
+                Dim comando As New MySqlCommand("UPDATE localidades SET NOMBRE=@NOMBRE, ID_DEPARTAMENTO=@ID_DEPARTAMENTO WHERE ID=@ID;")
+                comando.Parameters.AddWithValue("@NOMBRE", localidad.Nombre)
+                comando.Parameters.AddWithValue("@ID_DEPARTAMENTO", localidad.Departamento.ID)
+                comando.Parameters.AddWithValue("@ID", localidad.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
 
@@ -1223,23 +1339,24 @@ Public Module AccesoDatos
                 Try
                     Dim sintoma As Sintoma = objetoAModificar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = String.Format("UPDATE sintomas SET NOMBRE='{0}', DESCRIPCION='{1}', RECOMENDACIONES='{2}', URGENCIA={3} WHERE ID={4}",
-                                                          sintoma.Nombre, sintoma.Descripcion, sintoma.Recomendaciones, sintoma.Urgencia, sintoma.ID)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    comando = String.Format("DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA={0};", sintoma.ID)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    comando = ""
+                    Dim comando As New MySqlCommand("UPDATE sintomas SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, URGENCIA=@URGENCIA WHERE ID=@ID_SINTOMA;")
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID_SINTOMA;"
                     For i = 0 To sintoma.Enfermedades.Count - 1
-                        comando &= String.Format("INSERT INTO cuadro_sintomatico VALUES ({0},{1},{2});" & vbNewLine,
-                                                 sintoma.ID, sintoma.Enfermedades(i).Id, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
+                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
                     Next
-                    comando &= "COMMIT;"
+                    comando.CommandText &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
+                    comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
+                    comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
+                    comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
+                    comando.Parameters.AddWithValue("@ID_SINTOMA", sintoma.ID)
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As Exception
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1251,19 +1368,23 @@ Public Module AccesoDatos
                 Try
                     Dim administrativo As Administrativo = objetoAModificar
                     ConexionBD.Conexion.Open()
-
-                    Dim comando As String = "BEGIN;" & vbNewLine
-                    comando &= String.Format("UPDATE personas SET CI='{0}', NOMBRE='{1}', APELLIDO='{2}', CORREO='{3}', ID_LOCALIDAD={4}, TIPO='{5}', WHERE ID={6};" & vbNewLine,
-                                             administrativo.CI, administrativo.Nombre, administrativo.Apellido, administrativo.Correo,
-                                             administrativo.Localidad.ID, administrativo.Tipo, administrativo.ID)
-                    comando &= String.Format("UPDATE administrativos SET ES_ENCARGADO={0} WHERE ID_FUNCIONARIO={1};",
-                                            administrativo.EsEncargado, administrativo.ID)
-                    comando &= "COMMIT;"
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO, WHERE ID=@ID;"
+                    comando.CommandText &= "UPDATE administrativos SET ES_ENCARGADO=@ES_ENCARGADO WHERE ID_FUNCIONARIO=@ID;"
+                    comando.CommandText &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@CI", administrativo.CI)
+                    comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
+                    comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
+                    comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
+                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
+                    comando.Parameters.AddWithValue("@TIPO", administrativo.Tipo.ToString)
+                    comando.Parameters.AddWithValue("@ID", administrativo.ID)
+                    comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
                     ConexionBD.EjecutarTransaccion(comando)
 
                 Catch ex As Exception
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1275,19 +1396,29 @@ Public Module AccesoDatos
                 Try
                     Dim paciente As Paciente = objetoAModificar
                     ConexionBD.Conexion.Open()
-                    Dim comando As String = "BEGIN;" & vbNewLine
-                    comando &= String.Format("UPDATE personas SET CI='{0}', NOMBRE='{1}', APELLIDO='{2}', CORREO='{3}', ID_LOCALIDAD={4}, TIPO='{5}', WHERE ID={6};" & vbNewLine,
-                                              paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad.ID, paciente.Tipo,
-                                              paciente.ID)
-                    comando &= String.Format("UPDATE pacientes SET TELEFONOMOVIL='{0}', TELEFONOFIJO='{1}', SEXO='{2}', FECHANACIMIENTO='{3}', CALLE='{4}', NUMEROPUERTA='{5}', APARTAMENTO={6} WHERE ID_PERSONA={7};",
-                                              paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo.ToString,
-                                              paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"), paciente.Calle, paciente.NumeroPuerta,
-                                              paciente.Apartamento, paciente.ID)
-                    comando &= "COMMIT;"
+                    Dim comando As New MySqlCommand("BEGIN;")
+                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO, WHERE ID=@ID;"
+                    comando.CommandText &= "UPDATE pacientes SET TELEFONOMOVIL=@TELEFONOMOVIL, TELEFONOFIJO=@TELEFONOFIJO, SEXO=@SEXO, FECHANACIMIENTO=@FECHANACIMIENTO, CALLE=@CALLE, NUMEROPUERTA=@NUMEROPUERTA, APARTAMENTO=@APARTAMENTO WHERE ID_PERSONA=@ID;"
+                    comando.CommandText &= "COMMIT;"
+                    comando.Parameters.AddWithValue("@CI", paciente.CI)
+                    comando.Parameters.AddWithValue("@NOMBRE", paciente.Nombre)
+                    comando.Parameters.AddWithValue("@APELLIDO", paciente.Apellido)
+                    comando.Parameters.AddWithValue("@CORREO", paciente.Correo)
+                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", paciente.Localidad.ID)
+                    comando.Parameters.AddWithValue("@TIPO", paciente.Tipo.ToString)
+                    comando.Parameters.AddWithValue("@ID", paciente.ID)
+                    comando.Parameters.AddWithValue("@TELEFONOMOVIL", paciente.TelefonoMovil)
+                    comando.Parameters.AddWithValue("@TELEFONOFIJO", paciente.TelefonoFijo)
+                    comando.Parameters.AddWithValue("@SEXO", paciente.Sexo.ToString)
+                    comando.Parameters.AddWithValue("@FECHANACIMIENTO", paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@CALLE", paciente.Calle)
+                    comando.Parameters.AddWithValue("@NUMEROPUERTA", paciente.NumeroPuerta)
+                    comando.Parameters.AddWithValue("@APARTAMENTO", paciente.Apartamento)
                     ConexionBD.EjecutarTransaccion(comando)
+
                 Catch ex As Exception
-                    ConexionBD.EjecutarTransaccion("ROLLBACK;")
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+                    ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+                    Throw ex
                 Finally
                     If ConexionBD.Conexion.State = ConnectionState.Open Then
                         ConexionBD.Conexion.Close()
@@ -1298,8 +1429,14 @@ Public Module AccesoDatos
             Case TiposObjeto.Medico
                 Dim medico As Medico = objetoAModificar
                 ConexionBD.Conexion.Open()
-                Dim comando As String = String.Format("UPDATE personas SET CI='{0}', NOMBRE='{1}', APELLIDO='{2}', CORREO='{3}', ID_LOCALIDAD={4}, TIPO='{5}', WHERE ID={6};" & vbNewLine,
-                                                       medico.CI, medico.Nombre, medico.Apellido, medico.Correo, medico.Localidad.ID, medico.Tipo, medico.ID)
+                Dim comando As New MySqlCommand("UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO, WHERE ID=@ID;")
+                comando.Parameters.AddWithValue("@CI", medico.CI)
+                comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
+                comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
+                comando.Parameters.AddWithValue("@CORREO", medico.Correo)
+                comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
+                comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
+                comando.Parameters.AddWithValue("@ID", medico.ID)
                 ConexionBD.EjecutarTransaccion(comando)
                 ConexionBD.Conexion.Close()
         End Select
@@ -1777,7 +1914,10 @@ Public Module AccesoDatos
 
     Public Sub AsignarIDMedicoAConsulta(medico As Medico, consulta As DiagnosticoPrimarioConConsulta)
         ConexionBD.Conexion.Open()
-        ConexionBD.EjecutarTransaccion(String.Format("UPDATE diagnosticos_primarios_con_consulta SET ID_MEDICO={0} WHERE ID_DIAGNOSTICO_PRIMARIO={1}", medico.ID, consulta.ID))
+        Dim comando As New MySqlCommand("UPDATE diagnosticos_primarios_con_consulta SET ID_MEDICO=@ID_MEDICO WHERE ID_DIAGNOSTICO_PRIMARIO=@ID_DIAGNOSTICO;")
+        comando.Parameters.AddWithValue("@ID_MEDICO", consulta.Medico.ID)
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", consulta.ID)
+        ConexionBD.EjecutarTransaccion(comando)
         ConexionBD.Conexion.Close()
     End Sub
 
