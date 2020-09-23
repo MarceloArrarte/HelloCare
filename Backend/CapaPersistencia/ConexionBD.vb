@@ -24,6 +24,16 @@ Public NotInheritable Class ConexionBD
         End Get
     End Property
 
+    Public Shared Function EjecutarConsulta(comando As MySqlCommand) As DataTable
+        Dim datos As New DataSet
+        comando.Connection = Conexion
+        Adaptador = New MySqlDataAdapter(comando)
+        Adaptador.Fill(datos)
+        Dim tabla As DataTable = datos.Tables(0)
+        datos.Tables.Remove(0)
+        Return tabla
+    End Function
+
     Public Shared Function EjecutarConsulta(comando As MySqlCommand, nombreTabla As String) As DataTable
         Dim datos As New DataSet
         comando.Connection = Conexion
@@ -33,23 +43,6 @@ Public NotInheritable Class ConexionBD
         Dim tabla As DataTable = datos.Tables(nombreTabla)
         datos.Tables.Remove(tabla)
         Return tabla
-
-
-
-        'Dim datos As New DataSet                                        ' Declara un DataSet vacío
-        'Adaptador = New MySqlDataAdapter(comando, Conexion)             ' Reinicializa el adaptador para ejecutar el nuevo comando SQL
-        ''Try
-        'Adaptador.Fill(datos, nombreTabla)                              ' Llena el DataSet con los datos de la tabla
-        'Adaptador.FillSchema(datos, SchemaType.Mapped, nombreTabla)     ' Carga en la tabla del DataSet la clave primaria, de acuerdo con la BD
-        ''Catch ex As MySqlException
-        ''    Select Case ex.Number
-        ''        Case 
-        ''    End Select
-        ''End Try
-
-        'Dim tabla As DataTable = datos.Tables(nombreTabla)              ' Carga una variable con el DataTable a devolver
-        'datos.Tables.Remove(tabla)                                      ' Desvincula el DataTable del DataSet
-        'Return tabla
     End Function
 
     Public Shared Sub EjecutarTransaccion(comando As MySqlCommand)
