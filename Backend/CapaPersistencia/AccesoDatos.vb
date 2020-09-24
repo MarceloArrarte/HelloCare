@@ -1615,30 +1615,6 @@ Public Module AccesoDatos
             Dim idDiagnostico As Integer = fila("ID diagnostico primario")
             Dim fechaHoraDiagnostico As Date = CType(fila("Fecha hora diagnostico primario"), MySqlDateTime).Value
             Dim tipoDiagnostico As TiposDiagnosticosPrimarios = [Enum].Parse(GetType(TiposDiagnosticosPrimarios), fila("Tipo diagnostico primario"))
-            Dim comentariosDiagnostico As String = If(TypeOf fila("Comentarios consulta") IsNot DBNull, fila("Comentarios consulta"), Nothing)
-
-            'Dim idPaciente As Integer = fila("ID paciente")
-            'Dim ciPaciente As String = fila("CI paciente")
-            'Dim nombrePaciente As String = fila("Nombre paciente")
-            'Dim apellidoPaciente As String = fila("Apellido paciente")
-            'Dim correoPaciente As String = fila("Correo paciente")
-            'Dim telefonoMovilPaciente As String = fila("Telefonomovil paciente")
-            'Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
-            'Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
-            'Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
-            'Dim callePaciente As String = fila("Calle paciente")
-            'Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
-            'Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
-            'Dim idLocalidadPaciente As Integer = fila("ID localidad paciente")
-            'Dim nombreLocalidadPaciente As String = fila("Nombre localidad paciente")
-            'Dim idDepartamentoPaciente As Integer = fila("ID departamento paciente")
-            'Dim nombreDepartamentoPaciente As String = fila("Nombre departamento paciente")
-
-            'Dim departamentoPaciente As New Departamento(idDepartamentoPaciente, nombreDepartamentoPaciente)
-            'Dim localidadPaciente As New Localidad(idLocalidadPaciente, nombreLocalidadPaciente, departamentoPaciente)
-            'Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
-            '                             telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
-            '                             apartamentoPaciente)
 
             Dim sintomas As New List(Of Sintoma)
             For Each filaSintoma As DataRow In fila.GetChildRows("sintomasEvaluados")
@@ -1677,6 +1653,7 @@ Public Module AccesoDatos
                 listaDiagnosticosPrimarios.Add(New DiagnosticoPrimario(idDiagnostico, paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
                                                                        tipoDiagnostico))
             Else
+                Dim comentariosDiagnostico As String = If(TypeOf fila("Comentarios consulta") IsNot DBNull, fila("Comentarios consulta"), Nothing)
                 Dim medico As Medico
                 If TypeOf fila("ID medico") IsNot DBNull Then
                     Dim idMedico As Integer = fila("ID medico")
@@ -1707,12 +1684,9 @@ Public Module AccesoDatos
 
     Public Function ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medico As Medico, mesesHistorial As Integer) As List(Of DiagnosticoPrimarioConConsulta)
         Dim ds As New DataSet
-
-        ' WHERE ID_MEDICO={0} AND FECHA_HORA > DATE_SUB(NOW(), INTERVAL {1} MONTH)
-
-
-        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosDiagnosticos WHERE `ID paciente`=@ID_PACIENTE;")
-        comando.Parameters.AddWithValue("@ID_PACIENTE", Paciente.ID)
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosConsultas WHERE `ID medico`=@ID_MEDICO AND FECHA_HORA > DATE_SUB(NOW(), INTERVAL @MESES_HISTORIAL MONTH);")
+        comando.Parameters.AddWithValue("@ID_MEDICO", medico.ID)
+        comando.Parameters.AddWithValue("@MESES_HISTORIAL", mesesHistorial)
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Diagnosticos"))
         comando.CommandText = "SELECT * FROM ObtenerSintomasDeDiagnosticosPrimarios;"
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "SintomasEvaluados"))
@@ -1727,39 +1701,38 @@ Public Module AccesoDatos
                                           ds.Tables("EnfermedadesDiagnosticadas").Columns("ID diagnostico primario")))
 
 
-
-        Dim listaDiagnosticosPrimarios As New List(Of DiagnosticoPrimario)
+        Dim listaConsultas As New List(Of DiagnosticoPrimarioConConsulta)
 
         For i = 0 To ds.Tables("Diagnosticos").Rows.Count - 1
             Dim fila As DataRow = ds.Tables("Diagnosticos").Rows(i)
 
             Dim idDiagnostico As Integer = fila("ID diagnostico primario")
             Dim fechaHoraDiagnostico As Date = CType(fila("Fecha hora diagnostico primario"), MySqlDateTime).Value
-            Dim tipoDiagnostico As TiposDiagnosticosPrimarios = [Enum].Parse(GetType(TiposDiagnosticosPrimarios), fila("Tipo diagnostico primario"))
+            Dim tipoDiagnostico As TiposDiagnosticosPrimarios = TiposDiagnosticosPrimarios.Con_Consulta
             Dim comentariosDiagnostico As String = If(TypeOf fila("Comentarios consulta") IsNot DBNull, fila("Comentarios consulta"), Nothing)
 
-            'Dim idPaciente As Integer = fila("ID paciente")
-            'Dim ciPaciente As String = fila("CI paciente")
-            'Dim nombrePaciente As String = fila("Nombre paciente")
-            'Dim apellidoPaciente As String = fila("Apellido paciente")
-            'Dim correoPaciente As String = fila("Correo paciente")
-            'Dim telefonoMovilPaciente As String = fila("Telefonomovil paciente")
-            'Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
-            'Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
-            'Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
-            'Dim callePaciente As String = fila("Calle paciente")
-            'Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
-            'Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
-            'Dim idLocalidadPaciente As Integer = fila("ID localidad paciente")
-            'Dim nombreLocalidadPaciente As String = fila("Nombre localidad paciente")
-            'Dim idDepartamentoPaciente As Integer = fila("ID departamento paciente")
-            'Dim nombreDepartamentoPaciente As String = fila("Nombre departamento paciente")
+            Dim idPaciente As Integer = fila("ID paciente")
+            Dim ciPaciente As String = fila("CI paciente")
+            Dim nombrePaciente As String = fila("Nombre paciente")
+            Dim apellidoPaciente As String = fila("Apellido paciente")
+            Dim correoPaciente As String = fila("Correo paciente")
+            Dim telefonoMovilPaciente As String = fila("Telefonomovil paciente")
+            Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
+            Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
+            Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
+            Dim callePaciente As String = fila("Calle paciente")
+            Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
+            Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
+            Dim idLocalidadPaciente As Integer = fila("ID localidad paciente")
+            Dim nombreLocalidadPaciente As String = fila("Nombre localidad paciente")
+            Dim idDepartamentoPaciente As Integer = fila("ID departamento paciente")
+            Dim nombreDepartamentoPaciente As String = fila("Nombre departamento paciente")
 
-            'Dim departamentoPaciente As New Departamento(idDepartamentoPaciente, nombreDepartamentoPaciente)
-            'Dim localidadPaciente As New Localidad(idLocalidadPaciente, nombreLocalidadPaciente, departamentoPaciente)
-            'Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
-            '                             telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
-            '                             apartamentoPaciente)
+            Dim departamentoPaciente As New Departamento(idDepartamentoPaciente, nombreDepartamentoPaciente)
+            Dim localidadPaciente As New Localidad(idLocalidadPaciente, nombreLocalidadPaciente, departamentoPaciente)
+            Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
+                                         telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
+                                         apartamentoPaciente)
 
             Dim sintomas As New List(Of Sintoma)
             For Each filaSintoma As DataRow In fila.GetChildRows("sintomasEvaluados")
@@ -1794,201 +1767,114 @@ Public Module AccesoDatos
             Next
             Dim enfermedadesDiagnosticadas As New EnfermedadesDiagnosticadas(enfermedades, probabilidades)
 
-            If tipoDiagnostico = TiposDiagnosticosPrimarios.Sin_Consulta Then
-                listaDiagnosticosPrimarios.Add(New DiagnosticoPrimario(idDiagnostico, Paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
-                                                                       tipoDiagnostico))
-            Else
-                Dim medico As Medico
-                If TypeOf fila("ID medico") IsNot DBNull Then
-                    Dim idMedico As Integer = fila("ID medico")
-                    Dim ciMedico As String = fila("CI medico")
-                    Dim nombreMedico As String = fila("Nombre medico")
-                    Dim apellidoMedico As String = fila("Apellido medico")
-                    Dim correoMedico As String = fila("Correo medico")
-                    Dim habilitadoMedico As Boolean = fila("Habilitado medico")
-                    Dim idLocalidad As String = fila("ID localidad medico")
-                    Dim nombreLocalidad As String = fila("Nombre localidad medico")
-                    Dim idDepartamento As String = fila("ID departamento medico")
-                    Dim nombreDepartamento As String = fila("Nombre departamento medico")
-
-                    Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
-                    Dim localidadMedico As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
-                    medico = New Medico(idMedico, ciMedico, nombreMedico, apellidoMedico, correoMedico, localidadMedico, Nothing, habilitadoMedico)
-                Else
-                    medico = Nothing
-                End If
-
-                listaDiagnosticosPrimarios.Add(New DiagnosticoPrimarioConConsulta(idDiagnostico, Paciente, sintomas, enfermedadesDiagnosticadas,
-                                                                                  fechaHoraDiagnostico, medico, comentariosDiagnostico))
-            End If
+            listaConsultas.Add(New DiagnosticoPrimarioConConsulta(idDiagnostico, paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
+                                                                  medico, comentariosDiagnostico))
         Next
 
-        Return listaDiagnosticosPrimarios
-
-
-
-
-        'Dim lista As New List(Of DiagnosticoPrimarioConConsulta)
-        'For Each rDiagnosticoPrimarioConConsulta As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_primarios d1 JOIN diagnosticos_primarios_con_consulta d2 ON d1.ID=d2.ID_DIAGNOSTICO_PRIMARIO WHERE ID_MEDICO={0} AND FECHA_HORA > DATE_SUB(NOW(), INTERVAL {1} MONTH)", medico.ID, mesesHistorial), "diagnosticos_primarios_con_consulta").Rows
-        '    Dim idDiagnosticoPrimarioConConsulta As Integer = rDiagnosticoPrimarioConConsulta("ID_DIAGNOSTICO_PRIMARIO")
-        '    Dim comentariosAdicionalesDiagnosticoPrimarioConConsulta As String = rDiagnosticoPrimarioConConsulta("COMENTARIOS_ADICIONALES")
-        '    Dim fechaHoraDiagnosticoPrimarioConConsulta As Date = CType(rDiagnosticoPrimarioConConsulta("FECHA_HORA"), MySqlDateTime).Value
-        '    Dim tipoDiagnosticoPrimario As TiposDiagnosticosPrimarios = [Enum].Parse(GetType(TiposDiagnosticosPrimarios), rDiagnosticoPrimarioConConsulta("TIPO"))
-
-        '    Dim sintomasDiagnosticoPrimarioConConsulta As New List(Of Sintoma)
-        '    For Each rSistemaEvalua As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM sistema_evalua WHERE ID_DIAGNOSTICO_PRIMARIO={0}", idDiagnosticoPrimarioConConsulta), "diagnosticos_primarios").Rows
-        '        Dim idSintoma As Integer = rSistemaEvalua("ID_SINTOMA")
-        '        Dim rSintoma As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM sintomas WHERE ID={0}", idSintoma), "diagnosticos_primarios").Rows(0)
-        '        Dim nombreSintoma As String = rSintoma("NOMBRE")
-        '        Dim descripcionSintoma As String = rSintoma("DESCRIPCION")
-        '        Dim recomendacionesSintoma As String = rSintoma("RECOMENDACIONES")
-        '        Dim urgenciaSintoma As String = rSintoma("URGENCIA")
-        '        Dim habilitadoSintoma As Boolean = rSintoma("HABILITADO")
-
-        '        sintomasDiagnosticoPrimarioConConsulta.Add(New Sintoma(idSintoma, nombreSintoma, descripcionSintoma, recomendacionesSintoma, urgenciaSintoma, Nothing, habilitadoSintoma))
-        '    Next
-
-        '    Dim enfermedadesDiagnosticoPrimarioConConsulta As New List(Of Enfermedad)
-        '    Dim probabilidadesEnfermedadesConConsulta As New List(Of Decimal)
-        '    For Each rSistemaDiagnostica As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM sistema_diagnostica WHERE ID_DIAGNOSTICO_PRIMARIO={0}", idDiagnosticoPrimarioConConsulta), "sistema_diagnostica").Rows
-        '        Dim idEnfermedad As Integer = rSistemaDiagnostica("ID_ENFERMEDAD")
-        '        Dim rEnfermedad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM enfermedades WHERE ID={0}", idEnfermedad), "enfermedades").Rows(0)
-        '        Dim nombreEnfermedad As String = rEnfermedad("NOMBRE")
-        '        Dim recomendacionesEnfermedad As String = ""
-        '        If TypeOf rEnfermedad("RECOMENDACIONES") IsNot DBNull Then
-        '            recomendacionesEnfermedad = rEnfermedad("RECOMENDACIONES")
-        '        End If
-        '        Dim gravedadEnfermedad As Integer = rEnfermedad("GRAVEDAD")
-        '        Dim descripcionEnfermedad As String = ""
-        '        If TypeOf rEnfermedad("DESCRIPCION") IsNot DBNull Then
-        '            descripcionEnfermedad = rEnfermedad("DESCRIPCION")
-        '        End If
-        '        Dim habilitadoEnfermedad As Boolean = rEnfermedad("HABILITADO")
-        '        Dim probabilidadEnfermedad As Decimal = rSistemaDiagnostica("PROBABILIDAD")
-
-        '        Dim idEspecialidad As Integer = rEnfermedad("ID_ESPECIALIDAD")
-        '        Dim rEspecialidad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM especialidades WHERE ID={0}", idEspecialidad), "especialidades").Rows(0)
-        '        Dim nombreEspecialidad As String = rEspecialidad("NOMBRE")
-        '        Dim habilitadoEspecialidad As Boolean = rEspecialidad("HABILITADO")
-        '        Dim especialidadEnfermedad As New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, habilitadoEspecialidad)
-
-        '        enfermedadesDiagnosticoPrimarioConConsulta.Add(New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad, gravedadEnfermedad,
-        '                                                            descripcionEnfermedad, Nothing, especialidadEnfermedad, habilitadoEnfermedad))
-        '        probabilidadesEnfermedadesConConsulta.Add(rSistemaDiagnostica("PROBABILIDAD"))
-        '    Next
-        '    Dim enfermedadesDiagnosticadas As New EnfermedadesDiagnosticadas(enfermedadesDiagnosticoPrimarioConConsulta, probabilidadesEnfermedadesConConsulta)
-
-        '    Dim idPaciente As Integer = rDiagnosticoPrimarioConConsulta("ID_PACIENTE")
-        '    Dim rPaciente As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM pacientes WHERE ID_PERSONA={0}", idPaciente), "pacientes").Rows(0)
-        '    Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE ID={0}", idPaciente), "personas").Rows(0)
-        '    Dim ciPaciente As String = rPersona("CI")
-        '    Dim nombrePaciente As String = rPersona("NOMBRE")
-        '    Dim apellidoPaciente As String = rPersona("APELLIDO")
-        '    Dim correoPaciente As String = rPersona("CORREO")
-        '    Dim telefonoMovilPaciente As String = rPaciente("TELEFONOMOVIL")
-        '    Dim telefonoFijoPaciente As String = rPaciente("TELEFONOFIJO")
-        '    Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), rPaciente("SEXO"))
-        '    Dim fechaNacimientoPaciente As Date = CType(rPaciente("FECHANACIMIENTO"), MySqlDateTime).Value
-        '    Dim callePaciente As String = rPaciente("CALLE")
-        '    Dim numeroPuertaPaciente As String = rPaciente("NUMEROPUERTA")
-        '    Dim apartamentoPaciente As String = ""
-        '    If TypeOf rPaciente("APARTAMENTO") IsNot DBNull Then
-        '        apartamentoPaciente = rPaciente("APARTAMENTO")
-        '    End If
-
-        '    Dim pacienteDiagnosticoPrimarioConConsulta As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente,
-        '                                                               Nothing, telefonoMovilPaciente, telefonoFijoPaciente, sexoPaciente,
-        '                                                               fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente, apartamentoPaciente)
-
-        '    lista.Add(New DiagnosticoPrimarioConConsulta(idDiagnosticoPrimarioConConsulta, pacienteDiagnosticoPrimarioConConsulta,
-        '                                                 sintomasDiagnosticoPrimarioConConsulta, enfermedadesDiagnosticadas,
-        '                                                 fechaHoraDiagnosticoPrimarioConConsulta, medico, comentariosAdicionalesDiagnosticoPrimarioConConsulta))
-        'Next
-        'Return lista
+        Return listaConsultas
     End Function
 
     Public Function ObtenerUltimosMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidadARetornar As Integer) As List(Of Mensaje)
-        Dim lista As New List(Of Mensaje)
-        'Dim cantidadMensajes As Integer = ObtenerCantidadDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta)
-        'Dim indicePrimerMensaje As Integer = cantidadMensajes - cantidadARetornar + 1
-        'Dim comando As String = ""
-        'If indicePrimerMensaje > 0 Then
-        '    comando = String.Format("SELECT * FROM mensajes WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0} ORDER BY FECHAHORA ASC LIMIT {1},{2}", diagnosticoPrimarioConConsulta.ID, indicePrimerMensaje, indicePrimerMensaje + cantidadARetornar - 1)
-        'Else
-        '    comando = String.Format("SELECT * FROM mensajes WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0} ORDER BY FECHAHORA DESC LIMIT {1}", diagnosticoPrimarioConConsulta.ID, cantidadARetornar)
-        'End If
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO LIMIT @CANTIDAD_MENSAJES;")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+        comando.Parameters.AddWithValue("@CANTIDAD_MENSAJES", cantidadARetornar)
+        Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
 
-        For Each rMensaje As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM mensajes WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0} ORDER BY FECHAHORA DESC LIMIT {1}", diagnosticoPrimarioConConsulta.ID, cantidadARetornar), "especialidades").Rows
-            Dim idMensaje As Integer = rMensaje("ID")
-            Dim fechaHoraMensaje As Date = CType(rMensaje("FECHAHORA"), MySqlDateTime).Value
-            Dim formatoMensaje As FormatosMensajeAdmitidos = [Enum].Parse(GetType(FormatosMensajeAdmitidos), rMensaje("FORMATO"))
-            Dim contenidoMensaje() As Byte = rMensaje("CONTENIDO")
-            Dim remitenteMensaje As TiposRemitente = [Enum].Parse(GetType(TiposRemitente), rMensaje("REMITENTE"))
+        Dim listaMensajes As New List(Of Mensaje)
 
-            lista.Add(New Mensaje(idMensaje, fechaHoraMensaje, formatoMensaje, contenidoMensaje, remitenteMensaje, diagnosticoPrimarioConConsulta))
+        For i = 0 To datos.Rows.Count - 1
+            Dim fila As DataRow = datos.Rows(i)
+            Dim idMensaje As Integer = fila("ID mensaje")
+            Dim fechaHoraMensaje As Date = CType(fila("Fecha hora mensaje"), MySqlDateTime).Value
+            Dim formatoMensaje As FormatosMensajeAdmitidos = [Enum].Parse(GetType(FormatosMensajeAdmitidos), fila("Formato mensaje"))
+            Dim contenidoMensaje() As Byte = fila("Contenido mensaje")
+            Dim remitenteMensaje As TiposRemitente = [Enum].Parse(GetType(TiposRemitente), fila("Remitente mensaje"))
+            listaMensajes.Add(New Mensaje(idMensaje, fechaHoraMensaje, formatoMensaje, contenidoMensaje, remitenteMensaje, diagnosticoPrimarioConConsulta))
         Next
-        Return lista
+
+        Return listaMensajes
     End Function
 
     Public Function ObtenerCantidadMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
-        Dim cantidad As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT COUNT(*) FROM mensajes WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0}",
-                                                                            diagnosticoPrimarioConConsulta.ID), "mensajes").Rows(0)(0)
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO;")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+        Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
         Return cantidad
     End Function
 
     Public Function ObtenerCantidadDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM diagnosticos_diferenciales WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0}")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+        Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
+        Return cantidad
+
         Dim cantidad As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT COUNT(*) FROM diagnosticos_diferenciales WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0}",
                                                                             diagnosticoPrimarioConConsulta.ID), "mensajes").Rows(0)(0)
         Return cantidad
     End Function
 
     Public Function ObtenerDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As List(Of DiagnosticoDiferencial)
-        Dim lista As New List(Of DiagnosticoDiferencial)
-        For Each rDiagnosticoDiferencial As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_diferenciales WHERE ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA={0} ORDER BY FECHAHORA DESC", diagnosticoPrimarioConConsulta.ID), "diagnosticos_diferenciales").Rows
-            Dim idDiagnosticoDiferencial As Integer = rDiagnosticoDiferencial("ID")
-            Dim conductaASeguirDiagnosticoDiferencial As String = rDiagnosticoDiferencial("CONDUCTA_A_SEGUIR")
-            Dim fechaHoraDiagnosticoDiferencial As Date = CType(rDiagnosticoDiferencial("FECHAHORA"), MySqlDateTime).Value
+        Dim ds As New DataSet
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDiagnosticosDiferencialesPorConsulta WHERE `ID diagnostico primario`=@ID_DIAGNOSTICO_PRIMARIO;")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO", diagnosticoPrimarioConConsulta.ID)
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Diferenciales"))
+        comando.CommandText = "SELECT * FROM ObtenerSintomasAsociados;"
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "SintomasAsociados"))
 
-            Dim idEnfermedad As Integer = rDiagnosticoDiferencial("ID_ENFERMEDAD")
-            Dim rEnfermedad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM enfermedades WHERE ID={0}", idEnfermedad), "enfermedades").Rows(0)
-            Dim nombreEnfermedad As String = rEnfermedad("NOMBRE")
-            Dim descripcionEnfermedad As String = rEnfermedad("DESCRIPCION")
-            Dim recomendacionesEnfermedad As String = rEnfermedad("RECOMENDACIONES")
-            Dim gravedadEnfermedad As Integer = rEnfermedad("GRAVEDAD")
-            Dim habilitadoEnfermedad As Boolean = rEnfermedad("HABILITADO")
+        Dim listaDiagnosticosDiferenciales As New List(Of DiagnosticoDiferencial)
+        Dim diferenciales As DataTable = ds.Tables("Diferenciales")
+        Dim sintomasAsociados As DataTable = ds.Tables("SintomasAsociados")
 
-            Dim idEspecialidad As Integer = rEnfermedad("ID_ESPECIALIDAD")
-            Dim rEspecialidad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM especialidades WHERE ID={0}", idEspecialidad), "especialidades").Rows(0)
-            Dim nombreEspecialidad As String = rEspecialidad("NOMBRE")
-            Dim habilitadoEspecialidad As Boolean = rEspecialidad("HABILITADO")
+        For i = 0 To diferenciales.Rows.Count - 1
+            Dim filaDiferencial As DataRow = diferenciales.Rows(i)
+            Dim idDiferencial As Integer = filaDiferencial("ID diagnostico diferencial")
+            Dim conductaASeguirDiferencial As String = filaDiferencial("Conducta a seguir diagnostico diferencial")
+            Dim fechaHoraDiferencial As Date = CType(filaDiferencial("Fecha hora diagnostico diferencial"), MySqlDateTime).Value
+            Dim idEnfermedad As Integer = filaDiferencial("ID enfermedad")
+            Dim nombreEnfermedad As String = filaDiferencial("Nombre enfermedad")
+            Dim descripcionEnfermedad As String = filaDiferencial("Descripcion enfermedad")
+            Dim recomendacionesEnfermedad As String = filaDiferencial("Recomendaciones enfermedad")
+            Dim gravedadEnfermedad As Integer = filaDiferencial("Gravedad enfermedad")
+            Dim habilitadoEnfermedad As Boolean = filaDiferencial("Habilitado enfermedad")
+            Dim idEspecialidad As Integer = filaDiferencial("ID especialidad")
+            Dim nombreEspecialidad As String = filaDiferencial("Nombre especialidad")
+            Dim habilitadoEspecialidad As Boolean = filaDiferencial("Habilitado especialidad")
             Dim especialidadEnfermedad As New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, habilitadoEspecialidad)
 
-            Dim sintomasEnfermedad As New List(Of Sintoma)
-            Dim frecuenciasSintomasEnfermedad As New List(Of Decimal)
-            For Each rCuadroSintomatico As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM cuadro_sintomatico WHERE ID_ENFERMEDAD={0}", idEnfermedad), "cuadro_sintomatico").Rows
-                Dim idSintoma As Integer = rCuadroSintomatico("ID_SINTOMA")
-                Dim rSintoma As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM sintomas WHERE ID={0}", idSintoma), "sintomas").Rows(0)
-                Dim nombreSintoma As String = rSintoma("NOMBRE")
-                Dim descripcionSintoma As String = rSintoma("DESCRIPCION")
-                Dim recomendacionesSintoma As String = rSintoma("RECOMENDACIONES")
-                Dim urgenciaSintoma As Integer = rSintoma("URGENCIA")
-                Dim habilitadoSintoma As Boolean = rSintoma("HABILITADO")
-                Dim frecuenciaSintoma As Decimal = rCuadroSintomatico("FRECUENCIA")
-
-                sintomasEnfermedad.Add(New Sintoma(idSintoma, nombreSintoma, descripcionSintoma, recomendacionesSintoma, urgenciaSintoma, Nothing, habilitadoEnfermedad))
-                frecuenciasSintomasEnfermedad.Add(frecuenciaSintoma)
+            Dim listaSintomas As New List(Of Sintoma)
+            Dim listaFrecuencias As New List(Of Decimal)
+            For j = 0 To sintomasAsociados.Rows.Count - 1
+                Dim filaSintoma As DataRow = sintomasAsociados.Rows(j)
+                If filaSintoma("ID enfermedad") = filaDiferencial("ID enfermedad") Then
+                    Dim idSintoma As Integer = filaSintoma("ID Sintoma")
+                    Dim nombreSintoma As String = filaSintoma("Nombre Sintoma")
+                    Dim descripcionSintoma As String = filaSintoma("Descripcion Sintoma")
+                    Dim recomendacionesSintoma As String = filaSintoma("Recomendaciones Sintoma")
+                    Dim urgenciaSintoma As Integer = filaSintoma("Urgencia Sintoma")
+                    Dim habilitadoSintoma As Boolean = filaSintoma("Habilitado Sintoma")
+                    Dim frecuenciaSintoma As Decimal = filaSintoma("Frecuencia cuadro sintomatico")
+                    listaSintomas.Add(New Sintoma(idSintoma, nombreSintoma, descripcionSintoma, recomendacionesSintoma, urgenciaSintoma, Nothing, habilitadoSintoma))
+                    listaFrecuencias.Add(frecuenciaSintoma)
+                End If
             Next
+            Dim sintomasEnfermedad As New SintomasAsociados(listaSintomas, listaFrecuencias)
+            Dim enfermedadDiferencial As New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad, gravedadEnfermedad,
+                                                        descripcionEnfermedad, sintomasEnfermedad, especialidadEnfermedad, habilitadoEnfermedad)
 
-            Dim sintomasAsociadosEnfermedad As New SintomasAsociados(sintomasEnfermedad, frecuenciasSintomasEnfermedad)
-
-            Dim enfermedadDiagnosticoDiferencial As Enfermedad = New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad,
-                                                                                    gravedadEnfermedad, descripcionEnfermedad, sintomasAsociadosEnfermedad,
-                                                                                    especialidadEnfermedad, habilitadoEnfermedad)
-
-            lista.Add(New DiagnosticoDiferencial(idDiagnosticoDiferencial, diagnosticoPrimarioConConsulta, enfermedadDiagnosticoDiferencial,
-                                                 conductaASeguirDiagnosticoDiferencial, fechaHoraDiagnosticoDiferencial))
+            listaDiagnosticosDiferenciales.Add(New DiagnosticoDiferencial(idDiferencial, Nothing, enfermedadDiferencial, conductaASeguirDiferencial,
+                                                                          fechaHoraDiferencial))
         Next
-        Return lista
+
+        For Each d As DiagnosticoDiferencial In listaDiagnosticosDiferenciales
+            MsgBox(String.Join(vbNewLine, {d.ConductaASeguir, d.FechaHora, d.EnfermedadDiagnosticada.Nombre, d.EnfermedadDiagnosticada.Especialidad.Nombre}) & vbNewLine & vbNewLine)
+            Dim texto As New List(Of String)
+            For Each s As Sintoma In d.EnfermedadDiagnosticada.Sintomas
+                texto.Add(String.Format("{0} ({1}%)", s.Nombre, d.EnfermedadDiagnosticada.FrecuenciaSintoma(d.EnfermedadDiagnosticada.Sintomas.IndexOf(s))))
+            Next
+            MsgBox(String.Join(vbNewLine, texto))
+        Next
+
+        Return listaDiagnosticosDiferenciales
     End Function
 
     Public Function ObtenerConsultasSinAtender() As List(Of DiagnosticoPrimarioConConsulta)
@@ -2081,163 +1967,4 @@ Public Module AccesoDatos
         ConexionBD.EjecutarTransaccion(comando)
         ConexionBD.Conexion.Close()
     End Sub
-
-#Region "Código comentado"
-    ' FALTA MANEJO DE ERRORES PARA GETTERS DE USUARIOS
-    'Private Function ObtenerUsuarioMedicoPorCI(ci As String) As Usuario
-    '    Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Funcionario'", ci), "personas").Rows(0)
-    '    Dim idMedico As Integer = rPersona("ID")
-    '    Dim ciMedico As String = rPersona("CI")
-    '    Dim nombreMedico As String = rPersona("NOMBRE")
-    '    Dim apellidoMedico As String = rPersona("APELLIDO")
-    '    Dim correoMedico As String = rPersona("CORREO")
-
-    '    Dim rFuncionario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM funcionarios WHERE ID_PERSONA='{0}'", idMedico), "funcionarios").Rows(0)
-    '    Dim habilitadoMedico As Boolean = rFuncionario("HABILITADO")
-
-    '    Dim medicoUsuario As New Medico(idMedico, ciMedico, nombreMedico, apellidoMedico, correoMedico, Nothing, Nothing, habilitadoMedico)
-
-    '    Dim rUsuario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM usuarios WHERE ID_PERSONA='{0}'", idMedico), "usuarios").Rows(0)
-    '    Dim idUsuario As Integer = rUsuario("ID")
-    '    Dim contrasenaUsuario As String = rUsuario("CONTRASENIA")
-    '    Dim tipoUsuario As TiposUsuario = [Enum].Parse(GetType(TiposUsuario), rUsuario("TIPO"))
-    '    Dim habilitadoUsuario As Boolean = rUsuario("HABILITADO")
-
-    '    Dim usuario As New Usuario(idUsuario, contrasenaUsuario, medicoUsuario, habilitadoUsuario)
-    '    Return usuario
-    'End Function
-
-    'Private Function ObtenerUsuarioPacientePorCI(ci As String) As Usuario
-    '    Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Paciente'", ci), "personas").Rows(0)
-    '    Dim idPaciente As Integer = rPersona("ID")
-    '    Dim ciPaciente As String = rPersona("CI")
-    '    Dim nombrePaciente As String = rPersona("NOMBRE")
-    '    Dim apellidoPaciente As String = rPersona("APELLIDO")
-    '    Dim correoPaciente As String = rPersona("CORREO")
-    '    Dim rPaciente As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM pacientes WHERE ID_PERSONA={0}", idPaciente), "pacientes").Rows(0)
-    '    Dim telefonoMovilPaciente As String = rPaciente("TELEFONOMOVIL")
-    '    Dim telefonoFijoPaciente As String = rPaciente("TELEFONOFIJO")
-    '    Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), rPaciente("SEXO"))
-    '    Dim fechaNacimientoPaciente As Date = CType(rPaciente("FECHANACIMIENTO"), MySqlDateTime).Value
-    '    Dim callePaciente As String = rPaciente("CALLE")
-    '    Dim numeroPuertaPaciente As String = rPaciente("NUMEROPUERTA")
-    '    Dim apartamentoPaciente As String = ""
-    '    If TypeOf rPaciente("APARTAMENTO") IsNot DBNull Then
-    '        apartamentoPaciente = rPaciente("APARTAMENTO")
-    '    End If
-
-    '    Dim pacienteUsuario As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, Nothing, telefonoMovilPaciente,
-    '                                        telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
-    '                                        apartamentoPaciente)
-
-    '    Dim rUsuario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM usuarios WHERE ID_PERSONA='{0}'", idPaciente), "usuarios").Rows(0)
-    '    Dim idUsuario As Integer = rUsuario("ID")
-    '    Dim contrasenaUsuario As String = rUsuario("CONTRASENIA")
-    '    Dim tipoUsuario As TiposUsuario = [Enum].Parse(GetType(TiposUsuario), rUsuario("TIPO"))
-    '    Dim habilitadoUsuario As Boolean = rUsuario("HABILITADO")
-
-    '    Dim usuario As New Usuario(idUsuario, contrasenaUsuario, pacienteUsuario, habilitadoUsuario)
-    '    Return usuario
-    'End Function
-
-    'Private Function ObtenerUsuarioAdministrativoPorCI(ci As String) As Usuario
-    '    Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE CI='{0}' AND TIPO='Funcionario'", ci), "personas").Rows(0)
-    '    Dim idAdministrativo As Integer = rPersona("ID")
-    '    Dim ciAdministrativo As String = rPersona("CI")
-    '    Dim nombreAdministrativo As String = rPersona("NOMBRE")
-    '    Dim apellidoAdministrativo As String = rPersona("APELLIDO")
-    '    Dim correoAdministrativo As String = rPersona("CORREO")
-
-    '    Dim rFuncionario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM funcionarios WHERE ID_PERSONA='{0}'", idAdministrativo), "funcionarios").Rows(0)
-    '    Dim habilitadoAdministrativo As Boolean = rFuncionario("HABILITADO")
-
-    '    Dim rAdministrativo As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM administrativos WHERE ID_FUNCIONARIO='{0}'", idAdministrativo), "administrativos").Rows(0)
-    '    Dim esEncargadoAdministrativo As Boolean = rAdministrativo("ES_ENCARGADO")
-
-    '    Dim administrativoUsuario As New Administrativo(idAdministrativo, ciAdministrativo, nombreAdministrativo, apellidoAdministrativo,
-    '                                                    correoAdministrativo, Nothing, esEncargadoAdministrativo, habilitadoAdministrativo)
-
-    '    Dim rUsuario As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM usuarios WHERE ID_PERSONA='{0}'", idAdministrativo), "usuarios").Rows(0)
-    '    Dim idUsuario As Integer = rUsuario("ID")
-    '    Dim contrasenaUsuario As String = rUsuario("CONTRASENIA")
-    '    Dim tipoUsuario As TiposUsuario = [Enum].Parse(GetType(TiposUsuario), rUsuario("TIPO"))
-    '    Dim habilitadoUsuario As Boolean = rUsuario("HABILITADO")
-
-    '    Dim usuario As New Usuario(idUsuario, contrasenaUsuario, administrativoUsuario, habilitadoUsuario)
-    '    Return usuario
-    'End Function
-
-    'Private Function ObtenerPacientePorUsuario(usuario As Usuario) As Paciente
-    '    Dim rPersona As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM personas WHERE ID={0}", usuario.Persona.ID), "personas").Rows(0)
-    '    Dim idPaciente As Integer = rPersona("ID")
-    '    Dim ciPaciente As String = rPersona("CI")
-    '    Dim nombrePaciente As String = rPersona("NOMBRE")
-    '    Dim apellidoPaciente As String = rPersona("APELLIDO")
-    '    Dim correoPaciente As String = rPersona("CORREO")
-
-    '    Dim rPaciente As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM pacientes WHERE ID_PERSONA={0}", idPaciente), "pacientes").Rows(0)
-    '    Dim telefonoMovilPaciente As String = rPaciente("TELEFONOMOVIL")
-    '    Dim telefonoFijoPaciente As String = rPaciente("TELEFONOFIJO")
-    '    Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), rPaciente("SEXO"))
-    '    Dim fechaNacimientoPaciente As Date = CType(rPaciente("FECHANACIMIENTO"), MySqlDateTime).Value
-    '    Dim callePaciente As String = rPaciente("CALLE")
-    '    Dim numeroPuertaPaciente As String = rPaciente("NUMEROPUERTA")
-    '    Dim apartamentoPaciente As String = ""
-    '    If TypeOf rPaciente("APARTAMENTO") IsNot DBNull Then
-    '        apartamentoPaciente = rPaciente("APARTAMENTO")
-    '    End If
-
-    '    Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, Nothing, telefonoMovilPaciente,
-    '                                 telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente, apartamentoPaciente)
-
-    '    Return paciente
-    'End Function
-
-    'Private Function TieneUsuario(persona As Persona) As Boolean
-    '    Dim idPersona As String = persona.ID
-    '    Dim cantidadUsuarios As Integer = ConexionBD.EjecutarConsulta(String.Format("SELECT COUNT(*) FROM usuarios WHERE ID_PERSONA={0} ", idPersona), "usuarios").Rows(0)(0)
-    '    Return cantidadUsuarios > 0
-    'End Function
-
-    'Private Function ObtenerDiagnosticosPrimariosPorPaciente(paciente As Paciente) As List(Of DiagnosticoPrimario)
-    '    Dim lista As New List(Of DiagnosticoPrimario)
-    '    For Each rDiagnosticoPrimario As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM diagnosticos_primarios WHERE ID_PACIENTE={0}", paciente.ID), "diagnosticos_primarios").Rows
-    '        Dim idDiagnosticoPrimario As Integer = rDiagnosticoPrimario("ID")
-    '        Dim fechaHoraDiagnosticoPrimario As Date = CType(rDiagnosticoPrimario("FECHA_HORA"), MySqlDateTime).Value
-    '        Dim tipoDiagnosticoPrimario As TiposDiagnosticosPrimarios = [Enum].Parse(GetType(TiposDiagnosticosPrimarios), rDiagnosticoPrimario("TIPO"))
-
-    '        Dim enfermedadesDiagnosticoPrimario As New List(Of Enfermedad)
-    '        Dim probabilidadesEnfermedades As New List(Of Decimal)
-    '        For Each rSistemaDiagnostica As DataRow In ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM sistema_diagnostica WHERE ID_DIAGNOSTICO_PRIMARIO={0}", idDiagnosticoPrimario), "sistema_diagnostica").Rows
-    '            Dim idEnfermedad As Integer = rSistemaDiagnostica("ID_ENFERMEDAD")
-    '            Dim rEnfermedad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM enfermedades WHERE ID={0}", idEnfermedad), "enfermedades").Rows(0)
-    '            Dim nombreEnfermedad As String = rEnfermedad("NOMBRE")
-    '            Dim recomendacionesEnfermedad As String = ""
-    '            If TypeOf rEnfermedad("RECOMENDACIONES") IsNot DBNull Then
-    '                recomendacionesEnfermedad = rEnfermedad("RECOMENDACIONES")
-    '            End If
-    '            Dim gravedadEnfermedad As Integer = rEnfermedad("GRAVEDAD")
-    '            Dim descripcionEnfermedad As String = ""
-    '            If TypeOf rEnfermedad("DESCRIPCION") IsNot DBNull Then
-    '                descripcionEnfermedad = rEnfermedad("DESCRIPCION")
-    '            End If
-    '            Dim habilitadoEnfermedad As Boolean = rEnfermedad("HABILITADO")
-    '            Dim probabilidadEnfermedad As Decimal = rSistemaDiagnostica("PROBABILIDAD")
-
-    '            Dim idEspecialidad As Integer = rEnfermedad("ID_ESPECIALIDAD")
-    '            Dim rEspecialidad As DataRow = ConexionBD.EjecutarConsulta(String.Format("SELECT * FROM especialidades WHERE ID={0}", idEspecialidad), "especialidades").Rows(0)
-    '            Dim nombreEspecialidad As String = rEspecialidad("NOMBRE")
-    '            Dim habilitadoEspecialidad As Boolean = rEspecialidad("HABILITADO")
-    '            Dim especialidadEnfermedad As New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, habilitadoEspecialidad)
-
-    '            enfermedadesDiagnosticoPrimario.Add(New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad, gravedadEnfermedad,
-    '                                                                descripcionEnfermedad, Nothing, especialidadEnfermedad, habilitadoEnfermedad))
-    '            probabilidadesEnfermedades.Add(rSistemaDiagnostica("PROBABILIDAD"))
-    '        Next
-    '        Dim enfermedadesDiagnosticadas As New EnfermedadesDiagnosticadas(enfermedadesDiagnosticoPrimario, probabilidadesEnfermedades)
-    '        lista.Add(New DiagnosticoPrimario(idDiagnosticoPrimario, paciente, enfermedadesDiagnosticadas, fechaHoraDiagnosticoPrimario, tipoDiagnosticoPrimario))
-    '    Next
-    '    Return lista
-    'End Function
-#End Region
 End Module
