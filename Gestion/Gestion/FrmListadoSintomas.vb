@@ -2,16 +2,11 @@
 Imports Clases
 
 Public Class FrmListadoSintomas
-    Public Sub New()
-
-        ' Esta llamada es exigida por el diseñador.
-        InitializeComponent()
-
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        MostrarSintomas()
+    Private Sub FrmListadoSintomas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        ActualizarSintomas()
     End Sub
 
-    Private Sub MostrarSintomas()
+    Private Sub ActualizarSintomas()
         tblSintomas.Rows.Clear()
         For Each sintoma As Sintoma In CargarTodosLosSintomas()
             tblSintomas.Rows.Add(sintoma, sintoma.Nombre, sintoma.Descripcion, sintoma.Urgencia, sintoma.Recomendaciones)
@@ -19,10 +14,26 @@ Public Class FrmListadoSintomas
         tblSintomas.ClearSelection()
     End Sub
 
-    ' NO IMPLEMENTADO
     Private Sub btnImportar_Click(sender As Object, e As EventArgs) Handles btnImportar.Click
+        exploradorArchivos.FileName = ""
         exploradorArchivos.ShowDialog()
-        MsgBox(exploradorArchivos.FileName)
+        Dim nombreArchivo As String = exploradorArchivos.FileName
+        Dim hayErrores As Boolean = False
+
+        If nombreArchivo = "" Then
+            MsgBox("No se seleccionó ningún archivo CSV para importar.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+
+        If Not nombreArchivo.EndsWith(".csv") Then
+            MsgBox("El archivo seleccionado no es de formato CSV.", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
+
+        If Not hayErrores Then
+            ImportarSintomas(nombreArchivo)
+            MsgBox("¡Importación finalizada!", MsgBoxStyle.Information)
+        End If
     End Sub
 
     ' Abre un formulario con los detalles de un síntoma
@@ -43,7 +54,7 @@ Public Class FrmListadoSintomas
         Dim frm As New FrmAltaSintomas
         Me.Hide()
         frm.ShowDialog()
-        MostrarSintomas()
+        ActualizarSintomas()
         Me.Show()
     End Sub
 
@@ -54,7 +65,7 @@ Public Class FrmListadoSintomas
             Dim frm As New FrmModificacionSintomas(sintoma)
             Me.Hide()
             frm.ShowDialog()
-            MostrarSintomas()
+            ActualizarSintomas()
             Me.Show()
         Else
             MsgBox("Seleccione una sola fila para modificar el síntoma correspondiente.", MsgBoxStyle.Critical, "Error")
@@ -70,7 +81,7 @@ Public Class FrmListadoSintomas
                 For Each r As DataGridViewRow In tblSintomas.SelectedRows
                     EliminarSintoma(r.Cells(0).Value)
                 Next
-                MostrarSintomas()
+                ActualizarSintomas()
             End If
         Else
             MsgBox("Seleccione al menos una fila para eliminar el/los síntoma(s).")

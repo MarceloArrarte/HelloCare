@@ -1,0 +1,25 @@
+﻿Imports System.Drawing
+Imports Clases
+Imports CapaLogica
+
+Public Class FrmRegistro
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        If txtContrasena.Text = txtRepetir.Text Then
+            RegistrarUsuario(administrativoLogeado, txtContrasena.Text)
+            MsgBox("Su contraseña ha sido guardada. Se envió un correo electrónico a la dirección de correo proporcionada por usted con los datos de su registro. Cierre este mensaje para continuar al menú principal." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", MsgBoxStyle.Information, "Usuario registrado")
+            Me.DialogResult = DialogResult.OK
+        Else
+            MsgBox("Las contraseñas no coinciden. Verifique los datos ingresados y reintente.", MsgBoxStyle.Exclamation, "Error")
+        End If
+    End Sub
+
+    Private Sub chkMostrarContrasena_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContrasena.CheckedChanged
+        If chkMostrarContrasena.Checked Then
+            txtContrasena.UseSystemPasswordChar = False
+            txtRepetir.UseSystemPasswordChar = False
+        Else
+            txtContrasena.UseSystemPasswordChar = True
+            txtRepetir.UseSystemPasswordChar = True
+        End If
+    End Sub
+End Class

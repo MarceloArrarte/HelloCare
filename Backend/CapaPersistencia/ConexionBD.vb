@@ -3,7 +3,6 @@ Imports MySql.Data.MySqlClient
 Public NotInheritable Class ConexionBD
     Private Shared _Conexion As MySqlConnection
     Private Shared Adaptador As MySqlDataAdapter
-    Private Shared ReadOnly _Relaciones As New List(Of RelacionBD)
 
     Public Shared ReadOnly Property Conexion() As MySqlConnection
         Get
@@ -30,7 +29,7 @@ Public NotInheritable Class ConexionBD
         Adaptador = New MySqlDataAdapter(comando)
         Adaptador.Fill(datos)
         Dim tabla As DataTable = datos.Tables(0)
-        datos.Tables.Remove(0)
+        datos.Tables.Remove(tabla)
         Return tabla
     End Function
 
@@ -47,6 +46,7 @@ Public NotInheritable Class ConexionBD
 
     Public Shared Sub EjecutarTransaccion(comando As MySqlCommand)
         Try
+            comando.Connection = Conexion
             comando.ExecuteNonQuery()
         Catch ex As MySqlException
             If ex.Number = 1042 Then
@@ -58,57 +58,57 @@ Public NotInheritable Class ConexionBD
     End Sub
 
     Public Shared Function ObtenerUltimoIdInsertado() As Integer
-        Dim datos As DataTable = EjecutarConsulta("SELECT LAST_INSERT_ID()", "tabla")
+        Dim datos As DataTable = EjecutarConsulta(New MySqlCommand("SELECT LAST_INSERT_ID();"))
         Return datos.Rows(0)(0)
     End Function
 
-    Public Shared Sub AplicarClavesExternas(datos As DataSet)
-        ActualizarClavesExternas()
+    'Public Shared Sub AplicarClavesExternas(datos As DataSet)
+    '    ActualizarClavesExternas()
 
-        ' Crea una lista con los nombres de las tablas
-        Dim nombresTablas As New List(Of String)
-        For Each t As DataTable In datos.Tables
-            nombresTablas.Add(t.TableName)
-        Next
+    '    ' Crea una lista con los nombres de las tablas
+    '    Dim nombresTablas As New List(Of String)
+    '    For Each t As DataTable In datos.Tables
+    '        nombresTablas.Add(t.TableName)
+    '    Next
 
-        ' Elimina las relaciones almacenadas en el DataSet para evitar duplicados
-        datos.Relations.Clear()
+    '    ' Elimina las relaciones almacenadas en el DataSet para evitar duplicados
+    '    datos.Relations.Clear()
 
-        ' Para cada FK almacenada, se fija si la lista de los nombres de las tablas en el DataSet contiene los nombres de ambas tablas de la relación.
-        ' En caso afirmativo, agrega la relación entre las dos tablas al DataSet.
-        For Each relacion As RelacionBD In _Relaciones
-            If nombresTablas.Contains(relacion.NombreTablaPrimaria) And nombresTablas.Contains(relacion.NombreTablaExterna) Then
-                relacion.AgregarRelacionA(datos)
-            End If
-        Next
-    End Sub
+    '    ' Para cada FK almacenada, se fija si la lista de los nombres de las tablas en el DataSet contiene los nombres de ambas tablas de la relación.
+    '    ' En caso afirmativo, agrega la relación entre las dos tablas al DataSet.
+    '    For Each relacion As RelacionBD In _Relaciones
+    '        If nombresTablas.Contains(relacion.NombreTablaPrimaria) And nombresTablas.Contains(relacion.NombreTablaExterna) Then
+    '            relacion.AgregarRelacionA(datos)
+    '        End If
+    '    Next
+    'End Sub
 
-    Private Shared Sub ActualizarClavesExternas()
-        _Relaciones.Clear()
-        ' Llena un DataSet con los datos de las claves externas de la BD
-        Dim tabla As DataTable = EjecutarConsulta("SELECT constraint_name, table_name, column_name, referenced_table_name, referenced_column_name
-                                                 FROM information_schema.key_column_usage
-                                                 WHERE table_schema='hellocare' AND referenced_table_name IS NOT NULL", "key_column_usage")
-        'Dim datos As DataSet = EjecutarConsulta("SELECT constraint_name, table_name, column_name, referenced_table_name, referenced_column_name
-        '                                         FROM information_schema.key_column_usage
-        '                                         WHERE table_schema='hellocare' AND referenced_table_name IS NOT NULL", "key_column_usage")
+    'Private Shared Sub ActualizarClavesExternas()
+    '    _Relaciones.Clear()
+    '    ' Llena un DataSet con los datos de las claves externas de la BD
+    '    Dim tabla As DataTable = EjecutarConsulta("SELECT constraint_name, table_name, column_name, referenced_table_name, referenced_column_name
+    '                                             FROM information_schema.key_column_usage
+    '                                             WHERE table_schema='hellocare' AND referenced_table_name IS NOT NULL")
+    '    'Dim datos As DataSet = EjecutarConsulta("SELECT constraint_name, table_name, column_name, referenced_table_name, referenced_column_name
+    '    '                                         FROM information_schema.key_column_usage
+    '    '                                         WHERE table_schema='hellocare' AND referenced_table_name IS NOT NULL", "key_column_usage")
 
-        'Dim tabla As DataTable = datos.Tables("key_column_usage")
+    '    'Dim tabla As DataTable = datos.Tables("key_column_usage")
 
-        ' Para cada fila de la tabla de FK, las agrega a la lista que es atributo de la clase
-        For Each r As DataRow In tabla.Rows
-            Dim nombre As String = r("constraint_name")
-            'Dim nombreTablaPrimaria As String = r("table_name")
-            'Dim nombreClavePrimaria As String = r("column_name")
-            'Dim nombreTablaExterna As String = r("referenced_table_name")
-            'Dim nombreClaveExterna As String = r("referenced_column_name")
+    '    ' Para cada fila de la tabla de FK, las agrega a la lista que es atributo de la clase
+    '    For Each r As DataRow In tabla.Rows
+    '        Dim nombre As String = r("constraint_name")
+    '        'Dim nombreTablaPrimaria As String = r("table_name")
+    '        'Dim nombreClavePrimaria As String = r("column_name")
+    '        'Dim nombreTablaExterna As String = r("referenced_table_name")
+    '        'Dim nombreClaveExterna As String = r("referenced_column_name")
 
-            Dim nombreTablaPrimaria As String = r("referenced_table_name")
-            Dim nombreClavePrimaria As String = r("referenced_column_name")
-            Dim nombreTablaExterna As String = r("table_name")
-            Dim nombreClaveExterna As String = r("column_name")
+    '        Dim nombreTablaPrimaria As String = r("referenced_table_name")
+    '        Dim nombreClavePrimaria As String = r("referenced_column_name")
+    '        Dim nombreTablaExterna As String = r("table_name")
+    '        Dim nombreClaveExterna As String = r("column_name")
 
-            _Relaciones.Add(New RelacionBD(nombre, nombreTablaPrimaria, nombreClavePrimaria, nombreTablaExterna, nombreClaveExterna))
-        Next
-    End Sub
+    '        _Relaciones.Add(New RelacionBD(nombre, nombreTablaPrimaria, nombreClavePrimaria, nombreTablaExterna, nombreClaveExterna))
+    '    Next
+    'End Sub
 End Class

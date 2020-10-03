@@ -1,4 +1,5 @@
-﻿Imports CapaLogica
+﻿Imports System.Windows.Forms
+Imports CapaLogica
 Imports Clases
 
 Public Class FrmLogin
@@ -20,7 +21,22 @@ Public Class FrmLogin
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
 
                 Case ResultadosLogin.SinUsuario
-                    ' Acá tiene que ir a la ventana de registro
+                    Dim frmReg As New FrmRegistro
+                    Me.Hide()
+                    Dim resultado As DialogResult = frmReg.ShowDialog()
+                    Me.Show()
+                    If resultado = DialogResult.OK Then
+                        Dim frmMenu As New FrmMenuPrincipal
+                        Me.Hide()
+                        frmMenu.ShowDialog()
+                        txtCedula.Clear()
+                        txtContrasena.Clear()
+                        Me.Show()
+                    Else
+                        MsgBox("Su usuario no fue creado. Tenga en cuenta que no podrá acceder al servicio HelloCare hasta que tenga su usuario personal.", MsgBoxStyle.Exclamation)
+                        pacienteLogeado = Nothing
+                    End If
+
             End Select
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

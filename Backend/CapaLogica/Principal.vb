@@ -3,6 +3,10 @@ Imports CapaPersistencia
 Imports System.CodeDom
 Imports System.Windows.Forms
 Imports MySql.Data.MySqlClient
+Imports System.IO
+Imports System.Text
+Imports Microsoft.VisualBasic.FileIO
+Imports System.Security.Cryptography
 
 Public Module Principal
     Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
@@ -12,11 +16,12 @@ Public Module Principal
 
         Dim paciente As Paciente = ObtenerPacientePorCI(ci)
         If Not TieneUsuarioRegistrado(paciente) Then
+            pacienteLogeado = paciente
             Return ResultadosLogin.SinUsuario
         End If
 
         Dim usuarioPaciente As Usuario = ObtenerUsuarioPorPersona(paciente)
-        If contrasena = usuarioPaciente.Contrasena Then
+        If CifrarClave(contrasena) = usuarioPaciente.Contrasena Then
             pacienteLogeado = paciente
             Return ResultadosLogin.OK
         Else
@@ -32,11 +37,12 @@ Public Module Principal
         Dim medico As Medico = ObtenerMedicoPorCI(ci)
 
         If Not TieneUsuarioRegistrado(medico) Then
+            medicoLogeado = medico
             Return ResultadosLogin.SinUsuario
         End If
 
         Dim usuarioMedico As Usuario = ObtenerUsuarioPorPersona(medico)
-        If contrasena = usuarioMedico.Contrasena Then
+        If CifrarClave(contrasena) = usuarioMedico.Contrasena Then
             medicoLogeado = medico
             Return ResultadosLogin.OK
         Else
@@ -50,13 +56,13 @@ Public Module Principal
         End If
 
         Dim administrativo As Administrativo = ObtenerAdministrativoPorCI(ci)
-
         If Not TieneUsuarioRegistrado(administrativo) Then
+            administrativoLogeado = administrativo
             Return ResultadosLogin.SinUsuario
         End If
 
         Dim usuarioAdministrativo As Usuario = ObtenerUsuarioPorPersona(administrativo)
-        If contrasena = usuarioAdministrativo.Contrasena Then
+        If CifrarClave(contrasena) = usuarioAdministrativo.Contrasena Then
             administrativoLogeado = administrativo
             Return ResultadosLogin.OK
         Else
@@ -65,30 +71,15 @@ Public Module Principal
     End Function
 
     Public Function CargarTodosLosSintomas() As List(Of Sintoma)
-        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Sintoma)
-        Dim listaConvertida As New List(Of Sintoma)
-        For Each s As Sintoma In listaBase
-            listaConvertida.Add(s)
-        Next
-        Return listaConvertida
+        Return ObtenerListadoSintomas()
     End Function
 
     Public Function CargarTodasLasEnfermedades() As List(Of Enfermedad)
-        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Enfermedad)
-        Dim listaConvertida As New List(Of Enfermedad)
-        For Each e As Enfermedad In listaBase
-            listaConvertida.Add(e)
-        Next
-        Return listaConvertida
+        Return ObtenerListadoEnfermedades()
     End Function
 
     Public Function CargarTodasLasEspecialidades() As List(Of Especialidad)
-        Dim listaBase As List(Of Object) = ObtenerListadoCompleto(TiposObjeto.Especialidad)
-        Dim listaConvertida As New List(Of Especialidad)
-        For Each e As Especialidad In listaBase
-            listaConvertida.Add(e)
-        Next
-        Return listaConvertida
+        Return ObtenerListadoEspecialidades()
     End Function
 
     Public Function DuplicarFila(filaADuplicar As DataGridViewRow) As DataGridViewRow
@@ -318,4 +309,179 @@ Public Module Principal
     Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
         EliminarObjeto(enfermedad, TiposObjeto.Enfermedad)
     End Sub
+
+    Public Sub ImportarEnfermedades(nombreArchivo As String)
+        Dim filasParseadas As New List(Of String())
+        Dim parser As New TextFieldParser(nombreArchivo, Encoding.UTF8)
+        parser.TextFieldType = FieldType.Delimited
+        parser.SetDelimiters(",")
+        While Not parser.EndOfData
+            filasParseadas.Add(parser.ReadFields)
+        End While
+
+        If filasParseadas.Count Mod 3 <> 0 Then
+            Throw New Exception("Error de formato en el archivo importado. La cantidad de filas debe ser múltiplo de 3.")
+        End If
+
+        Dim especialidadesCargadas As List(Of Especialidad) = CargarTodasLasEspecialidades()
+        Dim sintomasCargados As List(Of Sintoma) = CargarTodosLosSintomas()
+        Dim listaEnfermedadesImportadas As New List(Of Enfermedad)
+
+        For i = 0 To filasParseadas.Count - 1 Step 3
+            Dim datosEnfermedad As String() = filasParseadas(i)
+            Dim nombre As String = datosEnfermedad(0)
+            Dim descripcion As String = datosEnfermedad(1)
+            Dim recomendaciones As String = datosEnfermedad(2)
+            Dim gravedad As Integer = datosEnfermedad(3)
+            Dim especialidad As Especialidad = Nothing
+
+            Dim nombreEspecialidad As String = datosEnfermedad(4)
+            For Each e As Especialidad In especialidadesCargadas
+                If e.Nombre = nombreEspecialidad Then
+                    especialidad = e
+                End If
+            Next
+            If especialidad Is Nothing Then
+                Throw New Exception(String.Format("La especialidad indicada para la enfermedad ""{0}"" ({1}) no se encuentra registrada en el sistema.",
+                                                  nombre, nombreEspecialidad))
+            End If
+
+            Dim j As Integer = 0
+            While j < filasParseadas(i + 2).Length AndAlso filasParseadas(i + 2)(j) <> ""
+                Dim valor As String = filasParseadas(i + 2)(j)
+                Dim valorConvertido As Decimal
+                If Decimal.TryParse(valor, valorConvertido) = False Then
+                    Throw New Exception(String.Format("Error de formato: las frecuencias de los síntomas de la enfermedad ""{0}"" no tienen un formato válido.",
+                                                      nombre))
+                End If
+                j += 1
+            End While
+
+            Dim cantSintomas As Integer = j
+            Dim nombresSintomas As String() = filasParseadas(i + 1).Take(cantSintomas).ToArray
+            Dim frecuenciasSintomas As String() = filasParseadas(i + 2).Take(cantSintomas).ToArray
+
+            Dim listaSintomas As New List(Of Sintoma)
+            Dim listaFrecuencias As New List(Of Decimal)
+
+            For j = 0 To nombresSintomas.Length - 1
+                Dim sintoma As Sintoma = Nothing
+                For Each s In sintomasCargados
+                    If nombresSintomas(j) = s.Nombre Then
+                        sintoma = s
+                    End If
+                Next
+                If sintoma Is Nothing Then
+                    Throw New Exception(String.Format("El síntoma ""{0}"" de la enfermedad ""{1}"" no se encuentra registrado en el sistema.",
+                                                       nombresSintomas(j), nombre))
+                Else
+                    listaSintomas.Add(sintoma)
+                    listaFrecuencias.Add(CDec(frecuenciasSintomas(j)))
+                End If
+            Next
+
+            Dim sintomasAsociados As New SintomasAsociados(listaSintomas, listaFrecuencias)
+            listaEnfermedadesImportadas.Add(New Enfermedad(nombre, recomendaciones, gravedad, descripcion, sintomasAsociados, especialidad))
+        Next
+
+        InsertarEnfermedadesImportadas(listaEnfermedadesImportadas)
+    End Sub
+
+    Public Sub ImportarSintomas(nombreArchivo As String)
+        Dim filasParseadas As New List(Of String())
+        Dim parser As New TextFieldParser(nombreArchivo, Encoding.UTF8)
+        parser.TextFieldType = FieldType.Delimited
+        parser.SetDelimiters(",")
+        While Not parser.EndOfData
+            filasParseadas.Add(parser.ReadFields)
+        End While
+
+        If filasParseadas.Count Mod 3 <> 0 Then
+            Throw New Exception("Error de formato en el archivo importado. La cantidad de filas debe ser múltiplo de 3.")
+        End If
+
+        Dim enfermedadesCargadas As List(Of Enfermedad) = CargarTodasLasEnfermedades()
+        Dim listaSintomasImportados As New List(Of Sintoma)
+
+        For i = 0 To filasParseadas.Count - 1 Step 3
+            Dim datosSintoma As String() = filasParseadas(i)
+            Dim nombre As String = datosSintoma(0)
+            Dim descripcion As String = datosSintoma(1)
+            Dim recomendaciones As String = datosSintoma(2)
+            Dim urgencia As Integer = datosSintoma(3)
+
+            Dim j As Integer = 0
+            While j < filasParseadas(i + 2).Length AndAlso filasParseadas(i + 2)(j) <> ""
+                Dim valor As String = filasParseadas(i + 2)(j)
+                Dim valorConvertido As Decimal
+                If Decimal.TryParse(valor, valorConvertido) = False Then
+                    Throw New Exception(String.Format("Error de formato: las frecuencias de las enfermedades del síntoma ""{0}"" no tienen un formato válido.",
+                                                      nombre))
+                End If
+                j += 1
+            End While
+
+            Dim cantEnfermedades As Integer = j
+            Dim nombresEnfermedades As String() = filasParseadas(i + 1).Take(cantEnfermedades).ToArray
+            Dim frecuenciasEnfermedades As String() = filasParseadas(i + 2).Take(cantEnfermedades).ToArray
+
+            Dim listaEnfermedades As New List(Of Enfermedad)
+            Dim listaFrecuencias As New List(Of Decimal)
+
+            For j = 0 To nombresEnfermedades.Length - 1
+                Dim enfermedad As Enfermedad = Nothing
+                For Each e In enfermedadesCargadas
+                    If nombresEnfermedades(j) = e.Nombre Then
+                        enfermedad = e
+                    End If
+                Next
+                If enfermedad Is Nothing Then
+                    Throw New Exception(String.Format("La enfermedad ""{0}"" del síntoma ""{1}"" no se encuentra registrada en el sistema.",
+                                                       nombresEnfermedades(j), nombre))
+                Else
+                    listaEnfermedades.Add(enfermedad)
+                    listaFrecuencias.Add(frecuenciasEnfermedades(j))
+                End If
+            Next
+
+            Dim enfermedadesAsociadas As New EnfermedadesAsociadas(listaEnfermedades, listaFrecuencias)
+            listaSintomasImportados.Add(New Sintoma(nombre, descripcion, recomendaciones, urgencia, enfermedadesAsociadas))
+        Next
+
+        InsertarSintomasImportados(listaSintomasImportados)
+    End Sub
+
+    Public Sub RegistrarUsuario(persona As Persona, contrasena As String)
+        Dim nuevoUsuario As New Usuario(CifrarClave(contrasena), persona)
+        InsertarObjeto(nuevoUsuario, TiposObjeto.Usuario)
+    End Sub
+
+    Private Function CifrarClave(texto As String) As String
+        Dim tDES As New TripleDESCryptoServiceProvider
+        tDES.Key = TruncarHash(texto, tDES.KeySize / 8)
+        tDES.IV = TruncarHash("20201001115839", tDES.BlockSize / 8)
+
+        Dim bytesTexto() As Byte = Encoding.Unicode.GetBytes(texto)
+
+        Dim streamMemoria As New MemoryStream
+        Dim streamCodificador As New CryptoStream(streamMemoria, tDES.CreateEncryptor(), CryptoStreamMode.Write)
+
+        streamCodificador.Write(bytesTexto, 0, bytesTexto.Length)
+        streamCodificador.FlushFinalBlock()
+
+        Dim cadenaResultante As String = Convert.ToBase64String(streamMemoria.ToArray)
+        If cadenaResultante.Length > 100 Then
+            cadenaResultante = cadenaResultante.Substring(0, 100)
+        End If
+
+        Return cadenaResultante
+    End Function
+
+    Private Function TruncarHash(clave As String, largo As Integer) As Byte()
+        Dim sha As New SHA1CryptoServiceProvider
+        Dim bytesClave() As Byte = Encoding.Unicode.GetBytes(clave)
+        Dim hash() As Byte = sha.ComputeHash(bytesClave)
+        ReDim Preserve hash(largo - 1)
+        Return hash
+    End Function
 End Module

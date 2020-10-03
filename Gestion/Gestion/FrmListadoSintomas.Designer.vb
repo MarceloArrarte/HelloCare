@@ -105,7 +105,6 @@ Partial Class FrmListadoSintomas
         Me.btnImportar.TabIndex = 1
         Me.btnImportar.Text = "Importar csv"
         Me.btnImportar.UseVisualStyleBackColor = True
-        Me.btnImportar.Visible = False
         '
         'btnVolver
         '
