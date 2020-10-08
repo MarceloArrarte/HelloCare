@@ -6,4 +6,3 @@ C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbproj.Gen
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.dll
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.xml
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.pdb
-C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbprojAssemblyReference.cache

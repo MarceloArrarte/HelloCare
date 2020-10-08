@@ -1332,6 +1332,8 @@ Public Module AccesoDatos
         Dim telefonoFijoPaciente As String = filas(0)("Telefonofijo paciente")
         Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), filas(0)("Sexo paciente"))
         Dim fechaNacimientoPaciente As Date = CType(filas(0)("Fecha nacimiento paciente"), MySqlDateTime).Value
+        Dim fechaDefuncionPaciente As Date = If(TypeOf filas(0)("Fecha defuncion paciente") IsNot DBNull,
+                                                CType(filas(0)("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
         Dim callePaciente As String = filas(0)("Calle paciente")
         Dim numeroPuertaPaciente As String = filas(0)("Numero puerta paciente")
         Dim apartamentoPaciente As String = If(TypeOf filas(0)("Apartamento paciente") IsNot DBNull, filas(0)("Apartamento paciente"), Nothing)
@@ -1343,7 +1345,7 @@ Public Module AccesoDatos
         Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
         Dim localidadPaciente As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
         Return New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
-                            telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente, apartamentoPaciente)
+                            telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, fechaDefuncionPaciente, callePaciente, numeroPuertaPaciente, apartamentoPaciente)
     End Function
 
     Public Function ObtenerAdministrativoPorCI(ci As String) As Administrativo
@@ -1370,7 +1372,7 @@ Public Module AccesoDatos
     End Function
 
     Public Function TieneUsuarioRegistrado(persona As Persona) As Boolean
-        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM usuarios WHERE ID_PERSONA=@ID;")
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM ObtenerUsuario WHERE `ID persona`=@ID;")
         comando.Parameters.AddWithValue("@ID", persona.ID)
         Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
         Dim cantidadUsuarios As Integer = datos.Rows(0)(0)
@@ -1383,7 +1385,7 @@ Public Module AccesoDatos
         Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
         Dim fila As DataRow = datos.Rows(0)
         Dim idUsuario As Integer = fila("ID usuario")
-        Dim contrasenaUsuario As String = fila("Contraseña usuario")
+        Dim contrasenaUsuario As String = fila("Contrasena usuario")
         Return New Usuario(idUsuario, contrasenaUsuario, persona, True)
     End Function
 
@@ -1519,6 +1521,8 @@ Public Module AccesoDatos
             Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
             Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
             Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
+            Dim fechaDefuncionPaciente As Date = If(TypeOf fila("Fecha defuncion paciente") IsNot DBNull,
+                                                    CType(fila("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
             Dim callePaciente As String = fila("Calle paciente")
             Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
             Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
@@ -1530,8 +1534,8 @@ Public Module AccesoDatos
             Dim departamentoPaciente As New Departamento(idDepartamentoPaciente, nombreDepartamentoPaciente)
             Dim localidadPaciente As New Localidad(idLocalidadPaciente, nombreLocalidadPaciente, departamentoPaciente)
             Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
-                                         telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
-                                         apartamentoPaciente)
+                                         telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, fechaDefuncionPaciente, callePaciente,
+                                         numeroPuertaPaciente, apartamentoPaciente)
 
             Dim sintomas As New List(Of Sintoma)
             For Each filaSintoma As DataRow In fila.GetChildRows("sintomasEvaluados")
@@ -1708,6 +1712,8 @@ Public Module AccesoDatos
             Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
             Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
             Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
+            Dim fechaDefuncionPaciente As Date = If(TypeOf fila("Fecha defuncion paciente") IsNot DBNull,
+                                                    CType(fila("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
             Dim callePaciente As String = fila("Calle paciente")
             Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
             Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
@@ -1719,8 +1725,8 @@ Public Module AccesoDatos
             Dim departamentoPaciente As New Departamento(idDepartamentoPaciente, nombreDepartamentoPaciente)
             Dim localidadPaciente As New Localidad(idLocalidadPaciente, nombreLocalidadPaciente, departamentoPaciente)
             Dim paciente As New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
-                                         telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, callePaciente, numeroPuertaPaciente,
-                                         apartamentoPaciente)
+                                         telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, fechaDefuncionPaciente, callePaciente,
+                                         numeroPuertaPaciente, apartamentoPaciente)
 
             Dim sintomas As New List(Of Sintoma)
             For Each filaSintoma As DataRow In fila.GetChildRows("sintomasEvaluados")
@@ -1771,7 +1777,7 @@ Public Module AccesoDatos
         ConexionBD.Conexion.Close()
     End Sub
 
-    Public Function ObtenerListadoSintomas()
+    Public Function ObtenerListadoSintomas() As List(Of Sintoma)
         Dim ds As New DataSet
         Dim comando As New MySqlCommand("SELECT * FROM sintomas WHERE HABILITADO=TRUE;")
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Sintomas"))
@@ -1816,7 +1822,7 @@ Public Module AccesoDatos
         Return listadoSintomas
     End Function
 
-    Public Function ObtenerListadoEnfermedades()
+    Public Function ObtenerListadoEnfermedades() As List(Of Enfermedad)
         Dim ds As New DataSet
         Dim comando As New MySqlCommand("SELECT * FROM ObtenerListadoEnfermedades WHERE `Habilitado enfermedad`=TRUE;")
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Enfermedades"))
@@ -1866,7 +1872,7 @@ Public Module AccesoDatos
         Return listadoEnfermedades
     End Function
 
-    Public Function ObtenerListadoEspecialidades()
+    Public Function ObtenerListadoEspecialidades() As List(Of Especialidad)
         Dim ds As New DataSet
         Dim comando As New MySqlCommand("SELECT * FROM especialidades WHERE HABILITADO=TRUE;")
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Especialidades"))
@@ -1906,6 +1912,164 @@ Public Module AccesoDatos
         Next
 
         Return listadoEspecialidades
+    End Function
+
+    Public Function ObtenerListadoDepartamentos() As List(Of Departamento)
+        Dim ds As New DataSet
+        Dim comando As New MySqlCommand("SELECT * FROM departamentos;")
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando))
+
+        Dim tablaDepartamentos As DataTable = ds.Tables(0)
+
+        Dim listadoDepartamentos As New List(Of Departamento)
+        For i = 0 To tablaDepartamentos.Rows.Count - 1
+            Dim filaDepartamento As DataRow = tablaDepartamentos.Rows(i)
+            Dim idDepartamento As Integer = filaDepartamento("ID")
+            Dim nombreDepartamento As String = filaDepartamento("NOMBRE")
+            listadoDepartamentos.Add(New Departamento(idDepartamento, nombreDepartamento))
+        Next
+
+        Return listadoDepartamentos
+    End Function
+
+    Public Function ObtenerListadoLocalidades() As List(Of Localidad)
+        Dim ds As New DataSet
+        Dim comando As New MySqlCommand("SELECT * FROM localidades;")
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Localidades"))
+        comando.CommandText = "SELECT * FROM departamentos;"
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Departamentos"))
+
+        Dim tablaLocalidades As DataTable = ds.Tables("Localidades")
+        Dim tablaDepartamentos As DataTable = ds.Tables("Departamentos")
+
+        ds.Relations.Add("DepartamentoLocalidades", tablaDepartamentos.Columns("ID"), tablaLocalidades.Columns("ID_DEPARTAMENTO"))
+
+        Dim listadoLocalidades As New List(Of Localidad)
+
+        For i = 0 To tablaLocalidades.Rows.Count - 1
+            Dim filaLocalidad As DataRow = tablaLocalidades.Rows(i)
+            Dim idLocalidad As Integer = filaLocalidad("ID")
+            Dim nombreLocalidad As String = filaLocalidad("NOMBRE")
+
+            Dim filaDepartamento As DataRow = filaLocalidad.GetParentRow("DepartamentoLocalidades")
+            Dim idDepartamento As Integer = filaDepartamento("ID")
+            Dim nombreDepartamento As String = filaDepartamento("NOMBRE")
+            Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
+
+            listadoLocalidades.Add(New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad))
+        Next
+
+        Return listadoLocalidades
+    End Function
+
+    Public Function ObtenerListadoPacientes() As List(Of Paciente)
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerPacientes;")
+        Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
+
+        Dim listaPacientes As New List(Of Paciente)
+        For i = 0 To datos.Rows.Count - 1
+            Dim fila As DataRow = datos.Rows(i)
+
+            Dim idPaciente As Integer = fila("ID Persona")
+            Dim ciPaciente As String = fila("CI Persona")
+            Dim nombrePaciente As String = fila("Nombre persona")
+            Dim apellidoPaciente As String = fila("Apellido persona")
+            Dim correoPaciente As String = fila("Correo persona")
+            Dim telefonoMovilPaciente As String = fila("Telefonomovil paciente")
+            Dim telefonoFijoPaciente As String = fila("Telefonofijo paciente")
+            Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), fila("Sexo paciente"))
+            Dim fechaNacimientoPaciente As Date = CType(fila("Fecha nacimiento paciente"), MySqlDateTime).Value
+            Dim fechaDefuncionPaciente As Date = If(TypeOf fila("Fecha defuncion paciente") IsNot DBNull,
+                                                    CType(fila("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
+            Dim callePaciente As String = fila("Calle paciente")
+            Dim numeroPuertaPaciente As String = fila("Numero puerta paciente")
+            Dim apartamentoPaciente As String = If(TypeOf fila("Apartamento paciente") IsNot DBNull, fila("Apartamento paciente"), Nothing)
+            Dim idLocalidad As Integer = fila("ID localidad")
+            Dim nombreLocalidad As String = fila("Nombre localidad")
+            Dim idDepartamento As Integer = fila("ID departamento")
+            Dim nombreDepartamento As String = fila("Nombre departamento")
+
+            Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
+            Dim localidadPaciente As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
+
+            listaPacientes.Add(New Paciente(idPaciente, ciPaciente, nombrePaciente, apellidoPaciente, correoPaciente, localidadPaciente, telefonoMovilPaciente,
+                                telefonoFijoPaciente, sexoPaciente, fechaNacimientoPaciente, fechaDefuncionPaciente, callePaciente, numeroPuertaPaciente,
+                                apartamentoPaciente))
+        Next
+        Return listaPacientes
+    End Function
+
+    Public Function ObtenerListadoMedicos() As List(Of Medico)
+        Dim ds As New DataSet
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerMedicos;")
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Medicos"))
+        comando.CommandText = "SELECT * FROM ObtenerEspecialidadesPorMedico"
+        ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Especialidades"))
+
+        Dim tablaMedicos As DataTable = ds.Tables("Medicos")
+        Dim tablaEspecialidades As DataTable = ds.Tables("Especialidades")
+
+        Dim listaMedicos As New List(Of Medico)
+        For i = 0 To tablaMedicos.Rows.Count - 1
+            Dim filaMedico As DataRow = tablaMedicos.Rows(i)
+
+            Dim idMedico As Integer = filaMedico("ID Persona")
+            Dim ciMedico As String = filaMedico("CI Persona")
+            Dim nombreMedico As String = filaMedico("Nombre persona")
+            Dim apellidoMedico As String = filaMedico("Apellido persona")
+            Dim correoMedico As String = filaMedico("Correo persona")
+            Dim idLocalidad As String = filaMedico("ID localidad")
+            Dim nombreLocalidad As String = filaMedico("Nombre localidad")
+            Dim idDepartamento As String = filaMedico("ID departamento")
+            Dim nombreDepartamento As String = filaMedico("Nombre departamento")
+
+            Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
+            Dim localidadMedico As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
+
+            Dim especialidadesMedico As New List(Of Especialidad)
+            For j = 0 To tablaEspecialidades.Rows.Count - 1
+                Dim filaEspecialidad As DataRow = tablaEspecialidades.Rows(j)
+                If filaMedico("ID Persona") = filaEspecialidad("ID medico") Then
+                    Dim idEspecialidad As String = filaEspecialidad("ID especialidad")
+                    Dim nombreEspecialidad As String = filaEspecialidad("Nombre especialidad")
+                    especialidadesMedico.Add(New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, True))
+                End If
+            Next
+
+            listaMedicos.Add(New Medico(idMedico, ciMedico, nombreMedico, apellidoMedico, correoMedico, localidadMedico, especialidadesMedico, True))
+        Next
+        Return listaMedicos
+    End Function
+
+    Public Function ObtenerListadoAdministrativos() As List(Of Administrativo)
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerAdministrativos;")
+        Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
+        Dim filas As DataRowCollection = datos.Rows
+
+        Dim listaAdministrativos As New List(Of Administrativo)
+        For i = 0 To datos.Rows.Count - 1
+            Dim fila As DataRow = datos.Rows(i)
+
+            Dim idAdministrativo As Integer = fila("ID Persona")
+            Dim ciAdministrativo As String = fila("CI Persona")
+            Dim nombreAdministrativo As String = fila("Nombre persona")
+            Dim apellidoAdministrativo As String = fila("Apellido persona")
+            Dim correoAdministrativo As String = fila("Correo persona")
+            Dim esEncargadoAdministrativo As Boolean = fila("Encargado administrativo")
+            Dim idLocalidad As Integer = fila("ID localidad")
+            Dim nombreLocalidad As String = fila("Nombre localidad")
+            Dim idDepartamento As Integer = fila("ID departamento")
+            Dim nombreDepartamento As String = fila("Nombre departamento")
+
+            Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
+            Dim localidadAdministrativo As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
+
+
+
+            listaAdministrativos.Add(New Administrativo(idAdministrativo, ciAdministrativo, nombreAdministrativo, apellidoAdministrativo, correoAdministrativo,
+                                                        localidadAdministrativo, esEncargadoAdministrativo, True))
+        Next
+        Return listaAdministrativos
     End Function
 
     Public Sub InsertarEnfermedadesImportadas(lista As List(Of Enfermedad))

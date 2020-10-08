@@ -64,9 +64,10 @@
 #End Region
 
     Public Enum ResultadosLogin
-        [Error] = 1
-        OK = 2
-        SinUsuario = 3
+        PersonaNoExiste = 1
+        ContrasenaIncorrecta = 2
+        OK = 3
+        SinUsuario = 4
     End Enum
 
     Public Enum Idiomas

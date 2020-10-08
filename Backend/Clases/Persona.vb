@@ -140,6 +140,9 @@
             suma += (Val(ci(i)) * constantesVerificacion(i)) Mod 10
         Next
         Dim digitoVerificador As Integer = 10 - (suma Mod 10)
+        If digitoVerificador = 10 Then
+            digitoVerificador = 0
+        End If
 
         ' Si el digito verificador calculado coincide con el ingresado, retorna True, sino retorna False
         If digitoVerificador = Integer.Parse(ci.ToCharArray.Last()) Then
@@ -149,7 +152,7 @@
         End If
     End Function
 
-    Public Shared Function CorreoValido(correo As String) As Boolean
+    Protected Shared Function CorreoValido(correo As String) As Boolean
         ' Manejo de errores de formato
         ' Valor nulo
         If correo = Nothing Or correo = "" Then

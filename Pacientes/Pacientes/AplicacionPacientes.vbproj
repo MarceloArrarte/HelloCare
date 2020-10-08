@@ -94,6 +94,12 @@
     <Compile Include="FrmComentariosAdicionales.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmContrasenaOlvidada.Designer.vb">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContrasenaOlvidada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmDiagnosticoPrimario.Designer.vb">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
     <EmbeddedResource Include="FrmComentariosAdicionales.resx">
       <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiagnosticoPrimario.resx">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +219,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_hellocare.ico" />
+    <Content Include="MailRestaurarContrasena.html" />
+    <Content Include="MailRegistroUsuario.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

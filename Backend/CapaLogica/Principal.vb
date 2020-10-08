@@ -7,11 +7,12 @@ Imports System.IO
 Imports System.Text
 Imports Microsoft.VisualBasic.FileIO
 Imports System.Security.Cryptography
+Imports System.Net.Mail
 
 Public Module Principal
     Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
         If Not TienePersonaRegistrada(ci, TiposPersona.Paciente) Then
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.PersonaNoExiste
         End If
 
         Dim paciente As Paciente = ObtenerPacientePorCI(ci)
@@ -25,13 +26,17 @@ Public Module Principal
             pacienteLogeado = paciente
             Return ResultadosLogin.OK
         Else
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.ContrasenaIncorrecta
         End If
+    End Function
+
+    Public Function CargarPacientePorCI(ci As String)
+        Return ObtenerPacientePorCI(ci)
     End Function
 
     Public Function AutenticarUsuarioMedico(ci As String, contrasena As String) As ResultadosLogin
         If Not TienePersonaRegistrada(ci, TiposPersona.Funcionario) Then
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.PersonaNoExiste
         End If
 
         Dim medico As Medico = ObtenerMedicoPorCI(ci)
@@ -46,13 +51,17 @@ Public Module Principal
             medicoLogeado = medico
             Return ResultadosLogin.OK
         Else
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.ContrasenaIncorrecta
         End If
+    End Function
+
+    Public Function CargarMedicoPorCI(ci As String)
+        Return ObtenerMedicoPorCI(ci)
     End Function
 
     Public Function AutenticarUsuarioAdministrativo(ci As String, contrasena As String) As ResultadosLogin
         If Not TienePersonaRegistrada(ci, TiposPersona.Funcionario) Then
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.PersonaNoExiste
         End If
 
         Dim administrativo As Administrativo = ObtenerAdministrativoPorCI(ci)
@@ -66,8 +75,12 @@ Public Module Principal
             administrativoLogeado = administrativo
             Return ResultadosLogin.OK
         Else
-            Return ResultadosLogin.Error
+            Return ResultadosLogin.ContrasenaIncorrecta
         End If
+    End Function
+
+    Public Function CargarAdministrativoPorCI(ci As String)
+        Return ObtenerAdministrativoPorCI(ci)
     End Function
 
     Public Function CargarTodosLosSintomas() As List(Of Sintoma)
@@ -130,7 +143,7 @@ Public Module Principal
         Return enfermedadMasProbable
     End Function
 
-    Public Function DeterminarProbabilidadEnfermedad(sintomasIngresados As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
+    Private Function DeterminarProbabilidadEnfermedad(sintomasIngresados As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
         Dim cantidadSintomasExistentes As Integer = enfermedad.Sintomas.Count
         Dim cantidadSintomasCoincidentes As Integer = 0
         Dim listaFrecuencias As New List(Of Decimal)
@@ -454,14 +467,15 @@ Public Module Principal
     Public Sub RegistrarUsuario(persona As Persona, contrasena As String)
         Dim nuevoUsuario As New Usuario(CifrarClave(contrasena), persona)
         InsertarObjeto(nuevoUsuario, TiposObjeto.Usuario)
+        EnviarCorreoRegistro(persona, contrasena)
     End Sub
 
-    Private Function CifrarClave(texto As String) As String
+    Private Function CifrarClave(clave As String) As String
         Dim tDES As New TripleDESCryptoServiceProvider
-        tDES.Key = TruncarHash(texto, tDES.KeySize / 8)
+        tDES.Key = TruncarHash(clave, tDES.KeySize / 8)
         tDES.IV = TruncarHash("20201001115839", tDES.BlockSize / 8)
 
-        Dim bytesTexto() As Byte = Encoding.Unicode.GetBytes(texto)
+        Dim bytesTexto() As Byte = Encoding.Unicode.GetBytes(clave)
 
         Dim streamMemoria As New MemoryStream
         Dim streamCodificador As New CryptoStream(streamMemoria, tDES.CreateEncryptor(), CryptoStreamMode.Write)
@@ -470,10 +484,6 @@ Public Module Principal
         streamCodificador.FlushFinalBlock()
 
         Dim cadenaResultante As String = Convert.ToBase64String(streamMemoria.ToArray)
-        If cadenaResultante.Length > 100 Then
-            cadenaResultante = cadenaResultante.Substring(0, 100)
-        End If
-
         Return cadenaResultante
     End Function
 
@@ -484,4 +494,170 @@ Public Module Principal
         ReDim Preserve hash(largo - 1)
         Return hash
     End Function
+
+    Private Sub EnviarCorreoAlta(paciente As Paciente, contrasena As String)
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(paciente.Correo)
+        If paciente.Sexo = TiposSexo.F Then
+            mail.Subject = "¡Bienvenida a HelloCare!"
+        Else
+            mail.Subject = "¡Bienvenido a HelloCare!"
+        End If
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaPacientes.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%o/a%", If(paciente.Sexo = TiposSexo.F, "a", "o"))
+        cuerpoMensaje = cuerpoMensaje.Replace("%CI%", paciente.CI)
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", paciente.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", paciente.Apellido)
+        Select Case paciente.Sexo
+            Case TiposSexo.M
+                cuerpoMensaje = cuerpoMensaje.Replace("%SEXO%", "Masculino")
+            Case TiposSexo.F
+                cuerpoMensaje = cuerpoMensaje.Replace("%SEXO%", "Femenino")
+            Case TiposSexo.O
+                cuerpoMensaje = cuerpoMensaje.Replace("%SEXO%", "Otro")
+        End Select
+        cuerpoMensaje = cuerpoMensaje.Replace("%DIRECCION%", paciente.Calle & " " & paciente.NumeroPuerta & If(paciente.Apartamento <> Nothing, " Apto. " & paciente.Apartamento, ""))
+        cuerpoMensaje = cuerpoMensaje.Replace("%CORREO%", paciente.Correo)
+        cuerpoMensaje = cuerpoMensaje.Replace("%FECHANACIMIENTO%", paciente.FechaNacimiento)
+        cuerpoMensaje = cuerpoMensaje.Replace("%DEPARTAMENTO%", paciente.Localidad.Departamento.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%LOCALIDAD%", paciente.Localidad.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%MOVIL%", paciente.TelefonoMovil)
+        cuerpoMensaje = cuerpoMensaje.Replace("%FIJO%", paciente.TelefonoFijo)
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
+    Private Sub EnviarCorreoAlta(medico As Medico, contrasena As String)
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(medico.Correo)
+        mail.Subject = "Registro en Hellocare"
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaMedicos.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%CI%", medico.CI)
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", medico.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", medico.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CORREO%", medico.Correo)
+        cuerpoMensaje = cuerpoMensaje.Replace("%DEPARTAMENTO%", medico.Localidad.Departamento.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%LOCALIDAD%", medico.Localidad.Nombre)
+        Dim nombresEspecialidades As New List(Of String)
+        For i = 0 To medico.Especialidades.Count - 1
+            nombresEspecialidades.Add(medico.Especialidades(i).Nombre)
+        Next
+        cuerpoMensaje = cuerpoMensaje.Replace("%ESPECIALIDADES%", String.Join(", ", nombresEspecialidades))
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
+    Private Sub EnviarCorreoAlta(administrativo As Administrativo, contrasena As String)
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(administrativo.Correo)
+        mail.Subject = "Registro en Hellocare"
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaAdministrativos.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%CI%", administrativo.CI)
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", administrativo.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", administrativo.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CORREO%", administrativo.Correo)
+        cuerpoMensaje = cuerpoMensaje.Replace("%DEPARTAMENTO%", administrativo.Localidad.Departamento.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%LOCALIDAD%", administrativo.Localidad.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CARGO%", If(administrativo.EsEncargado, "Encargado", "Empleado"))
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
+    Private Sub EnviarCorreoRegistro(persona As Persona, contrasena As String)
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(persona.Correo)
+        mail.Subject = "Registro en HelloCare"
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailRegistroUsuario.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%CEDULA%", persona.CI)
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", persona.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", persona.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CONTRASEÑA%", contrasena)
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
+    Public Sub EnviarCorreoRestauracionContrasena(persona As Persona)
+        Dim usuario As Usuario = ObtenerUsuarioPorPersona(persona)
+
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(persona.Correo)
+        mail.Subject = "Restaurar contraseña"
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailRestaurarContrasena.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", persona.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", persona.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CIFRADO%", usuario.Contrasena)
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
+    Public Sub EliminarUsuarioConCodigo(ci As String, tipo As TiposUsuario, hash As String)
+        Select Case tipo
+            Case TiposUsuario.Administrativo
+                Dim administrativo As Administrativo = ObtenerAdministrativoPorCI(ci)
+                Dim usuario As Usuario = ObtenerUsuarioPorPersona(administrativo)
+                If usuario.Contrasena = hash Then
+                    EliminarObjeto(usuario, TiposObjeto.Usuario)
+                Else
+                    Throw New Exception("El código de borrado no es correcto. Verifique que haya sido ingresado correctamente y reintente.")
+                End If
+
+            Case TiposUsuario.Medico
+                Dim medico As Medico = ObtenerMedicoPorCI(ci)
+                Dim usuario As Usuario = ObtenerUsuarioPorPersona(medico)
+                If usuario.Contrasena = hash Then
+                    EliminarObjeto(usuario, TiposObjeto.Usuario)
+                Else
+                    Throw New Exception("El código de borrado no es correcto. Verifique que haya sido ingresado correctamente y reintente.")
+                End If
+
+            Case TiposUsuario.Paciente
+                Dim paciente As Paciente = ObtenerPacientePorCI(ci)
+                Dim usuario As Usuario = ObtenerUsuarioPorPersona(paciente)
+                If usuario.Contrasena = hash Then
+                    EliminarObjeto(usuario, TiposObjeto.Usuario)
+                Else
+                    Throw New Exception("El código de borrado no es correcto. Verifique que haya sido ingresado correctamente y reintente.")
+                End If
+        End Select
+    End Sub
 End Module

@@ -84,6 +84,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmContrasenaOlvidada.designer.vb">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContrasenaOlvidada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmInicio.Designer.vb">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </Compile>
@@ -175,6 +181,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +241,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_hellocare.ico" />
+    <Content Include="MailAltaAdministrativos.html" />
+    <Content Include="MailAltaMedicos.html" />
+    <Content Include="MailAltaPacientes.html" />
+    <Content Include="MailRegistroUsuario.html" />
+    <Content Include="MailRestaurarContrasena.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -18,7 +18,7 @@ Public Class FrmLogin
                     txtContrasena.Clear()
                     Me.Show()
 
-                Case ResultadosLogin.Error
+                Case ResultadosLogin.ContrasenaIncorrecta Or ResultadosLogin.PersonaNoExiste
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
 
                 Case ResultadosLogin.SinUsuario

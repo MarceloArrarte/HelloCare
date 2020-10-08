@@ -86,6 +86,12 @@
     <Compile Include="FrmChatMedico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmContrasenaOlvidada.designer.vb">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContrasenaOlvidada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmInicio.Designer.vb">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="FrmChatMedico.resx">
       <DependentUpon>FrmChatMedico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHistorialChats.resx">
       <DependentUpon>FrmHistorialChats.vb</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +218,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo 1 hellocare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MailRegistroUsuario.html" />
+    <Content Include="MailRestaurarContrasena.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

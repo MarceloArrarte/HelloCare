@@ -17,7 +17,7 @@ Public Class FrmLogin
                     txtContrasena.Clear()
                     Me.Show()
 
-                Case ResultadosLogin.Error
+                Case ResultadosLogin.ContrasenaIncorrecta Or ResultadosLogin.PersonaNoExiste
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
 
                 Case ResultadosLogin.SinUsuario
@@ -50,5 +50,12 @@ Public Class FrmLogin
         Else
             txtContrasena.UseSystemPasswordChar = True
         End If
+    End Sub
+
+    Private Sub btnContrasenaOlvidada_Click(sender As Object, e As EventArgs) Handles btnContrasenaOlvidada.Click
+        Dim frm As New FrmContrasenaOlvidada
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 End Class

@@ -5,6 +5,7 @@
     Private ReadOnly _TelefonoFijo As String
     Private ReadOnly _Sexo As TiposSexo
     Private ReadOnly _FechaNacimiento As Date
+    Private ReadOnly _FechaDefuncion As Date
     Private ReadOnly _Calle As String
     Private ReadOnly _NumeroPuerta As String
     Private ReadOnly _Apartamento As String
@@ -33,6 +34,22 @@
         End Get
     End Property
 
+    Public ReadOnly Property FechaDefuncion As Date
+        Get
+            Return _FechaDefuncion
+        End Get
+    End Property
+
+    Public ReadOnly Property HaFallecido As Boolean
+        Get
+            If _FechaDefuncion = Nothing Then
+                Return False
+            Else
+                Return True
+            End If
+        End Get
+    End Property
+
     Public ReadOnly Property Calle As String
         Get
             Return _Calle
@@ -52,10 +69,11 @@
     End Property
 
     Sub New(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
-            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As String)
+            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, fechaDefuncion As Date, calle As String, numeroPuerta As String,
+            apartamento As String)
 
         MyBase.New(ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
-        ValidarDatos(telefonoMovil, telefonoFijo, sexo, fechaNacimiento, calle, numeroPuerta, apartamento)
+        ValidarDatos(telefonoMovil, telefonoFijo, sexo, fechaNacimiento, fechaDefuncion, calle, numeroPuerta, apartamento)
         _TelefonoMovil = telefonoMovil
         _TelefonoFijo = telefonoFijo
         _Sexo = sexo
@@ -66,10 +84,11 @@
     End Sub
 
     Sub New(id As Integer, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
-            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String, numeroPuerta As String, apartamento As String)
+            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, fechaDefuncion As Date, calle As String, numeroPuerta As String,
+            apartamento As String)
 
         MyBase.New(id, ci, nombre, apellido, correo, localidad, TiposPersona.Paciente)
-        ValidarDatos(telefonoMovil, telefonoFijo, sexo, fechaNacimiento, calle, numeroPuerta, apartamento)
+        ValidarDatos(telefonoMovil, telefonoFijo, sexo, fechaNacimiento, fechaDefuncion, calle, numeroPuerta, apartamento)
         _TelefonoMovil = telefonoMovil
         _TelefonoFijo = telefonoFijo
         _Sexo = sexo
@@ -79,8 +98,8 @@
         _Apartamento = apartamento
     End Sub
 
-    Private Sub ValidarDatos(telefonoMovil As String, telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, calle As String,
-                             numeroPuerta As String, apartamento As String)
+    Private Sub ValidarDatos(telefonoMovil As String, telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, fechaDefuncion As Date,
+                             calle As String, numeroPuerta As String, apartamento As String)
         ' Manejo de errores de datos ingresados
         ' telefonoMovil tiene un valor nulo
         If telefonoMovil Is Nothing Or telefonoMovil = "" Then
@@ -106,12 +125,12 @@
         End If
 
         ' telefonoFijo excede el largo máximo
-        If telefonoMovil.Length > 8 Then
+        If telefonoFijo.Length > 8 Then
             Throw New ArgumentException("El teléfono fijo no puede tener mas de 8 caracteres.")
         End If
 
         ' Algún dígito no es un valor numérico (0-9)
-        For Each c As Char In telefonoMovil.ToCharArray
+        For Each c As Char In telefonoFijo.ToCharArray
             Dim valorASCIICaracter As Integer = Asc(c)
             If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
                 Throw New ArgumentException("El caracter " & c & " en el número de teléfono " & CI & " no es un dígito válido.")
@@ -136,6 +155,14 @@
         ' fechaNacimiento representa una fecha previa a 1900 y es por ende inválida
         If fechaNacimiento < New Date(1900, 1, 1) Then
             Throw New ArgumentException("La fecha de nacimiento del paciente no puede ser anterior a 1900.")
+        End If
+
+        If fechaDefuncion <> Nothing AndAlso fechaDefuncion > Now Then
+            Throw New ArgumentException("La fecha de defunción del paciente no puede ser posterior al momento actual.")
+        End If
+
+        If fechaDefuncion <> Nothing AndAlso fechaDefuncion < New Date(1900, 1, 1) Then
+            Throw New ArgumentException("La fecha de defunción del paciente no puede ser anterior a 1900.")
         End If
 
         ' calle tiene un valor nulo

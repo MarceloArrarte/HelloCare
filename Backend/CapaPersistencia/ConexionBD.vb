@@ -8,10 +8,10 @@ Public NotInheritable Class ConexionBD
         Get
             ' Si no se inicializó la conexión, lo hace con los datos de login en la BD
             If _Conexion Is Nothing Then
-                Dim url As String = "hellocode.dynns.com"
+                Dim url As String = "vdo.dyndns.org"
                 Dim nombreBD As String = "hellocare"
-                Dim usuario As String = "root"
-                Dim contrasena As String = "rootmariadb"
+                Dim usuario As String = "hellocare"
+                Dim contrasena As String = "h3llocar3"
 
                 Dim cadenaConexion As String = String.Format("server={0};database={1};userid={2};password={3};allowzerodatetime=True;convertzerodatetime=True;charset=utf8;",
                                                               url, nombreBD, usuario, contrasena)

@@ -41,3 +41,4 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.Resources.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmContrasenaOlvidada.resources

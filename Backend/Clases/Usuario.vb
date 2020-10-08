@@ -69,8 +69,8 @@
         End If
 
         ' contrasena excede el largo máximo
-        If contrasena.Length > 100 Then
-            Throw New ArgumentException("La clave no puede exceder los 100 caracteres.")
+        If contrasena.Length > 1000 Then
+            Throw New ArgumentException("La clave no puede exceder los 1000 caracteres.")
         End If
     End Sub
 End Class
