@@ -25,7 +25,7 @@ Partial Class FrmChatPaciente
         Me.components = New System.ComponentModel.Container()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.txtMensaje = New System.Windows.Forms.RichTextBox()
-        Me.btnEnviar = New System.Windows.Forms.Button()
+        Me.btnEnviarMensaje = New System.Windows.Forms.Button()
         Me.btnAdjuntar = New System.Windows.Forms.Button()
         Me.lblMedico = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -56,14 +56,14 @@ Partial Class FrmChatPaciente
         Me.txtMensaje.TabIndex = 4
         Me.txtMensaje.Text = ""
         '
-        'btnEnviar
+        'btnEnviarMensaje
         '
-        Me.btnEnviar.Location = New System.Drawing.Point(713, 388)
-        Me.btnEnviar.Name = "btnEnviar"
-        Me.btnEnviar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEnviar.TabIndex = 5
-        Me.btnEnviar.Text = "Enviar"
-        Me.btnEnviar.UseVisualStyleBackColor = True
+        Me.btnEnviarMensaje.Location = New System.Drawing.Point(713, 388)
+        Me.btnEnviarMensaje.Name = "btnEnviarMensaje"
+        Me.btnEnviarMensaje.Size = New System.Drawing.Size(75, 23)
+        Me.btnEnviarMensaje.TabIndex = 5
+        Me.btnEnviarMensaje.Text = "Enviar"
+        Me.btnEnviarMensaje.UseVisualStyleBackColor = True
         '
         'btnAdjuntar
         '
@@ -73,7 +73,6 @@ Partial Class FrmChatPaciente
         Me.btnAdjuntar.TabIndex = 6
         Me.btnAdjuntar.Text = "Adjuntar"
         Me.btnAdjuntar.UseVisualStyleBackColor = True
-        Me.btnAdjuntar.Visible = False
         '
         'lblMedico
         '
@@ -102,7 +101,6 @@ Partial Class FrmChatPaciente
         Me.GroupBox2.Size = New System.Drawing.Size(231, 299)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Visible = False
         '
         'lstArchivos
         '
@@ -150,7 +148,7 @@ Partial Class FrmChatPaciente
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnAdjuntar)
-        Me.Controls.Add(Me.btnEnviar)
+        Me.Controls.Add(Me.btnEnviarMensaje)
         Me.Controls.Add(Me.txtMensaje)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "FrmChatPaciente"
@@ -164,7 +162,7 @@ Partial Class FrmChatPaciente
     Friend WithEvents Splitter1 As Windows.Forms.Splitter
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents txtMensaje As Windows.Forms.RichTextBox
-    Friend WithEvents btnEnviar As Windows.Forms.Button
+    Friend WithEvents btnEnviarMensaje As Windows.Forms.Button
     Friend WithEvents btnAdjuntar As Windows.Forms.Button
     Friend WithEvents lblMedico As Windows.Forms.Label
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox

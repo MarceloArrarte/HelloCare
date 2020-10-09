@@ -277,25 +277,20 @@ Public Module Principal
 
     Public Sub CrearDiagnosticoDiferencial(consulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad, conductaASeguir As String)
         Dim nuevoDiagnostico As New DiagnosticoDiferencial(consulta, enfermedadDiagnosticada, conductaASeguir, Now)
-
         InsertarObjeto(nuevoDiagnostico, TiposObjeto.DiagnosticoDiferencial)
     End Sub
 
     Public Function AgregarConsultaADiagnostico(diagnosticoPrimario As DiagnosticoPrimario, comentariosAdicionales As String) As DiagnosticoPrimarioConConsulta
         Dim nuevoDiagnosticoConConsulta As New DiagnosticoPrimarioConConsulta(diagnosticoPrimario, comentariosAdicionales)
-
         InsertarObjeto(nuevoDiagnosticoConConsulta, TiposObjeto.DiagnosticoPrimarioConConsulta)
-
         Return nuevoDiagnosticoConConsulta
     End Function
 
     Public Function EnviarMensaje(formatoMensaje As FormatosMensajeAdmitidos, contenido As Byte(), remitente As TiposRemitente,
-                             diagnosticoEnCurso As DiagnosticoPrimarioConConsulta) As Mensaje
+                             diagnosticoEnCurso As DiagnosticoPrimarioConConsulta, Optional nombreArchivo As String = Nothing) As Mensaje
 
-        Dim nuevoMensaje As New Mensaje(Now, formatoMensaje, contenido, remitente, diagnosticoEnCurso)
-
+        Dim nuevoMensaje As New Mensaje(Now, formatoMensaje, contenido, nombreArchivo, remitente, diagnosticoEnCurso)
         InsertarObjeto(nuevoMensaje, TiposObjeto.Mensaje)
-
         Return nuevoMensaje
     End Function
 

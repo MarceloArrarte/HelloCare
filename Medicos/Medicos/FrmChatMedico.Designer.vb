@@ -75,7 +75,6 @@ Partial Class FrmChatMedico
         Me.btnAdjuntar.TabIndex = 6
         Me.btnAdjuntar.Text = "Adjuntar"
         Me.btnAdjuntar.UseVisualStyleBackColor = True
-        Me.btnAdjuntar.Visible = False
         '
         'Label3
         '
@@ -116,7 +115,6 @@ Partial Class FrmChatMedico
         Me.GroupBox2.Size = New System.Drawing.Size(231, 261)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Visible = False
         '
         'lstArchivos
         '

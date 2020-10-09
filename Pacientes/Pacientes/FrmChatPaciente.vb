@@ -32,7 +32,7 @@ Public Class FrmChatPaciente
         tmrActualizaMensajes.Enabled = True
     End Sub
 
-    Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
+    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
         Dim bytesMensaje As Byte() = Encoding.UTF8.GetBytes(txtMensaje.Text.ToCharArray)
         EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, diagnosticoEnCurso)
         txtMensaje.Clear()
@@ -41,24 +41,25 @@ Public Class FrmChatPaciente
         'cantidadTotalMensajes += 1
     End Sub
 
-    'NO IMPLEMENTADO
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
+        expAdjuntar.FileName = ""
         If expAdjuntar.ShowDialog() = Windows.Forms.DialogResult.OK Then
             Dim ruta As String = expAdjuntar.FileName
+            Dim nombreArchivo As String = expAdjuntar.SafeFileName
             Dim extension As String = Path.GetExtension(ruta)
             Dim formato As FormatosMensajeAdmitidos
-            Select Case extension
-                Case "PDF"
+            Select Case extension.ToLower
+                Case ".pdf"
                     formato = FormatosMensajeAdmitidos.PDF
-                Case "JPG"
+                Case ".jpg"
                     formato = FormatosMensajeAdmitidos.JPG
-                Case "JPEG"
+                Case ".jpeg"
                     formato = FormatosMensajeAdmitidos.JPEG
-                Case "PNG"
+                Case ".png"
                     formato = FormatosMensajeAdmitidos.PNG
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
-            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso)
+            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso, nombreArchivo)
             'mensajesMostrados.Add(EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso))
             'cantidadTotalMensajes += 1
             ActualizarMensajes()
@@ -89,12 +90,32 @@ Public Class FrmChatPaciente
                 txtConversacion.Text &= m.FechaHora.ToString("(dd/MM HH:mm:ss) ") & m.Remitente.ToString.Chars(0) & ": " & m.ToString & vbNewLine
             Else
                 txtConversacion.Text &= m.Remitente.ToString.Chars(0) & " envió un archivo " & m.Formato.ToString & "." & vbNewLine
-                lstArchivos.Items.Add(m.ToString)
+                lstArchivos.Items.Add(m)
             End If
         Next
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub lstArchivos_DoubleClick(sender As Object, e As EventArgs) Handles lstArchivos.DoubleClick
+        If lstArchivos.SelectedItems.Count = 1 Then
+            Dim archivo As Mensaje = lstArchivos.SelectedItem
+            Dim ruta As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\" & archivo.NombreArchivo
+            If File.Exists(ruta) Then
+                Dim extension As String = ruta.Substring(ruta.Length - 1 - StrReverse(ruta).IndexOf("."))
+                Dim nombreArchivo As String = ruta.Substring(0, ruta.Length - extension.Length)
+                Dim numeradorArchivo As Integer = 1
+                While File.Exists(nombreArchivo & "(" & numeradorArchivo & ")" & extension)
+                    numeradorArchivo += 1
+                End While
+                ruta = nombreArchivo & "(" & numeradorArchivo & ")" & extension
+            End If
+            File.WriteAllBytes(ruta, archivo.Contenido)
+            Dim abrirArchivo As New Process
+            abrirArchivo.StartInfo.FileName = ruta
+            abrirArchivo.Start()
+        End If
     End Sub
 End Class
