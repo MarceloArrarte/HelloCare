@@ -212,7 +212,52 @@ Public Module Principal
                 End If
             Next
         Next
+
+        Dim consultasRecientes, consultasAtrasadas As New List(Of DiagnosticoPrimarioConConsulta)
+        For i = 0 To consultasFiltradasPorEspecialidad.Count - 1
+            Dim consulta As DiagnosticoPrimarioConConsulta = consultasFiltradasPorEspecialidad(i)
+            If consulta.FechaHora.AddDays(1) < Now Then
+                consultasAtrasadas.Add(consulta)
+            Else
+                consultasRecientes.Add(consulta)
+            End If
+        Next
+
         Return consultasFiltradasPorEspecialidad
+
+        'Dim listaOrdenada As New List(Of DiagnosticoPrimarioConConsulta)
+
+        'If consultasAtrasadas.Count > 0 Then
+        '    Dim consultasAtrasadasSegunGravedad As New List(Of DiagnosticoPrimarioConConsulta)
+        '    For i = 0 To consultasAtrasadas.Count - 1
+        '        Dim consultaMasGrave As DiagnosticoPrimarioConConsulta = consultasAtrasadas(0)
+        '        For j = 0 To consultasAtrasadas.Count - 1
+        '            Dim consulta As DiagnosticoPrimarioConConsulta = consultasAtrasadas(j)
+        '            If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad Then
+        '                consultaMasGrave = consulta
+        '            End If
+        '        Next
+        '        consultasAtrasadasSegunGravedad.Add(consultaMasGrave)
+        '    Next
+        '    listaOrdenada.AddRange(consultasAtrasadasSegunGravedad)
+        'End If
+
+        'If consultasRecientes.Count > 0 Then
+        '    Dim consultasRecientesSegunGravedad As New List(Of DiagnosticoPrimarioConConsulta)
+        '    For i = 0 To consultasRecientes.Count - 1
+        '        Dim consultaMasGrave As DiagnosticoPrimarioConConsulta = consultasRecientes(0)
+        '        For j = 0 To consultasRecientes.Count - 1
+        '            Dim consulta As DiagnosticoPrimarioConConsulta = consultasRecientes(j)
+        '            If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad Then
+        '                consultaMasGrave = consulta
+        '            End If
+        '        Next
+        '        consultasRecientesSegunGravedad.Add(consultaMasGrave)
+        '    Next
+        '    listaOrdenada.AddRange(consultasRecientesSegunGravedad)
+        'End If
+
+        'Return listaOrdenada
     End Function
 
     Public Function AsignarMedicoLogeadoAConsulta(consulta As DiagnosticoPrimarioConConsulta) As DiagnosticoPrimarioConConsulta

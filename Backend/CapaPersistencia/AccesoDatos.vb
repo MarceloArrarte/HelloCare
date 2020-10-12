@@ -1703,7 +1703,7 @@ Public Module AccesoDatos
 
     Public Function ObtenerConsultasSinAtender() As List(Of DiagnosticoPrimarioConConsulta)
         Dim ds As New DataSet
-        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosConsultas WHERE `ID medico` IS NULL;")
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosConsultas WHERE `ID medico` IS NULL ORDER BY `Fecha hora diagnostico primario` DESC;")
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Diagnosticos"))
         comando.CommandText = "SELECT * FROM ObtenerSintomasDeDiagnosticosPrimarios;"
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "SintomasEvaluados"))
@@ -1791,6 +1791,7 @@ Public Module AccesoDatos
             listaConsultas.Add(New DiagnosticoPrimarioConConsulta(idDiagnostico, paciente, sintomas, enfermedadesDiagnosticadas, fechaHoraDiagnostico,
                                                                   Nothing, comentariosDiagnostico))
         Next
+
         Return listaConsultas
     End Function
 
