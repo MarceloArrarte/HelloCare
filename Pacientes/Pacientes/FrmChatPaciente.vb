@@ -117,5 +117,6 @@ Public Class FrmChatPaciente
             abrirArchivo.StartInfo.FileName = ruta
             abrirArchivo.Start()
         End If
+        lstArchivos.ClearSelected()
     End Sub
 End Class

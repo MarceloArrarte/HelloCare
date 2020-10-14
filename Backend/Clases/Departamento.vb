@@ -39,4 +39,12 @@
     Public Overrides Function ToString() As String
         Return _Nombre
     End Function
+
+    Public Shared Operator =(d1 As Departamento, d2 As Departamento)
+        Return d1.ID = d2.ID
+    End Operator
+
+    Public Shared Operator <>(d1 As Departamento, d2 As Departamento)
+        Return d1.ID <> d2.ID
+    End Operator
 End Class

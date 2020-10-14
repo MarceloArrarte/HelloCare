@@ -78,6 +78,7 @@
         _TelefonoFijo = telefonoFijo
         _Sexo = sexo
         _FechaNacimiento = fechaNacimiento
+        _FechaDefuncion = fechaDefuncion
         _Calle = calle
         _NumeroPuerta = numeroPuerta
         _Apartamento = apartamento
@@ -93,6 +94,7 @@
         _TelefonoFijo = telefonoFijo
         _Sexo = sexo
         _FechaNacimiento = fechaNacimiento
+        _FechaDefuncion = fechaDefuncion
         _Calle = calle
         _NumeroPuerta = numeroPuerta
         _Apartamento = apartamento
@@ -163,6 +165,10 @@
 
         If fechaDefuncion <> Nothing AndAlso fechaDefuncion < New Date(1900, 1, 1) Then
             Throw New ArgumentException("La fecha de defunción del paciente no puede ser anterior a 1900.")
+        End If
+
+        If fechaDefuncion < fechaNacimiento Then
+            Throw New ArgumentException("La fecha de defunción no puede ser anterior a la fecha de nacimiento del paciente.")
         End If
 
         ' calle tiene un valor nulo

@@ -28,6 +28,7 @@ Partial Class FrmMenuPrincipal
         Me.btnABMEnfermedades = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblLogeado = New System.Windows.Forms.Label()
+        Me.btnConfiguracion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -60,7 +61,7 @@ Partial Class FrmMenuPrincipal
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(16, 225)
+        Me.btnSalir.Location = New System.Drawing.Point(12, 310)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(122, 23)
         Me.btnSalir.TabIndex = 2
@@ -76,11 +77,21 @@ Partial Class FrmMenuPrincipal
         Me.lblLogeado.TabIndex = 3
         Me.lblLogeado.Text = "Bienvenido/a," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
         '
+        'btnConfiguracion
+        '
+        Me.btnConfiguracion.Location = New System.Drawing.Point(168, 259)
+        Me.btnConfiguracion.Name = "btnConfiguracion"
+        Me.btnConfiguracion.Size = New System.Drawing.Size(153, 23)
+        Me.btnConfiguracion.TabIndex = 4
+        Me.btnConfiguracion.Text = "Configuración del sistema"
+        Me.btnConfiguracion.UseVisualStyleBackColor = True
+        '
         'FrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(333, 276)
+        Me.ClientSize = New System.Drawing.Size(333, 356)
+        Me.Controls.Add(Me.btnConfiguracion)
         Me.Controls.Add(Me.lblLogeado)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnABMEnfermedades)
@@ -101,4 +112,5 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents btnABMEnfermedades As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents lblLogeado As Label
+    Friend WithEvents btnConfiguracion As Button
 End Class

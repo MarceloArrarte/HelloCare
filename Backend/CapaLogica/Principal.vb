@@ -103,44 +103,37 @@ Public Module Principal
         Return nuevaFila
     End Function
 
-    Public Function RealizarDiagnostico(sintomasIngresados As List(Of Sintoma), ByRef enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas,
-                                        ByRef certeza As Decimal) As Enfermedad
+    Public Function RealizarDiagnostico(sintomasIngresados As List(Of Sintoma)) As EnfermedadesDiagnosticadas
 
         Dim listaEnfermedadesPosibles As New List(Of Enfermedad)
         Dim listaProbabilidades As New List(Of Decimal)
-        Dim enfermedadMasProbable As Enfermedad = Nothing
 
         For Each e As Enfermedad In CargarTodasLasEnfermedades()
-            'Dim porcentajeSintomasCoincidentes As Decimal
-            Dim porcentajeProbabilidad As Decimal = DeterminarProbabilidadEnfermedad(sintomasIngresados, e)
-
-            'Dim cantidadSintomasExistentes As Integer = e.Sintomas.Count
-            'Dim cantidadSintomasCoincidentes As Integer = 0
-            'Dim listaFrecuencias As New List(Of Decimal)
-            'For i = 0 To cantidadSintomasExistentes
-            '    If sintomasIngresados.Contains(e.Sintomas(i)) Then
-            '        cantidadSintomasCoincidentes += 1
-            '        listaFrecuencias.Add(e.FrecuenciaSintoma(i))
-            '    Else
-            '        listaFrecuencias.Add(0)
-            '    End If
-            'Next
-
-            'Dim porcentajeSintomasCoincidentes As Double = (Double.Parse(cantidadSintomasCoincidentes) / Double.Parse(cantidadSintomasExistentes)) * 100
+            Dim porcentajeProbabilidad As Decimal = Math.Round(DeterminarProbabilidadEnfermedad(sintomasIngresados, e), 1)
 
             If porcentajeProbabilidad > 0 Then
                 listaEnfermedadesPosibles.Add(e)
                 listaProbabilidades.Add(porcentajeProbabilidad)
-
-                If porcentajeProbabilidad > certeza Then
-                    certeza = porcentajeProbabilidad
-                    enfermedadMasProbable = e
-                End If
             End If
         Next
 
-        enfermedadesDiagnosticadas = New EnfermedadesDiagnosticadas(listaEnfermedadesPosibles, listaProbabilidades)
-        Return enfermedadMasProbable
+        Dim listaEnfermedadesOrdenada As New List(Of Enfermedad)
+        Dim listaProbabilidadesOrdenada As New List(Of Decimal)
+        For i = 0 To listaEnfermedadesPosibles.Count - 1
+            Dim enfermedadMasProbable As Enfermedad = listaEnfermedadesPosibles(0)
+            For j = 0 To listaEnfermedadesPosibles.Count - 1
+                If listaProbabilidades(j) > listaProbabilidades(listaEnfermedadesPosibles.IndexOf(enfermedadMasProbable)) Then
+                    enfermedadMasProbable = listaEnfermedadesPosibles(j)
+                End If
+            Next
+            listaProbabilidadesOrdenada.Add(listaProbabilidades(listaEnfermedadesPosibles.IndexOf(enfermedadMasProbable)))
+            listaEnfermedadesOrdenada.Add(enfermedadMasProbable)
+            listaProbabilidades.Remove(listaProbabilidades(listaEnfermedadesPosibles.IndexOf(enfermedadMasProbable)))
+            listaEnfermedadesPosibles.Remove(enfermedadMasProbable)
+        Next
+
+        Dim enfermedadesDiagnosticadas As New EnfermedadesDiagnosticadas(listaEnfermedadesOrdenada, listaProbabilidadesOrdenada)
+        Return enfermedadesDiagnosticadas
     End Function
 
     Private Function DeterminarProbabilidadEnfermedad(sintomasIngresados As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
@@ -223,9 +216,10 @@ Public Module Principal
             End If
         Next
 
-        Return consultasFiltradasPorEspecialidad
+        Dim listaOrdenada As New List(Of DiagnosticoPrimarioConConsulta)
+        consultasAtrasadas.Reverse()
+        listaOrdenada.AddRange(consultasAtrasadas)
 
-        'Dim listaOrdenada As New List(Of DiagnosticoPrimarioConConsulta)
 
         'If consultasAtrasadas.Count > 0 Then
         '    Dim consultasAtrasadasSegunGravedad As New List(Of DiagnosticoPrimarioConConsulta)
@@ -233,31 +227,33 @@ Public Module Principal
         '        Dim consultaMasGrave As DiagnosticoPrimarioConConsulta = consultasAtrasadas(0)
         '        For j = 0 To consultasAtrasadas.Count - 1
         '            Dim consulta As DiagnosticoPrimarioConConsulta = consultasAtrasadas(j)
-        '            If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad Then
+        '            If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consultaMasGrave.IndiceEnfermedadMasProbable).Gravedad Then
         '                consultaMasGrave = consulta
         '            End If
         '        Next
         '        consultasAtrasadasSegunGravedad.Add(consultaMasGrave)
+        '        consultasAtrasadas.Remove(consultaMasGrave)
         '    Next
         '    listaOrdenada.AddRange(consultasAtrasadasSegunGravedad)
         'End If
 
-        'If consultasRecientes.Count > 0 Then
-        '    Dim consultasRecientesSegunGravedad As New List(Of DiagnosticoPrimarioConConsulta)
-        '    For i = 0 To consultasRecientes.Count - 1
-        '        Dim consultaMasGrave As DiagnosticoPrimarioConConsulta = consultasRecientes(0)
-        '        For j = 0 To consultasRecientes.Count - 1
-        '            Dim consulta As DiagnosticoPrimarioConConsulta = consultasRecientes(j)
-        '            If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad Then
-        '                consultaMasGrave = consulta
-        '            End If
-        '        Next
-        '        consultasRecientesSegunGravedad.Add(consultaMasGrave)
-        '    Next
-        '    listaOrdenada.AddRange(consultasRecientesSegunGravedad)
-        'End If
+        If consultasRecientes.Count > 0 Then
+            Dim consultasRecientesSegunGravedad As New List(Of DiagnosticoPrimarioConConsulta)
+            For i = 0 To consultasRecientes.Count - 1
+                Dim consultaMasGrave As DiagnosticoPrimarioConConsulta = consultasRecientes(0)
+                For j = 0 To consultasRecientes.Count - 1
+                    Dim consulta As DiagnosticoPrimarioConConsulta = consultasRecientes(j)
+                    If consulta.Enfermedades(consulta.IndiceEnfermedadMasProbable).Gravedad > consultaMasGrave.Enfermedades(consultaMasGrave.IndiceEnfermedadMasProbable).Gravedad Then
+                        consultaMasGrave = consulta
+                    End If
+                Next
+                consultasRecientesSegunGravedad.Add(consultaMasGrave)
+                consultasRecientes.Remove(consultaMasGrave)
+            Next
+            listaOrdenada.AddRange(consultasRecientesSegunGravedad)
+        End If
 
-        'Return listaOrdenada
+        Return listaOrdenada
     End Function
 
     Public Function AsignarMedicoLogeadoAConsulta(consulta As DiagnosticoPrimarioConConsulta) As DiagnosticoPrimarioConConsulta
@@ -320,10 +316,11 @@ Public Module Principal
         Return diagnosticoInsertado
     End Function
 
-    Public Sub CrearDiagnosticoDiferencial(consulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad, conductaASeguir As String)
+    Public Function CrearDiagnosticoDiferencial(consulta As DiagnosticoPrimarioConConsulta, enfermedadDiagnosticada As Enfermedad, conductaASeguir As String) As DiagnosticoDiferencial
         Dim nuevoDiagnostico As New DiagnosticoDiferencial(consulta, enfermedadDiagnosticada, conductaASeguir, Now)
         InsertarObjeto(nuevoDiagnostico, TiposObjeto.DiagnosticoDiferencial)
-    End Sub
+        Return nuevoDiagnostico
+    End Function
 
     Public Function AgregarConsultaADiagnostico(diagnosticoPrimario As DiagnosticoPrimario, comentariosAdicionales As String) As DiagnosticoPrimarioConConsulta
         Dim nuevoDiagnosticoConConsulta As New DiagnosticoPrimarioConConsulta(diagnosticoPrimario, comentariosAdicionales)
@@ -670,6 +667,50 @@ Public Module Principal
         SmtpServer.Send(mail)
     End Sub
 
+    Public Sub EnviarSesionChat(paciente As Paciente, diagnostico As DiagnosticoDiferencial, contenidoChat As String,
+                                archivos As List(Of Mensaje))
+        Dim SmtpServer As New SmtpClient()
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Port = 587
+        SmtpServer.Host = "smtp.gmail.com"
+        SmtpServer.EnableSsl = True
+        Dim mail As New MailMessage()
+        mail.From = New MailAddress("hellocode.software@gmail.com")
+        mail.To.Add(paciente.Correo)
+        mail.Subject = "Sesión de chat - HelloCare"
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailSesionChat.html")
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_PACIENTE%", paciente.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO_PACIENTE%", paciente.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_MEDICO%", diagnostico.DiagnosticoPrimarioConConsulta.Medico.Nombre)
+        cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO_MEDICO%", diagnostico.DiagnosticoPrimarioConConsulta.Medico.Apellido)
+        cuerpoMensaje = cuerpoMensaje.Replace("%ENFERMEDAD%", diagnostico.EnfermedadDiagnosticada.ToString)
+        cuerpoMensaje = cuerpoMensaje.Replace("%DESCRIPCION%", diagnostico.EnfermedadDiagnosticada.Descripcion)
+        cuerpoMensaje = cuerpoMensaje.Replace("%GRAVEDAD%", diagnostico.EnfermedadDiagnosticada.Gravedad)
+        cuerpoMensaje = cuerpoMensaje.Replace("%FECHAHORA%", diagnostico.FechaHora.ToString("d \de MMMM \del yyyy a la\s HH:mm"))
+        cuerpoMensaje = cuerpoMensaje.Replace("%RECOMENDACIONES%", diagnostico.EnfermedadDiagnosticada.Recomendaciones)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CONDUCTA%", diagnostico.ConductaASeguir)
+        cuerpoMensaje = cuerpoMensaje.Replace("%ESPECIALIDAD%", diagnostico.EnfermedadDiagnosticada.Especialidad.ToString)
+        cuerpoMensaje = cuerpoMensaje.Replace("%CHAT%", contenidoChat.Replace(vbNewLine, "<br/>"))
+
+        Dim sintomasFormateados As String = ""
+        For i = 0 To diagnostico.EnfermedadDiagnosticada.Sintomas.Count - 1
+            sintomasFormateados &= "<tr><td style=""border: 1px solid black"">" & diagnostico.EnfermedadDiagnosticada.Sintomas(i).ToString & "</td><td style=""border: 1px solid black"">" & diagnostico.EnfermedadDiagnosticada.FrecuenciaSintoma(i) & "%</td></tr>"
+        Next
+        cuerpoMensaje = cuerpoMensaje.Replace("%SINTOMAS%", sintomasFormateados)
+
+        For i = 0 To archivos.Count - 1
+            Dim archivo As Mensaje = archivos(i)
+            Dim stream As New MemoryStream(archivo.Contenido)
+            Dim adjunto As New Attachment(stream, archivo.NombreArchivo)
+            mail.Attachments.Add(adjunto)
+        Next
+
+        mail.Body = cuerpoMensaje
+        mail.IsBodyHtml = True
+        SmtpServer.Send(mail)
+    End Sub
+
     Public Sub EliminarUsuarioConCodigo(ci As String, tipo As TiposUsuario, hash As String)
         Select Case tipo
             Case TiposUsuario.Administrativo
@@ -700,4 +741,12 @@ Public Module Principal
                 End If
         End Select
     End Sub
+
+    Public Function CargarTodosLosDepartamentos() As List(Of Departamento)
+        Return ObtenerListadoDepartamentos()
+    End Function
+
+    Public Function CargarTodasLasLocalidades() As List(Of Localidad)
+        Return ObtenerListadoLocalidades()
+    End Function
 End Module

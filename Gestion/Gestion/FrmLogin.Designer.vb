@@ -30,6 +30,7 @@ Partial Class FrmLogin
         Me.Label2 = New System.Windows.Forms.Label()
         Me.chkMostrarContrasena = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnContrasenaOlvidada = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnIngresar
@@ -96,12 +97,22 @@ Partial Class FrmLogin
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Aplicación de gestión"
         '
+        'btnContrasenaOlvidada
+        '
+        Me.btnContrasenaOlvidada.Location = New System.Drawing.Point(357, 214)
+        Me.btnContrasenaOlvidada.Name = "btnContrasenaOlvidada"
+        Me.btnContrasenaOlvidada.Size = New System.Drawing.Size(75, 45)
+        Me.btnContrasenaOlvidada.TabIndex = 11
+        Me.btnContrasenaOlvidada.Text = "Olvidé mi contraseña"
+        Me.btnContrasenaOlvidada.UseVisualStyleBackColor = True
+        '
         'FrmLogin
         '
         Me.AcceptButton = Me.btnIngresar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(444, 271)
+        Me.Controls.Add(Me.btnContrasenaOlvidada)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.chkMostrarContrasena)
         Me.Controls.Add(Me.Label2)
@@ -126,4 +137,5 @@ Partial Class FrmLogin
     Friend WithEvents Label2 As Label
     Friend WithEvents chkMostrarContrasena As CheckBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnContrasenaOlvidada As Button
 End Class

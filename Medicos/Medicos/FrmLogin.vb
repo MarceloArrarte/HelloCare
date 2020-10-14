@@ -51,4 +51,11 @@ Public Class FrmLogin
             txtContrasena.UseSystemPasswordChar = True
         End If
     End Sub
+
+    Private Sub btnContrasenaOlvidada_Click(sender As Object, e As EventArgs) Handles btnContrasenaOlvidada.Click
+        Dim frm As New FrmContrasenaOlvidada
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+    End Sub
 End Class

@@ -19,9 +19,7 @@ Public Class FrmDiagnosticoPrimario
             txtRecomendaciones.Text &= s.Recomendaciones & vbNewLine & vbNewLine
         Next
 
-        Dim enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas = Nothing
-        Dim certeza As Decimal = Nothing
-        Dim resultadoDiagnostico As Enfermedad = RealizarDiagnostico(sintomasIngresados, enfermedadesDiagnosticadas, certeza)
+        Dim enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas = RealizarDiagnostico(sintomasIngresados)
 
         For i = 0 To enfermedadesDiagnosticadas.Items.Count - 1
             tblEnfermedadesDiagnosticadas.Rows.Add(enfermedadesDiagnosticadas.Items(i), enfermedadesDiagnosticadas.Probabilidad(i) & "%",
@@ -34,7 +32,7 @@ Public Class FrmDiagnosticoPrimario
             lblResultado.Visible = False                            ' Si no se determinó un resultado fiable, oculta el Label
         Else
             lblResultado.Text = "De acuerdo con los síntomas ingresados, la enfermedad que más probablemente padece es:" & vbNewLine &
-                                resultadoDiagnostico.Nombre & ", con una certeza del " & Math.Round(certeza, 1) & "%."
+                                enfermedadesDiagnosticadas.Items(0).Nombre & ", con una certeza del " & Math.Round(enfermedadesDiagnosticadas.Probabilidad(0), 1) & "%."
         End If
 
         Dim diagnosticoRealizado As DiagnosticoPrimario = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)

@@ -3,6 +3,9 @@
 Public Class FrmMenuPrincipal
     Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblLogeado.Text = lblLogeado.Text.Replace("#", administrativoLogeado.ToString)
+        If Not administrativoLogeado.EsEncargado Then
+            btnConfiguracion.Visible = False
+        End If
     End Sub
 
     Private Sub btnABMSintomas_Click(sender As Object, e As EventArgs) Handles btnABMSintomas.Click
@@ -28,5 +31,12 @@ Public Class FrmMenuPrincipal
         If MsgBox("¿Confirma que desea cerrar su sesión?", MsgBoxStyle.YesNo, "Cerrar sesión") = MsgBoxResult.No Then
             e.Cancel = True
         End If
+    End Sub
+
+    Private Sub btnConfiguracion_Click(sender As Object, e As EventArgs) Handles btnConfiguracion.Click
+        Dim frm As New FrmConfiguracion
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 End Class

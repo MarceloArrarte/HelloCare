@@ -37,7 +37,6 @@ Public Class FrmChatMedico
         ActualizarMensajes()
     End Sub
 
-    ' NO IMPLEMENTADO
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
         If expAdjuntar.ShowDialog() = DialogResult.OK Then
             Dim ruta As String = expAdjuntar.FileName
@@ -55,7 +54,7 @@ Public Class FrmChatMedico
                     formato = FormatosMensajeAdmitidos.PNG
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
-            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, consultaEnCurso, nombreArchivo)
+            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Medico, consultaEnCurso, nombreArchivo)
             ActualizarMensajes()
         End If
     End Sub
@@ -93,9 +92,15 @@ Public Class FrmChatMedico
         Dim frmDiagnosticoDiferencial As New FrmNuevoDiagnostico(consultaEnCurso)
         frmDiagnosticoDiferencial.ShowDialog()
         If frmDiagnosticoDiferencial.DialogResult = DialogResult.OK Then
-            Dim bytesMensaje As Byte() = Encoding.UTF8.GetBytes("Diagnóstico realizado: " & frmDiagnosticoDiferencial.enfermedadDiagnosticada.ToString)
+            Dim bytesMensaje As Byte() = Encoding.UTF8.GetBytes("Diagnóstico realizado: " & frmDiagnosticoDiferencial.diagnosticoRealizado.EnfermedadDiagnosticada.ToString)
             EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Medico, consultaEnCurso)
             ActualizarMensajes()
+            Dim archivosAdjuntos As New List(Of Mensaje)
+            For i = 0 To lstArchivos.Items.Count - 1
+                archivosAdjuntos.Add(lstArchivos.Items(i))
+            Next
+            EnviarSesionChat(consultaEnCurso.Paciente, frmDiagnosticoDiferencial.diagnosticoRealizado, txtConversacion.Text, archivosAdjuntos)
+            MsgBox("Se ha enviado una copia de la sesión del chat al paciente.")
         End If
     End Sub
 

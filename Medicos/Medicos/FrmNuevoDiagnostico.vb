@@ -3,7 +3,7 @@ Imports Clases
 
 Public Class FrmNuevoDiagnostico
     Private consulta As DiagnosticoPrimarioConConsulta
-    Public enfermedadDiagnosticada As Enfermedad
+    Public diagnosticoRealizado As DiagnosticoDiferencial
 
     Public Sub New(consultaEnCurso As DiagnosticoPrimarioConConsulta)
 
@@ -32,8 +32,8 @@ Public Class FrmNuevoDiagnostico
 
     Private Sub btnEnviarDiagnostico_Click(sender As Object, e As EventArgs) Handles btnEnviarDiagnostico.Click
         If tblEnfermedades.SelectedRows.Count = 1 Then
-            enfermedadDiagnosticada = tblEnfermedades.SelectedRows(0).Cells(0).Value
-            CrearDiagnosticoDiferencial(consulta, enfermedadDiagnosticada, txtConductaASeguir.Text)
+            Dim enfermedadDiagnosticada As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
+            diagnosticoRealizado = CrearDiagnosticoDiferencial(consulta, enfermedadDiagnosticada, txtConductaASeguir.Text)
             Me.DialogResult = DialogResult.OK
             MsgBox("Diagnóstico enviado con éxito.")
             Me.Close()

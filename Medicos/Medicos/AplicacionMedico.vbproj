@@ -222,6 +222,7 @@
   <ItemGroup>
     <Content Include="MailRegistroUsuario.html" />
     <Content Include="MailRestaurarContrasena.html" />
+    <Content Include="MailSesionChat.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -84,6 +84,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfiguracion.Designer.vb">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfiguracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmContrasenaOlvidada.designer.vb">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </Compile>
@@ -181,6 +187,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </EmbeddedResource>
