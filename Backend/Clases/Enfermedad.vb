@@ -111,6 +111,8 @@ Public Class Enfermedad
             Throw New ArgumentException("El largo del nombre no puede superar los 100 caracteres.")
         End If
 
+        ValidarCaracteresNombre(nombre)
+
         ' recomendaciones supera el largo máximo
         If recomendaciones.Length > 1000 Then
             Throw New ArgumentException("El largo de las recomendaciones no puede superar los 1000 caracteres.")
@@ -120,6 +122,8 @@ Public Class Enfermedad
         If descripcion.Length > 1000 Then
             Throw New ArgumentException("El largo de la descripción no puede superar los 1000 caracteres.")
         End If
+
+        ValidarCaracteresTexto(recomendaciones, descripcion)
 
         ' gravedad tiene un valor inválido
         If gravedad < 1 Or gravedad > 100 Then

@@ -114,12 +114,12 @@
         End If
 
         ' Algún dígito no es un valor numérico (0-9)
-        For Each c As Char In telefonoMovil.ToCharArray
-            Dim valorASCIICaracter As Integer = Asc(c)
-            If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
-                Throw New ArgumentException("El caracter " & c & " en el número de teléfono " & CI & " no es un dígito válido.")
-            End If
-        Next
+        'For Each c As Char In telefonoMovil.ToCharArray
+        '    Dim valorASCIICaracter As Integer = Asc(c)
+        '    If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
+        '        Throw New ArgumentException("El caracter " & c & " en el número de teléfono " & CI & " no es un dígito válido.")
+        '    End If
+        'Next
 
         ' telefonoFijo tiene un valor nulo
         If telefonoFijo Is Nothing Or telefonoFijo = "" Then
@@ -132,12 +132,14 @@
         End If
 
         ' Algún dígito no es un valor numérico (0-9)
-        For Each c As Char In telefonoFijo.ToCharArray
-            Dim valorASCIICaracter As Integer = Asc(c)
-            If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
-                Throw New ArgumentException("El caracter " & c & " en el número de teléfono " & CI & " no es un dígito válido.")
-            End If
-        Next
+        'For Each c As Char In telefonoFijo.ToCharArray
+        '    Dim valorASCIICaracter As Integer = Asc(c)
+        '    If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
+        '        Throw New ArgumentException("El caracter " & c & " en el número de teléfono " & CI & " no es un dígito válido.")
+        '    End If
+        'Next
+
+        ValidarCaracteresNumero(telefonoMovil, telefonoFijo)
 
         ' sexo no tiene un valor válido
         If Not [Enum].IsDefined(GetType(TiposSexo), sexo) Then
@@ -181,6 +183,8 @@
             Throw New ArgumentException("La calle no puede tener más de 100 caracteres.")
         End If
 
+        ValidarCaracteresNombre(calle)
+
         ' numeroPuerta tiene un valor nulo
         If numeroPuerta Is Nothing Or numeroPuerta = "" Then
             Throw New ArgumentException("No se ingresó el número de puerta del domicilio del paciente.")
@@ -191,8 +195,12 @@
             Throw New ArgumentException("El número de puerta del domicilio del paciente no puede tener más de 10 caracteres.")
         End If
 
+        ValidarCaracteresNumero(numeroPuerta)
+
         If apartamento IsNot Nothing AndAlso apartamento.Length > 10 Then
             Throw New ArgumentException("El número de apartamento no puede tener más de 10 caracteres.")
         End If
+
+        ValidarCaracteresTexto(apartamento)
     End Sub
 End Class

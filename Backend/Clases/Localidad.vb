@@ -46,6 +46,8 @@
         If nombre.Length > 100 Then
             Throw New ArgumentException("El nombre de la localidad excede los 100 caracteres de largo.")
         End If
+
+        ValidarCaracteresNombre(nombre)
     End Sub
 
     Public Overrides Function ToString() As String

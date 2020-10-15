@@ -33,6 +33,7 @@
         MyBase.New(diagnosticoPrimario.ID, diagnosticoPrimario.Paciente, diagnosticoPrimario.Sintomas, diagnosticoPrimario.EnfermedadesDiagnosticadas,
                    diagnosticoPrimario.FechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
         _Medico = Nothing
+        ValidarDatos(comentariosAdicionales)
         _ComentariosAdicionales = comentariosAdicionales
     End Sub
 
@@ -41,6 +42,7 @@
 
         MyBase.New(id, paciente, sintomas, enfermedades, fechaHora, TiposDiagnosticosPrimarios.Con_Consulta)
         _Medico = medico
+        ValidarDatos(comentariosAdicionales)
         _ComentariosAdicionales = comentariosAdicionales
     End Sub
 
@@ -48,5 +50,7 @@
         If comentariosAdicionales IsNot Nothing AndAlso comentariosAdicionales.Length > 1000 Then
             Throw New ArgumentException("La longitud de los comentarios no puede exceder los 1000 caracteres.")
         End If
+
+        ValidarCaracteresTexto(comentariosAdicionales)
     End Sub
 End Class

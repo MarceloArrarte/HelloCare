@@ -96,6 +96,8 @@
             Throw New ArgumentException("El largo del nombre no debe superar los 100 caracteres.")
         End If
 
+        ValidarCaracteresTexto(nombre)
+
         ' descripcion excede el largo máximo
         If descripcion.Length > 1000 Then
             Throw New ArgumentException("El largo de la descripción no debe superar los 1000 caracteres.")
@@ -110,6 +112,8 @@
         If recomendaciones.Length > 1000 Then
             Throw New ArgumentException("El largo de las recomendaciones no debe superar los 1000 caracteres.")
         End If
+
+        ValidarCaracteresTexto(descripcion, recomendaciones)
     End Sub
 
     Public Overrides Function ToString() As String

@@ -34,7 +34,7 @@ Public Class FrmConfiguracion
 
     Private Sub txtBuscarDepartamento_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarDepartamento.TextChanged
         For Each fila As DataGridViewRow In grdDepartamentos.Rows
-            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarDepartamento.Text & "*" Then
+            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarDepartamento.Text.ToLower & "*" Then
                 fila.Visible = True
             Else
                 fila.Visible = False
@@ -44,7 +44,7 @@ Public Class FrmConfiguracion
 
     Private Sub cbxDepartamentos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDepartamentos.SelectedIndexChanged
         For Each fila As DataGridViewRow In grdLocalidades.Rows
-            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarLocalidades.Text & "*" And
+            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarLocalidades.Text.ToLower & "*" And
                 CType(fila.Cells(0).Value, Localidad).Departamento = cbxDepartamentos.SelectedItem Then
 
                 fila.Visible = True
@@ -56,7 +56,7 @@ Public Class FrmConfiguracion
 
     Private Sub txtBuscarEspecialidad_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidad.TextChanged
         For Each fila As DataGridViewRow In grdEspecialidades.Rows
-            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarEspecialidad.Text & "*" Then
+            If fila.Cells(0).Value.ToString.ToLower Like "*" & txtBuscarEspecialidad.Text.ToLower & "*" Then
                 fila.Visible = True
             Else
                 fila.Visible = False
@@ -82,25 +82,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-
-
-        'Dim nombreIngresado As String = txtAgregarDepartamento.Text.Trim
-        'If nombreIngresado <> "" Then
-        '    Dim yaExiste As Boolean = False
-        '    For Each d As Departamento In departamentos
-        '        If nombreIngresado.ToLower = d.Nombre.ToLower Then
-        '            yaExiste = True
-        '        End If
-        '    Next
-        '    If Not yaExiste Then
-        '        departamentos.Add(New Departamento(nombreIngresado))
-        '    Else
-        '        MsgBox("Ya existe un departamento con este nombre.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnAgregarLocalidad_Click(sender As Object, e As EventArgs) Handles btnAgregarLocalidad.Click
@@ -129,32 +111,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-
-        'Dim nombreIngresado As String = txtAgregarLocalidad.Text.Trim
-        'If nombreIngresado <> "" Then
-        '    Dim departamentoSeleccionado As Departamento = cbxDepartamentoDeNuevaLocalidad.SelectedItem
-        '    Dim localidadesDelDepartamento As New List(Of Localidad)
-        '    For Each l As Localidad In localidades
-        '        If l.Departamento = departamentoSeleccionado Then
-        '            localidadesDelDepartamento.Add(l)
-        '        End If
-        '    Next
-
-        '    Dim yaExiste As Boolean = False
-        '    For Each l As Localidad In localidadesDelDepartamento
-        '        If nombreIngresado.ToLower = l.Nombre.ToLower Then
-        '            yaExiste = True
-        '        End If
-        '    Next
-        '    If Not yaExiste Then
-        '        localidades.Add(New Localidad(nombreIngresado, departamentoSeleccionado))
-        '    Else
-        '        MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnAgregarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnAgregarEspecialidad.Click
@@ -175,23 +132,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-        'Dim nombreIngresado As String = txtAgregarEspecialidad.Text.Trim
-        'If nombreIngresado <> "" Then
-        '    Dim yaExiste As Boolean = False
-        '    For Each especialidad As Especialidad In especialidades
-        '        If nombreIngresado.ToLower = especialidad.Nombre.ToLower Then
-        '            yaExiste = True
-        '        End If
-        '    Next
-        '    If Not yaExiste Then
-        '        especialidades.Add(New Especialidad(nombreIngresado, Nothing))
-        '    Else
-        '        MsgBox("Ya existe una especialidad con este nombre.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub grdDepartamentos_SelectionChanged(sender As Object, e As EventArgs) Handles grdDepartamentos.SelectionChanged
@@ -243,34 +184,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-        'Dim nombreActual As String = txtNombreDepartamentoAModificar.Text
-        'Dim nombreNuevo As String = txtNuevoNombreDepartamento.Text.Trim
-        'If nombreNuevo <> "" Then
-        '    If nombreActual <> nombreNuevo Then
-        '        Dim yaExiste As Boolean = False
-        '        For Each d As Departamento In departamentos
-        '            If nombreNuevo.ToLower = d.Nombre.ToLower Then
-        '                yaExiste = True
-        '            End If
-        '        Next
-        '        If Not yaExiste Then
-        '            Dim indice As Integer
-        '            For Each d As Departamento In departamentos
-        '                If d.Nombre = nombreActual Then
-        '                    indice = departamentos.IndexOf(d)
-        '                End If
-        '            Next
-        '            departamentos(indice) = New Departamento(departamentos(indice).ID, nombreNuevo)
-        '        Else
-        '            MsgBox("Ya existe un departamento con este nombre.", MsgBoxStyle.Critical, "Error")
-        '        End If
-        '    Else
-        '        MsgBox("Se ha ingresado el mismo nombre de departamento. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnModificarLocalidad_Click(sender As Object, e As EventArgs) Handles btnModificarLocalidad.Click
@@ -310,44 +224,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-
-
-        'Dim nombreActual As String = txtNombreLocalidadAModificar.Text
-        'Dim nombreNuevo As String = txtNuevoNombreLocalidad.Text.Trim
-        'If nombreNuevo <> "" Then
-        '    If nombreActual <> nombreNuevo Then
-        '        Dim departamentoSeleccionado As Departamento = cbxDepartamentoDeNuevaLocalidad.SelectedItem
-        '        Dim localidadesDelDepartamento As New List(Of Localidad)
-        '        For Each l As Localidad In localidades
-        '            If l.Departamento = departamentoSeleccionado Then
-        '                localidadesDelDepartamento.Add(l)
-        '            End If
-        '        Next
-
-        '        Dim yaExiste As Boolean = False
-        '        For Each l As Localidad In localidadesDelDepartamento
-        '            If nombreNuevo.ToLower = l.Nombre.ToLower Then
-        '                yaExiste = True
-        '            End If
-        '        Next
-        '        If Not yaExiste Then
-        '            Dim indice As Integer
-        '            For Each l As Localidad In localidades
-        '                If l.Nombre = nombreActual And l.Departamento = departamentoSeleccionado Then
-        '                    indice = localidades.IndexOf(l)
-        '                End If
-        '            Next
-        '            localidades(indice) = New Localidad(localidades(indice).ID, nombreNuevo, departamentoSeleccionado)
-        '        Else
-        '            MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
-        '        End If
-        '    Else
-        '        MsgBox("Se ha ingresado el mismo nombre de localidad. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnModificarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnModificarEspecialidad.Click
@@ -362,13 +239,13 @@ Public Class FrmConfiguracion
                     End If
                 Next
                 If Not yaExiste Then
-                    Dim especialidad As Especialidad
+                    Dim especialidad As Especialidad = Nothing
                     For Each esp As Especialidad In especialidades
                         If esp.Nombre = nombreActual Then
-                            indice = especialidades.IndexOf(esp)
+                            especialidad = esp
                         End If
                     Next
-                    especialidades(indice) = New Especialidad(especialidades(indice).ID, nombreNuevo, Nothing, True)
+                    ActualizarEspecialidad(especialidad, nombreNuevo)
                 Else
                     MsgBox("Ya existe una especialidad con este nombre.", MsgBoxStyle.Critical, "Error")
                 End If
@@ -379,37 +256,7 @@ Public Class FrmConfiguracion
             MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
         End If
 
-
-
-
-
-        'Dim nombreActual As String = txtNombreEspecialidadAModificar.Text
-        'Dim nombreNuevo As String = txtNuevoNombreEspecialidad.Text.Trim
-        'If nombreNuevo <> "" Then
-        '    If nombreActual <> nombreNuevo Then
-        '        Dim yaExiste As Boolean = False
-        '        For Each especialidad As Especialidad In especialidades
-        '            If nombreNuevo.ToLower = especialidad.Nombre.ToLower Then
-        '                yaExiste = True
-        '            End If
-        '        Next
-        '        If Not yaExiste Then
-        '            Dim indice As Integer
-        '            For Each especialidad As Especialidad In especialidades
-        '                If especialidad.Nombre = nombreActual Then
-        '                    indice = especialidades.IndexOf(especialidad)
-        '                End If
-        '            Next
-        '            especialidades(indice) = New Especialidad(especialidades(indice).ID, nombreNuevo, Nothing, True)
-        '        Else
-        '            MsgBox("Ya existe una especialidad con este nombre.", MsgBoxStyle.Critical, "Error")
-        '        End If
-        '    Else
-        '        MsgBox("Se ha ingresado el mismo nombre de especialidad. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
-        '    End If
-        'Else
-        '    MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
-        'End If
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnCambiarDepartamentoDeLocalidad_Click(sender As Object, e As EventArgs) Handles btnCambiarDepartamentoDeLocalidad.Click
@@ -431,19 +278,21 @@ Public Class FrmConfiguracion
                 End If
             Next
             If Not yaExiste Then
-                Dim indice As Integer
+                Dim localidad As Localidad = Nothing
                 For Each l As Localidad In localidades
                     If l.Nombre = nombreLocalidad And l.Departamento.ToString = departamentoActual Then
-                        indice = localidades.IndexOf(l)
+                        localidad = l
                     End If
                 Next
-                localidades(indice) = New Localidad(localidades(indice).ID, nombreLocalidad, nuevoDepartamento)
+                ActualizarLocalidad(localidad, localidad.Nombre, nuevoDepartamento)
             Else
                 MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
             End If
         Else
             MsgBox("Se seleccionó el mismo departamento. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
         End If
+
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnEliminarDepartamento_Click(sender As Object, e As EventArgs) Handles btnEliminarDepartamento.Click
@@ -463,10 +312,12 @@ Public Class FrmConfiguracion
         Next
 
         If Not tieneLocalidades Then
-            departamentos.Remove(departamento)
+            EliminarDepartamento(departamento)
         Else
             MsgBox("No se puede eliminar un departamento que tenga localidades registradas. Elimine las localidades asociadas y reintente.", MsgBoxStyle.Critical, "Error")
         End If
+
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnEliminarLocalidad_Click(sender As Object, e As EventArgs) Handles btnEliminarLocalidad.Click
@@ -481,10 +332,12 @@ Public Class FrmConfiguracion
 
         Dim tienePersonas As Boolean = ExistenPersonasEnLocalidad(localidad)
         If Not tienePersonas Then
-            localidades.Remove(localidad)
+            EliminarLocalidad(localidad)
         Else
             MsgBox("No se puede eliminar una localidad que tenga personas registradas. Elimine las personas registradas y reintente.", MsgBoxStyle.Critical, "Error")
         End If
+
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnEliminarEspecialidad_Click(sender As Object, e As EventArgs) Handles btnEliminarEspecialidad.Click
@@ -505,13 +358,15 @@ Public Class FrmConfiguracion
             Next
 
             If Not tieneEnfermedades Then
-                especialidades.Remove(especialidad)
+                EliminarEspecialidad(especialidad)
             Else
                 MsgBox("No se puede eliminar una especialidad que tenga enfermedades asociadas. Elimine o modifique las enfermedades y reintente.")
             End If
         Else
             MsgBox("No se puede eliminar una especialidad que tenga médicos practicantes. Elimine la asociación y reintente.")
         End If
+
+        ActualizarDatosSistema()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

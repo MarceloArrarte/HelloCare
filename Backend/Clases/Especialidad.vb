@@ -52,6 +52,8 @@
         If nombre.Length > 100 Then
             Throw New ArgumentException("El nombre de la enfermedad no puede exceder los 100 caracteres.")
         End If
+
+        ValidarCaracteresNombre(nombre)
     End Sub
 
     Public Overrides Function ToString() As String

@@ -98,6 +98,8 @@
             Throw New ArgumentException("El largo del apellido no debe superar los 100 caracteres.")
         End If
 
+        ValidarCaracteresNombre(nombre, apellido)
+
         ' Correo con un formato inválido
         If Not CorreoValido(correo) Then
             Throw New ArgumentException("El correo no tiene un formato válido.")
@@ -121,12 +123,14 @@
         End If
 
         ' Algún dígito no es un valor numérico (0-9)
-        For Each c As Char In ci.ToCharArray
-            Dim valorASCIICaracter As Integer = Asc(c)
-            If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
-                Throw New ArgumentException("El caracter " & c & " en la cédula " & ci & " no es un dígito válido.")
-            End If
-        Next
+        'For Each c As Char In ci.ToCharArray
+        '    Dim valorASCIICaracter As Integer = Asc(c)
+        '    If valorASCIICaracter < Asc("0"c) Or valorASCIICaracter > Asc("9"c) Then
+        '        Throw New ArgumentException("El caracter " & c & " en la cédula " & ci & " no es un dígito válido.")
+        '    End If
+        'Next
+
+        ValidarCaracteresNumero(ci)
 
         ' Completa la cédula con ceros a la izquierda en caso de que tenga menos de 8 dígitos
         While ci.Length < 8
@@ -163,6 +167,8 @@
         If correo.Length > 100 Then
             Throw New ArgumentException("El correo no puede poseer más de 100 caracteres.")
         End If
+
+        ValidarCaracteresCorreo(correo)
 
         ' Si la cadena tiene un formato adecuado, retorna True, sino retorna False
         If correo Like "*@*.*" Then
