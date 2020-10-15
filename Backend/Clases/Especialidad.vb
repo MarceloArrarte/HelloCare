@@ -57,4 +57,12 @@
     Public Overrides Function ToString() As String
         Return _Nombre
     End Function
+
+    Public Shared Operator =(e1 As Especialidad, e2 As Especialidad) As Boolean
+        Return e1.ID = e2.ID
+    End Operator
+
+    Public Shared Operator <>(e1 As Especialidad, e2 As Especialidad) As Boolean
+        Return e1.ID <> e2.ID
+    End Operator
 End Class

@@ -749,4 +749,50 @@ Public Module Principal
     Public Function CargarTodasLasLocalidades() As List(Of Localidad)
         Return ObtenerListadoLocalidades()
     End Function
+
+    Public Function ExistenPersonasEnLocalidad(l As Localidad) As Boolean
+        Return ObtenerCantidadPersonasEnLocalidad(l) > 0
+    End Function
+
+    Public Sub CrearDepartamento(nombre As String)
+        Dim nuevoDepartamento As New Departamento(nombre)
+        InsertarObjeto(nuevoDepartamento, TiposObjeto.Departamento)
+    End Sub
+
+    Public Sub CrearLocalidad(nombre As String, departamento As Departamento)
+        Dim nuevaLocalidad As New Localidad(nombre, departamento)
+        InsertarObjeto(nuevaLocalidad, TiposObjeto.Localidad)
+    End Sub
+
+    Public Sub CrearEspecialidad(nombre As String)
+        Dim nuevaEspecialidad As New Especialidad(nombre, Nothing)
+        InsertarObjeto(nuevaEspecialidad, TiposObjeto.Especialidad)
+    End Sub
+
+    Public Sub ActualizarDepartamento(departamentoViejo As Departamento, nombre As String)
+        Dim nuevoDepartamento As New Departamento(departamentoViejo.ID, nombre)
+        ModificarObjeto(nuevoDepartamento, TiposObjeto.Departamento)
+    End Sub
+
+    Public Sub ActualizarLocalidad(localidadVieja As Localidad, nombre As String, departamento As Departamento)
+        Dim nuevaLocalidad As New Localidad(localidadVieja.ID, nombre, departamento)
+        ModificarObjeto(nuevaLocalidad, TiposObjeto.Localidad)
+    End Sub
+
+    Public Sub ActualizarEspecialidad(especialidadVieja As Especialidad, nombre As String)
+        Dim nuevaEspecialidad As New Especialidad(especialidadVieja.ID, nombre, Nothing, True)
+        ModificarObjeto(nuevaEspecialidad, TiposObjeto.Especialidad)
+    End Sub
+
+    Public Sub EliminarDepartamento(departamento As Departamento)
+        EliminarObjeto(departamento, TiposObjeto.Departamento)
+    End Sub
+
+    Public Sub EliminarLocalidad(localidad As Localidad)
+        EliminarObjeto(localidad, TiposObjeto.Localidad)
+    End Sub
+
+    Public Sub EliminarEspecialidad(especialidad As Especialidad)
+        EliminarObjeto(especialidad, TiposObjeto.Especialidad)
+    End Sub
 End Module

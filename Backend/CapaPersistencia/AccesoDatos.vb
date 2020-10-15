@@ -2236,4 +2236,11 @@ Public Module AccesoDatos
             End If
         End Try
     End Sub
+
+    Public Function ObtenerCantidadPersonasEnLocalidad(l As Localidad) As Integer
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM personas WHERE ID_LOCALIDAD=@LOCALIDAD;")
+        comando.Parameters.AddWithValue("@LOCALIDAD", l.ID)
+        Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
+        Return cantidad
+    End Function
 End Module

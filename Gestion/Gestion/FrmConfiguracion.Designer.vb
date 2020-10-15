@@ -22,9 +22,9 @@ Partial Class FrmConfiguracion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
@@ -97,8 +97,7 @@ Partial Class FrmConfiguracion
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtBuscarEspecialidad = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtLocalidadParaCambiarDepartamento = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
@@ -302,14 +301,14 @@ Partial Class FrmConfiguracion
         Me.grdDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdDepartamentos.ColumnHeadersVisible = False
         Me.grdDepartamentos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdDepartamentos.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdDepartamentos.DefaultCellStyle = DataGridViewCellStyle1
         Me.grdDepartamentos.Location = New System.Drawing.Point(20, 41)
         Me.grdDepartamentos.MultiSelect = False
         Me.grdDepartamentos.Name = "grdDepartamentos"
@@ -606,14 +605,14 @@ Partial Class FrmConfiguracion
         Me.grdLocalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdLocalidades.ColumnHeadersVisible = False
         Me.grdLocalidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdLocalidades.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdLocalidades.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdLocalidades.Location = New System.Drawing.Point(23, 72)
         Me.grdLocalidades.MultiSelect = False
         Me.grdLocalidades.Name = "grdLocalidades"
@@ -812,14 +811,14 @@ Partial Class FrmConfiguracion
         Me.grdEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdEspecialidades.ColumnHeadersVisible = False
         Me.grdEspecialidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdEspecialidades.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdEspecialidades.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdEspecialidades.Location = New System.Drawing.Point(23, 43)
         Me.grdEspecialidades.MultiSelect = False
         Me.grdEspecialidades.Name = "grdEspecialidades"
@@ -861,23 +860,14 @@ Partial Class FrmConfiguracion
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Configuración del sistema"
         '
-        'btnGuardar
+        'btnVolver
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(227, 468)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(101, 23)
-        Me.btnGuardar.TabIndex = 3
-        Me.btnGuardar.Text = "Guardar cambios"
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(12, 468)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(101, 23)
-        Me.btnCancelar.TabIndex = 4
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnVolver.Location = New System.Drawing.Point(113, 468)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(101, 23)
+        Me.btnVolver.TabIndex = 4
+        Me.btnVolver.Text = "Cancelar"
+        Me.btnVolver.UseVisualStyleBackColor = True
         '
         'Label20
         '
@@ -900,8 +890,7 @@ Partial Class FrmConfiguracion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(340, 503)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "FrmConfiguracion"
@@ -1016,8 +1005,7 @@ Partial Class FrmConfiguracion
     Friend WithEvents Label19 As Label
     Friend WithEvents txtBuscarEspecialidad As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnGuardar As Button
-    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnVolver As Button
     Friend WithEvents txtLocalidadParaCambiarDepartamento As TextBox
     Friend WithEvents Label20 As Label
 End Class
