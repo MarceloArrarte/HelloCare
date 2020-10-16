@@ -23,6 +23,8 @@ Partial Class FrmVerSintomas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVerSintomas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtRecomendaciones = New System.Windows.Forms.TextBox()
@@ -34,27 +36,30 @@ Partial Class FrmVerSintomas
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.tblPatologias = New System.Windows.Forms.DataGridView()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtUrgencia = New System.Windows.Forms.TextBox()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtUrgencia = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.tblPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.Label1.Location = New System.Drawing.Point(220, 9)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.Label1.Location = New System.Drawing.Point(675, 40)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(173, 24)
+        Me.Label1.Size = New System.Drawing.Size(364, 42)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Detalle de síntomas"
         '
         'txtRecomendaciones
         '
-        Me.txtRecomendaciones.Location = New System.Drawing.Point(172, 168)
+        Me.txtRecomendaciones.Font = New System.Drawing.Font("Lato", 12.75!)
+        Me.txtRecomendaciones.Location = New System.Drawing.Point(709, 262)
         Me.txtRecomendaciones.Multiline = True
         Me.txtRecomendaciones.Name = "txtRecomendaciones"
         Me.txtRecomendaciones.ReadOnly = True
@@ -63,7 +68,8 @@ Partial Class FrmVerSintomas
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(172, 87)
+        Me.txtDescripcion.Font = New System.Drawing.Font("Lato", 12.75!)
+        Me.txtDescripcion.Location = New System.Drawing.Point(709, 181)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.ReadOnly = True
@@ -72,7 +78,8 @@ Partial Class FrmVerSintomas
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(172, 49)
+        Me.txtNombre.Font = New System.Drawing.Font("Lato", 12.75!)
+        Me.txtNombre.Location = New System.Drawing.Point(709, 143)
         Me.txtNombre.Multiline = True
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.ReadOnly = True
@@ -82,48 +89,59 @@ Partial Class FrmVerSintomas
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 171)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Lato", 15.75!)
+        Me.Label4.Location = New System.Drawing.Point(517, 261)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(99, 13)
+        Me.Label4.Size = New System.Drawing.Size(186, 25)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Recomendaciones:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(67, 90)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Lato", 15.75!)
+        Me.Label3.Location = New System.Drawing.Point(576, 180)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 13)
+        Me.Label3.Size = New System.Drawing.Size(127, 25)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Descripción:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(30, 52)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Lato", 15.75!)
+        Me.Label2.Location = New System.Drawing.Point(500, 142)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 13)
+        Me.Label2.Size = New System.Drawing.Size(203, 25)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Nombre del sintoma:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(30, 340)
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Lato", 15.75!)
+        Me.Label5.Location = New System.Drawing.Point(756, 468)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(110, 13)
+        Me.Label5.Size = New System.Drawing.Size(207, 25)
         Me.Label5.TabIndex = 20
         Me.Label5.Text = "Patologias asociadas:"
         '
         'btnVolver
         '
+        Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Location = New System.Drawing.Point(276, 504)
+        Me.btnVolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Location = New System.Drawing.Point(156, 571)
         Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.Size = New System.Drawing.Size(179, 45)
         Me.btnVolver.TabIndex = 0
         Me.btnVolver.Text = "Volver"
-        Me.btnVolver.UseVisualStyleBackColor = True
+        Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblPatologias
         '
@@ -132,43 +150,42 @@ Partial Class FrmVerSintomas
         Me.tblPatologias.AllowUserToResizeColumns = False
         Me.tblPatologias.AllowUserToResizeRows = False
         Me.tblPatologias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNombre, Me.colDesc, Me.colFrecuencia})
+        Me.tblPatologias.BackgroundColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Lato", 12.75!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tblPatologias.DefaultCellStyle = DataGridViewCellStyle1
-        Me.tblPatologias.Location = New System.Drawing.Point(33, 356)
+        Me.tblPatologias.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.tblPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNombre, Me.colDesc, Me.colFrecuencia})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Lato", 12.75!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tblPatologias.DefaultCellStyle = DataGridViewCellStyle2
+        Me.tblPatologias.Location = New System.Drawing.Point(570, 496)
         Me.tblPatologias.MultiSelect = False
         Me.tblPatologias.Name = "tblPatologias"
         Me.tblPatologias.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Lato", 12.75!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tblPatologias.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.tblPatologias.RowHeadersVisible = False
         Me.tblPatologias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tblPatologias.Size = New System.Drawing.Size(566, 125)
         Me.tblPatologias.TabIndex = 22
         Me.tblPatologias.TabStop = False
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(80, 298)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 13)
-        Me.Label6.TabIndex = 23
-        Me.Label6.Text = "Urgencia:"
-        '
-        'txtUrgencia
-        '
-        Me.txtUrgencia.Location = New System.Drawing.Point(172, 295)
-        Me.txtUrgencia.Multiline = True
-        Me.txtUrgencia.Name = "txtUrgencia"
-        Me.txtUrgencia.ReadOnly = True
-        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
-        Me.txtUrgencia.TabIndex = 24
         '
         'colNombre
         '
@@ -194,12 +211,49 @@ Partial Class FrmVerSintomas
         Me.colFrecuencia.ReadOnly = True
         Me.colFrecuencia.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Lato", 15.75!)
+        Me.Label6.Location = New System.Drawing.Point(603, 388)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(100, 25)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Urgencia:"
+        '
+        'txtUrgencia
+        '
+        Me.txtUrgencia.Font = New System.Drawing.Font("Lato", 12.75!)
+        Me.txtUrgencia.Location = New System.Drawing.Point(709, 389)
+        Me.txtUrgencia.Multiline = True
+        Me.txtUrgencia.Name = "txtUrgencia"
+        Me.txtUrgencia.ReadOnly = True
+        Me.txtUrgencia.Size = New System.Drawing.Size(427, 25)
+        Me.txtUrgencia.TabIndex = 24
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Image = CType(resources.GetObject("Label9.Image"), System.Drawing.Image)
+        Me.Label9.Location = New System.Drawing.Point(-82, 635)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(225, 43)
+        Me.Label9.TabIndex = 52
+        Me.Label9.Text = "Traducir"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'FrmVerSintomas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(626, 540)
+        Me.ClientSize = New System.Drawing.Size(1214, 681)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtUrgencia)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.tblPatologias)
@@ -212,6 +266,7 @@ Partial Class FrmVerSintomas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FrmVerSintomas"
@@ -238,4 +293,5 @@ Partial Class FrmVerSintomas
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colDesc As DataGridViewTextBoxColumn
     Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn
+    Friend WithEvents Label9 As Label
 End Class

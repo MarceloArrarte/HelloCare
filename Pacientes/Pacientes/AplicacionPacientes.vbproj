@@ -94,7 +94,7 @@
     <Compile Include="FrmComentariosAdicionales.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmContrasenaOlvidada.Designer.vb">
+    <Compile Include="FrmContrasenaOlvidada.designer.vb">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmContrasenaOlvidada.vb">
@@ -142,7 +142,7 @@
     <Compile Include="FrmHistorialDiagnosticos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistro.Designer.vb">
+    <Compile Include="FrmRegistro.designer.vb">
       <DependentUpon>FrmRegistro.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistro.vb">
@@ -152,6 +152,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -219,8 +220,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_hellocare.ico" />
-    <Content Include="MailRestaurarContrasena.html" />
     <Content Include="MailRegistroUsuario.html" />
+    <Content Include="MailRestaurarContrasena.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

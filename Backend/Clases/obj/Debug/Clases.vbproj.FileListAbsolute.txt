@@ -6,3 +6,11 @@ C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbproj.Gen
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.dll
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.xml
 C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.pdb
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\bin\Debug\Clases.dll
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\bin\Debug\Clases.pdb
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\bin\Debug\Clases.xml
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.Resources.resources
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.vbproj.GenerateResource.cache
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.dll
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.xml
+C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.pdb

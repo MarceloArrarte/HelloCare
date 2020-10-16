@@ -80,10 +80,20 @@ Public Class FrmChatMedico
     Private Sub MostrarNuevosMensajes(mensajes As List(Of Mensaje))
         For Each m As Mensaje In mensajes
             If m.Formato = FormatosMensajeAdmitidos.TXT Then
-                txtConversacion.Text &= m.FechaHora.ToString("(dd/MM HH:mm:ss) ") & m.Remitente.ToString.Chars(0) & ": " & m.ToString & vbNewLine
+                Dim prefijoMensaje As String = m.FechaHora.ToString("(dd/MM HH:mm:ss) ")
+                If m.Remitente = TiposRemitente.Medico Then
+                    prefijoMensaje &= "Tú: "
+                Else
+                    prefijoMensaje &= consultaEnCurso.Paciente.ToString & ": "
+                End If
+                txtConversacion.Text &= prefijoMensaje & m.ToString & vbNewLine
             Else
-                txtConversacion.Text &= m.Remitente.ToString.Chars(0) & " envió un archivo " & m.Formato.ToString & "." & vbNewLine
-                lstArchivos.Items.Add(m)
+                If m.Remitente = TiposRemitente.Medico Then
+                    txtConversacion.Text &= "Enviaste un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
+                Else
+                    txtConversacion.Text &= consultaEnCurso.Paciente.ToString & " envió un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
+                End If
+                lstArchivos.Items.Add(m.ToString)
             End If
         Next
     End Sub

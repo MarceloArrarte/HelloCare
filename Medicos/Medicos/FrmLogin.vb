@@ -52,10 +52,14 @@ Public Class FrmLogin
         End If
     End Sub
 
-    Private Sub btnContrasenaOlvidada_Click(sender As Object, e As EventArgs) Handles btnContrasenaOlvidada.Click
-        Dim frm As New FrmContrasenaOlvidada
-        Me.Hide()
-        frm.ShowDialog()
-        Me.Show()
+    Private Sub txtCedula_MouseClick(sender As Object, e As MouseEventArgs) Handles txtCedula.MouseClick
+        txtCedula.Clear()
+    End Sub
+
+    Private Sub txtContrasena_MouseClick(sender As Object, e As MouseEventArgs) Handles txtContrasena.MouseClick
+        If Not txtContrasena.UseSystemPasswordChar Then
+            txtContrasena.Clear()
+        End If
+        txtContrasena.UseSystemPasswordChar = True
     End Sub
 End Class

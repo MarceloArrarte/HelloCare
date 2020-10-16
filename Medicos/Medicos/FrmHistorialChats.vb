@@ -7,7 +7,14 @@ Public Class FrmHistorialChats
         Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico(mesesHistorial)
         For Each d As DiagnosticoPrimarioConConsulta In consultasMedico
             Dim ultimoMensaje As Mensaje = CargarUltimosMensajesDiagnostico(d, 1).Single
-            tblChats.Rows.Add(d, d.Paciente, ultimoMensaje.Remitente.ToString.Chars(0) & ": " & ultimoMensaje.ToString,
+            Dim prefijoMensaje As String
+            If ultimoMensaje.Remitente = TiposRemitente.Medico Then
+                prefijoMensaje = "Tú: "
+            Else
+                prefijoMensaje = d.Paciente.ToString & ": "
+            End If
+
+            tblChats.Rows.Add(d, d.Paciente, prefijoMensaje & ultimoMensaje.ToString,
                               ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
         Next
     End Sub

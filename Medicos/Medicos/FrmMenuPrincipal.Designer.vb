@@ -24,110 +24,129 @@ Partial Class FrmMenuPrincipal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenuPrincipal))
         Me.btnPeticiones = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnHistorialPacientes = New System.Windows.Forms.Button()
         Me.btnHistorialChat = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblLogeado = New System.Windows.Forms.Label()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnPeticiones
         '
-        Me.btnPeticiones.Font = New System.Drawing.Font("Lato", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPeticiones.Location = New System.Drawing.Point(6, 40)
+        Me.btnPeticiones.BackgroundImage = CType(resources.GetObject("btnPeticiones.BackgroundImage"), System.Drawing.Image)
+        Me.btnPeticiones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnPeticiones.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPeticiones.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        Me.btnPeticiones.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnPeticiones.Location = New System.Drawing.Point(756, 230)
         Me.btnPeticiones.Name = "btnPeticiones"
-        Me.btnPeticiones.Size = New System.Drawing.Size(159, 51)
+        Me.btnPeticiones.Size = New System.Drawing.Size(234, 63)
         Me.btnPeticiones.TabIndex = 0
         Me.btnPeticiones.Text = "Peticiones de chat"
         Me.btnPeticiones.UseVisualStyleBackColor = True
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.btnSalir)
-        Me.GroupBox1.Controls.Add(Me.btnHistorialPacientes)
-        Me.GroupBox1.Controls.Add(Me.btnHistorialChat)
-        Me.GroupBox1.Controls.Add(Me.btnPeticiones)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 426)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Menú principal"
-        '
         'btnSalir
         '
-        Me.btnSalir.Font = New System.Drawing.Font("Lato", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(6, 360)
+        Me.btnSalir.BackgroundImage = CType(resources.GetObject("btnSalir.BackgroundImage"), System.Drawing.Image)
+        Me.btnSalir.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        Me.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnSalir.Location = New System.Drawing.Point(147, 573)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(159, 51)
+        Me.btnSalir.Size = New System.Drawing.Size(161, 49)
         Me.btnSalir.TabIndex = 3
-        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.Text = "Volver"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnHistorialPacientes
         '
-        Me.btnHistorialPacientes.Font = New System.Drawing.Font("Lato", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHistorialPacientes.Location = New System.Drawing.Point(6, 194)
+        Me.btnHistorialPacientes.BackgroundImage = CType(resources.GetObject("btnHistorialPacientes.BackgroundImage"), System.Drawing.Image)
+        Me.btnHistorialPacientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnHistorialPacientes.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        Me.btnHistorialPacientes.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnHistorialPacientes.Location = New System.Drawing.Point(756, 462)
         Me.btnHistorialPacientes.Name = "btnHistorialPacientes"
-        Me.btnHistorialPacientes.Size = New System.Drawing.Size(159, 51)
+        Me.btnHistorialPacientes.Size = New System.Drawing.Size(234, 63)
         Me.btnHistorialPacientes.TabIndex = 2
         Me.btnHistorialPacientes.Text = "Historial de pacientes"
         Me.btnHistorialPacientes.UseVisualStyleBackColor = True
         '
         'btnHistorialChat
         '
-        Me.btnHistorialChat.Font = New System.Drawing.Font("Lato", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHistorialChat.Location = New System.Drawing.Point(6, 120)
+        Me.btnHistorialChat.BackgroundImage = CType(resources.GetObject("btnHistorialChat.BackgroundImage"), System.Drawing.Image)
+        Me.btnHistorialChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnHistorialChat.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        Me.btnHistorialChat.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnHistorialChat.Location = New System.Drawing.Point(756, 344)
         Me.btnHistorialChat.Name = "btnHistorialChat"
-        Me.btnHistorialChat.Size = New System.Drawing.Size(159, 51)
+        Me.btnHistorialChat.Size = New System.Drawing.Size(234, 63)
         Me.btnHistorialChat.TabIndex = 1
         Me.btnHistorialChat.Text = "Historial de chats"
         Me.btnHistorialChat.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(218, 7)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(570, 431)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
-        '
         'lblLogeado
         '
-        Me.lblLogeado.AutoSize = True
-        Me.lblLogeado.Location = New System.Drawing.Point(590, 12)
+        Me.lblLogeado.BackColor = System.Drawing.Color.Transparent
+        Me.lblLogeado.Font = New System.Drawing.Font("Cosmic", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.lblLogeado.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblLogeado.Location = New System.Drawing.Point(25, 264)
         Me.lblLogeado.Name = "lblLogeado"
-        Me.lblLogeado.Size = New System.Drawing.Size(74, 26)
+        Me.lblLogeado.Size = New System.Drawing.Size(425, 148)
         Me.lblLogeado.TabIndex = 4
         Me.lblLogeado.Text = "Bienvenido/a," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
+        Me.lblLogeado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Image = CType(resources.GetObject("Label4.Image"), System.Drawing.Image)
+        Me.Label4.Location = New System.Drawing.Point(-80, 620)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(225, 43)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Traducir"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Cosmic", 26.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(749, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(241, 40)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Menú principal."
         '
         'FrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ClientSize = New System.Drawing.Size(1214, 681)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.btnHistorialPacientes)
         Me.Controls.Add(Me.lblLogeado)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnHistorialChat)
+        Me.Controls.Add(Me.btnPeticiones)
+        Me.DoubleBuffered = True
         Me.Name = "FrmMenuPrincipal"
         Me.Text = "FrmMenuMedico"
-        Me.GroupBox1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnPeticiones As Button
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnHistorialPacientes As Button
     Friend WithEvents btnHistorialChat As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblLogeado As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label1 As Label
 End Class

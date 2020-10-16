@@ -5,7 +5,7 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmChatPaciente
-    Dim diagnosticoEnCurso As DiagnosticoPrimarioConConsulta
+    Dim consultaEnCurso As DiagnosticoPrimarioConConsulta
     Dim mensajesMostrados As List(Of Mensaje)
     Dim cantidadTotalMensajes As Integer
     Dim lotesMensajes As Integer = 1
@@ -17,24 +17,24 @@ Public Class FrmChatPaciente
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        diagnosticoEnCurso = diagnosticoPrimarioConConsulta
+        consultaEnCurso = diagnosticoPrimarioConConsulta
 
         If diagnosticoPrimarioConConsulta.Medico IsNot Nothing Then
-            lblMedico.Text = lblMedico.Text.Replace("#", diagnosticoEnCurso.Medico.ToString)
+            lblMedico.Text = lblMedico.Text.Replace("#", consultaEnCurso.Medico.ToString)
         Else
             lblMedico.Text = "Un médico se comunicará con usted a la brevedad."
         End If
 
         cantidadTotalMensajes = ContarMensajes(diagnosticoPrimarioConConsulta)
-        mensajesMostrados = CargarUltimosMensajesDiagnostico(diagnosticoEnCurso, lotesMensajes * tamanoLote)
+        mensajesMostrados = CargarUltimosMensajesDiagnostico(consultaEnCurso, lotesMensajes * tamanoLote)
         MostrarNuevosMensajes(mensajesMostrados)
 
         tmrActualizaMensajes.Enabled = True
     End Sub
 
-    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
+    Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
         Dim bytesMensaje As Byte() = Encoding.UTF8.GetBytes(txtMensaje.Text.ToCharArray)
-        EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, diagnosticoEnCurso)
+        EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, consultaEnCurso)
         txtMensaje.Clear()
         ActualizarMensajes()
         'mensajesMostrados.Add(EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, diagnosticoEnCurso))
@@ -59,7 +59,7 @@ Public Class FrmChatPaciente
                     formato = FormatosMensajeAdmitidos.PNG
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
-            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso, nombreArchivo)
+            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, consultaEnCurso, nombreArchivo)
             'mensajesMostrados.Add(EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, diagnosticoEnCurso))
             'cantidadTotalMensajes += 1
             ActualizarMensajes()
@@ -73,11 +73,11 @@ Public Class FrmChatPaciente
     End Sub
 
     Private Sub ActualizarMensajes()
-        Dim cantidadActualizadaMensajes As Integer = ContarMensajes(diagnosticoEnCurso)
+        Dim cantidadActualizadaMensajes As Integer = ContarMensajes(consultaEnCurso)
         Dim cantidadNuevosMensajes As Integer = cantidadActualizadaMensajes - cantidadTotalMensajes
 
         If cantidadNuevosMensajes > 0 Then
-            Dim nuevosMensajes As List(Of Mensaje) = CargarUltimosMensajesDiagnostico(diagnosticoEnCurso, cantidadNuevosMensajes)
+            Dim nuevosMensajes As List(Of Mensaje) = CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadNuevosMensajes)
             mensajesMostrados.AddRange(nuevosMensajes)
             cantidadTotalMensajes = cantidadActualizadaMensajes
             MostrarNuevosMensajes(nuevosMensajes)
@@ -87,10 +87,20 @@ Public Class FrmChatPaciente
     Private Sub MostrarNuevosMensajes(mensajes As List(Of Mensaje))
         For Each m As Mensaje In mensajes
             If m.Formato = FormatosMensajeAdmitidos.TXT Then
-                txtConversacion.Text &= m.FechaHora.ToString("(dd/MM HH:mm:ss) ") & m.Remitente.ToString.Chars(0) & ": " & m.ToString & vbNewLine
+                Dim prefijoMensaje As String = m.FechaHora.ToString("(dd/MM HH:mm:ss) ")
+                If m.Remitente = TiposRemitente.Paciente Then
+                    prefijoMensaje &= "Tú: "
+                Else
+                    prefijoMensaje &= consultaEnCurso.Medico.ToString & ": "
+                End If
+                txtConversacion.Text &= prefijoMensaje & m.ToString & vbNewLine
             Else
-                txtConversacion.Text &= m.Remitente.ToString.Chars(0) & " envió un archivo " & m.Formato.ToString & "." & vbNewLine
-                lstArchivos.Items.Add(m)
+                If m.Remitente = TiposRemitente.Paciente Then
+                    txtConversacion.Text &= "Enviaste un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
+                Else
+                    txtConversacion.Text &= consultaEnCurso.Medico.ToString & " envió un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
+                End If
+                lstArchivos.Items.Add(m.ToString)
             End If
         Next
     End Sub
