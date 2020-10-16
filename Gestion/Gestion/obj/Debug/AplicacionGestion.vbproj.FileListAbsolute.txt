@@ -93,3 +93,6 @@ C:\Users\marce\Downloads\Look and feel\HelloCare-master\Gestion\Gestion\obj\Debu
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Gestion\Gestion\obj\Debug\AplicacionGestion.exe
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Gestion\Gestion\obj\Debug\AplicacionGestion.xml
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Gestion\Gestion\obj\Debug\AplicacionGestion.pdb
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmConfiguracion.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmContrasenaOlvidada.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmRegistro.resources

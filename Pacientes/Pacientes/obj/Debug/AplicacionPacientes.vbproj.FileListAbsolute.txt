@@ -86,3 +86,6 @@ C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Pacientes\Pacientes\obj
 C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.exe
 C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.xml
 C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.pdb
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmContrasenaOlvidada.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmRegistro.resources

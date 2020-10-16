@@ -161,16 +161,18 @@
             Throw New ArgumentException("La fecha de nacimiento del paciente no puede ser anterior a 1900.")
         End If
 
-        If fechaDefuncion <> Nothing AndAlso fechaDefuncion > Now Then
-            Throw New ArgumentException("La fecha de defunción del paciente no puede ser posterior al momento actual.")
-        End If
+        If fechaDefuncion <> Nothing Then
+            If fechaDefuncion > Now Then
+                Throw New ArgumentException("La fecha de defunción del paciente no puede ser posterior al momento actual.")
+            End If
 
-        If fechaDefuncion <> Nothing AndAlso fechaDefuncion < New Date(1900, 1, 1) Then
-            Throw New ArgumentException("La fecha de defunción del paciente no puede ser anterior a 1900.")
-        End If
+            If fechaDefuncion > New Date(1900, 1, 1) Then
+                Throw New ArgumentException("La fecha de defunción del paciente no puede ser anterior a 1900.")
+            End If
 
-        If fechaDefuncion < fechaNacimiento Then
-            Throw New ArgumentException("La fecha de defunción no puede ser anterior a la fecha de nacimiento del paciente.")
+            If fechaDefuncion < fechaNacimiento Then
+                Throw New ArgumentException("La fecha de defunción no puede ser anterior a la fecha de nacimiento del paciente.")
+            End If
         End If
 
         ' calle tiene un valor nulo
@@ -198,9 +200,11 @@
         ValidarCaracteresNumero(numeroPuerta)
 
         If apartamento IsNot Nothing AndAlso apartamento.Length > 10 Then
-            Throw New ArgumentException("El número de apartamento no puede tener más de 10 caracteres.")
-        End If
+            If apartamento.Length > 10 Then
+                Throw New ArgumentException("El número de apartamento no puede tener más de 10 caracteres.")
+            End If
 
-        ValidarCaracteresTexto(apartamento)
+            ValidarCaracteresTexto(apartamento)
+        End If
     End Sub
 End Class
