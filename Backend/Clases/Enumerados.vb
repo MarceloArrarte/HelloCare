@@ -71,7 +71,7 @@
     End Enum
 
     Public Enum Idiomas
-        Español = 1
-        Inglés = 2
+        Espanol = 1
+        Ingles = 2
     End Enum
 End Module

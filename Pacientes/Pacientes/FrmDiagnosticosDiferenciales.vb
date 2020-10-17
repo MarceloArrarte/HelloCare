@@ -1,4 +1,7 @@
-﻿Imports CapaLogica
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports System.Windows.Forms
+Imports CapaLogica
 Imports Clases
 
 Public Class FrmDiagnosticosDiferenciales
@@ -19,5 +22,22 @@ Public Class FrmDiagnosticosDiferenciales
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        Dim nombreIdioma As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                idiomaSeleccionado = Idiomas.Ingles
+                nombreIdioma = "en"
+            Case Idiomas.Ingles
+                idiomaSeleccionado = Idiomas.Espanol
+                nombreIdioma = "es"
+        End Select
+
+        Dim crmIdioma As New ComponentResourceManager(GetType(FrmDiagnosticosDiferenciales))
+        For Each c As Control In Me.Controls
+            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
+        Next
     End Sub
 End Class

@@ -187,6 +187,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmAltaEnfermedades.en.resx">
+      <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaEnfermedades.es-UY.resx">
+      <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaSintomas.en.resx">
+      <DependentUpon>FrmAltaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaSintomas.es.resx">
+      <DependentUpon>FrmAltaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.vb</DependentUpon>
     </EmbeddedResource>
@@ -196,11 +208,35 @@
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoEnfermedades.en.resx">
+      <DependentUpon>FrmListadoEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoEnfermedades.es.resx">
+      <DependentUpon>FrmListadoEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoSintomas.en.resx">
+      <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoSintomas.es.resx">
+      <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.en.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.es.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaEnfermedades.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.en.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.es.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
@@ -214,6 +250,18 @@
     <EmbeddedResource Include="FrmListadoSintomas.resx">
       <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionEnfermedades.en.resx">
+      <DependentUpon>FrmModificacionEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionEnfermedades.es.resx">
+      <DependentUpon>FrmModificacionEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionSintomas.en.resx">
+      <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionSintomas.es.resx">
+      <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificacionSintomas.resx">
       <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +270,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistro.resx">
       <DependentUpon>FrmRegistro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerEnfermedades.en.resx">
+      <DependentUpon>FrmVerEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerEnfermedades.es.resx">
+      <DependentUpon>FrmVerEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerSintomas.en.resx">
+      <DependentUpon>FrmVerSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerSintomas.es.resx">
+      <DependentUpon>FrmVerSintomas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

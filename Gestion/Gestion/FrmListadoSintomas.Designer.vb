@@ -22,10 +22,10 @@ Partial Class FrmListadoSintomas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoSintomas))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoSintomas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -41,108 +41,75 @@ Partial Class FrmListadoSintomas
         Me.colGravedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.exploradorArchivos = New System.Windows.Forms.OpenFileDialog()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.tblSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.Label1.Location = New System.Drawing.Point(725, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(276, 42)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ABM Síntomas"
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Lato", 15.75!)
-        Me.Label2.Location = New System.Drawing.Point(474, 111)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(426, 25)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Lista de sintomas ya ingresados en el sistema:"
         '
         'btnAgregar
         '
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAgregar.Location = New System.Drawing.Point(1056, 580)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(117, 45)
-        Me.btnAgregar.TabIndex = 5
-        Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
+        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnEliminar.Location = New System.Drawing.Point(929, 579)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(121, 45)
-        Me.btnEliminar.TabIndex = 4
-        Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnVer
         '
+        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnVer.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnVer.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVer.Location = New System.Drawing.Point(666, 579)
         Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(103, 45)
-        Me.btnVer.TabIndex = 2
-        Me.btnVer.Text = "Ver"
         Me.btnVer.UseVisualStyleBackColor = False
         '
         'btnModificar
         '
+        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnModificar.Location = New System.Drawing.Point(775, 579)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(148, 45)
-        Me.btnModificar.TabIndex = 3
-        Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnImportar
         '
+        resources.ApplyResources(Me.btnImportar, "btnImportar")
         Me.btnImportar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnImportar.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnImportar.Location = New System.Drawing.Point(512, 579)
         Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(148, 45)
-        Me.btnImportar.TabIndex = 1
-        Me.btnImportar.Text = "Importar csv"
         Me.btnImportar.UseVisualStyleBackColor = False
-        Me.btnImportar.Visible = False
         '
         'btnVolver
         '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnVolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Location = New System.Drawing.Point(156, 571)
         Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(179, 45)
-        Me.btnVolver.TabIndex = 0
-        Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblSintomas
         '
+        resources.ApplyResources(Me.tblSintomas, "tblSintomas")
         Me.tblSintomas.AllowUserToAddRows = False
         Me.tblSintomas.AllowUserToDeleteRows = False
         Me.tblSintomas.AllowUserToResizeColumns = False
@@ -168,7 +135,6 @@ Partial Class FrmListadoSintomas
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblSintomas.DefaultCellStyle = DataGridViewCellStyle2
-        Me.tblSintomas.Location = New System.Drawing.Point(479, 149)
         Me.tblSintomas.Name = "tblSintomas"
         Me.tblSintomas.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -181,21 +147,18 @@ Partial Class FrmListadoSintomas
         Me.tblSintomas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.tblSintomas.RowHeadersVisible = False
         Me.tblSintomas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblSintomas.Size = New System.Drawing.Size(732, 424)
-        Me.tblSintomas.TabIndex = 20
         Me.tblSintomas.TabStop = False
         '
         'colObjeto
         '
-        Me.colObjeto.HeaderText = "Objeto"
+        resources.ApplyResources(Me.colObjeto, "colObjeto")
         Me.colObjeto.Name = "colObjeto"
         Me.colObjeto.ReadOnly = True
-        Me.colObjeto.Visible = False
         '
         'colNombre
         '
         Me.colNombre.FillWeight = 20.0!
-        Me.colNombre.HeaderText = "Nombre"
+        resources.ApplyResources(Me.colNombre, "colNombre")
         Me.colNombre.Name = "colNombre"
         Me.colNombre.ReadOnly = True
         Me.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -203,7 +166,7 @@ Partial Class FrmListadoSintomas
         'colDesc
         '
         Me.colDesc.FillWeight = 30.0!
-        Me.colDesc.HeaderText = "Descripción"
+        resources.ApplyResources(Me.colDesc, "colDesc")
         Me.colDesc.Name = "colDesc"
         Me.colDesc.ReadOnly = True
         Me.colDesc.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -211,7 +174,7 @@ Partial Class FrmListadoSintomas
         'colGravedad
         '
         Me.colGravedad.FillWeight = 10.0!
-        Me.colGravedad.HeaderText = "Gravedad"
+        resources.ApplyResources(Me.colGravedad, "colGravedad")
         Me.colGravedad.Name = "colGravedad"
         Me.colGravedad.ReadOnly = True
         Me.colGravedad.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -219,7 +182,7 @@ Partial Class FrmListadoSintomas
         'colRec
         '
         Me.colRec.FillWeight = 20.0!
-        Me.colRec.HeaderText = "Recomendación"
+        resources.ApplyResources(Me.colRec, "colRec")
         Me.colRec.Name = "colRec"
         Me.colRec.ReadOnly = True
         Me.colRec.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -227,29 +190,29 @@ Partial Class FrmListadoSintomas
         'exploradorArchivos
         '
         Me.exploradorArchivos.FileName = "OpenFileDialog1"
+        resources.ApplyResources(Me.exploradorArchivos, "exploradorArchivos")
         '
-        'Label6
+        'lblTraducir
         '
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Image = CType(resources.GetObject("Label6.Image"), System.Drawing.Image)
-        Me.Label6.Location = New System.Drawing.Point(-82, 635)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(225, 43)
-        Me.Label6.TabIndex = 46
-        Me.Label6.Text = "Traducir"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Name = "Label3"
         '
         'FrmListadoSintomas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.CancelButton = Me.btnVolver
-        Me.ClientSize = New System.Drawing.Size(1214, 681)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.tblSintomas)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnImportar)
@@ -260,11 +223,8 @@ Partial Class FrmListadoSintomas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FrmListadoSintomas"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ABM Síntomas"
         CType(Me.tblSintomas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -280,11 +240,12 @@ Partial Class FrmListadoSintomas
     Friend WithEvents btnImportar As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents tblSintomas As DataGridView
+    Friend WithEvents exploradorArchivos As OpenFileDialog
+    Friend WithEvents lblTraducir As Label
     Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colDesc As DataGridViewTextBoxColumn
     Friend WithEvents colGravedad As DataGridViewTextBoxColumn
     Friend WithEvents colRec As DataGridViewTextBoxColumn
-    Friend WithEvents exploradorArchivos As OpenFileDialog
-    Friend WithEvents Label6 As Label
+    Friend WithEvents Label3 As Label
 End Class

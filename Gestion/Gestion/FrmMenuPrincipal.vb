@@ -1,4 +1,7 @@
-﻿Imports CapaLogica
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports CapaLogica
+Imports Clases
 
 Public Class FrmMenuPrincipal
     Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,5 +41,22 @@ Public Class FrmMenuPrincipal
         Me.Hide()
         frm.ShowDialog()
         Me.Show()
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        Dim nombreIdioma As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                idiomaSeleccionado = Idiomas.Ingles
+                nombreIdioma = "en"
+            Case Idiomas.Ingles
+                idiomaSeleccionado = Idiomas.Espanol
+                nombreIdioma = "es"
+        End Select
+
+        Dim crmIdioma As New ComponentResourceManager(GetType(FrmMenuPrincipal))
+        For Each c As Control In Me.Controls
+            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
+        Next
     End Sub
 End Class

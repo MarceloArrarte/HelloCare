@@ -89,3 +89,9 @@ C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Pacientes\Pacientes\obj
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmContrasenaOlvidada.resources
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmRegistro.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmLogin.en.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmLogin.es.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\en\AplicacionPacientes.resources.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\es\AplicacionPacientes.resources.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\en\AplicacionPacientes.resources.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\es\AplicacionPacientes.resources.dll

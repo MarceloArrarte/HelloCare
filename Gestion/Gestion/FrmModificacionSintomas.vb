@@ -1,4 +1,6 @@
-﻿Imports CapaLogica
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports CapaLogica
 Imports Clases
 
 Public Class FrmModificacionSintomas
@@ -131,5 +133,22 @@ Public Class FrmModificacionSintomas
                 e.Cancel = True
             End If
         End If
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        Dim nombreIdioma As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                idiomaSeleccionado = Idiomas.Ingles
+                nombreIdioma = "en"
+            Case Idiomas.Ingles
+                idiomaSeleccionado = Idiomas.Espanol
+                nombreIdioma = "es"
+        End Select
+
+        Dim crmIdioma As New ComponentResourceManager(GetType(FrmModificacionSintomas))
+        For Each c As Control In Me.Controls
+            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
+        Next
     End Sub
 End Class

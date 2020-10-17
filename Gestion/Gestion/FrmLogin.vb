@@ -1,4 +1,6 @@
-﻿Imports CapaLogica
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports CapaLogica
 Imports Clases
 
 Public Class FrmLogin
@@ -16,7 +18,7 @@ Public Class FrmLogin
                     txtContrasena.Clear()
                     Me.Show()
 
-                Case ResultadosLogin.ContrasenaIncorrecta Or ResultadosLogin.PersonaNoExiste
+                Case ResultadosLogin.ContrasenaIncorrecta, ResultadosLogin.PersonaNoExiste
                     MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
 
                 Case ResultadosLogin.SinUsuario
@@ -59,5 +61,22 @@ Public Class FrmLogin
             txtContrasena.Clear()
         End If
         txtContrasena.UseSystemPasswordChar = True
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        Dim nombreIdioma As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                idiomaSeleccionado = Idiomas.Ingles
+                nombreIdioma = "en"
+            Case Idiomas.Ingles
+                idiomaSeleccionado = Idiomas.Espanol
+                nombreIdioma = "es"
+        End Select
+
+        Dim crmIdioma As New ComponentResourceManager(GetType(FrmLogin))
+        For Each c As Control In Me.Controls
+            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
+        Next
     End Sub
 End Class

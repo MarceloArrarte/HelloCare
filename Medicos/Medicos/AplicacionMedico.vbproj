@@ -158,14 +158,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmChatMedico.en.resx">
+      <DependentUpon>FrmChatMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChatMedico.es.resx">
+      <DependentUpon>FrmChatMedico.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmChatMedico.resx">
       <DependentUpon>FrmChatMedico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialChats.en.resx">
+      <DependentUpon>FrmHistorialChats.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialChats.es.resx">
+      <DependentUpon>FrmHistorialChats.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHistorialChats.resx">
       <DependentUpon>FrmHistorialChats.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialPacientes.en.resx">
+      <DependentUpon>FrmHistorialPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialPacientes.es.resx">
+      <DependentUpon>FrmHistorialPacientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHistorialPacientes.resx">
       <DependentUpon>FrmHistorialPacientes.vb</DependentUpon>
@@ -173,14 +191,38 @@
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.en.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.es.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.en.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.es.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoDiagnostico.en.resx">
+      <DependentUpon>FrmNuevoDiagnostico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoDiagnostico.es.resx">
+      <DependentUpon>FrmNuevoDiagnostico.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoDiagnostico.resx">
       <DependentUpon>FrmNuevoDiagnostico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPeticionesChat.en.resx">
+      <DependentUpon>FrmPeticionesChat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPeticionesChat.es.resx">
+      <DependentUpon>FrmPeticionesChat.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPeticionesChat.resx">
       <DependentUpon>FrmPeticionesChat.vb</DependentUpon>

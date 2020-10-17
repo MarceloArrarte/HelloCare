@@ -29,45 +29,33 @@ Partial Class FrmPeticionesChat
         Me.btnAceptarConsulta = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblPeticiones = New System.Windows.Forms.DataGridView()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblLogeado = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.tblPeticiones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnAceptarConsulta
         '
-        Me.btnAceptarConsulta.BackgroundImage = CType(resources.GetObject("btnAceptarConsulta.BackgroundImage"), System.Drawing.Image)
-        Me.btnAceptarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAceptarConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAceptarConsulta.Font = New System.Drawing.Font("Cosmic", 15.75!)
+        resources.ApplyResources(Me.btnAceptarConsulta, "btnAceptarConsulta")
         Me.btnAceptarConsulta.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAceptarConsulta.Location = New System.Drawing.Point(813, 613)
         Me.btnAceptarConsulta.Name = "btnAceptarConsulta"
-        Me.btnAceptarConsulta.Size = New System.Drawing.Size(161, 57)
-        Me.btnAceptarConsulta.TabIndex = 0
-        Me.btnAceptarConsulta.Text = "Aceptar consulta"
         Me.btnAceptarConsulta.UseVisualStyleBackColor = True
         '
         'Label1
         '
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Lato", 15.75!)
-        Me.Label1.Location = New System.Drawing.Point(541, 68)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(592, 90)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "A continuación se muestran las peticiones de chat que han solicitado una consulta" &
-    " médica. Seleccione una y presione ""Aceptar consulta"" para iniciar un chat."
         '
         'tblPeticiones
         '
+        resources.ApplyResources(Me.tblPeticiones, "tblPeticiones")
         Me.tblPeticiones.AllowUserToAddRows = False
         Me.tblPeticiones.AllowUserToDeleteRows = False
         Me.tblPeticiones.AllowUserToResizeColumns = False
@@ -92,7 +80,6 @@ Partial Class FrmPeticionesChat
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.tblPeticiones.DefaultCellStyle = DataGridViewCellStyle2
-        Me.tblPeticiones.Location = New System.Drawing.Point(500, 161)
         Me.tblPeticiones.MultiSelect = False
         Me.tblPeticiones.Name = "tblPeticiones"
         Me.tblPeticiones.ReadOnly = True
@@ -105,103 +92,67 @@ Partial Class FrmPeticionesChat
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblPeticiones.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.tblPeticiones.RowHeadersVisible = False
-        Me.tblPeticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.tblPeticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tblPeticiones.Size = New System.Drawing.Size(702, 446)
-        Me.tblPeticiones.TabIndex = 2
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Name = "Label5"
         '
         'Column1
         '
-        Me.Column1.HeaderText = "Objeto"
+        resources.ApplyResources(Me.Column1, "Column1")
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
         '
         'Column2
         '
         Me.Column2.FillWeight = 25.0!
-        Me.Column2.HeaderText = "Paciente"
+        resources.ApplyResources(Me.Column2, "Column2")
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
         'Column3
         '
         Me.Column3.FillWeight = 20.0!
-        Me.Column3.HeaderText = "Diagnóstico primario"
+        resources.ApplyResources(Me.Column3, "Column3")
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
         'Column5
         '
         Me.Column5.FillWeight = 30.0!
-        Me.Column5.HeaderText = "Información adicional"
+        resources.ApplyResources(Me.Column5, "Column5")
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
         'Column4
         '
         Me.Column4.FillWeight = 20.0!
-        Me.Column4.HeaderText = "Fecha y hora"
+        resources.ApplyResources(Me.Column4, "Column4")
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
-        'btnVolver
-        '
-        Me.btnVolver.BackgroundImage = CType(resources.GetObject("btnVolver.BackgroundImage"), System.Drawing.Image)
-        Me.btnVolver.Font = New System.Drawing.Font("Cosmic", 15.75!)
-        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Location = New System.Drawing.Point(147, 573)
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(161, 49)
-        Me.btnVolver.TabIndex = 3
-        Me.btnVolver.Text = "Volver"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Cosmic", 26.25!, System.Drawing.FontStyle.Underline)
-        Me.Label2.Location = New System.Drawing.Point(539, 28)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(469, 40)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Peticiones de chat disponibles"
-        '
-        'lblLogeado
-        '
-        Me.lblLogeado.BackColor = System.Drawing.Color.Transparent
-        Me.lblLogeado.Font = New System.Drawing.Font("Cosmic", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.lblLogeado.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblLogeado.Location = New System.Drawing.Point(25, 264)
-        Me.lblLogeado.Name = "lblLogeado"
-        Me.lblLogeado.Size = New System.Drawing.Size(425, 148)
-        Me.lblLogeado.TabIndex = 36
-        Me.lblLogeado.Text = "Bienvenido/a," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "#"
-        Me.lblLogeado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label5
-        '
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Cosmic", 15.75!)
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Image = CType(resources.GetObject("Label5.Image"), System.Drawing.Image)
-        Me.Label5.Location = New System.Drawing.Point(-80, 620)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(225, 43)
-        Me.Label5.TabIndex = 37
-        Me.Label5.Text = "Traducir"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'FrmPeticionesChat
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(1214, 681)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.lblLogeado)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.tblPeticiones)
@@ -209,7 +160,6 @@ Partial Class FrmPeticionesChat
         Me.Controls.Add(Me.btnAceptarConsulta)
         Me.DoubleBuffered = True
         Me.Name = "FrmPeticionesChat"
-        Me.Text = "PeticionesChat"
         CType(Me.tblPeticiones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -221,11 +171,10 @@ Partial Class FrmPeticionesChat
     Friend WithEvents tblPeticiones As DataGridView
     Friend WithEvents btnVolver As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label5 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents lblLogeado As Label
-    Friend WithEvents Label5 As Label
 End Class

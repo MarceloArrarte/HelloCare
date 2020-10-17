@@ -166,8 +166,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmChatPaciente.en.resx">
+      <DependentUpon>FrmChatPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChatPaciente.es.resx">
+      <DependentUpon>FrmChatPaciente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmChatPaciente.resx">
       <DependentUpon>FrmChatPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComentariosAdicionales.en.resx">
+      <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComentariosAdicionales.es.resx">
+      <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmComentariosAdicionales.resx">
       <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
@@ -175,17 +187,71 @@
     <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticoPrimario.aa.resx">
+      <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticoPrimario.en.resx">
+      <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticoPrimario.es.resx">
+      <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiagnosticoPrimario.resx">
       <DependentUpon>FrmDiagnosticoPrimario.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticosDiferenciales.bin-NG.resx">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticosDiferenciales.en-DE.resx">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticosDiferenciales.en.resx">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticosDiferenciales.es.resx">
+      <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDiagnosticosDiferenciales.resx">
       <DependentUpon>FrmDiagnosticosDiferenciales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialDiagnosticos.en.resx">
+      <DependentUpon>FrmHistorialDiagnosticos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialDiagnosticos.es.resx">
+      <DependentUpon>FrmHistorialDiagnosticos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoSintoma.en.resx">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoSintoma.es-419.resx">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoSintoma.es-AR.resx">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresoSintoma.es.resx">
+      <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresoSintoma.resx">
       <DependentUpon>FrmIngresoSintoma.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.en.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.es.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.en.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.es-419.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.es.resx">
+      <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>

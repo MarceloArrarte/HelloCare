@@ -1,4 +1,6 @@
-﻿Imports CapaLogica
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports CapaLogica
 Imports Clases
 
 Public Class FrmVerSintomas
@@ -24,5 +26,22 @@ Public Class FrmVerSintomas
     Private Sub FrmVerSintomas_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Me.ActiveControl = Nothing
         tblPatologias.ClearSelection()
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        Dim nombreIdioma As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                idiomaSeleccionado = Idiomas.Ingles
+                nombreIdioma = "en"
+            Case Idiomas.Ingles
+                idiomaSeleccionado = Idiomas.Espanol
+                nombreIdioma = "es"
+        End Select
+
+        Dim crmIdioma As New ComponentResourceManager(GetType(FrmVerEnfermedades))
+        For Each c As Control In Me.Controls
+            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
+        Next
     End Sub
 End Class
