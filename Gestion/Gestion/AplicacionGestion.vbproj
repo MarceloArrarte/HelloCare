@@ -199,8 +199,20 @@
     <EmbeddedResource Include="FrmAltaSintomas.es.resx">
       <DependentUpon>FrmAltaSintomas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfiguracion.en.resx">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfiguracion.es.resx">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContrasenaOlvidada.en.resx">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContrasenaOlvidada.es.resx">
+      <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmContrasenaOlvidada.resx">
       <DependentUpon>FrmContrasenaOlvidada.vb</DependentUpon>
@@ -268,6 +280,12 @@
     <EmbeddedResource Include="FrmModificacionEnfermedades.resx">
       <DependentUpon>FrmModificacionEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.en.resx">
+      <DependentUpon>FrmRegistro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.es.resx">
+      <DependentUpon>FrmRegistro.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistro.resx">
       <DependentUpon>FrmRegistro.vb</DependentUpon>
     </EmbeddedResource>
@@ -310,11 +328,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_hellocare.ico" />
-    <Content Include="MailAltaAdministrativos.html" />
-    <Content Include="MailAltaMedicos.html" />
-    <Content Include="MailAltaPacientes.html" />
-    <Content Include="MailRegistroUsuario.html" />
-    <Content Include="MailRestaurarContrasena.html" />
+    <Content Include="MailAltaAdministrativosEN.html" />
+    <Content Include="MailAltaAdministrativosES.html" />
+    <Content Include="MailAltaMedicosEN.html" />
+    <Content Include="MailAltaMedicosES.html" />
+    <Content Include="MailAltaPacientesEN.html" />
+    <Content Include="MailAltaPacientesES.html" />
+    <Content Include="MailRegistroUsuarioEN.html" />
+    <Content Include="MailRegistroUsuarioES.html" />
+    <Content Include="MailRestaurarContrasenaEN.html" />
+    <Content Include="MailRestaurarContrasenaES.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

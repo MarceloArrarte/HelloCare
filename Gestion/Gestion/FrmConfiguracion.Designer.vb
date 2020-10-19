@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmConfiguracion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class FrmConfiguracion
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConfiguracion))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -33,9 +34,9 @@ Partial Class FrmConfiguracion
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtAgregarDepartamento = New System.Windows.Forms.TextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.btnModificarDepartamento = New System.Windows.Forms.Button()
         Me.txtNuevoNombreDepartamento = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnModificarDepartamento = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtNombreDepartamentoAModificar = New System.Windows.Forms.TextBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
@@ -51,21 +52,23 @@ Partial Class FrmConfiguracion
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.btnAgregarLocalidad = New System.Windows.Forms.Button()
         Me.cbxDepartamentoDeNuevaLocalidad = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.btnAgregarLocalidad = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtAgregarLocalidad = New System.Windows.Forms.TextBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.btnModificarLocalidad = New System.Windows.Forms.Button()
         Me.txtNuevoNombreLocalidad = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btnModificarLocalidad = New System.Windows.Forms.Button()
         Me.Localidad = New System.Windows.Forms.Label()
         Me.txtNombreLocalidadAModificar = New System.Windows.Forms.TextBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.btnCambiarDepartamentoDeLocalidad = New System.Windows.Forms.Button()
+        Me.txtLocalidadParaCambiarDepartamento = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.btnCambiarDepartamentoDeLocalidad = New System.Windows.Forms.Button()
         Me.txtDepartamentoActual = New System.Windows.Forms.TextBox()
         Me.cbxNuevoDepartamentoDeLocalidad = New System.Windows.Forms.ComboBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -83,9 +86,9 @@ Partial Class FrmConfiguracion
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtAgregarEspecialidad = New System.Windows.Forms.TextBox()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.btnModificarEspecialidad = New System.Windows.Forms.Button()
         Me.txtNuevoNombreEspecialidad = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.btnModificarEspecialidad = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtNombreEspecialidadAModificar = New System.Windows.Forms.TextBox()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
@@ -96,10 +99,9 @@ Partial Class FrmConfiguracion
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtBuscarEspecialidad = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.txtLocalidadParaCambiarDepartamento = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -124,777 +126,593 @@ Partial Class FrmConfiguracion
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 55)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(316, 407)
-        Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Controls.Add(Me.TabControl2)
         Me.TabPage1.Controls.Add(Me.grdDepartamentos)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.txtBuscarDepartamento)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(308, 381)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Departamentos"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabControl2
         '
+        resources.ApplyResources(Me.TabControl2, "TabControl2")
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Controls.Add(Me.TabPage5)
         Me.TabControl2.Controls.Add(Me.TabPage6)
-        Me.TabControl2.Location = New System.Drawing.Point(20, 204)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(266, 158)
-        Me.TabControl2.TabIndex = 4
         '
         'TabPage4
         '
+        resources.ApplyResources(Me.TabPage4, "TabPage4")
         Me.TabPage4.Controls.Add(Me.btnAgregarDepartamento)
         Me.TabPage4.Controls.Add(Me.Label3)
         Me.TabPage4.Controls.Add(Me.txtAgregarDepartamento)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage4.TabIndex = 0
-        Me.TabPage4.Text = "Agregar"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'btnAgregarDepartamento
         '
-        Me.btnAgregarDepartamento.Location = New System.Drawing.Point(20, 96)
+        resources.ApplyResources(Me.btnAgregarDepartamento, "btnAgregarDepartamento")
+        Me.btnAgregarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAgregarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarDepartamento.Name = "btnAgregarDepartamento"
-        Me.btnAgregarDepartamento.Size = New System.Drawing.Size(222, 23)
-        Me.btnAgregarDepartamento.TabIndex = 2
-        Me.btnAgregarDepartamento.Text = "Agregar departamento"
-        Me.btnAgregarDepartamento.UseVisualStyleBackColor = True
+        Me.btnAgregarDepartamento.UseVisualStyleBackColor = False
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 22)
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(110, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Nuevo departamento:"
         '
         'txtAgregarDepartamento
         '
-        Me.txtAgregarDepartamento.Location = New System.Drawing.Point(138, 19)
+        resources.ApplyResources(Me.txtAgregarDepartamento, "txtAgregarDepartamento")
         Me.txtAgregarDepartamento.Name = "txtAgregarDepartamento"
-        Me.txtAgregarDepartamento.Size = New System.Drawing.Size(104, 20)
-        Me.txtAgregarDepartamento.TabIndex = 0
         '
         'TabPage5
         '
+        resources.ApplyResources(Me.TabPage5, "TabPage5")
+        Me.TabPage5.Controls.Add(Me.btnModificarDepartamento)
         Me.TabPage5.Controls.Add(Me.txtNuevoNombreDepartamento)
         Me.TabPage5.Controls.Add(Me.Label5)
-        Me.TabPage5.Controls.Add(Me.btnModificarDepartamento)
         Me.TabPage5.Controls.Add(Me.Label4)
         Me.TabPage5.Controls.Add(Me.txtNombreDepartamentoAModificar)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage5.TabIndex = 1
-        Me.TabPage5.Text = "Modificar"
         Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'txtNuevoNombreDepartamento
-        '
-        Me.txtNuevoNombreDepartamento.Location = New System.Drawing.Point(117, 55)
-        Me.txtNuevoNombreDepartamento.Name = "txtNuevoNombreDepartamento"
-        Me.txtNuevoNombreDepartamento.Size = New System.Drawing.Size(125, 20)
-        Me.txtNuevoNombreDepartamento.TabIndex = 7
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(17, 58)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(80, 13)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Nuevo nombre:"
         '
         'btnModificarDepartamento
         '
-        Me.btnModificarDepartamento.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnModificarDepartamento, "btnModificarDepartamento")
+        Me.btnModificarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnModificarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarDepartamento.Name = "btnModificarDepartamento"
-        Me.btnModificarDepartamento.Size = New System.Drawing.Size(222, 23)
-        Me.btnModificarDepartamento.TabIndex = 5
-        Me.btnModificarDepartamento.Text = "Modificar departamento"
-        Me.btnModificarDepartamento.UseVisualStyleBackColor = True
+        Me.btnModificarDepartamento.UseVisualStyleBackColor = False
+        '
+        'txtNuevoNombreDepartamento
+        '
+        resources.ApplyResources(Me.txtNuevoNombreDepartamento, "txtNuevoNombreDepartamento")
+        Me.txtNuevoNombreDepartamento.Name = "txtNuevoNombreDepartamento"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Departamento:"
         '
         'txtNombreDepartamentoAModificar
         '
-        Me.txtNombreDepartamentoAModificar.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtNombreDepartamentoAModificar, "txtNombreDepartamentoAModificar")
         Me.txtNombreDepartamentoAModificar.Name = "txtNombreDepartamentoAModificar"
         Me.txtNombreDepartamentoAModificar.ReadOnly = True
-        Me.txtNombreDepartamentoAModificar.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreDepartamentoAModificar.TabIndex = 3
         '
         'TabPage6
         '
+        resources.ApplyResources(Me.TabPage6, "TabPage6")
         Me.TabPage6.Controls.Add(Me.btnEliminarDepartamento)
         Me.TabPage6.Controls.Add(Me.Label6)
         Me.TabPage6.Controls.Add(Me.txtEliminarDepartamento)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage6.TabIndex = 2
-        Me.TabPage6.Text = "Eliminar"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
         'btnEliminarDepartamento
         '
-        Me.btnEliminarDepartamento.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnEliminarDepartamento, "btnEliminarDepartamento")
+        Me.btnEliminarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEliminarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarDepartamento.Name = "btnEliminarDepartamento"
-        Me.btnEliminarDepartamento.Size = New System.Drawing.Size(222, 23)
-        Me.btnEliminarDepartamento.TabIndex = 8
-        Me.btnEliminarDepartamento.Text = "Eliminar departamento"
-        Me.btnEliminarDepartamento.UseVisualStyleBackColor = True
+        Me.btnEliminarDepartamento.UseVisualStyleBackColor = False
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(77, 13)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Departamento:"
         '
         'txtEliminarDepartamento
         '
-        Me.txtEliminarDepartamento.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtEliminarDepartamento, "txtEliminarDepartamento")
         Me.txtEliminarDepartamento.Name = "txtEliminarDepartamento"
         Me.txtEliminarDepartamento.ReadOnly = True
-        Me.txtEliminarDepartamento.Size = New System.Drawing.Size(125, 20)
-        Me.txtEliminarDepartamento.TabIndex = 6
         '
         'grdDepartamentos
         '
+        resources.ApplyResources(Me.grdDepartamentos, "grdDepartamentos")
         Me.grdDepartamentos.AllowUserToAddRows = False
         Me.grdDepartamentos.AllowUserToDeleteRows = False
         Me.grdDepartamentos.AllowUserToResizeColumns = False
         Me.grdDepartamentos.AllowUserToResizeRows = False
         Me.grdDepartamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grdDepartamentos.BackgroundColor = System.Drawing.Color.White
         Me.grdDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdDepartamentos.ColumnHeadersVisible = False
         Me.grdDepartamentos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Lato", 15.75!)
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdDepartamentos.DefaultCellStyle = DataGridViewCellStyle1
-        Me.grdDepartamentos.Location = New System.Drawing.Point(20, 41)
         Me.grdDepartamentos.MultiSelect = False
         Me.grdDepartamentos.Name = "grdDepartamentos"
         Me.grdDepartamentos.ReadOnly = True
         Me.grdDepartamentos.RowHeadersVisible = False
         Me.grdDepartamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdDepartamentos.Size = New System.Drawing.Size(266, 150)
-        Me.grdDepartamentos.TabIndex = 3
         '
         'Column1
         '
-        Me.Column1.HeaderText = "Column1"
+        resources.ApplyResources(Me.Column1, "Column1")
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 18)
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(111, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Buscar departamento:"
         '
         'txtBuscarDepartamento
         '
-        Me.txtBuscarDepartamento.Location = New System.Drawing.Point(141, 15)
+        resources.ApplyResources(Me.txtBuscarDepartamento, "txtBuscarDepartamento")
         Me.txtBuscarDepartamento.Name = "txtBuscarDepartamento"
-        Me.txtBuscarDepartamento.Size = New System.Drawing.Size(145, 20)
-        Me.txtBuscarDepartamento.TabIndex = 1
         '
         'TabPage2
         '
+        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Controls.Add(Me.cbxDepartamentos)
         Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.TabControl3)
         Me.TabPage2.Controls.Add(Me.grdLocalidades)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.txtBuscarLocalidades)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(308, 381)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Localidades"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'cbxDepartamentos
         '
+        resources.ApplyResources(Me.cbxDepartamentos, "cbxDepartamentos")
         Me.cbxDepartamentos.FormattingEnabled = True
-        Me.cbxDepartamentos.Location = New System.Drawing.Point(165, 13)
         Me.cbxDepartamentos.Name = "cbxDepartamentos"
-        Me.cbxDepartamentos.Size = New System.Drawing.Size(124, 21)
-        Me.cbxDepartamentos.TabIndex = 10
         '
         'Label12
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(20, 16)
+        resources.ApplyResources(Me.Label12, "Label12")
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(134, 13)
-        Me.Label12.TabIndex = 9
-        Me.Label12.Text = "Seleccionar departamento:"
         '
         'TabControl3
         '
+        resources.ApplyResources(Me.TabControl3, "TabControl3")
         Me.TabControl3.Controls.Add(Me.TabPage7)
         Me.TabControl3.Controls.Add(Me.TabPage8)
         Me.TabControl3.Controls.Add(Me.TabPage10)
         Me.TabControl3.Controls.Add(Me.TabPage9)
-        Me.TabControl3.Location = New System.Drawing.Point(23, 206)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(266, 158)
-        Me.TabControl3.TabIndex = 8
         '
         'TabPage7
         '
+        resources.ApplyResources(Me.TabPage7, "TabPage7")
+        Me.TabPage7.Controls.Add(Me.btnAgregarLocalidad)
         Me.TabPage7.Controls.Add(Me.cbxDepartamentoDeNuevaLocalidad)
         Me.TabPage7.Controls.Add(Me.Label13)
-        Me.TabPage7.Controls.Add(Me.btnAgregarLocalidad)
         Me.TabPage7.Controls.Add(Me.Label7)
         Me.TabPage7.Controls.Add(Me.txtAgregarLocalidad)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage7.TabIndex = 0
-        Me.TabPage7.Text = "Agregar"
         Me.TabPage7.UseVisualStyleBackColor = True
-        '
-        'cbxDepartamentoDeNuevaLocalidad
-        '
-        Me.cbxDepartamentoDeNuevaLocalidad.FormattingEnabled = True
-        Me.cbxDepartamentoDeNuevaLocalidad.Location = New System.Drawing.Point(123, 17)
-        Me.cbxDepartamentoDeNuevaLocalidad.Name = "cbxDepartamentoDeNuevaLocalidad"
-        Me.cbxDepartamentoDeNuevaLocalidad.Size = New System.Drawing.Size(119, 21)
-        Me.cbxDepartamentoDeNuevaLocalidad.TabIndex = 12
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(17, 20)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(77, 13)
-        Me.Label13.TabIndex = 11
-        Me.Label13.Text = "Departamento:"
         '
         'btnAgregarLocalidad
         '
-        Me.btnAgregarLocalidad.Location = New System.Drawing.Point(20, 96)
+        resources.ApplyResources(Me.btnAgregarLocalidad, "btnAgregarLocalidad")
+        Me.btnAgregarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAgregarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarLocalidad.Name = "btnAgregarLocalidad"
-        Me.btnAgregarLocalidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnAgregarLocalidad.TabIndex = 2
-        Me.btnAgregarLocalidad.Text = "Agregar localidad"
-        Me.btnAgregarLocalidad.UseVisualStyleBackColor = True
+        Me.btnAgregarLocalidad.UseVisualStyleBackColor = False
+        '
+        'cbxDepartamentoDeNuevaLocalidad
+        '
+        resources.ApplyResources(Me.cbxDepartamentoDeNuevaLocalidad, "cbxDepartamentoDeNuevaLocalidad")
+        Me.cbxDepartamentoDeNuevaLocalidad.FormattingEnabled = True
+        Me.cbxDepartamentoDeNuevaLocalidad.Name = "cbxDepartamentoDeNuevaLocalidad"
+        '
+        'Label13
+        '
+        resources.ApplyResources(Me.Label13, "Label13")
+        Me.Label13.Name = "Label13"
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(17, 59)
+        resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(87, 13)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Nueva localidad:"
         '
         'txtAgregarLocalidad
         '
-        Me.txtAgregarLocalidad.Location = New System.Drawing.Point(123, 56)
+        resources.ApplyResources(Me.txtAgregarLocalidad, "txtAgregarLocalidad")
         Me.txtAgregarLocalidad.Name = "txtAgregarLocalidad"
-        Me.txtAgregarLocalidad.Size = New System.Drawing.Size(119, 20)
-        Me.txtAgregarLocalidad.TabIndex = 0
         '
         'TabPage8
         '
+        resources.ApplyResources(Me.TabPage8, "TabPage8")
+        Me.TabPage8.Controls.Add(Me.btnModificarLocalidad)
         Me.TabPage8.Controls.Add(Me.txtNuevoNombreLocalidad)
         Me.TabPage8.Controls.Add(Me.Label8)
-        Me.TabPage8.Controls.Add(Me.btnModificarLocalidad)
         Me.TabPage8.Controls.Add(Me.Localidad)
         Me.TabPage8.Controls.Add(Me.txtNombreLocalidadAModificar)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage8.TabIndex = 1
-        Me.TabPage8.Text = "Modificar"
         Me.TabPage8.UseVisualStyleBackColor = True
-        '
-        'txtNuevoNombreLocalidad
-        '
-        Me.txtNuevoNombreLocalidad.Location = New System.Drawing.Point(117, 55)
-        Me.txtNuevoNombreLocalidad.Name = "txtNuevoNombreLocalidad"
-        Me.txtNuevoNombreLocalidad.Size = New System.Drawing.Size(125, 20)
-        Me.txtNuevoNombreLocalidad.TabIndex = 7
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(17, 58)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(80, 13)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Nuevo nombre:"
         '
         'btnModificarLocalidad
         '
-        Me.btnModificarLocalidad.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnModificarLocalidad, "btnModificarLocalidad")
+        Me.btnModificarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnModificarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarLocalidad.Name = "btnModificarLocalidad"
-        Me.btnModificarLocalidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnModificarLocalidad.TabIndex = 5
-        Me.btnModificarLocalidad.Text = "Modificar localidad"
-        Me.btnModificarLocalidad.UseVisualStyleBackColor = True
+        Me.btnModificarLocalidad.UseVisualStyleBackColor = False
+        '
+        'txtNuevoNombreLocalidad
+        '
+        resources.ApplyResources(Me.txtNuevoNombreLocalidad, "txtNuevoNombreLocalidad")
+        Me.txtNuevoNombreLocalidad.Name = "txtNuevoNombreLocalidad"
+        '
+        'Label8
+        '
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.Name = "Label8"
         '
         'Localidad
         '
-        Me.Localidad.AutoSize = True
-        Me.Localidad.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Localidad, "Localidad")
         Me.Localidad.Name = "Localidad"
-        Me.Localidad.Size = New System.Drawing.Size(56, 13)
-        Me.Localidad.TabIndex = 4
-        Me.Localidad.Text = "Localidad:"
         '
         'txtNombreLocalidadAModificar
         '
-        Me.txtNombreLocalidadAModificar.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtNombreLocalidadAModificar, "txtNombreLocalidadAModificar")
         Me.txtNombreLocalidadAModificar.Name = "txtNombreLocalidadAModificar"
         Me.txtNombreLocalidadAModificar.ReadOnly = True
-        Me.txtNombreLocalidadAModificar.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreLocalidadAModificar.TabIndex = 3
         '
         'TabPage10
         '
+        resources.ApplyResources(Me.TabPage10, "TabPage10")
+        Me.TabPage10.Controls.Add(Me.btnCambiarDepartamentoDeLocalidad)
         Me.TabPage10.Controls.Add(Me.txtLocalidadParaCambiarDepartamento)
         Me.TabPage10.Controls.Add(Me.Label20)
         Me.TabPage10.Controls.Add(Me.Label14)
         Me.TabPage10.Controls.Add(Me.Label9)
-        Me.TabPage10.Controls.Add(Me.btnCambiarDepartamentoDeLocalidad)
         Me.TabPage10.Controls.Add(Me.txtDepartamentoActual)
         Me.TabPage10.Controls.Add(Me.cbxNuevoDepartamentoDeLocalidad)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage10.TabIndex = 3
-        Me.TabPage10.Text = "Cambiar departamento"
         Me.TabPage10.UseVisualStyleBackColor = True
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(14, 72)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(110, 13)
-        Me.Label14.TabIndex = 4
-        Me.Label14.Text = "Nuevo departamento:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 45)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(109, 13)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Departamento actual:"
         '
         'btnCambiarDepartamentoDeLocalidad
         '
-        Me.btnCambiarDepartamentoDeLocalidad.Location = New System.Drawing.Point(17, 96)
+        resources.ApplyResources(Me.btnCambiarDepartamentoDeLocalidad, "btnCambiarDepartamentoDeLocalidad")
+        Me.btnCambiarDepartamentoDeLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnCambiarDepartamentoDeLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnCambiarDepartamentoDeLocalidad.Name = "btnCambiarDepartamentoDeLocalidad"
-        Me.btnCambiarDepartamentoDeLocalidad.Size = New System.Drawing.Size(226, 23)
-        Me.btnCambiarDepartamentoDeLocalidad.TabIndex = 2
-        Me.btnCambiarDepartamentoDeLocalidad.Text = "Cambiar departamento de la localidad"
-        Me.btnCambiarDepartamentoDeLocalidad.UseVisualStyleBackColor = True
+        Me.btnCambiarDepartamentoDeLocalidad.UseVisualStyleBackColor = False
+        '
+        'txtLocalidadParaCambiarDepartamento
+        '
+        resources.ApplyResources(Me.txtLocalidadParaCambiarDepartamento, "txtLocalidadParaCambiarDepartamento")
+        Me.txtLocalidadParaCambiarDepartamento.Name = "txtLocalidadParaCambiarDepartamento"
+        Me.txtLocalidadParaCambiarDepartamento.ReadOnly = True
+        '
+        'Label20
+        '
+        resources.ApplyResources(Me.Label20, "Label20")
+        Me.Label20.Name = "Label20"
+        '
+        'Label14
+        '
+        resources.ApplyResources(Me.Label14, "Label14")
+        Me.Label14.Name = "Label14"
+        '
+        'Label9
+        '
+        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.Name = "Label9"
         '
         'txtDepartamentoActual
         '
-        Me.txtDepartamentoActual.Location = New System.Drawing.Point(129, 42)
+        resources.ApplyResources(Me.txtDepartamentoActual, "txtDepartamentoActual")
         Me.txtDepartamentoActual.Name = "txtDepartamentoActual"
-        Me.txtDepartamentoActual.Size = New System.Drawing.Size(114, 20)
-        Me.txtDepartamentoActual.TabIndex = 1
+        Me.txtDepartamentoActual.ReadOnly = True
         '
         'cbxNuevoDepartamentoDeLocalidad
         '
+        resources.ApplyResources(Me.cbxNuevoDepartamentoDeLocalidad, "cbxNuevoDepartamentoDeLocalidad")
         Me.cbxNuevoDepartamentoDeLocalidad.FormattingEnabled = True
-        Me.cbxNuevoDepartamentoDeLocalidad.Location = New System.Drawing.Point(129, 69)
         Me.cbxNuevoDepartamentoDeLocalidad.Name = "cbxNuevoDepartamentoDeLocalidad"
-        Me.cbxNuevoDepartamentoDeLocalidad.Size = New System.Drawing.Size(114, 21)
-        Me.cbxNuevoDepartamentoDeLocalidad.TabIndex = 0
         '
         'TabPage9
         '
+        resources.ApplyResources(Me.TabPage9, "TabPage9")
         Me.TabPage9.Controls.Add(Me.btnEliminarLocalidad)
         Me.TabPage9.Controls.Add(Me.Label10)
         Me.TabPage9.Controls.Add(Me.txtEliminarLocalidad)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage9.TabIndex = 2
-        Me.TabPage9.Text = "Eliminar"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
         'btnEliminarLocalidad
         '
-        Me.btnEliminarLocalidad.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnEliminarLocalidad, "btnEliminarLocalidad")
+        Me.btnEliminarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEliminarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarLocalidad.Name = "btnEliminarLocalidad"
-        Me.btnEliminarLocalidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnEliminarLocalidad.TabIndex = 8
-        Me.btnEliminarLocalidad.Text = "Eliminar localidad"
-        Me.btnEliminarLocalidad.UseVisualStyleBackColor = True
+        Me.btnEliminarLocalidad.UseVisualStyleBackColor = False
         '
         'Label10
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Label10, "Label10")
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(56, 13)
-        Me.Label10.TabIndex = 7
-        Me.Label10.Text = "Localidad:"
         '
         'txtEliminarLocalidad
         '
-        Me.txtEliminarLocalidad.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtEliminarLocalidad, "txtEliminarLocalidad")
         Me.txtEliminarLocalidad.Name = "txtEliminarLocalidad"
         Me.txtEliminarLocalidad.ReadOnly = True
-        Me.txtEliminarLocalidad.Size = New System.Drawing.Size(125, 20)
-        Me.txtEliminarLocalidad.TabIndex = 6
         '
         'grdLocalidades
         '
+        resources.ApplyResources(Me.grdLocalidades, "grdLocalidades")
         Me.grdLocalidades.AllowUserToAddRows = False
         Me.grdLocalidades.AllowUserToDeleteRows = False
         Me.grdLocalidades.AllowUserToResizeColumns = False
         Me.grdLocalidades.AllowUserToResizeRows = False
         Me.grdLocalidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grdLocalidades.BackgroundColor = System.Drawing.Color.White
         Me.grdLocalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdLocalidades.ColumnHeadersVisible = False
         Me.grdLocalidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Lato", 15.75!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdLocalidades.DefaultCellStyle = DataGridViewCellStyle2
-        Me.grdLocalidades.Location = New System.Drawing.Point(23, 72)
         Me.grdLocalidades.MultiSelect = False
         Me.grdLocalidades.Name = "grdLocalidades"
         Me.grdLocalidades.ReadOnly = True
         Me.grdLocalidades.RowHeadersVisible = False
         Me.grdLocalidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdLocalidades.Size = New System.Drawing.Size(266, 121)
-        Me.grdLocalidades.TabIndex = 7
         '
         'DataGridViewTextBoxColumn1
         '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
+        resources.ApplyResources(Me.DataGridViewTextBoxColumn1, "DataGridViewTextBoxColumn1")
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
         'Label11
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(20, 44)
+        resources.ApplyResources(Me.Label11, "Label11")
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(88, 13)
-        Me.Label11.TabIndex = 6
-        Me.Label11.Text = "Buscar localidad:"
         '
         'txtBuscarLocalidades
         '
-        Me.txtBuscarLocalidades.Location = New System.Drawing.Point(165, 41)
+        resources.ApplyResources(Me.txtBuscarLocalidades, "txtBuscarLocalidades")
         Me.txtBuscarLocalidades.Name = "txtBuscarLocalidades"
-        Me.txtBuscarLocalidades.Size = New System.Drawing.Size(124, 20)
-        Me.txtBuscarLocalidades.TabIndex = 5
         '
         'TabPage3
         '
+        resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Controls.Add(Me.TabControl4)
         Me.TabPage3.Controls.Add(Me.grdEspecialidades)
         Me.TabPage3.Controls.Add(Me.Label19)
         Me.TabPage3.Controls.Add(Me.txtBuscarEspecialidad)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(308, 381)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Especialidades"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TabControl4
         '
+        resources.ApplyResources(Me.TabControl4, "TabControl4")
         Me.TabControl4.Controls.Add(Me.TabPage11)
         Me.TabControl4.Controls.Add(Me.TabPage12)
         Me.TabControl4.Controls.Add(Me.TabPage13)
-        Me.TabControl4.Location = New System.Drawing.Point(23, 206)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(266, 158)
-        Me.TabControl4.TabIndex = 8
         '
         'TabPage11
         '
+        resources.ApplyResources(Me.TabPage11, "TabPage11")
         Me.TabPage11.Controls.Add(Me.btnAgregarEspecialidad)
         Me.TabPage11.Controls.Add(Me.Label15)
         Me.TabPage11.Controls.Add(Me.txtAgregarEspecialidad)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage11.TabIndex = 0
-        Me.TabPage11.Text = "Agregar"
         Me.TabPage11.UseVisualStyleBackColor = True
         '
         'btnAgregarEspecialidad
         '
-        Me.btnAgregarEspecialidad.Location = New System.Drawing.Point(20, 96)
+        resources.ApplyResources(Me.btnAgregarEspecialidad, "btnAgregarEspecialidad")
+        Me.btnAgregarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAgregarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad"
-        Me.btnAgregarEspecialidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnAgregarEspecialidad.TabIndex = 2
-        Me.btnAgregarEspecialidad.Text = "Agregar especialidad"
-        Me.btnAgregarEspecialidad.UseVisualStyleBackColor = True
+        Me.btnAgregarEspecialidad.UseVisualStyleBackColor = False
         '
         'Label15
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(17, 22)
+        resources.ApplyResources(Me.Label15, "Label15")
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(104, 13)
-        Me.Label15.TabIndex = 1
-        Me.Label15.Text = "Nueva especialidad:"
         '
         'txtAgregarEspecialidad
         '
-        Me.txtAgregarEspecialidad.Location = New System.Drawing.Point(138, 19)
+        resources.ApplyResources(Me.txtAgregarEspecialidad, "txtAgregarEspecialidad")
         Me.txtAgregarEspecialidad.Name = "txtAgregarEspecialidad"
-        Me.txtAgregarEspecialidad.Size = New System.Drawing.Size(104, 20)
-        Me.txtAgregarEspecialidad.TabIndex = 0
         '
         'TabPage12
         '
+        resources.ApplyResources(Me.TabPage12, "TabPage12")
+        Me.TabPage12.Controls.Add(Me.btnModificarEspecialidad)
         Me.TabPage12.Controls.Add(Me.txtNuevoNombreEspecialidad)
         Me.TabPage12.Controls.Add(Me.Label16)
-        Me.TabPage12.Controls.Add(Me.btnModificarEspecialidad)
         Me.TabPage12.Controls.Add(Me.Label17)
         Me.TabPage12.Controls.Add(Me.txtNombreEspecialidadAModificar)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 22)
         Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage12.TabIndex = 1
-        Me.TabPage12.Text = "Modificar"
         Me.TabPage12.UseVisualStyleBackColor = True
-        '
-        'txtNuevoNombreEspecialidad
-        '
-        Me.txtNuevoNombreEspecialidad.Location = New System.Drawing.Point(117, 55)
-        Me.txtNuevoNombreEspecialidad.Name = "txtNuevoNombreEspecialidad"
-        Me.txtNuevoNombreEspecialidad.Size = New System.Drawing.Size(125, 20)
-        Me.txtNuevoNombreEspecialidad.TabIndex = 7
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(17, 58)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(80, 13)
-        Me.Label16.TabIndex = 6
-        Me.Label16.Text = "Nuevo nombre:"
         '
         'btnModificarEspecialidad
         '
-        Me.btnModificarEspecialidad.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnModificarEspecialidad, "btnModificarEspecialidad")
+        Me.btnModificarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnModificarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarEspecialidad.Name = "btnModificarEspecialidad"
-        Me.btnModificarEspecialidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnModificarEspecialidad.TabIndex = 5
-        Me.btnModificarEspecialidad.Text = "Modificar especialidad"
-        Me.btnModificarEspecialidad.UseVisualStyleBackColor = True
+        Me.btnModificarEspecialidad.UseVisualStyleBackColor = False
+        '
+        'txtNuevoNombreEspecialidad
+        '
+        resources.ApplyResources(Me.txtNuevoNombreEspecialidad, "txtNuevoNombreEspecialidad")
+        Me.txtNuevoNombreEspecialidad.Name = "txtNuevoNombreEspecialidad"
+        '
+        'Label16
+        '
+        resources.ApplyResources(Me.Label16, "Label16")
+        Me.Label16.Name = "Label16"
         '
         'Label17
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Label17, "Label17")
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(70, 13)
-        Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Especialidad:"
         '
         'txtNombreEspecialidadAModificar
         '
-        Me.txtNombreEspecialidadAModificar.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtNombreEspecialidadAModificar, "txtNombreEspecialidadAModificar")
         Me.txtNombreEspecialidadAModificar.Name = "txtNombreEspecialidadAModificar"
         Me.txtNombreEspecialidadAModificar.ReadOnly = True
-        Me.txtNombreEspecialidadAModificar.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreEspecialidadAModificar.TabIndex = 3
         '
         'TabPage13
         '
+        resources.ApplyResources(Me.TabPage13, "TabPage13")
         Me.TabPage13.Controls.Add(Me.btnEliminarEspecialidad)
         Me.TabPage13.Controls.Add(Me.Label18)
         Me.TabPage13.Controls.Add(Me.txtEliminarEspecialidad)
-        Me.TabPage13.Location = New System.Drawing.Point(4, 22)
         Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Size = New System.Drawing.Size(258, 132)
-        Me.TabPage13.TabIndex = 2
-        Me.TabPage13.Text = "Eliminar"
         Me.TabPage13.UseVisualStyleBackColor = True
         '
         'btnEliminarEspecialidad
         '
-        Me.btnEliminarEspecialidad.Location = New System.Drawing.Point(20, 93)
+        resources.ApplyResources(Me.btnEliminarEspecialidad, "btnEliminarEspecialidad")
+        Me.btnEliminarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEliminarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarEspecialidad.Name = "btnEliminarEspecialidad"
-        Me.btnEliminarEspecialidad.Size = New System.Drawing.Size(222, 23)
-        Me.btnEliminarEspecialidad.TabIndex = 8
-        Me.btnEliminarEspecialidad.Text = "Eliminar especialidad"
-        Me.btnEliminarEspecialidad.UseVisualStyleBackColor = True
+        Me.btnEliminarEspecialidad.UseVisualStyleBackColor = False
         '
         'Label18
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(17, 19)
+        resources.ApplyResources(Me.Label18, "Label18")
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(70, 13)
-        Me.Label18.TabIndex = 7
-        Me.Label18.Text = "Especialidad:"
         '
         'txtEliminarEspecialidad
         '
-        Me.txtEliminarEspecialidad.Location = New System.Drawing.Point(117, 16)
+        resources.ApplyResources(Me.txtEliminarEspecialidad, "txtEliminarEspecialidad")
         Me.txtEliminarEspecialidad.Name = "txtEliminarEspecialidad"
         Me.txtEliminarEspecialidad.ReadOnly = True
-        Me.txtEliminarEspecialidad.Size = New System.Drawing.Size(125, 20)
-        Me.txtEliminarEspecialidad.TabIndex = 6
         '
         'grdEspecialidades
         '
+        resources.ApplyResources(Me.grdEspecialidades, "grdEspecialidades")
         Me.grdEspecialidades.AllowUserToAddRows = False
         Me.grdEspecialidades.AllowUserToDeleteRows = False
         Me.grdEspecialidades.AllowUserToResizeColumns = False
         Me.grdEspecialidades.AllowUserToResizeRows = False
         Me.grdEspecialidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grdEspecialidades.BackgroundColor = System.Drawing.Color.White
         Me.grdEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdEspecialidades.ColumnHeadersVisible = False
         Me.grdEspecialidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Lato", 15.75!)
         DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdEspecialidades.DefaultCellStyle = DataGridViewCellStyle3
-        Me.grdEspecialidades.Location = New System.Drawing.Point(23, 43)
         Me.grdEspecialidades.MultiSelect = False
         Me.grdEspecialidades.Name = "grdEspecialidades"
         Me.grdEspecialidades.ReadOnly = True
         Me.grdEspecialidades.RowHeadersVisible = False
         Me.grdEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdEspecialidades.Size = New System.Drawing.Size(266, 150)
-        Me.grdEspecialidades.TabIndex = 7
         '
         'DataGridViewTextBoxColumn2
         '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Column1"
+        resources.ApplyResources(Me.DataGridViewTextBoxColumn2, "DataGridViewTextBoxColumn2")
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'Label19
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(20, 20)
+        resources.ApplyResources(Me.Label19, "Label19")
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(105, 13)
-        Me.Label19.TabIndex = 6
-        Me.Label19.Text = "Buscar especialidad:"
         '
         'txtBuscarEspecialidad
         '
-        Me.txtBuscarEspecialidad.Location = New System.Drawing.Point(144, 17)
+        resources.ApplyResources(Me.txtBuscarEspecialidad, "txtBuscarEspecialidad")
         Me.txtBuscarEspecialidad.Name = "txtBuscarEspecialidad"
-        Me.txtBuscarEspecialidad.Size = New System.Drawing.Size(145, 20)
-        Me.txtBuscarEspecialidad.TabIndex = 5
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(56, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(226, 24)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Configuración del sistema"
         '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(113, 468)
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(101, 23)
-        Me.btnVolver.TabIndex = 4
-        Me.btnVolver.Text = "Cancelar"
-        Me.btnVolver.UseVisualStyleBackColor = True
+        Me.btnVolver.UseVisualStyleBackColor = False
         '
-        'Label20
+        'Label1
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(15, 19)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(56, 13)
-        Me.Label20.TabIndex = 5
-        Me.Label20.Text = "Localidad:"
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Name = "Label1"
         '
-        'txtLocalidadParaCambiarDepartamento
+        'lblTraducir
         '
-        Me.txtLocalidadParaCambiarDepartamento.Location = New System.Drawing.Point(129, 16)
-        Me.txtLocalidadParaCambiarDepartamento.Name = "txtLocalidadParaCambiarDepartamento"
-        Me.txtLocalidadParaCambiarDepartamento.Size = New System.Drawing.Size(114, 20)
-        Me.txtLocalidadParaCambiarDepartamento.TabIndex = 6
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmConfiguracion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(340, 503)
+        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TabControl1)
+        Me.DoubleBuffered = True
         Me.Name = "FrmConfiguracion"
-        Me.Text = "FrmConfiguracion"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -944,11 +762,9 @@ Partial Class FrmConfiguracion
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents txtNuevoNombreDepartamento As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents btnModificarDepartamento As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents txtNombreDepartamentoAModificar As TextBox
     Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents btnEliminarDepartamento As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents txtEliminarDepartamento As TextBox
     Friend WithEvents grdDepartamentos As DataGridView
@@ -961,23 +777,19 @@ Partial Class FrmConfiguracion
     Friend WithEvents TabPage7 As TabPage
     Friend WithEvents cbxDepartamentoDeNuevaLocalidad As ComboBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents btnAgregarLocalidad As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents txtAgregarLocalidad As TextBox
     Friend WithEvents TabPage8 As TabPage
     Friend WithEvents txtNuevoNombreLocalidad As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents btnModificarLocalidad As Button
     Friend WithEvents Localidad As Label
     Friend WithEvents txtNombreLocalidadAModificar As TextBox
     Friend WithEvents TabPage10 As TabPage
     Friend WithEvents Label14 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents btnCambiarDepartamentoDeLocalidad As Button
     Friend WithEvents txtDepartamentoActual As TextBox
     Friend WithEvents cbxNuevoDepartamentoDeLocalidad As ComboBox
     Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents btnEliminarLocalidad As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents txtEliminarLocalidad As TextBox
     Friend WithEvents grdLocalidades As DataGridView
@@ -987,17 +799,14 @@ Partial Class FrmConfiguracion
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents TabControl4 As TabControl
     Friend WithEvents TabPage11 As TabPage
-    Friend WithEvents btnAgregarEspecialidad As Button
     Friend WithEvents Label15 As Label
     Friend WithEvents txtAgregarEspecialidad As TextBox
     Friend WithEvents TabPage12 As TabPage
     Friend WithEvents txtNuevoNombreEspecialidad As TextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents btnModificarEspecialidad As Button
     Friend WithEvents Label17 As Label
     Friend WithEvents txtNombreEspecialidadAModificar As TextBox
     Friend WithEvents TabPage13 As TabPage
-    Friend WithEvents btnEliminarEspecialidad As Button
     Friend WithEvents Label18 As Label
     Friend WithEvents txtEliminarEspecialidad As TextBox
     Friend WithEvents grdEspecialidades As DataGridView
@@ -1008,4 +817,14 @@ Partial Class FrmConfiguracion
     Friend WithEvents btnVolver As Button
     Friend WithEvents txtLocalidadParaCambiarDepartamento As TextBox
     Friend WithEvents Label20 As Label
+    Friend WithEvents lblTraducir As Label
+    Friend WithEvents btnModificarDepartamento As Button
+    Friend WithEvents btnEliminarDepartamento As Button
+    Friend WithEvents btnAgregarLocalidad As Button
+    Friend WithEvents btnModificarLocalidad As Button
+    Friend WithEvents btnCambiarDepartamentoDeLocalidad As Button
+    Friend WithEvents btnEliminarLocalidad As Button
+    Friend WithEvents btnAgregarEspecialidad As Button
+    Friend WithEvents btnModificarEspecialidad As Button
+    Friend WithEvents btnEliminarEspecialidad As Button
 End Class

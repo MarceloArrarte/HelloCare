@@ -547,7 +547,15 @@ Public Module Principal
             mail.Subject = "¡Bienvenido a HelloCare!"
         End If
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaPacientes.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailAltaPacientesES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailAltaPacientesEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%o/a%", If(paciente.Sexo = TiposSexo.F, "a", "o"))
         cuerpoMensaje = cuerpoMensaje.Replace("%CI%", paciente.CI)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", paciente.Nombre)
@@ -583,7 +591,15 @@ Public Module Principal
         mail.To.Add(medico.Correo)
         mail.Subject = "Registro en Hellocare"
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaMedicos.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailAltaMedicosES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailAltaMedicosEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%CI%", medico.CI)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", medico.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", medico.Apellido)
@@ -611,13 +627,37 @@ Public Module Principal
         mail.To.Add(administrativo.Correo)
         mail.Subject = "Registro en Hellocare"
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailAltaAdministrativos.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailAltaAdministrativosES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailAltaAdministrativosEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%CI%", administrativo.CI)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", administrativo.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", administrativo.Apellido)
         cuerpoMensaje = cuerpoMensaje.Replace("%CORREO%", administrativo.Correo)
         cuerpoMensaje = cuerpoMensaje.Replace("%DEPARTAMENTO%", administrativo.Localidad.Departamento.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%LOCALIDAD%", administrativo.Localidad.Nombre)
+
+        Dim nombreCargo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                If administrativo.EsEncargado Then
+                    nombreCargo = "Encargado"
+                Else
+                    nombreCargo = "Empleado"
+                End If
+            Case Idiomas.Ingles
+                If administrativo.EsEncargado Then
+                    nombreCargo = "Manager"
+                Else
+                    nombreCargo = "Employee"
+                End If
+        End Select
         cuerpoMensaje = cuerpoMensaje.Replace("%CARGO%", If(administrativo.EsEncargado, "Encargado", "Empleado"))
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
@@ -635,7 +675,15 @@ Public Module Principal
         mail.To.Add(persona.Correo)
         mail.Subject = "Registro en HelloCare"
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailRegistroUsuario.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailRegistroUsuarioES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailRegistroUsuarioEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%CEDULA%", persona.CI)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", persona.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", persona.Apellido)
@@ -658,7 +706,15 @@ Public Module Principal
         mail.To.Add(persona.Correo)
         mail.Subject = "Restaurar contraseña"
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailRestaurarContrasena.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailRestaurarContrasenaES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailRestaurarContrasenaEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE%", persona.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO%", persona.Apellido)
         cuerpoMensaje = cuerpoMensaje.Replace("%CIFRADO%", usuario.Contrasena)
@@ -679,7 +735,15 @@ Public Module Principal
         mail.To.Add(paciente.Correo)
         mail.Subject = "Sesión de chat - HelloCare"
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailSesionChat.html")
+        Dim archivoCorreo As String = ""
+        Select Case idiomaSeleccionado
+            Case Idiomas.Espanol
+                archivoCorreo = "../../MailSesionChatES.html"
+            Case Idiomas.Ingles
+                archivoCorreo = "../../MailSesionChatEN.html"
+        End Select
+
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailSesionChatES.html")
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_PACIENTE%", paciente.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO_PACIENTE%", paciente.Apellido)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_MEDICO%", diagnostico.DiagnosticoPrimarioConConsulta.Medico.Nombre)

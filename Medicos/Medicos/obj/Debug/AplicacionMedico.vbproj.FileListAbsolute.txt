@@ -86,7 +86,6 @@ C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Medicos\Medicos\obj\Deb
 C:\Users\AGUST\Desktop\HelloCare-master\HelloCare-master\Medicos\Medicos\obj\Debug\AplicacionMedico.pdb
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\en\AplicacionMedico.resources.dll
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\es\AplicacionMedico.resources.dll
-C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmContrasenaOlvidada.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmChatMedico.en.resources
@@ -99,3 +98,13 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmLogin.es.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\en\AplicacionMedico.resources.dll
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\es\AplicacionMedico.resources.dll
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmContrasenaOlvidada.en.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmContrasenaOlvidada.es.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmMenuPrincipal.en.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmMenuPrincipal.es.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmNuevoDiagnostico.en.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmNuevoDiagnostico.es.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.en.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.es.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.en.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.es.resources

@@ -57,11 +57,11 @@ Partial Class FrmAltaEnfermedades
         Me.txtBuscarSintoma = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tblAsociados = New System.Windows.Forms.DataGridView()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNomEnfermedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFrecuencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblEspecialidades, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblAsociados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -326,19 +326,6 @@ Partial Class FrmAltaEnfermedades
         Me.tblAsociados.RowHeadersVisible = False
         Me.tblAsociados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
-        'Label8
-        '
-        resources.ApplyResources(Me.Label8, "Label8")
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Name = "Label8"
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'colObjeto
         '
         resources.ApplyResources(Me.colObjeto, "colObjeto")
@@ -356,6 +343,19 @@ Partial Class FrmAltaEnfermedades
         Me.colFrecuencia.FillWeight = 25.0!
         resources.ApplyResources(Me.colFrecuencia, "colFrecuencia")
         Me.colFrecuencia.Name = "colFrecuencia"
+        '
+        'Label8
+        '
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Name = "Label8"
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmAltaEnfermedades
         '

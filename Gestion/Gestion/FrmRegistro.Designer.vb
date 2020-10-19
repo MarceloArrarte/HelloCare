@@ -22,6 +22,7 @@ Partial Class FrmRegistro
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRegistro))
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.txtRepetir = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -29,78 +30,91 @@ Partial Class FrmRegistro
         Me.chkMostrarContrasena = New System.Windows.Forms.CheckBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(166, 61)
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
+        Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         Me.txtContrasena.Name = "txtContrasena"
-        Me.txtContrasena.Size = New System.Drawing.Size(142, 20)
-        Me.txtContrasena.TabIndex = 1
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'txtRepetir
         '
-        Me.txtRepetir.Location = New System.Drawing.Point(166, 96)
+        resources.ApplyResources(Me.txtRepetir, "txtRepetir")
+        Me.txtRepetir.BackColor = System.Drawing.Color.DarkGray
         Me.txtRepetir.Name = "txtRepetir"
-        Me.txtRepetir.Size = New System.Drawing.Size(142, 20)
-        Me.txtRepetir.TabIndex = 2
         Me.txtRepetir.UseSystemPasswordChar = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 64)
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.ForeColor = System.Drawing.Color.Transparent
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(148, 13)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Ingrese su nueva contraseña:"
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 99)
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.ForeColor = System.Drawing.Color.Transparent
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(111, 13)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Repita su contraseña:"
         '
         'chkMostrarContrasena
         '
-        Me.chkMostrarContrasena.AutoSize = True
-        Me.chkMostrarContrasena.Location = New System.Drawing.Point(103, 132)
+        resources.ApplyResources(Me.chkMostrarContrasena, "chkMostrarContrasena")
+        Me.chkMostrarContrasena.BackColor = System.Drawing.Color.Transparent
+        Me.chkMostrarContrasena.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.chkMostrarContrasena.Name = "chkMostrarContrasena"
-        Me.chkMostrarContrasena.Size = New System.Drawing.Size(117, 17)
-        Me.chkMostrarContrasena.TabIndex = 5
-        Me.chkMostrarContrasena.Text = "Mostrar contraseña"
-        Me.chkMostrarContrasena.UseVisualStyleBackColor = True
+        Me.chkMostrarContrasena.UseVisualStyleBackColor = False
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(91, 173)
+        resources.ApplyResources(Me.btnGuardar, "btnGuardar")
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(129, 23)
-        Me.btnGuardar.TabIndex = 6
-        Me.btnGuardar.Text = "Guardar contraseña"
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'lblTitulo
         '
-        Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.Location = New System.Drawing.Point(47, 9)
-        Me.lblTitulo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        resources.ApplyResources(Me.lblTitulo, "lblTitulo")
+        Me.lblTitulo.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitulo.ForeColor = System.Drawing.Color.Transparent
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(231, 24)
-        Me.lblTitulo.TabIndex = 7
-        Me.lblTitulo.Text = "Registro de nuevo usuario"
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label4.Name = "Label4"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label5.Name = "Label5"
         '
         'FrmRegistro
         '
         Me.AcceptButton = Me.btnGuardar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(320, 208)
+        Me.Controls.Add(Me.lblTraducir)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.chkMostrarContrasena)
@@ -108,9 +122,8 @@ Partial Class FrmRegistro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtRepetir)
         Me.Controls.Add(Me.txtContrasena)
+        Me.DoubleBuffered = True
         Me.Name = "FrmRegistro"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmRegistro"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -123,4 +136,7 @@ Partial Class FrmRegistro
     Friend WithEvents chkMostrarContrasena As Windows.Forms.CheckBox
     Friend WithEvents btnGuardar As Windows.Forms.Button
     Friend WithEvents lblTitulo As Windows.Forms.Label
+    Friend WithEvents lblTraducir As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class
