@@ -47,7 +47,7 @@ Public Class FrmPeticionesChat
             RefrescarPeticiones()
             Me.Show()
         Else
-            MsgBox("Seleccione un diagnóstico para aceptar la petición e iniciar el chat.")
+            MostrarMensaje(MsgBoxStyle.Information, "Seleccione un diagnóstico para aceptar la petición e iniciar el chat.", "", "Select a diagnosis to accept the chat request.", "")
         End If
     End Sub
 

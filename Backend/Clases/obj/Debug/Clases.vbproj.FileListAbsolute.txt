@@ -14,3 +14,4 @@ C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.dll
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.xml
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.pdb
+C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbprojAssemblyReference.cache

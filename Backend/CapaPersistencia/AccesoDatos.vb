@@ -887,14 +887,6 @@ Public Module AccesoDatos
         Dim tablaSintomasEvaluados As DataTable = ds.Tables("SintomasEvaluados")
         Dim tablaEnfermedadesDiagnosticadas As DataTable = ds.Tables("EnfermedadesDiagnosticadas")
 
-        ds.Relations.Add(New DataRelation("sintomasEvaluados",
-                                          ds.Tables("Diagnosticos").Columns("ID diagnostico primario"),
-                                          ds.Tables("SintomasEvaluados").Columns("ID diagnostico primario")))
-        ds.Relations.Add(New DataRelation("enfermedadesDiagnosticadas",
-                                          ds.Tables("Diagnosticos").Columns("ID diagnostico primario"),
-                                          ds.Tables("EnfermedadesDiagnosticadas").Columns("ID diagnostico primario")))
-
-
         Dim listaConsultas As New List(Of DiagnosticoPrimarioConConsulta)
 
         For i = 0 To ds.Tables("Diagnosticos").Rows.Count - 1
@@ -1064,14 +1056,14 @@ Public Module AccesoDatos
                                                                           fechaHoraDiferencial))
         Next
 
-        For Each d As DiagnosticoDiferencial In listaDiagnosticosDiferenciales
-            MsgBox(String.Join(vbNewLine, {d.ConductaASeguir, d.FechaHora, d.EnfermedadDiagnosticada.Nombre, d.EnfermedadDiagnosticada.Especialidad.Nombre}) & vbNewLine & vbNewLine)
-            Dim texto As New List(Of String)
-            For Each s As Sintoma In d.EnfermedadDiagnosticada.Sintomas
-                texto.Add(String.Format("{0} ({1}%)", s.Nombre, d.EnfermedadDiagnosticada.FrecuenciaSintoma(d.EnfermedadDiagnosticada.Sintomas.IndexOf(s))))
-            Next
-            MsgBox(String.Join(vbNewLine, texto))
-        Next
+        'For Each d As DiagnosticoDiferencial In listaDiagnosticosDiferenciales
+        '    MsgBox(String.Join(vbNewLine, {d.ConductaASeguir, d.FechaHora, d.EnfermedadDiagnosticada.Nombre, d.EnfermedadDiagnosticada.Especialidad.Nombre}) & vbNewLine & vbNewLine)
+        '    Dim texto As New List(Of String)
+        '    For Each s As Sintoma In d.EnfermedadDiagnosticada.Sintomas
+        '        texto.Add(String.Format("{0} ({1}%)", s.Nombre, d.EnfermedadDiagnosticada.FrecuenciaSintoma(d.EnfermedadDiagnosticada.Sintomas.IndexOf(s))))
+        '    Next
+        '    MsgBox(String.Join(vbNewLine, texto))
+        'Next
 
         Return listaDiagnosticosDiferenciales
     End Function

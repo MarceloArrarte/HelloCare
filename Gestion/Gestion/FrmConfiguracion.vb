@@ -78,10 +78,10 @@ Public Class FrmConfiguracion
             If Not yaExiste Then
                 CrearDepartamento(nombreIngresado)
             Else
-                MsgBox("Ya existe un departamento con este nombre.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Ya existe un departamento con este nombre.", "Error", "A department with this name already exists.", "Error")
             End If
         Else
-            MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre del nuevo departamento no puede estar en blanco.", "Error", "The name of the new department cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -107,10 +107,10 @@ Public Class FrmConfiguracion
             If Not yaExiste Then
                 CrearLocalidad(nombreIngresado, departamentoSeleccionado)
             Else
-                MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Ya existe una localidad en este departamento con este nombre.", "Error", "A location with this name already exists.", "Error")
             End If
         Else
-            MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre de la nueva localidad no puede estar en blanco.", "Error", "The name of the new location cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -128,10 +128,10 @@ Public Class FrmConfiguracion
             If Not yaExiste Then
                 CrearEspecialidad(nombreIngresado)
             Else
-                MsgBox("Ya existe una especialidad con este nombre.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Ya existe una especialidad con este nombre.", "Error", "A specialty with this name already exists.", "Error")
             End If
         Else
-            MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre de la nueva especialidad no puede estar en blanco.", "Error", "The name of the new specialty cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -177,13 +177,13 @@ Public Class FrmConfiguracion
                     Next
                     ActualizarDepartamento(departamento, nombreNuevo)
                 Else
-                    MsgBox("Ya existe un departamento con este nombre.", MsgBoxStyle.Critical, "Error")
+                    MostrarMensaje(MsgBoxStyle.Critical, "Ya existe un departamento con este nombre.", "Error", "A department with this name already exists.", "Error")
                 End If
             Else
-                MsgBox("Se ha ingresado el mismo nombre de departamento. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Information, "Se ha ingresado el mismo nombre de departamento. No se realizó ningún cambio.", "Aviso", "The same department name has been entered. No changes have been done.", "Warning")
             End If
         Else
-            MsgBox("El nombre del nuevo departamento no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre del nuevo departamento no puede estar en blanco.", "Error", "The name of the new department cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -217,13 +217,13 @@ Public Class FrmConfiguracion
                     Next
                     ActualizarLocalidad(localidad, nombreNuevo, departamentoSeleccionado)
                 Else
-                    MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
+                    MostrarMensaje(MsgBoxStyle.Critical, "Ya existe una localidad en este departamento con este nombre.", "Error", "A location with this name already exists.", "Error")
                 End If
             Else
-                MsgBox("Se ha ingresado el mismo nombre de localidad. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Information, "Se ha ingresado el mismo nombre de localidad. No se realizó ningún cambio.", "Aviso", "The same location name has been entered. No changes have been done.", "Warning")
             End If
         Else
-            MsgBox("El nombre de la nueva localidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre de la nueva localidad no puede estar en blanco.", "Error", "The name of the new location cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -249,13 +249,13 @@ Public Class FrmConfiguracion
                     Next
                     ActualizarEspecialidad(especialidad, nombreNuevo)
                 Else
-                    MsgBox("Ya existe una especialidad con este nombre.", MsgBoxStyle.Critical, "Error")
+                    MostrarMensaje(MsgBoxStyle.Critical, "Ya existe una especialidad con este nombre.", "Error", "A specialty with this name already exists.", "Error")
                 End If
             Else
-                MsgBox("Se ha ingresado el mismo nombre de especialidad. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Information, "Se ha ingresado el mismo nombre de especialidad. No se realizó ningún cambio.", "Aviso", "The same specialty name has been entered. No changes have been done.", "Warning")
             End If
         Else
-            MsgBox("El nombre de la nueva especialidad no puede estar en blanco.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El nombre de la nueva especialidad no puede estar en blanco.", "Error", "The name of the new specialty cannot be left in blank.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -288,10 +288,10 @@ Public Class FrmConfiguracion
                 Next
                 ActualizarLocalidad(localidad, localidad.Nombre, nuevoDepartamento)
             Else
-                MsgBox("Ya existe una localidad en este departamento con este nombre.", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Ya existe una localidad en este departamento con este nombre.", "Error", "A location with this name already exists.", "Error")
             End If
         Else
-            MsgBox("Se seleccionó el mismo departamento. No se realizó ningún cambio.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Information, "Se seleccionó el mismo departamento. No se realizó ningún cambio.", "Aviso", "The same department has been selected. No changes have been done.", "Warning")
         End If
 
         ActualizarDatosSistema()
@@ -316,7 +316,7 @@ Public Class FrmConfiguracion
         If Not tieneLocalidades Then
             EliminarDepartamento(departamento)
         Else
-            MsgBox("No se puede eliminar un departamento que tenga localidades registradas. Elimine las localidades asociadas y reintente.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "No se puede eliminar un departamento que tenga localidades registradas. Elimine las localidades asociadas y reintente.", "Error", "A department with registered locations cannot be deleted. Delete the associated locations and retry.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -336,7 +336,7 @@ Public Class FrmConfiguracion
         If Not tienePersonas Then
             EliminarLocalidad(localidad)
         Else
-            MsgBox("No se puede eliminar una localidad que tenga personas registradas. Elimine las personas registradas y reintente.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "No se puede eliminar una localidad que tenga personas registradas. Elimine las personas registradas y reintente.", "Error", "A location with registered people cannot be deleted. Delete all people registered in the location and retry.", "Error")
         End If
 
         ActualizarDatosSistema()
@@ -362,10 +362,10 @@ Public Class FrmConfiguracion
             If Not tieneEnfermedades Then
                 EliminarEspecialidad(especialidad)
             Else
-                MsgBox("No se puede eliminar una especialidad que tenga enfermedades asociadas. Elimine o modifique las enfermedades y reintente.")
+                MostrarMensaje(MsgBoxStyle.Critical, "No se puede eliminar una especialidad que tenga enfermedades asociadas. Elimine o modifique las enfermedades y reintente.", "Error", "A specialty with associated illnesses cannot be deleted. Delete or modify these illnesses and retry.", "Error")
             End If
         Else
-            MsgBox("No se puede eliminar una especialidad que tenga médicos practicantes. Elimine la asociación y reintente.")
+            MostrarMensaje(MsgBoxStyle.Critical, "No se puede eliminar una especialidad que tenga médicos practicantes. Elimine la asociación y reintente.", "Error", "A specialty with associated doctors cannot be deleted. Modify the doctors' specialties and retry.", "Error")
         End If
 
         ActualizarDatosSistema()

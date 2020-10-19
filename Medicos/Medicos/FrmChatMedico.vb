@@ -112,7 +112,7 @@ Public Class FrmChatMedico
                 archivosAdjuntos.Add(lstArchivos.Items(i))
             Next
             EnviarSesionChat(consultaEnCurso.Paciente, frmDiagnosticoDiferencial.diagnosticoRealizado, txtConversacion.Text, archivosAdjuntos)
-            MsgBox("Se ha enviado una copia de la sesión del chat al paciente.")
+            MostrarMensaje(MsgBoxStyle.OkOnly, "Se ha enviado una copia de la sesión del chat al paciente.", "", "A copy of the chat session has been sent to the patient.", "")
         End If
     End Sub
 

@@ -23,18 +23,18 @@ Public Class FrmListadoSintomas
         Dim hayErrores As Boolean = False
 
         If nombreArchivo = "" Then
-            MsgBox("No se seleccionó ningún archivo CSV para importar.", MsgBoxStyle.Exclamation)
+            MostrarMensaje(MsgBoxStyle.Exclamation, "No se seleccionó ningún archivo CSV para importar.", "", "No CSV file was selected.", "")
             Exit Sub
         End If
 
         If Not nombreArchivo.EndsWith(".csv") Then
-            MsgBox("El archivo seleccionado no es de formato CSV.", MsgBoxStyle.Critical)
+            MostrarMensaje(MsgBoxStyle.Critical, "El archivo seleccionado no es de formato CSV.", "", "The selected file does not have the required CSV format.", "")
             Exit Sub
         End If
 
         If Not hayErrores Then
             ImportarSintomas(nombreArchivo)
-            MsgBox("¡Importación finalizada!", MsgBoxStyle.Information)
+            MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
         End If
     End Sub
 
@@ -47,7 +47,7 @@ Public Class FrmListadoSintomas
             frm.ShowDialog()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para ver los detalles del síntoma.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para ver los detalles del síntoma.", "Error", "Select a single row to see details of the symptom.", "Error")
         End If
     End Sub
 
@@ -70,23 +70,21 @@ Public Class FrmListadoSintomas
             ActualizarSintomas()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para modificar el síntoma correspondiente.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para modificar un síntoma.", "Error", "Select a single row to modify a symptom.", "Error")
         End If
     End Sub
 
     ' Permite eliminar uno o varios de los síntomas del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If tblSintomas.SelectedRows.Count > 0 Then
-            If MsgBox("¿Confirma que desea eliminar este/os síntoma(s)?" & vbNewLine &
-                      "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
-
+            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esto(s) síntoma(s)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this symptom(s)?" & vbNewLine & "These changes cannot be undone.", "Warning") Then
                 For Each r As DataGridViewRow In tblSintomas.SelectedRows
                     EliminarSintoma(r.Cells(0).Value)
                 Next
                 ActualizarSintomas()
             End If
         Else
-            MsgBox("Seleccione al menos una fila para eliminar el/los síntoma(s).")
+            MostrarMensaje(MsgBoxStyle.Information, "Seleccione al menos una fila para eliminar el/los síntoma(s).", "", "Select at least one row to delete the symptom(s).", "")
         End If
     End Sub
 

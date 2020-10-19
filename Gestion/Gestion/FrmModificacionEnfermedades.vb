@@ -71,7 +71,7 @@ Public Class FrmModificacionEnfermedades
             Next
             OcultarSintomasSeleccionadosOFiltrados()
         Else
-            MsgBox("Debe seleccionar al menos uno de los síntomas disponibles.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de los síntomas disponibles.", "Error", "You must select at least one of the available symptoms.", "Error")
         End If
     End Sub
 
@@ -87,7 +87,7 @@ Public Class FrmModificacionEnfermedades
             Next
             OcultarSintomasSeleccionadosOFiltrados()
         Else
-            MsgBox("Debe seleccionar al menos uno de los síntomas asociados.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de los síntomas asociados.", "Error", "You must select at least one of the associated symptoms.", "Error")
         End If
     End Sub
 
@@ -118,11 +118,11 @@ Public Class FrmModificacionEnfermedades
             ActualizarEnfermedad(enfermedadAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text,
                                  listaSintomas, listaFrecuencias, especialidad)
 
-            MsgBox("Modificación realizada con éxito")
+            MostrarMensaje(MsgBoxStyle.Information, "Modificación realizada con éxito", "Éxito", "Illness has been successfully modified.", "Success")
             requiereConfirmacionSalida = False
             Me.Close()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
         End Try
     End Sub
 
@@ -159,8 +159,7 @@ Public Class FrmModificacionEnfermedades
     ' Si intenta cerrar el formulario sin guardar cambios, solicita confirmación
     Private Sub FrmModificacionEnfermedades_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If requiereConfirmacionSalida Then
-            If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
-                MsgBoxResult.No Then
+            If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") = MsgBoxResult.No Then
                 e.Cancel = True
             End If
         End If

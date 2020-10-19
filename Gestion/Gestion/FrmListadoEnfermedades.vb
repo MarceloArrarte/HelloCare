@@ -21,22 +21,19 @@ Public Class FrmListadoEnfermedades
         exploradorArchivos.FileName = ""
         exploradorArchivos.ShowDialog()
         Dim nombreArchivo As String = exploradorArchivos.FileName
-        Dim hayErrores As Boolean = False
 
         If nombreArchivo = "" Then
-            MsgBox("No se seleccionó ningún archivo CSV para importar.", MsgBoxStyle.Exclamation)
+            MostrarMensaje(MsgBoxStyle.Exclamation, "No se seleccionó ningún archivo CSV para importar.", "", "No CSV file was selected.", "")
             Exit Sub
         End If
 
         If Not nombreArchivo.EndsWith(".csv") Then
-            MsgBox("El archivo seleccionado no es de formato CSV.", MsgBoxStyle.Critical)
+            MostrarMensaje(MsgBoxStyle.Critical, "El archivo seleccionado no es de formato CSV.", "", "The selected file does not have the required CSV format.", "")
             Exit Sub
         End If
 
-        If Not hayErrores Then
-            ImportarEnfermedades(nombreArchivo)
-            MsgBox("¡Importación finalizada!", MsgBoxStyle.Information)
-        End If
+        ImportarEnfermedades(nombreArchivo)
+        MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
     End Sub
 
     ' Abre un formulario con los detalles de una enfermedad
@@ -48,7 +45,7 @@ Public Class FrmListadoEnfermedades
             frm.ShowDialog()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para ver los detalles de la enfermedad.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para ver los detalles de la enfermedad.", "Error", "Select a single row to see details of the illness.", "Error")
         End If
     End Sub
 
@@ -69,23 +66,21 @@ Public Class FrmListadoEnfermedades
             frm.ShowDialog()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para modificar una enfermedad.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para modificar una enfermedad.", "Error", "Select a single row to modify an illness.", "Error")
         End If
     End Sub
 
     ' Permite eliminar una o varias de las enfermedades del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If tblEnfermedades.SelectedRows.Count > 0 Then
-            If MsgBox("¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine &
-                      "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
-
+            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this illness(es)?" & vbNewLine & "These changes cannot be undone.", "Warning") Then
                 For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
                     EliminarEnfermedad(r.Cells(0).Value)
                 Next
                 ActualizarEnfermedades()
             End If
         Else
-            MsgBox("Seleccione al menos una fila para eliminar la(s) enfermedad(es).")
+            MostrarMensaje(MsgBoxStyle.Information, "Seleccione al menos una fila para eliminar la(s) enfermedad(es).", "", "Select at least one row to delete the illness(es).", "")
         End If
     End Sub
 

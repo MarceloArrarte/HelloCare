@@ -22,7 +22,7 @@ Public Module Localizacion
         Next
     End Sub
 
-    Private Function MostrarMensaje(tipoMensaje As MsgBoxStyle, textoES As String, tituloES As String, textoEN As String, tituloEN As String) As DialogResult
+    Public Function MostrarMensaje(tipoMensaje As MsgBoxStyle, textoES As String, tituloES As String, textoEN As String, tituloEN As String) As DialogResult
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
                 Return MsgBox(textoES, tipoMensaje, tituloES)

@@ -12,7 +12,7 @@ Public Class FrmAltaSintomas
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -29,8 +29,7 @@ Public Class FrmAltaSintomas
 
         ' Procede a insertar el nuevo síntoma si se ingresaron patologías o si se confirma que se desea insertarlo sin patologías asociadas
         If hayPatologiasAsociadas OrElse
-           (Not hayPatologiasAsociadas And MsgBox("Advertencia: no se asoció el nuevo síntoma a ninguna patología del sistema." & vbNewLine &
-                                                  "¿Desea continuar de todas formas?", MsgBoxStyle.YesNo, "Aviso") = MsgBoxResult.Yes) Then
+           (Not hayPatologiasAsociadas And MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se asoció el nuevo síntoma a ninguna patología del sistema." & vbNewLine & "¿Desea continuar de todas formas?", "Aviso", "Warning: the new symptom has not been associated with any illness in the system." & vbNewLine & "Do you wish to continue anyway?", "Warning") = MsgBoxResult.Yes) Then
 
             Try
                 Dim listaEnfermedades As New List(Of Enfermedad)
@@ -52,10 +51,10 @@ Public Class FrmAltaSintomas
                 End If
 
                 CrearSintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, urgenciaParseado, listaEnfermedades, listaFrecuencias)
-                MsgBox("Síntoma agregado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+                MostrarMensaje(MsgBoxStyle.OkOnly, "Síntoma agregado con éxito.", "Éxito", "Symptom has been successfully created.", "Success")
                 Me.Close()
             Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
             End Try
         End If
     End Sub

@@ -97,4 +97,29 @@
             ValidarCaracteresTexto(s)
         Next
     End Sub
+
+    Friend Sub ValidarCaracteresEnfermedadYSintoma(nombre As String)
+        Dim caracteresInvalidosDetectados As New List(Of Char)
+        For Each c As Char In nombre.ToCharArray
+            If Not (CaracteresPermitidosNombres & CaracteresPermitidosNumeros).Contains(c) Then
+                caracteresInvalidosDetectados.Add(c)
+            End If
+        Next
+
+        If caracteresInvalidosDetectados.Count > 0 Then
+            Dim listaCaracteres As New List(Of String)
+            For Each c As Char In caracteresInvalidosDetectados.Distinct.ToArray
+                listaCaracteres.Add(c)
+            Next
+
+            Throw New ArgumentException("El nombre del síntoma o enfermedad no puede contener los siguientes caracteres:" & vbNewLine & vbNewLine &
+                                        String.Join(" "c, caracteresInvalidosDetectados.Distinct.ToArray))
+        End If
+    End Sub
+
+    Friend Sub ValidarCaracteresEnfermedadYSintoma(ParamArray nombres() As String)
+        For Each s As String In nombres
+            ValidarCaracteresTexto(s)
+        Next
+    End Sub
 End Module

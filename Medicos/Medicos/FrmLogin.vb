@@ -21,7 +21,7 @@ Public Class FrmLogin
                     Me.Show()
 
                 Case ResultadosLogin.ContrasenaIncorrecta, ResultadosLogin.PersonaNoExiste
-                    MsgBox("La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.")
+                    MostrarMensaje(MsgBoxStyle.Critical, "La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.", "Error", "The entered ID card and/or password are not correct." & vbNewLine & "Verify your credentials and retry.", "Error")
 
                 Case ResultadosLogin.SinUsuario
                     Dim frmReg As New FrmRegistro
@@ -36,12 +36,12 @@ Public Class FrmLogin
                         txtContrasena.Clear()
                         Me.Show()
                     Else
-                        MsgBox("Su usuario no fue creado. Tenga en cuenta que no podrá acceder al servicio HelloCare hasta que tenga su usuario personal.", MsgBoxStyle.Exclamation)
+                        MostrarMensaje(MsgBoxStyle.Exclamation, "Su usuario no fue creado. Tenga en cuenta que no podrá acceder al servicio HelloCare hasta que tenga su usuario personal.", "Aviso", "Your user was not created. Keep in mind you won't be able to use HelloCare until you have your personal user.", "Warning")
                         medicoLogeado = Nothing
                     End If
             End Select
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
         End Try
     End Sub
 

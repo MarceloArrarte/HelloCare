@@ -37,10 +37,10 @@ Public Class FrmNuevoDiagnostico
             Dim enfermedadDiagnosticada As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
             diagnosticoRealizado = CrearDiagnosticoDiferencial(consulta, enfermedadDiagnosticada, txtConductaASeguir.Text)
             Me.DialogResult = DialogResult.OK
-            MsgBox("Diagnóstico enviado con éxito.")
+            MostrarMensaje(MsgBoxStyle.Information, "Diagnóstico enviado con éxito.", "", "Diagnosis has been successfully sent.", "")
             Me.Close()
         Else
-            MsgBox("Seleccione una sola enfermedad para realizar el diagnóstico.")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola enfermedad para realizar el diagnóstico.", "", "Select a single illness to make a diagnosis.", "")
         End If
     End Sub
 

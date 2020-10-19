@@ -58,12 +58,12 @@ Public Class FrmIngresoSintoma
             frm.ShowDialog()
             Me.Close()
         Else
-            MsgBox("Debe ingresar al menos un síntoma para recibir un diagnóstico.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos un síntoma para recibir un diagnóstico.", "Error", "You must select at least one symptom to receive a diagnosis.", "Error")
         End If
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: changes have not been saved." & vbNewLine & "Are you sure you want to close the window?", "Exit") =
                 MsgBoxResult.Yes Then
             Me.Close()
         End If

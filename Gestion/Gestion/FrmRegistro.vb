@@ -7,16 +7,16 @@ Imports System.Globalization
 Public Class FrmRegistro
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtContrasena.Text.Length < 8 Or txtContrasena.Text.Length > 50 Then
-            MsgBox("El largo de la contraseña debe ser de entre 8 y 50 caracteres.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "El largo de la contraseña debe ser de entre 8 y 50 caracteres.", "Error", "The length of the password must be between 8 and 50 characters.", "Error")
             Exit Sub
         End If
 
         If txtContrasena.Text = txtRepetir.Text Then
             RegistrarUsuario(administrativoLogeado, txtContrasena.Text)
-            MsgBox("Su contraseña ha sido guardada. Se envió un correo electrónico a la dirección de correo proporcionada por usted con los datos de su registro. Cierre este mensaje para continuar al menú principal." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", MsgBoxStyle.Information, "Usuario registrado")
+            MostrarMensaje(MsgBoxStyle.Information, "Su contraseña ha sido guardada. Se envió un correo electrónico a la dirección de correo proporcionada por usted con los datos de su registro. Cierre este mensaje para continuar al menú principal." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "Usuario registrado", "Your password has been saved. An e-mail has been sent to your e-mail address with information about your registration. Close this message to continue to the main menu." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "User created")
             Me.DialogResult = DialogResult.OK
         Else
-            MsgBox("Las contraseñas no coinciden. Verifique los datos ingresados y reintente.", MsgBoxStyle.Exclamation, "Error")
+            MostrarMensaje(MsgBoxStyle.Exclamation, "Las contraseñas no coinciden. Verifique los datos ingresados y reintente.", "Error", "Passwords don't match. Verify your entered passwords and retry.", "Error")
         End If
     End Sub
 

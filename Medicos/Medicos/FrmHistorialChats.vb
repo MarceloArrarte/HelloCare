@@ -29,7 +29,7 @@ Public Class FrmHistorialChats
             frm.ShowDialog()
             Me.Show()
         Else
-            MsgBox("Seleccione un único chat para abrirlo.")
+            MostrarMensaje(MsgBoxStyle.Information, "Seleccione un único chat para abrirlo.", "", "Select a single chat to open it.", "")
         End If
     End Sub
 
