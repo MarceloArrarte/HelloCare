@@ -108,4 +108,3 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.es.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.en.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.es.resources
-C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache

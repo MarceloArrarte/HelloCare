@@ -34,6 +34,7 @@ Partial Class FrmInicio
         '
         'picHelloCare
         '
+        Me.picHelloCare.Image = CType(resources.GetObject("picHelloCare.Image"), System.Drawing.Image)
         Me.picHelloCare.Location = New System.Drawing.Point(-10, 12)
         Me.picHelloCare.Name = "picHelloCare"
         Me.picHelloCare.Size = New System.Drawing.Size(319, 316)
@@ -42,6 +43,7 @@ Partial Class FrmInicio
         '
         'picHelloCode
         '
+        Me.picHelloCode.Image = CType(resources.GetObject("picHelloCode.Image"), System.Drawing.Image)
         Me.picHelloCode.Location = New System.Drawing.Point(0, 399)
         Me.picHelloCode.Name = "picHelloCode"
         Me.picHelloCode.Size = New System.Drawing.Size(300, 150)

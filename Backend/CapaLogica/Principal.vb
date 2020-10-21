@@ -550,9 +550,9 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailAltaPacientesES.html"
+                archivoCorreo = "MailAltaPacientesES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailAltaPacientesEN.html"
+                archivoCorreo = "MailAltaPacientesEN.html"
         End Select
 
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
@@ -594,9 +594,9 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailAltaMedicosES.html"
+                archivoCorreo = "MailAltaMedicosES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailAltaMedicosEN.html"
+                archivoCorreo = "MailAltaMedicosEN.html"
         End Select
 
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
@@ -630,9 +630,9 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailAltaAdministrativosES.html"
+                archivoCorreo = "MailAltaAdministrativosES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailAltaAdministrativosEN.html"
+                archivoCorreo = "MailAltaAdministrativosEN.html"
         End Select
 
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
@@ -678,9 +678,9 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailRegistroUsuarioES.html"
+                archivoCorreo = "MailRegistroUsuarioES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailRegistroUsuarioEN.html"
+                archivoCorreo = "MailRegistroUsuarioEN.html"
         End Select
 
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
@@ -709,9 +709,9 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailRestaurarContrasenaES.html"
+                archivoCorreo = "MailRestaurarContrasenaES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailRestaurarContrasenaEN.html"
+                archivoCorreo = "MailRestaurarContrasenaEN.html"
         End Select
 
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
@@ -738,12 +738,12 @@ Public Module Principal
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                archivoCorreo = "../../MailSesionChatES.html"
+                archivoCorreo = "MailSesionChatES.html"
             Case Idiomas.Ingles
-                archivoCorreo = "../../MailSesionChatEN.html"
+                archivoCorreo = "MailSesionChatEN.html"
         End Select
 
-        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText("../../MailSesionChatES.html")
+        Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_PACIENTE%", paciente.Nombre)
         cuerpoMensaje = cuerpoMensaje.Replace("%APELLIDO_PACIENTE%", paciente.Apellido)
         cuerpoMensaje = cuerpoMensaje.Replace("%NOMBRE_MEDICO%", diagnostico.DiagnosticoPrimarioConConsulta.Medico.Nombre)
