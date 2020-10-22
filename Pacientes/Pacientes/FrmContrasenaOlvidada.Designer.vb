@@ -30,9 +30,9 @@ Partial Class FrmContrasenaOlvidada
         Me.lblCodigo = New System.Windows.Forms.Label()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.btnConfirmar = New System.Windows.Forms.Button()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblTitulo
@@ -86,13 +86,6 @@ Partial Class FrmContrasenaOlvidada
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'Label4
         '
         resources.ApplyResources(Me.Label4, "Label4")
@@ -107,13 +100,20 @@ Partial Class FrmContrasenaOlvidada
         Me.Label3.ForeColor = System.Drawing.SystemColors.Control
         Me.Label3.Name = "Label3"
         '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
         'FrmContrasenaOlvidada
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnConfirmar)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.lblCodigo)
@@ -135,7 +135,7 @@ Partial Class FrmContrasenaOlvidada
     Friend WithEvents lblCodigo As Windows.Forms.Label
     Friend WithEvents txtCodigo As Windows.Forms.TextBox
     Friend WithEvents btnConfirmar As Windows.Forms.Button
-    Friend WithEvents lblTraducir As Windows.Forms.Label
     Friend WithEvents Label4 As Windows.Forms.Label
     Friend WithEvents Label3 As Windows.Forms.Label
+    Friend WithEvents lblTraducir As Windows.Forms.Label
 End Class

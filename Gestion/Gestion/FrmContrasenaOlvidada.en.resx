@@ -148,6 +148,24 @@
   <data name="btnConfirmar.Text" xml:space="preserve">
     <value>Delete password</value>
   </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 368</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 37</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Management</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 296</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 55</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>WELCOME</value>
+  </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
@@ -196,23 +214,14 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 368</value>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-83, 629</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 37</value>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 43</value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Management</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 296</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 55</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>WELCOME</value>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Traducir</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

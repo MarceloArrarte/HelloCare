@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="colProbabilidad.HeaderText" xml:space="preserve">
+    <value>Probabilidad</value>
+  </data>
   <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -143,8 +146,9 @@
   <data name="lblSintomas.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 137</value>
   </data>
-  <data name="colProbabilidad.HeaderText" xml:space="preserve">
-    <value>Probabilidad</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnSalir.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -278,7 +282,6 @@
   <data name="&gt;&gt;colNombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblDiagnostico.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
@@ -1497,7 +1500,7 @@
     <value>3</value>
   </data>
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
+    <value>41</value>
   </data>
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1526,8 +1529,8 @@
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
   </data>
   <data name="lblDiagnostico.Text" xml:space="preserve">
     <value>Posibles enfermedades:</value>
@@ -3885,9 +3888,6 @@
   <data name="&gt;&gt;colProbabilidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
   <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
@@ -4144,7 +4144,10 @@
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 43</value>
+    <value>264, 43</value>
+  </data>
+  <data name="&gt;&gt;lblResultado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtRecomendaciones.Name" xml:space="preserve">
     <value>txtRecomendaciones</value>
@@ -4170,9 +4173,6 @@
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
   <data name="lblResultado.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
@@ -4181,6 +4181,9 @@
   </data>
   <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
+    <value>colObjeto</value>
   </data>
   <data name="&gt;&gt;btnRealizarConsulta.Name" xml:space="preserve">
     <value>btnRealizarConsulta</value>
@@ -4204,7 +4207,7 @@
     <value>lstSintomas</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Traducir</value>
+    <value>Translate</value>
   </data>
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -4274,13 +4277,13 @@ para sus síntomas:</value>
     <value>10</value>
   </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-84, 629</value>
-  </data>
-  <data name="&gt;&gt;lblResultado.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>-93, 629</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblDiagnostico.Size" type="System.Drawing.Size, System.Drawing">
     <value>229, 25</value>
@@ -4366,11 +4369,8 @@ para sus síntomas:</value>
   <data name="&gt;&gt;colNombre.Name" xml:space="preserve">
     <value>colNombre</value>
   </data>
-  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
-    <value>colObjeto</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
@@ -4422,5 +4422,8 @@ para sus síntomas:</value>
   </metadata>
   <metadata name="colProbabilidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
   </metadata>
 </root>

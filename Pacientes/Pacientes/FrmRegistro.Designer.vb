@@ -30,22 +30,22 @@ Partial Class FrmRegistro
         Me.chkMostrarContrasena = New System.Windows.Forms.CheckBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtContrasena
         '
-        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'txtRepetir
         '
-        resources.ApplyResources(Me.txtRepetir, "txtRepetir")
         Me.txtRepetir.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtRepetir, "txtRepetir")
         Me.txtRepetir.Name = "txtRepetir"
         Me.txtRepetir.UseSystemPasswordChar = True
         '
@@ -73,8 +73,8 @@ Partial Class FrmRegistro
         '
         'btnGuardar
         '
-        resources.ApplyResources(Me.btnGuardar, "btnGuardar")
         Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnGuardar, "btnGuardar")
         Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
@@ -85,13 +85,6 @@ Partial Class FrmRegistro
         Me.lblTitulo.BackColor = System.Drawing.Color.Transparent
         Me.lblTitulo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblTitulo.Name = "lblTitulo"
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
         '
         'Label4
         '
@@ -107,14 +100,21 @@ Partial Class FrmRegistro
         Me.Label5.ForeColor = System.Drawing.SystemColors.Control
         Me.Label5.Name = "Label5"
         '
+        'lblTraducir
+        '
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
         'FrmRegistro
         '
         Me.AcceptButton = Me.btnGuardar
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.chkMostrarContrasena)
@@ -136,7 +136,7 @@ Partial Class FrmRegistro
     Friend WithEvents chkMostrarContrasena As Windows.Forms.CheckBox
     Friend WithEvents btnGuardar As Windows.Forms.Button
     Friend WithEvents lblTitulo As Windows.Forms.Label
-    Friend WithEvents lblTraducir As Windows.Forms.Label
     Friend WithEvents Label4 As Windows.Forms.Label
     Friend WithEvents Label5 As Windows.Forms.Label
+    Friend WithEvents lblTraducir As Windows.Forms.Label
 End Class

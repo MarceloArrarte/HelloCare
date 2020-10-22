@@ -27,14 +27,14 @@ Partial Class FrmHistorialChats
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblChats = New System.Windows.Forms.DataGridView()
-        Me.btnAbrirChat = New System.Windows.Forms.Button()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnAbrirChat = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblChats, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,33 +77,6 @@ Partial Class FrmHistorialChats
         Me.tblChats.RowHeadersVisible = False
         Me.tblChats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
-        'btnAbrirChat
-        '
-        resources.ApplyResources(Me.btnAbrirChat, "btnAbrirChat")
-        Me.btnAbrirChat.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAbrirChat.Name = "btnAbrirChat"
-        Me.btnAbrirChat.UseVisualStyleBackColor = True
-        '
-        'btnVolver
-        '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
-        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'Column5
         '
         resources.ApplyResources(Me.Column5, "Column5")
@@ -131,6 +104,33 @@ Partial Class FrmHistorialChats
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
+        'btnAbrirChat
+        '
+        resources.ApplyResources(Me.btnAbrirChat, "btnAbrirChat")
+        Me.btnAbrirChat.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnAbrirChat.Name = "btnAbrirChat"
+        Me.btnAbrirChat.UseVisualStyleBackColor = True
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
         'FrmHistorialChats
         '
         resources.ApplyResources(Me, "$this")
@@ -154,9 +154,9 @@ Partial Class FrmHistorialChats
     Friend WithEvents btnAbrirChat As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents lblTraducir As Label
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents lblTraducir As Label
 End Class

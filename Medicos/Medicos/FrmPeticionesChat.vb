@@ -54,4 +54,8 @@ Public Class FrmPeticionesChat
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirFormulario(Me)
+    End Sub
 End Class

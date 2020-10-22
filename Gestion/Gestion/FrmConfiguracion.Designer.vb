@@ -817,7 +817,6 @@ Partial Class FrmConfiguracion
     Friend WithEvents btnVolver As Button
     Friend WithEvents txtLocalidadParaCambiarDepartamento As TextBox
     Friend WithEvents Label20 As Label
-    Friend WithEvents lblTraducir As Label
     Friend WithEvents btnModificarDepartamento As Button
     Friend WithEvents btnEliminarDepartamento As Button
     Friend WithEvents btnAgregarLocalidad As Button
@@ -827,4 +826,5 @@ Partial Class FrmConfiguracion
     Friend WithEvents btnAgregarEspecialidad As Button
     Friend WithEvents btnModificarEspecialidad As Button
     Friend WithEvents btnEliminarEspecialidad As Button
+    Friend WithEvents lblTraducir As Label
 End Class

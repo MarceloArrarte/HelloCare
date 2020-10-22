@@ -126,27 +126,13 @@ Public Class FrmAltaEnfermedades
     ' Si el formulario se cierra sin crear una enfermedad, pide al usuario confirmación para abandonar la ventana.
     Private Sub FrmAltaEnfermedades_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If requiereConfirmacionSalida Then
-            If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") =
-                MsgBoxResult.No Then
+            If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") = MsgBoxResult.No Then
                 e.Cancel = True
             End If
         End If
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
-
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmAltaEnfermedades))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+        TraducirFormulario(Me)
     End Sub
 End Class

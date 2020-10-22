@@ -120,7 +120,7 @@ Public Class FrmDiagnosticoPrimario
         Me.Close()
     End Sub
 
-    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs)
         Dim nombreIdioma As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol

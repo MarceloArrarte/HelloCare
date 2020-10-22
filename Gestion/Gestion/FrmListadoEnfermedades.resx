@@ -120,22 +120,19 @@
   <data name="colGravedad.HeaderText" xml:space="preserve">
     <value>Gravedad</value>
   </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tblEnfermedades.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;colRec.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tblEnfermedades.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
-    <value>btnVolver</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="colRec.HeaderText" xml:space="preserve">
+    <value>Recomendaciones</value>
+  </data>
   <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 43</value>
   </data>
@@ -145,15 +142,14 @@
   <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 571</value>
   </data>
-  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 45</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
   </data>
-  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1051, 573</value>
+  <data name="&gt;&gt;colNombre.Name" xml:space="preserve">
+    <value>colNombre</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
+  <data name="&gt;&gt;tblEnfermedades.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
     <value>colObjeto</value>
@@ -170,8 +166,8 @@
   <data name="&gt;&gt;colRec.Name" xml:space="preserve">
     <value>colRec</value>
   </data>
-  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="btnModificar.Location" type="System.Drawing.Point, System.Drawing">
     <value>790, 573</value>
@@ -1261,14 +1257,19 @@
   <data name="&gt;&gt;btnEliminar.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="btnModificar.Text" xml:space="preserve">
-    <value>Modificar</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnImportar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1276,17 +1277,20 @@
   <data name="btnVer.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 43</value>
   </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-91, 629</value>
   </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
+  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
+    <value>lblTraducir</value>
   </data>
   <data name="btnAgregar.Text" xml:space="preserve">
     <value>Agregar</value>
   </data>
-  <data name="Label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnModificar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1300,76 +1304,22 @@
   <data name="&gt;&gt;colGravedad.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>Translate</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;btnAgregar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Translate</value>
   </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
+  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
   </data>
   <data name="&gt;&gt;btnVer.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="colRec.HeaderText" xml:space="preserve">
-    <value>Recomendaciones</value>
-  </data>
-  <data name="&gt;&gt;exploradorArchivos.Name" xml:space="preserve">
-    <value>exploradorArchivos</value>
-  </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 43</value>
-  </data>
-  <data name="&gt;&gt;colObjeto.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnVer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exploradorArchivos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Name" xml:space="preserve">
-    <value>btnModificar</value>
-  </data>
-  <data name="btnEliminar.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-91, 629</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnModificar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 43</value>
-  </data>
-  <data name="&gt;&gt;tblEnfermedades.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnVer.Text" xml:space="preserve">
-    <value>Ver</value>
-  </data>
-  <data name="colObjeto.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tblEnfermedades.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="Label6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
         mvlzU9cVx/kDOv2JaZo06UwHAnQmLW1Cpvmlv6TpAi2BApJsFpvFNotZzBab1TXUYTMmpOCAMTbUGLxA
@@ -1417,8 +1367,53 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="&gt;&gt;exploradorArchivos.Name" xml:space="preserve">
+    <value>exploradorArchivos</value>
+  </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 43</value>
+  </data>
+  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
+    <value>btnVolver</value>
+  </data>
+  <data name="&gt;&gt;colObjeto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exploradorArchivos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnModificar.Name" xml:space="preserve">
+    <value>btnModificar</value>
+  </data>
+  <data name="btnEliminar.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnEliminar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>921, 573</value>
+  </data>
+  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnModificar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 43</value>
+  </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>ABM Enfermedades</value>
+  </data>
+  <data name="btnVer.Text" xml:space="preserve">
+    <value>Ver</value>
+  </data>
+  <data name="colObjeto.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tblEnfermedades.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="btnVolver.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
@@ -1426,8 +1421,14 @@
   <data name="btnEliminar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1051, 573</value>
+  </data>
+  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
+    <value>69</value>
   </data>
   <data name="btnImportar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1435,20 +1436,17 @@
   <data name="btnImportar.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnVolver.Text" xml:space="preserve">
-    <value>Volver</value>
-  </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnImportar.Location" type="System.Drawing.Point, System.Drawing">
     <value>543, 573</value>
   </data>
   <data name="&gt;&gt;btnVer.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;tblEnfermedades.Name" xml:space="preserve">
+    <value>tblEnfermedades</value>
   </data>
   <data name="tblEnfermedades.Size" type="System.Drawing.Size, System.Drawing">
     <value>717, 422</value>
@@ -1462,11 +1460,17 @@
   <data name="btnEliminar.Text" xml:space="preserve">
     <value>Eliminar</value>
   </data>
+  <data name="tblEnfermedades.Location" type="System.Drawing.Point, System.Drawing">
+    <value>485, 145</value>
+  </data>
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;btnImportar.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnVer.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1483,21 +1487,14 @@
   <data name="btnVer.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>609, 38</value>
+  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnModificar.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
-  </data>
-  <data name="Label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
-    <value>lblTraducir</value>
   </data>
   <data name="&gt;&gt;btnVer.Name" xml:space="preserve">
     <value>btnVer</value>
@@ -3840,17 +3837,17 @@
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>480, 107</value>
   </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
+  <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;btnModificar.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnEliminar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>921, 573</value>
+  <data name="&gt;&gt;colNombre.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3864,8 +3861,11 @@
   <data name="btnEliminar.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 43</value>
   </data>
-  <data name="&gt;&gt;colNombre.Name" xml:space="preserve">
-    <value>colNombre</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3876,23 +3876,14 @@
   <data name="btnImportar.Text" xml:space="preserve">
     <value>Importar csv</value>
   </data>
-  <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tblEnfermedades.Location" type="System.Drawing.Point, System.Drawing">
-    <value>485, 145</value>
-  </data>
   <data name="&gt;&gt;btnImportar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;tblEnfermedades.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;btnImportar.Name" xml:space="preserve">
     <value>btnImportar</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 42</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3915,20 +3906,20 @@
   <data name="colDesc.HeaderText" xml:space="preserve">
     <value>Descripción</value>
   </data>
-  <data name="&gt;&gt;tblEnfermedades.Name" xml:space="preserve">
-    <value>tblEnfermedades</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 42</value>
   </data>
   <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>609, 38</value>
   </data>
-  <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="btnModificar.Text" xml:space="preserve">
+    <value>Modificar</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
+  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
+    <value>btnAgregar</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>475, 25</value>
@@ -3936,13 +3927,7 @@
   <data name="&gt;&gt;btnAgregar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;colNombre.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <metadata name="colObjeto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

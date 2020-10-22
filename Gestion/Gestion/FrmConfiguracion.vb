@@ -148,7 +148,9 @@ Public Class FrmConfiguracion
         txtNombreLocalidadAModificar.Text = localidadSeleccionada
         txtEliminarLocalidad.Text = localidadSeleccionada
         txtLocalidadParaCambiarDepartamento.Text = localidadSeleccionada
-        txtDepartamentoActual.Text = cbxDepartamentos.SelectedItem.ToString
+        If cbxDepartamentos.SelectedIndex <> -1 Then
+            txtDepartamentoActual.Text = cbxDepartamentos.SelectedItem.ToString
+        End If
     End Sub
 
     Private Sub grdEspecialidades_SelectionChanged(sender As Object, e As EventArgs) Handles grdEspecialidades.SelectionChanged
@@ -376,19 +378,6 @@ Public Class FrmConfiguracion
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
-
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmConfiguracion))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+        TraducirFormulario(Me)
     End Sub
 End Class

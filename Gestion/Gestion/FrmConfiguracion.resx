@@ -2202,7 +2202,7 @@
     <value>25, 310</value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 43</value>
+    <value>261, 43</value>
   </data>
   <data name="btnModificarEspecialidad.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2382,7 +2382,7 @@
     <value>106, 25</value>
   </data>
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
+    <value>69</value>
   </data>
   <data name="&gt;&gt;btnModificarEspecialidad.Parent" xml:space="preserve">
     <value>TabPage12</value>
@@ -2653,6 +2653,9 @@
   </data>
   <data name="&gt;&gt;TabControl2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

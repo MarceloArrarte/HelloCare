@@ -193,6 +193,9 @@
     <EmbeddedResource Include="FrmAltaEnfermedades.es-UY.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaEnfermedades.es.resx">
+      <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaSintomas.en.resx">
       <DependentUpon>FrmAltaSintomas.vb</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +236,9 @@
       <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.en.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.es-419.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.es.resx">
@@ -328,16 +334,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_hellocare.ico" />
-    <Content Include="MailAltaAdministrativosEN.html" />
-    <Content Include="MailAltaAdministrativosES.html" />
-    <Content Include="MailAltaMedicosEN.html" />
-    <Content Include="MailAltaMedicosES.html" />
-    <Content Include="MailAltaPacientesEN.html" />
-    <Content Include="MailAltaPacientesES.html" />
-    <Content Include="MailRegistroUsuarioEN.html" />
-    <Content Include="MailRegistroUsuarioES.html" />
-    <Content Include="MailRestaurarContrasenaEN.html" />
-    <Content Include="MailRestaurarContrasenaES.html" />
+    <Content Include="MailAltaAdministrativosEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailAltaAdministrativosES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailAltaMedicosEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailAltaMedicosES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailAltaPacientesEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailAltaPacientesES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRegistroUsuarioEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRegistroUsuarioES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRestaurarContrasenaEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRestaurarContrasenaES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -154,8 +154,23 @@
   <data name="lblTitulo.Text" xml:space="preserve">
     <value>New user sign up</value>
   </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 365</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 37</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Management</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 310</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 55</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>WELCOME</value>
   </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -205,36 +220,14 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-84, 629</value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 43</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Traducir</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 365</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 37</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Management</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 310</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 55</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>WELCOME</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -39,7 +39,7 @@ Partial Class FrmIngresoSintoma
         Me.tblSeleccionados = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblSeleccionados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -167,12 +167,12 @@ Partial Class FrmIngresoSintoma
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
-        'Label5
+        'lblTraducir
         '
-        resources.ApplyResources(Me.Label5, "Label5")
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Name = "Label5"
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmIngresoSintoma
         '
@@ -180,7 +180,7 @@ Partial Class FrmIngresoSintoma
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnSalir
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.tblSeleccionados)
         Me.Controls.Add(Me.tblDisponibles)
         Me.Controls.Add(Me.Label1)
@@ -219,5 +219,5 @@ Partial Class FrmIngresoSintoma
     Friend WithEvents colNombre1 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label5 As Windows.Forms.Label
+    Friend WithEvents lblTraducir As Windows.Forms.Label
 End Class

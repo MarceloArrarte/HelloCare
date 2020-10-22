@@ -29,12 +29,12 @@ Partial Class FrmHistorialDiagnosticos
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tblDiagnosticos = New System.Windows.Forms.DataGridView()
-        Me.btnVerDetalles = New System.Windows.Forms.Button()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnVerDetalles = New System.Windows.Forms.Button()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblDiagnosticos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,21 +76,6 @@ Partial Class FrmHistorialDiagnosticos
         Me.tblDiagnosticos.RowHeadersVisible = False
         Me.tblDiagnosticos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
-        'btnVerDetalles
-        '
-        resources.ApplyResources(Me.btnVerDetalles, "btnVerDetalles")
-        Me.btnVerDetalles.BackColor = System.Drawing.Color.Transparent
-        Me.btnVerDetalles.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVerDetalles.Name = "btnVerDetalles"
-        Me.btnVerDetalles.UseVisualStyleBackColor = False
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'Column5
         '
         resources.ApplyResources(Me.Column5, "Column5")
@@ -122,6 +107,21 @@ Partial Class FrmHistorialDiagnosticos
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
+        'btnVerDetalles
+        '
+        resources.ApplyResources(Me.btnVerDetalles, "btnVerDetalles")
+        Me.btnVerDetalles.BackColor = System.Drawing.Color.Transparent
+        Me.btnVerDetalles.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVerDetalles.Name = "btnVerDetalles"
+        Me.btnVerDetalles.UseVisualStyleBackColor = False
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
         'FrmHistorialDiagnosticos
         '
         Me.AcceptButton = Me.btnVerDetalles
@@ -147,9 +147,9 @@ Partial Class FrmHistorialDiagnosticos
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents tblDiagnosticos As Windows.Forms.DataGridView
     Friend WithEvents btnVerDetalles As Windows.Forms.Button
-    Friend WithEvents lblTraducir As Windows.Forms.Label
     Friend WithEvents Column5 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lblTraducir As Windows.Forms.Label
 End Class

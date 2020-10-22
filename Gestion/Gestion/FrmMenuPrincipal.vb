@@ -31,7 +31,7 @@ Public Class FrmMenuPrincipal
 
     ' Pide confirmación al usuario antes de cerrar sesión
     Private Sub FrmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea cerrar su sesión?", "Cerrar sesión", "Are you sure you wish to sign out?", "Sign out") = MsgBoxResult.Yes Then
+        If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea cerrar su sesión?", "Cerrar sesión", "Are you sure you wish to sign out?", "Sign out") = MsgBoxResult.No Then
             e.Cancel = True
         End If
     End Sub
@@ -44,19 +44,6 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
-
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmMenuPrincipal))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+        TraducirFormulario(Me)
     End Sub
 End Class

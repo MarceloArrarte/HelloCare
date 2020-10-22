@@ -405,8 +405,9 @@
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmMenuPrincipal</value>
+  <data name="lblLogeado.Text" xml:space="preserve">
+    <value>Bienvenido/a,
+#</value>
   </data>
   <data name="&gt;&gt;lblLogeado.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1865,6 +1866,9 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Menú principal.</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 39</value>
   </data>
@@ -1925,9 +1929,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>FrmMenuMedico</value>
   </data>
-  <data name="&gt;&gt;lblLogeado.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="btnHistorialChat.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 63</value>
   </data>
@@ -1970,12 +1971,11 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmMenuPrincipal</value>
   </data>
-  <data name="lblLogeado.Text" xml:space="preserve">
-    <value>Bienvenido/a,
-#</value>
+  <data name="&gt;&gt;lblLogeado.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>
@@ -1988,8 +1988,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

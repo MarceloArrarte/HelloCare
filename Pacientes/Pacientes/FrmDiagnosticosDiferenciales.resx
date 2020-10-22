@@ -126,9 +126,9 @@
   <data name="lblNombreMedico.Text" xml:space="preserve">
     <value>Nombre del médico: #</value>
   </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Bienvenido/a,
-#</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblNombreMedico.Location" type="System.Drawing.Point, System.Drawing">
+    <value>522, 202</value>
   </data>
   <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
     <value>btnVolver</value>
@@ -136,13 +136,12 @@
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 573</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
+    <value>41</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1235,9 +1234,6 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 292</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1248,17 +1244,14 @@
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="Column1.HeaderText" xml:space="preserve">
     <value>Conducta a seguir</value>
   </data>
-  <data name="tblDiagnosticosDiferenciales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>580, 343</value>
-  </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-91, 629</value>
+    <value>-93, 629</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
@@ -1266,14 +1259,14 @@
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Aquí se muestran todos los diagnósticos diferenciales realizados por su médico, de acuerdo al diagnóstico primario realizado por el sistema.</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Column4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1281,17 +1274,11 @@
   <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 49</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Diagnósticos diferenciales</value>
   </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1341,14 +1328,8 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 43</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>264, 43</value>
   </data>
   <data name="lblNombreMedico.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
@@ -1497,14 +1478,11 @@
   <data name="&gt;&gt;Column3.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Diagnósticos diferenciales</value>
   </data>
   <data name="&gt;&gt;lblNombreMedico.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1515,17 +1493,17 @@
   <data name="btnVolver.Text" xml:space="preserve">
     <value>Volver</value>
   </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="lblNombreMedico.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>580, 43</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Aquí se muestran todos los diagnósticos diferenciales realizados por su médico, de acuerdo al diagnóstico primario realizado por el sistema.</value>
   </data>
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1533,17 +1511,14 @@
   <data name="&gt;&gt;tblDiagnosticosDiferenciales.Name" xml:space="preserve">
     <value>tblDiagnosticosDiferenciales</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>561, 9</value>
   </data>
   <data name="Column2.HeaderText" xml:space="preserve">
     <value>N°</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 84</value>
+  <data name="tblDiagnosticosDiferenciales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 343</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>523, 233</value>
@@ -1551,20 +1526,14 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="lblNombreMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>522, 202</value>
-  </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmDiagnosticosDiferenciales</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;lblNombreMedico.Name" xml:space="preserve">
     <value>lblNombreMedico</value>
@@ -1608,11 +1577,8 @@
   <data name="Column4.HeaderText" xml:space="preserve">
     <value>Fecha y hora</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmDiagnosticosDiferenciales</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>
@@ -1630,7 +1596,7 @@
     <value>Column3</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es</value>
+    <value>en</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

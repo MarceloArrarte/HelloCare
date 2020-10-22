@@ -127,3 +127,17 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestio
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\en\AplicacionGestion.resources.dll
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es-UY\AplicacionGestion.resources.dll
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es\AplicacionGestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaAdministrativosEN.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaAdministrativosES.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaMedicosEN.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaMedicosES.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaPacientesEN.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailAltaPacientesES.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailRegistroUsuarioEN.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailRegistroUsuarioES.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailRestaurarContrasenaEN.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MailRestaurarContrasenaES.html
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\es-419\AplicacionGestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmAltaEnfermedades.es.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmLogin.es-419.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es-419\AplicacionGestion.resources.dll

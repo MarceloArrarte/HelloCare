@@ -38,15 +38,15 @@ Partial Class FrmLogin
         '
         'txtCedula
         '
-        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.txtCedula.Name = "txtCedula"
         '
         'txtContrasena
         '
-        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.txtContrasena.Name = "txtContrasena"
         '
@@ -59,16 +59,16 @@ Partial Class FrmLogin
         '
         'chkMostrarContrasena
         '
-        resources.ApplyResources(Me.chkMostrarContrasena, "chkMostrarContrasena")
         Me.chkMostrarContrasena.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.chkMostrarContrasena, "chkMostrarContrasena")
         Me.chkMostrarContrasena.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.chkMostrarContrasena.Name = "chkMostrarContrasena"
         Me.chkMostrarContrasena.UseVisualStyleBackColor = False
         '
         'Label3
         '
-        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label3.Name = "Label3"
         '
@@ -88,14 +88,14 @@ Partial Class FrmLogin
         '
         'Label1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
         'Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
         'Label6
@@ -107,8 +107,8 @@ Partial Class FrmLogin
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

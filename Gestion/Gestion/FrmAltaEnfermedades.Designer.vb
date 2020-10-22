@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmAltaEnfermedades
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmAltaEnfermedades
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAltaEnfermedades))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -423,8 +423,8 @@ Partial Class FrmAltaEnfermedades
     Friend WithEvents Label6 As Label
     Friend WithEvents tblAsociados As DataGridView
     Friend WithEvents Label8 As Label
-    Friend WithEvents lblTraducir As Label
     Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents colNomEnfermedad As DataGridViewTextBoxColumn
     Friend WithEvents colFrecuencia As DataGridViewTextBoxColumn
+    Friend WithEvents lblTraducir As Label
 End Class

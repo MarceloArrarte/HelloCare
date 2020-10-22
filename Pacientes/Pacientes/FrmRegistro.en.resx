@@ -157,6 +157,24 @@
   <data name="lblTitulo.Text" xml:space="preserve">
     <value>New user sign up</value>
   </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 280</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 55</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>WELCOME</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 345</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 37</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Patients</value>
+  </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
@@ -213,24 +231,6 @@
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Traducir</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 280</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 55</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>WELCOME</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 345</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 37</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Patients</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

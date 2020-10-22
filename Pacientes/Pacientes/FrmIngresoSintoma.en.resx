@@ -694,7 +694,7 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Available symptoms:</value>
   </data>
-  <data name="Label5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
         mvlzU9cVx/kDOv2JaZo06UwHAnQmLW1Cpvmlv6TpAi2BApJsFpvFNotZzBab1TXUYTMmpOCAMTbUGLxA
@@ -742,14 +742,14 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-91, 629</value>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-80, 629</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 43</value>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 43</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Translate</value>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Traducir</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

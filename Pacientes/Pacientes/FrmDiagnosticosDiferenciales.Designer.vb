@@ -153,9 +153,9 @@ Partial Class FrmDiagnosticosDiferenciales
     Friend WithEvents tblDiagnosticosDiferenciales As Windows.Forms.DataGridView
     Friend WithEvents btnVolver As Windows.Forms.Button
     Friend WithEvents lblNombreMedico As Windows.Forms.Label
-    Friend WithEvents lblTraducir As Windows.Forms.Label
     Friend WithEvents Column2 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lblTraducir As Windows.Forms.Label
 End Class

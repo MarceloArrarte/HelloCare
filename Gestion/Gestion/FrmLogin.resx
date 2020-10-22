@@ -123,13 +123,14 @@
   <data name="Label4.Text" xml:space="preserve">
     <value>Gestión</value>
   </data>
+  <data name="&gt;&gt;txtContrasena.Name" xml:space="preserve">
+    <value>txtContrasena</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
-  </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="Label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 36pt, style=Underline</value>
   </data>
@@ -145,15 +146,12 @@
   <data name="chkMostrarContrasena.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
-  <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtCedula.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="btnIngresar.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 45</value>
@@ -162,13 +160,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
+    <value>70</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmLogin</value>
-  </data>
-  <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -176,11 +171,8 @@
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>394, 55</value>
   </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtContrasena.Name" xml:space="preserve">
-    <value>txtContrasena</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -194,12 +186,11 @@
         CYsNK9iHnhD9yole6w3N7rlXDb4BvE2uueCpMdkAAAAASUVORK5CYII=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnIngresar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
+  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3356,8 +3347,11 @@
         XsHYmziMvRwOh8PhcDgcDocTjwH+P7321P12InLXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;lbl.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmLogin</value>
   </data>
   <data name="txtCedula.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
@@ -3371,14 +3365,14 @@
   <data name="&gt;&gt;chkMostrarContrasena.Name" xml:space="preserve">
     <value>chkMostrarContrasena</value>
   </data>
-  <data name="txtCedula.Text" xml:space="preserve">
-    <value>Cédula</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 37</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Login de administrativos</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="chkMostrarContrasena.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3389,8 +3383,8 @@
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="Label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="Label1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3416,26 +3410,29 @@
   <data name="Label2.Text" xml:space="preserve">
     <value>¿Contraseña olvidada?</value>
   </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="txtContrasena.Text" xml:space="preserve">
+    <value>Contraseña</value>
   </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
+  </data>
+  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
+    <value>btnIngresar</value>
   </data>
   <data name="btnIngresar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 20.25pt</value>
   </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 37</value>
+  </data>
+  <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
   </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
   </data>
   <data name="PictureBox2.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3449,8 +3446,62 @@
         CYsNK9iHnhD9yole6w3N7rlXDb4BvE2uueCpMdkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        v9Ld6gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 43</value>
+  </data>
+  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>BIENVENIDO</value>
   </data>
   <data name="chkMostrarContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3467,11 +3518,11 @@
   <data name="txtCedula.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="lbl.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
   <data name="txtContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>INICIAR SESIÓN</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3479,8 +3530,8 @@
   <data name="txtContrasena.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>INICIAR SESIÓN</value>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnIngresar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -3488,23 +3539,11 @@
   <data name="&gt;&gt;txtCedula.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;chkMostrarContrasena.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="btnIngresar.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtCedula.Name" xml:space="preserve">
-    <value>txtCedula</value>
-  </data>
-  <data name="&gt;&gt;lbl.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 55</value>
@@ -3515,11 +3554,11 @@
   <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Underline</value>
   </data>
+  <data name="txtCedula.Text" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
   <data name="txtContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
-  </data>
-  <data name="Label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;btnIngresar.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3533,9 +3572,6 @@
   <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
     <value>PictureBox2</value>
   </data>
-  <data name="&gt;&gt;lbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -3548,26 +3584,14 @@
   <data name="&gt;&gt;txtCedula.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtContrasena.Text" xml:space="preserve">
-    <value>Contraseña</value>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>712, 209</value>
   </data>
-  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
-    <value>btnIngresar</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;txtCedula.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="chkMostrarContrasena.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-91, 629</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5910,68 +5934,17 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>Traducir</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="Label6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        v9Ld6gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;lbl.Name" xml:space="preserve">
-    <value>lbl</value>
+  <data name="&gt;&gt;chkMostrarContrasena.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5979,23 +5952,17 @@
   <data name="&gt;&gt;chkMostrarContrasena.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
+  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>BIENVENIDO</value>
-  </data>
-  <data name="chkMostrarContrasena.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;txtCedula.Name" xml:space="preserve">
+    <value>txtCedula</value>
   </data>
   <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 36pt, style=Underline</value>
@@ -6010,13 +5977,13 @@
     <value>48, 44</value>
   </data>
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnIngresar.Text" xml:space="preserve">
     <value>INGRESAR</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;txtCedula.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
@@ -6030,17 +5997,14 @@
   <data name="txtContrasena.Size" type="System.Drawing.Size, System.Drawing">
     <value>314, 44</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Login de administrativos</value>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnIngresar.Location" type="System.Drawing.Point, System.Drawing">
     <value>813, 493</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>712, 209</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-78, 629</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
   </data>
   <data name="&gt;&gt;Label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6051,17 +6015,17 @@
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 43</value>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Translate</value>
   </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
+  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>0</value>
   </data>
-  <data name="txtCedula.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="PictureBox2.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6077,6 +6041,9 @@
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="chkMostrarContrasena.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;btnIngresar.ZOrder" xml:space="preserve">
     <value>10</value>

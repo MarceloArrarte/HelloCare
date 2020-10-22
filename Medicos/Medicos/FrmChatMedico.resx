@@ -278,9 +278,6 @@
   <data name="lblNombrePaciente.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="lblNombrePaciente.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="txtMensaje.Size" type="System.Drawing.Size, System.Drawing">
     <value>545, 84</value>
   </data>
@@ -293,8 +290,8 @@
   <data name="&gt;&gt;txtConversacion.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnAdjuntar.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="lstArchivos.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1376,7 +1373,11 @@
     <value>504, 22</value>
   </data>
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>24</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lstArchivos.Size" type="System.Drawing.Size, System.Drawing">
     <value>381, 472</value>
@@ -1387,14 +1388,14 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
   <data name="&gt;&gt;txtMensaje.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="lblNombrePaciente.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 42</value>
   </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-94, 629</value>
@@ -1405,7 +1406,70 @@
   <data name="&gt;&gt;tmrActualizaMensajes.Name" xml:space="preserve">
     <value>tmrActualizaMensajes</value>
   </data>
-  <data name="Label1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lblNombrePaciente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 64</value>
+  </data>
+  <data name="&gt;&gt;btnAdjuntar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>ARCHIVOS</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 21.75pt, style=Underline</value>
+  </data>
+  <data name="&gt;&gt;btnDiagnosticar.Name" xml:space="preserve">
+    <value>btnDiagnosticar</value>
+  </data>
+  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnEnviar.Name" xml:space="preserve">
+    <value>btnEnviar</value>
+  </data>
+  <data name="&gt;&gt;btnEnviar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDiagnosticar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="txtConversacion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 12pt</value>
+  </data>
+  <data name="btnEnviar.Text" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 43</value>
+  </data>
+  <data name="&gt;&gt;btnAdjuntar.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnEnviar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 49</value>
+  </data>
+  <data name="&gt;&gt;lblNombrePaciente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtConversacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 136</value>
+  </data>
+  <data name="lblNombrePaciente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 37</value>
+  </data>
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
         mvlzU9cVx/kDOv2JaZo06UwHAnQmLW1Cpvmlv6TpAi2BApJsFpvFNotZzBab1TXUYTMmpOCAMTbUGLxA
@@ -1453,69 +1517,6 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;btnDiagnosticar.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>ARCHIVOS</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 21.75pt, style=Underline</value>
-  </data>
-  <data name="&gt;&gt;btnDiagnosticar.Name" xml:space="preserve">
-    <value>btnDiagnosticar</value>
-  </data>
-  <data name="&gt;&gt;btnEnviar.Name" xml:space="preserve">
-    <value>btnEnviar</value>
-  </data>
-  <data name="&gt;&gt;btnEnviar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtConversacion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 12pt</value>
-  </data>
-  <data name="btnEnviar.Text" xml:space="preserve">
-    <value>Enviar</value>
-  </data>
-  <data name="&gt;&gt;btnAdjuntar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnAdjuntar.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;btnEnviar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 49</value>
-  </data>
-  <data name="&gt;&gt;lblNombrePaciente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtConversacion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>512, 136</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="lblNombrePaciente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 37</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;lblNombrePaciente.Name" xml:space="preserve">
     <value>lblNombrePaciente</value>
   </data>
@@ -1531,23 +1532,20 @@
   <data name="&gt;&gt;btnDiagnosticar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="btnSalir.Text" xml:space="preserve">
     <value>Salir</value>
   </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Translate</value>
+  <data name="&gt;&gt;txtMensaje.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnEnviar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="lblNombrePaciente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 64</value>
-  </data>
   <data name="&gt;&gt;lblNombrePaciente.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="btnAdjuntar.Location" type="System.Drawing.Point, System.Drawing">
     <value>1063, 572</value>
@@ -1567,17 +1565,17 @@
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
   </data>
-  <data name="btnEnviar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1063, 527</value>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;expAdjuntar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnDiagnosticar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;btnDiagnosticar.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;btnAdjuntar.Name" xml:space="preserve">
     <value>btnAdjuntar</value>
@@ -1588,8 +1586,8 @@
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-94, 629</value>
+  <data name="&gt;&gt;lstArchivos.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnAdjuntar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1741,33 +1739,29 @@
   <data name="&gt;&gt;tmrActualizaMensajes.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmChatMedico</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ChatMedico</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lstArchivos.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;expAdjuntar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtConversacion.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
@@ -1775,11 +1769,8 @@
   <data name="&gt;&gt;lblNombrePaciente.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 43</value>
+  <data name="btnEnviar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1063, 527</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1793,23 +1784,17 @@
   <data name="lstArchivos.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 65</value>
   </data>
-  <data name="&gt;&gt;txtConversacion.Name" xml:space="preserve">
-    <value>txtConversacion</value>
-  </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 33</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>ChatMedico</value>
   </data>
   <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
     <value>151, 552</value>
   </data>
-  <data name="&gt;&gt;txtMensaje.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnDiagnosticar.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
+    <value>btnSalir</value>
   </data>
   <data name="btnDiagnosticar.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1952,20 +1937,20 @@
   <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
-    <value>btnSalir</value>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Translate</value>
   </data>
   <data name="&gt;&gt;txtMensaje.Name" xml:space="preserve">
     <value>txtMensaje</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btnAdjuntar.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="txtConversacion.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>580, 42</value>
+  <data name="&gt;&gt;txtConversacion.Name" xml:space="preserve">
+    <value>txtConversacion</value>
   </data>
   <data name="txtMensaje.Location" type="System.Drawing.Point, System.Drawing">
     <value>512, 527</value>

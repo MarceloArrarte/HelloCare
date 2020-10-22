@@ -131,11 +131,8 @@
   <data name="txtCedula.Location" type="System.Drawing.Point, System.Drawing">
     <value>746, 199</value>
   </data>
-  <data name="lblCodigo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 31</value>
-  </data>
-  <data name="btnConfirmar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
@@ -153,20 +150,14 @@
   <data name="&gt;&gt;btnConfirmar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
   <data name="btnConfirmar.Location" type="System.Drawing.Point, System.Drawing">
     <value>801, 528</value>
   </data>
-  <data name="lblCodigo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 20.25pt, style=Underline</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 31</value>
+  <data name="btnEnviarCodigo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;lblTitulo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -177,8 +168,8 @@
   <data name="txtCedula.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="lblTitulo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3356,6 +3347,9 @@
         XsHYmziMvRwOh8PhcDgcDocTjwH+P7321P12InLXAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;txtCedula.Name" xml:space="preserve">
+    <value>txtCedula</value>
+  </data>
   <data name="btnEnviarCodigo.Text" xml:space="preserve">
     <value>Solicitar restauración de contraseña</value>
   </data>
@@ -3419,6 +3413,9 @@
   <data name="&gt;&gt;lblTitulo.Name" xml:space="preserve">
     <value>lblTitulo</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
   <data name="&gt;&gt;lblCodigo.Name" xml:space="preserve">
     <value>lblCodigo</value>
   </data>
@@ -3449,14 +3446,8 @@
   <data name="lblCodigo.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;btnEnviarCodigo.Name" xml:space="preserve">
-    <value>btnEnviarCodigo</value>
-  </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="lblTitulo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;btnEnviarCodigo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3467,11 +3458,17 @@
   <data name="btnEnviarCodigo.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 265</value>
   </data>
+  <data name="lblCodigo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 20.25pt, style=Underline</value>
+  </data>
   <data name="&gt;&gt;txtCodigo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="txtCodigo.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="lblTitulo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
   </data>
   <data name="btnConfirmar.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3482,9 +3479,6 @@
   <data name="&gt;&gt;btnEnviarCodigo.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblTitulo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>739, 84</value>
-  </data>
   <data name="lblTitulo.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 37</value>
   </data>
@@ -3494,8 +3488,14 @@
   <data name="&gt;&gt;txtCedula.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="lblTitulo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>739, 84</value>
+  </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>780, 155</value>
+  </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 43</value>
   </data>
   <data name="&gt;&gt;txtCedula.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -3521,11 +3521,11 @@
   <data name="txtCodigo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
-  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTitulo.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="lblTitulo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmContrasenaOlvidada</value>
@@ -3536,8 +3536,8 @@
   <data name="btnConfirmar.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 43</value>
   </data>
-  <data name="&gt;&gt;txtCedula.Name" xml:space="preserve">
-    <value>txtCedula</value>
+  <data name="btnConfirmar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;txtCodigo.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -3545,14 +3545,17 @@
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTitulo.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 31</value>
+  </data>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Translate</value>
   </data>
   <data name="&gt;&gt;btnConfirmar.Name" xml:space="preserve">
     <value>btnConfirmar</value>
   </data>
-  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 43</value>
+  <data name="&gt;&gt;btnEnviarCodigo.Name" xml:space="preserve">
+    <value>btnEnviarCodigo</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>
@@ -3560,11 +3563,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnEnviarCodigo.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Translate</value>
+  <data name="lblCodigo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 31</value>
   </data>
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3577,8 +3577,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

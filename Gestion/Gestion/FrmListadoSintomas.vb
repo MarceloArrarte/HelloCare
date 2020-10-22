@@ -77,7 +77,7 @@ Public Class FrmListadoSintomas
     ' Permite eliminar uno o varios de los síntomas del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If tblSintomas.SelectedRows.Count > 0 Then
-            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esto(s) síntoma(s)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this symptom(s)?" & vbNewLine & "These changes cannot be undone.", "Warning") Then
+            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esto(s) síntoma(s)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this symptom(s)?" & vbNewLine & "These changes cannot be undone.", "Warning") = DialogResult.Yes Then
                 For Each r As DataGridViewRow In tblSintomas.SelectedRows
                     EliminarSintoma(r.Cells(0).Value)
                 Next
@@ -93,19 +93,6 @@ Public Class FrmListadoSintomas
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
-
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmListadoSintomas))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+        TraducirFormulario(Me)
     End Sub
 End Class

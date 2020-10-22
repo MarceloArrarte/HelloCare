@@ -27,25 +27,24 @@ Partial Class FrmHistorialPacientes
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblUltimasConsultas = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblUltimasConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
         'tblUltimasConsultas
         '
-        resources.ApplyResources(Me.tblUltimasConsultas, "tblUltimasConsultas")
         Me.tblUltimasConsultas.AllowUserToAddRows = False
         Me.tblUltimasConsultas.AllowUserToDeleteRows = False
         Me.tblUltimasConsultas.AllowUserToResizeColumns = False
@@ -70,31 +69,12 @@ Partial Class FrmHistorialPacientes
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblUltimasConsultas.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.tblUltimasConsultas, "tblUltimasConsultas")
         Me.tblUltimasConsultas.MultiSelect = False
         Me.tblUltimasConsultas.Name = "tblUltimasConsultas"
         Me.tblUltimasConsultas.ReadOnly = True
         Me.tblUltimasConsultas.RowHeadersVisible = False
         Me.tblUltimasConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'btnVolver
-        '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
-        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
         '
         'Column1
         '
@@ -122,6 +102,26 @@ Partial Class FrmHistorialPacientes
         resources.ApplyResources(Me.Column4, "Column4")
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'lblTraducir
+        '
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmHistorialPacientes
         '

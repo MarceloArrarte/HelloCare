@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmMenuPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmMenuPrincipal
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenuPrincipal))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -28,8 +28,8 @@ Partial Class FrmMenuPrincipal
         Me.btnABMEnfermedades = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblLogeado = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.btnConfiguracion = New System.Windows.Forms.Button()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -69,13 +69,6 @@ Partial Class FrmMenuPrincipal
         Me.lblLogeado.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblLogeado.Name = "lblLogeado"
         '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'btnConfiguracion
         '
         resources.ApplyResources(Me.btnConfiguracion, "btnConfiguracion")
@@ -84,12 +77,19 @@ Partial Class FrmMenuPrincipal
         Me.btnConfiguracion.Name = "btnConfiguracion"
         Me.btnConfiguracion.UseVisualStyleBackColor = False
         '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
         'FrmMenuPrincipal
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnConfiguracion)
         Me.Controls.Add(Me.lblTraducir)
+        Me.Controls.Add(Me.btnConfiguracion)
         Me.Controls.Add(Me.lblLogeado)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnABMEnfermedades)
@@ -108,6 +108,6 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents btnABMEnfermedades As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents lblLogeado As Label
-    Friend WithEvents lblTraducir As Label
     Friend WithEvents btnConfiguracion As Button
+    Friend WithEvents lblTraducir As Label
 End Class

@@ -1389,7 +1389,7 @@
     <value>12</value>
   </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-83, 629</value>
+    <value>-95, 629</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
@@ -1482,7 +1482,7 @@
 </value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 43</value>
+    <value>264, 43</value>
   </data>
   <data name="&gt;&gt;btnAdjuntar.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1888,7 +1888,7 @@
     <value>$this</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Traducir</value>
+    <value>Translate</value>
   </data>
   <data name="&gt;&gt;txtMensaje.Name" xml:space="preserve">
     <value>txtMensaje</value>

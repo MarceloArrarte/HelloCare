@@ -158,11 +158,8 @@
   <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-85, 633</value>
+    <value>-92, 629</value>
   </data>
   <data name="&gt;&gt;btnAgregar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3662,6 +3659,9 @@
   <data name="&gt;&gt;colAsociacion.Name" xml:space="preserve">
     <value>colAsociacion</value>
   </data>
+  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>771, 633</value>
+  </data>
   <data name="tblPatologias.Location" type="System.Drawing.Point, System.Drawing">
     <value>478, 426</value>
   </data>
@@ -3734,11 +3734,8 @@
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
   </data>
-  <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 25</value>
@@ -3749,8 +3746,8 @@
   <data name="&gt;&gt;lblUrgenciaSintoma.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmAltaSintomas</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3774,7 +3771,10 @@
     <value>tblPatologias</value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 43</value>
+    <value>261, 43</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="tblPatologias.Size" type="System.Drawing.Size, System.Drawing">
     <value>724, 201</value>
@@ -3819,6 +3819,9 @@
   <data name="txtDescripcion.Location" type="System.Drawing.Point, System.Drawing">
     <value>478, 183</value>
   </data>
+  <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;txtDescripcion.Name" xml:space="preserve">
     <value>txtDescripcion</value>
   </data>
@@ -3832,7 +3835,7 @@
     <value>$this</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Traducir</value>
+    <value>Translate</value>
   </data>
   <data name="&gt;&gt;colObjeto.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3872,9 +3875,6 @@
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 42</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmAltaSintomas</value>
   </data>
   <data name="&gt;&gt;lblUrgenciaSintoma.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3999,7 +3999,7 @@
   <data name="lblUrgenciaSintoma.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtRecomendaciones.Multiline" type="System.Boolean, mscorlib">
@@ -4020,15 +4020,12 @@
   <data name="&gt;&gt;colFrecuencia.Name" xml:space="preserve">
     <value>colFrecuencia</value>
   </data>
-  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>771, 633</value>
+  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
+    <value>btnAgregar</value>
   </data>
   <data name="&gt;&gt;txtUrgencia.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -154,9 +154,6 @@
   <data name="lblTitulo.Text" xml:space="preserve">
     <value>New user sign up</value>
   </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAACdtJREFUeF7t
@@ -205,14 +202,14 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-82, 629</value>
+  </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 43</value>
+    <value>238, 43</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Translate</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+    <value>Traducir</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
