@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmPeticionesChat
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmPeticionesChat
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPeticionesChat))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -29,15 +29,15 @@ Partial Class FrmPeticionesChat
         Me.btnAceptarConsulta = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblPeticiones = New System.Windows.Forms.DataGridView()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblPeticiones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -95,26 +95,6 @@ Partial Class FrmPeticionesChat
         Me.tblPeticiones.RowHeadersVisible = False
         Me.tblPeticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         '
-        'btnVolver
-        '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
-        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'lblTraducir
-        '
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'Column1
         '
         resources.ApplyResources(Me.Column1, "Column1")
@@ -155,6 +135,26 @@ Partial Class FrmPeticionesChat
         resources.ApplyResources(Me.Column4, "Column4")
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'lblTraducir
+        '
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmPeticionesChat
         '

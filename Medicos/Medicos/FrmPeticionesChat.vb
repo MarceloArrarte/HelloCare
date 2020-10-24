@@ -11,11 +11,11 @@ Public Class FrmPeticionesChat
         For Each d As DiagnosticoPrimarioConConsulta In CargarConsultasSinAtenderParaMedicoLogeado()
             Dim enfermedadMasProbable As Enfermedad = d.Enfermedades(d.IndiceEnfermedadMasProbable)
             Dim color As Color
-            Dim etiqueta As String
+            Dim etiqueta As String = ""
 
             If d.FechaHora.AddDays(1) < Now Then
                 etiqueta = "Atrasada"
-                color = Color.FromArgb(255, 97, 97)
+                color = Color.FromArgb(255, 97, 97)     ' Rojo claro
             Else
                 Select Case enfermedadMasProbable.Gravedad
                     Case 0 To 30
@@ -26,7 +26,7 @@ Public Class FrmPeticionesChat
                         color = Color.Yellow
                     Case 71 To 100
                         etiqueta = "Alta"
-                        color = Color.FromArgb(255, 97, 97)
+                        color = Color.FromArgb(255, 97, 97)     ' Rojo claro
                 End Select
             End If
             tblPeticiones.Rows.Add(d, d.Paciente, enfermedadMasProbable, etiqueta, d.ComentariosAdicionales, d.FechaHora)
@@ -41,11 +41,24 @@ Public Class FrmPeticionesChat
     Private Sub btnAceptarConsulta_Click(sender As Object, e As EventArgs) Handles btnAceptarConsulta.Click
         If tblPeticiones.SelectedRows.Count = 1 Then
             Dim peticion As DiagnosticoPrimarioConConsulta = tblPeticiones.SelectedRows(0).Cells(0).Value
-            Dim frm As New FrmChatMedico(peticion)
-            Me.Hide()
-            frm.ShowDialog()
-            RefrescarPeticiones()
-            Me.Show()
+            Dim yaFueAtendida As Boolean = False
+            For Each c As DiagnosticoPrimarioConConsulta In CargarConsultasSinAtenderParaMedicoLogeado()
+                If peticion.ID = c.ID And c.Medico IsNot Nothing Then
+                    yaFueAtendida = True
+                End If
+            Next
+
+            If Not yaFueAtendida Then
+                Dim frm As New FrmChatMedico(peticion)
+                Me.Hide()
+                frm.ShowDialog()
+                RefrescarPeticiones()
+                Me.Show()
+            Else
+                MostrarMensaje(MsgBoxStyle.Information, "La petición seleccionada ya fue atendida por un doctor. Por favor, seleccione otra.", "Petición ya aceptada", "The selected chat request has already been accepted by a doctor. Please, select another one.", "Request already accepted")
+                RefrescarPeticiones()
+            End If
+
         Else
             MostrarMensaje(MsgBoxStyle.Information, "Seleccione un diagnóstico para aceptar la petición e iniciar el chat.", "", "Select a diagnosis to accept the chat request.", "")
         End If
