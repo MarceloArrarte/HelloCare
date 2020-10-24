@@ -141,3 +141,4 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\es-419\Aplicacio
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmAltaEnfermedades.es.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmLogin.es-419.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es-419\AplicacionGestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache

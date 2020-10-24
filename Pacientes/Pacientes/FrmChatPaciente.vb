@@ -24,14 +24,18 @@ Public Class FrmChatPaciente
         If diagnosticoPrimarioConConsulta.Medico IsNot Nothing Then
             lblMedico.Text = lblMedico.Text.Replace("#", consultaEnCurso.Medico.ToString)
         Else
-            lblMedico.Text = "Un médico se comunicará con usted a la brevedad."
+            If idiomaSeleccionado = Idiomas.Espanol Then
+                lblMedico.Text = "Un médico se comunicará con usted a la brevedad."
+            Else
+                lblMedico.Text = "A doctor will communicate with you shortly."
+            End If
         End If
 
         cantidadTotalMensajes = ContarMensajes(diagnosticoPrimarioConConsulta)
         mensajesMostrados = CargarUltimosMensajesDiagnostico(consultaEnCurso, lotesMensajes * tamanoLote)
         MostrarNuevosMensajes(mensajesMostrados)
 
-        tmrActualizaMensajes.Enabled = True
+        tmrActualizar.Enabled = True
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
@@ -68,10 +72,18 @@ Public Class FrmChatPaciente
         End If
     End Sub
 
-    Private Sub tmrActualizaMensajes_Tick(sender As Object, e As EventArgs) Handles tmrActualizaMensajes.Tick
-        tmrActualizaMensajes.Enabled = False
+    Private Sub tmrActualizaMensajes_Tick(sender As Object, e As EventArgs) Handles tmrActualizar.Tick
+        tmrActualizar.Enabled = False
+        If consultaEnCurso.Medico Is Nothing AndAlso ConsultaTieneMedico(consultaEnCurso) Then
+            CargarMedicoEnConsulta(consultaEnCurso)
+            If idiomaSeleccionado = Idiomas.Espanol Then
+                lblMedico.Text = "Usted se está comunicando con " & consultaEnCurso.Medico.ToString & "."
+            Else
+                lblMedico.Text = "You are communicating with " & consultaEnCurso.Medico.ToString & "."
+            End If
+        End If
         ActualizarMensajes()
-        tmrActualizaMensajes.Enabled = True
+        tmrActualizar.Enabled = True
     End Sub
 
     Private Sub ActualizarMensajes()
@@ -133,6 +145,18 @@ Public Class FrmChatPaciente
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        TraducirFormulario(Me)
+        TraducirAplicacion()
+    End Sub
+
+    Private Sub lblMedico_TextChanged(sender As Object, e As EventArgs) Handles lblMedico.TextChanged
+        If consultaEnCurso IsNot Nothing AndAlso consultaEnCurso.Medico IsNot Nothing Then
+            lblMedico.Text = lblMedico.Text.Replace("#", consultaEnCurso.Medico.ToString)
+        Else
+            If idiomaSeleccionado = Idiomas.Espanol Then
+                lblMedico.Text = "Un médico se comunicará con usted a la brevedad."
+            Else
+                lblMedico.Text = "A doctor will communicate with you shortly."
+            End If
+        End If
     End Sub
 End Class

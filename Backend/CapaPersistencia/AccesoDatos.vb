@@ -1610,4 +1610,6 @@ Public Module AccesoDatos
         Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
         Return cantidad
     End Function
+
+
 End Module

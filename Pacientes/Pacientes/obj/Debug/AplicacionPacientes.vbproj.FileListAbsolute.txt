@@ -130,3 +130,9 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\es-419\Aplic
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\aa\AplicacionPacientes.resources.dll
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\bin-NG\AplicacionPacientes.resources.dll
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\es-AR\AplicacionPacientes.resources.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.FrmRegistro.en-DE.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRegistroUsuarioEN.html
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRegistroUsuarioES.html
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRestaurarContrasenaEN.html
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRestaurarContrasenaES.html
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache

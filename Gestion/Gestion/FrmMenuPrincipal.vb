@@ -5,7 +5,6 @@ Imports Clases
 
 Public Class FrmMenuPrincipal
     Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblLogeado.Text = lblLogeado.Text.Replace("#", administrativoLogeado.ToString)
         If Not administrativoLogeado.EsEncargado Then
             btnConfiguracion.Visible = False
         End If
@@ -44,6 +43,12 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        TraducirFormulario(Me)
+        TraducirAplicacion()
+    End Sub
+
+    Private Sub lblLogeado_TextChanged(sender As Object, e As EventArgs) Handles lblLogeado.TextChanged
+        If lblLogeado.Text.Contains("#") Then
+            lblLogeado.Text = lblLogeado.Text.Replace("#", administrativoLogeado.ToString)
+        End If
     End Sub
 End Class

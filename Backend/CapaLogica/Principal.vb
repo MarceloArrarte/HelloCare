@@ -859,4 +859,23 @@ Public Module Principal
     Public Sub EliminarEspecialidad(especialidad As Especialidad)
         EliminarObjeto(especialidad, TiposObjeto.Especialidad)
     End Sub
+
+    Public Function ConsultaTieneMedico(consulta As DiagnosticoPrimarioConConsulta)
+        Dim consultasSinAtender As List(Of DiagnosticoPrimarioConConsulta) = ObtenerConsultasSinAtender()
+        For Each d As DiagnosticoPrimarioConConsulta In consultasSinAtender
+            If consulta.ID = d.ID And d.Medico Is Nothing Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
+    Public Sub CargarMedicoEnConsulta(ByRef consulta As DiagnosticoPrimarioConConsulta)
+        Dim consultas As List(Of DiagnosticoPrimario) = ObtenerDiagnosticosPrimariosPorPaciente(consulta.Paciente)
+        For Each c As DiagnosticoPrimario In consultas
+            If consulta.ID = c.ID Then
+                consulta = c
+            End If
+        Next
+    End Sub
 End Module

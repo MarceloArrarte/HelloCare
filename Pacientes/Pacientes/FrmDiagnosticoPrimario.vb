@@ -95,12 +95,12 @@ Public Class FrmDiagnosticoPrimario
     End Sub
 
     Private Sub btnRealizarConsulta_Click(sender As Object, e As EventArgs) Handles btnRealizarConsulta.Click
-        Dim frmComentarios As FrmComentariosAdicionales
+        Dim frmComentarios As New FrmComentariosAdicionales
         Dim confirmacion As DialogResult = DialogResult.OK
         If diagnosticoMostrado.Tipo = TiposDiagnosticosPrimarios.Sin_Consulta Then
-            frmComentarios = New FrmComentariosAdicionales
             confirmacion = frmComentarios.ShowDialog()
         End If
+
         If confirmacion = DialogResult.OK Then
             Dim diagnosticoConConsulta As DiagnosticoPrimarioConConsulta
             If TryCast(diagnosticoMostrado, DiagnosticoPrimarioConConsulta) Is Nothing Then
@@ -108,6 +108,8 @@ Public Class FrmDiagnosticoPrimario
             Else
                 diagnosticoConConsulta = diagnosticoMostrado
             End If
+            diagnosticoMostrado = diagnosticoConConsulta
+
             Dim frmChat As New FrmChatPaciente(diagnosticoConConsulta)
             Me.Hide()
             frmChat.ShowDialog()
@@ -120,20 +122,22 @@ Public Class FrmDiagnosticoPrimario
         Me.Close()
     End Sub
 
-    Private Sub lblTraducir_Click(sender As Object, e As EventArgs)
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
+    End Sub
 
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmDiagnosticoPrimario))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+    Private Sub lblDiagnosticosDiferenciales_TextChanged(sender As Object, e As EventArgs) Handles lblDiagnosticosDiferenciales.TextChanged
+        If TypeOf diagnosticoMostrado Is DiagnosticoPrimarioConConsulta Then
+            Dim cantidadDiagnosticosDiferenciales As Integer = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
+            lblDiagnosticosDiferenciales.Text = lblDiagnosticosDiferenciales.Text.Replace("#", cantidadDiagnosticosDiferenciales)
+            If cantidadDiagnosticosDiferenciales > 0 Then
+                btnDiagnosticosDiferenciales.Visible = True
+            Else
+                btnDiagnosticosDiferenciales.Visible = False
+            End If
+        Else
+            lblDiagnosticosDiferenciales.Hide()
+            btnDiagnosticosDiferenciales.Hide()
+        End If
     End Sub
 End Class

@@ -4,7 +4,7 @@ Imports System.Windows.Forms
 Imports Clases
 
 Public Module Localizacion
-    Public Sub TraducirFormulario(formulario As Form)
+    Public Sub TraducirAplicacion()
         Dim idioma As String
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
@@ -17,19 +17,32 @@ Public Module Localizacion
                 Throw New Exception("Error de idioma seleccionado.")
         End Select
 
-        Dim tipoForm As Type = formulario.GetType
-        Dim crmLang As New ComponentResourceManager(tipoForm)
-        For Each c As Control In ObtenerControles(formulario)
-            crmLang.ApplyResources(c, c.Name, New CultureInfo(idioma))
+        ' Configura cultura para elementos de la UI que se abran a partir del momento que se ejecuta este código
+        Dim infoCultura As CultureInfo = CultureInfo.GetCultureInfo(idioma)
+        CultureInfo.DefaultThreadCurrentCulture = infoCultura
+        CultureInfo.DefaultThreadCurrentUICulture = infoCultura
+
+        ' Configura cultura para elementos ya inicializados de la UI
+        For Each f As Form In Application.OpenForms
+            Dim crmLang As New ComponentResourceManager(f.GetType)
+            For Each obj As Object In ObtenerControles(f)
+                crmLang.ApplyResources(obj, obj.Name, infoCultura)
+            Next
         Next
     End Sub
 
-    Private Function ObtenerControles(control As Control) As List(Of Control)
-        Dim lista As New List(Of Control)
+    Private Function ObtenerControles(control As Control) As List(Of Object)
+        Dim lista As New List(Of Object)
         For Each c As Control In control.Controls
             lista.Add(c)
             If c.Controls.Count > 0 Then
                 lista.AddRange(ObtenerControles(c))
+            End If
+
+            If TryCast(c, DataGridView) IsNot Nothing Then
+                For Each col As DataGridViewColumn In CType(c, DataGridView).Columns
+                    lista.Add(col)
+                Next
             End If
         Next
         Return lista

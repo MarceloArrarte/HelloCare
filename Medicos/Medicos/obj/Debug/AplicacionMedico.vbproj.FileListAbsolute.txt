@@ -108,3 +108,10 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmPeticionesChat.es.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.en.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.FrmRegistro.es.resources
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRegistroUsuarioEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRegistroUsuarioES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarContrasenaEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarContrasenaES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache

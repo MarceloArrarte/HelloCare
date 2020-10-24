@@ -274,12 +274,24 @@
     <None Include="Resources\logo 1 hellocare.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MailRegistroUsuarioEN.html" />
-    <Content Include="MailRegistroUsuarioES.html" />
-    <Content Include="MailRestaurarContrasenaEN.html" />
-    <Content Include="MailRestaurarContrasenaES.html" />
-    <Content Include="MailSesionChatEN.html" />
-    <Content Include="MailSesionChatES.html" />
+    <Content Include="MailRegistroUsuarioEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRegistroUsuarioES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRestaurarContrasenaEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailRestaurarContrasenaES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailSesionChatEN.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MailSesionChatES.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

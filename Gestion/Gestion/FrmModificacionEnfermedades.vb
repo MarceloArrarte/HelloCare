@@ -166,6 +166,6 @@ Public Class FrmModificacionEnfermedades
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        TraducirFormulario(Me)
+        TraducirAplicacion()
     End Sub
 End Class

@@ -37,15 +37,15 @@ Partial Class FrmRegistro
         '
         'txtContrasena
         '
-        Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         resources.ApplyResources(Me.txtContrasena, "txtContrasena")
+        Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'txtRepetir
         '
-        Me.txtRepetir.BackColor = System.Drawing.Color.DarkGray
         resources.ApplyResources(Me.txtRepetir, "txtRepetir")
+        Me.txtRepetir.BackColor = System.Drawing.Color.DarkGray
         Me.txtRepetir.Name = "txtRepetir"
         Me.txtRepetir.UseSystemPasswordChar = True
         '
@@ -73,8 +73,8 @@ Partial Class FrmRegistro
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         resources.ApplyResources(Me.btnGuardar, "btnGuardar")
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
@@ -102,8 +102,8 @@ Partial Class FrmRegistro
         '
         'lblTraducir
         '
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

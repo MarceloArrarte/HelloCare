@@ -79,4 +79,8 @@ Public Class FrmIngresoSintoma
         tblDisponibles.ClearSelection()
         tblSeleccionados.ClearSelection()
     End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
+    End Sub
 End Class

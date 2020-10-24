@@ -40,6 +40,12 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
-        TraducirFormulario(Me)
+        TraducirAplicacion()
+    End Sub
+
+    Private Sub lblLogeado_TextChanged(sender As Object, e As EventArgs) Handles lblLogeado.TextChanged
+        If lblLogeado.Text.Contains("#") Then
+            lblLogeado.Text = lblLogeado.Text.Replace("#", medicoLogeado.ToString)
+        End If
     End Sub
 End Class

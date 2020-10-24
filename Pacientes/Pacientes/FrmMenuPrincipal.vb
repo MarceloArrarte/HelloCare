@@ -31,20 +31,13 @@ Public Class FrmMenuPrincipal
         Me.Show()
     End Sub
 
-    Private Sub lblTraducir_Click(sender As Object, e As EventArgs)
-        Dim nombreIdioma As String = ""
-        Select Case idiomaSeleccionado
-            Case Idiomas.Espanol
-                idiomaSeleccionado = Idiomas.Ingles
-                nombreIdioma = "en"
-            Case Idiomas.Ingles
-                idiomaSeleccionado = Idiomas.Espanol
-                nombreIdioma = "es"
-        End Select
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
+    End Sub
 
-        Dim crmIdioma As New ComponentResourceManager(GetType(FrmHistorialDiagnosticos))
-        For Each c As Control In Me.Controls
-            crmIdioma.ApplyResources(c, c.Name, New CultureInfo(nombreIdioma))
-        Next
+    Private Sub lblLogeado_TextChanged(sender As Object, e As EventArgs) Handles lblLogeado.TextChanged
+        If lblLogeado.Text.Contains("#") Then
+            lblLogeado.Text = lblLogeado.Text.Replace("#", pacienteLogeado.ToString)
+        End If
     End Sub
 End Class

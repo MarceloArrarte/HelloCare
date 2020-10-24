@@ -259,6 +259,9 @@
   <data name="Column3.HeaderText" xml:space="preserve">
     <value>Primary diagnosis</value>
   </data>
+  <data name="Column6.HeaderText" xml:space="preserve">
+    <value>Urgency</value>
+  </data>
   <data name="Column5.HeaderText" xml:space="preserve">
     <value>Additional info.</value>
   </data>
