@@ -35,7 +35,7 @@ Partial Class FrmChatMedico
         Me.expAdjuntar = New System.Windows.Forms.OpenFileDialog()
         Me.txtConversacion = New System.Windows.Forms.TextBox()
         Me.btnDiagnosticar = New System.Windows.Forms.Button()
-        Me.tmrActualizaMensajes = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrActualizar = New System.Windows.Forms.Timer(Me.components)
         Me.lblTraducir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -78,29 +78,28 @@ Partial Class FrmChatMedico
         '
         'lstArchivos
         '
-        resources.ApplyResources(Me.lstArchivos, "lstArchivos")
         Me.lstArchivos.FormattingEnabled = True
+        resources.ApplyResources(Me.lstArchivos, "lstArchivos")
         Me.lstArchivos.Name = "lstArchivos"
         '
         'Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label2.Name = "Label2"
         '
         'expAdjuntar
         '
         Me.expAdjuntar.FileName = "OpenFileDialog1"
-        resources.ApplyResources(Me.expAdjuntar, "expAdjuntar")
         '
         'txtConversacion
         '
         Me.txtConversacion.AcceptsReturn = True
         Me.txtConversacion.AcceptsTab = True
-        resources.ApplyResources(Me.txtConversacion, "txtConversacion")
         Me.txtConversacion.BackColor = System.Drawing.SystemColors.Control
         Me.txtConversacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        resources.ApplyResources(Me.txtConversacion, "txtConversacion")
         Me.txtConversacion.Name = "txtConversacion"
         Me.txtConversacion.ReadOnly = True
         '
@@ -110,13 +109,13 @@ Partial Class FrmChatMedico
         Me.btnDiagnosticar.Name = "btnDiagnosticar"
         Me.btnDiagnosticar.UseVisualStyleBackColor = True
         '
-        'tmrActualizaMensajes
+        'tmrActualizar
         '
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -154,6 +153,6 @@ Partial Class FrmChatMedico
     Friend WithEvents expAdjuntar As Windows.Forms.OpenFileDialog
     Friend WithEvents txtConversacion As Windows.Forms.TextBox
     Friend WithEvents btnDiagnosticar As Button
-    Friend WithEvents tmrActualizaMensajes As Timer
+    Friend WithEvents tmrActualizar As Timer
     Friend WithEvents lblTraducir As Label
 End Class

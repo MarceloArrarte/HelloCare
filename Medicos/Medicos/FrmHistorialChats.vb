@@ -4,20 +4,23 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmHistorialChats
-    Private mesesHistorial As Integer = 1
     Private Sub FrmHistorialChats_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico(mesesHistorial)
-        For Each d As DiagnosticoPrimarioConConsulta In consultasMedico
-            Dim ultimoMensaje As Mensaje = CargarUltimosMensajesDiagnostico(d, 1).Single
-            Dim prefijoMensaje As String
-            If ultimoMensaje.Remitente = TiposRemitente.Medico Then
-                prefijoMensaje = "Tú: "
-            Else
-                prefijoMensaje = d.Paciente.ToString & ": "
-            End If
+        Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico()
 
-            tblChats.Rows.Add(d, d.Paciente, prefijoMensaje & ultimoMensaje.ToString,
-                              ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
+        For Each d As DiagnosticoPrimarioConConsulta In consultasMedico
+            Dim ultimoMensaje As Mensaje = CargarUltimosMensajesDiagnostico(d, 1).SingleOrDefault
+            If ultimoMensaje IsNot Nothing Then
+                Dim prefijoMensaje As String
+                If ultimoMensaje.Remitente = TiposRemitente.Medico Then
+                    prefijoMensaje = "Tú: "
+                Else
+                    prefijoMensaje = d.Paciente.ToString & ": "
+                End If
+
+                tblChats.Rows.Add(d, d.Paciente, prefijoMensaje & ultimoMensaje.ToString, ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
+            Else
+                tblChats.Rows.Add(d, d.Paciente, "Sin mensajes.", "")
+            End If
         Next
     End Sub
 

@@ -33,13 +33,11 @@ Public Class FrmDiagnosticoPrimario
             tblEnfermedadesDiagnosticadas.Rows(0).Height *= 2       ' Permite visualizar dicho mensaje mejor
             lblResultado.Visible = False                            ' Si no se determinó un resultado fiable, oculta el Label
         Else
-            lblResultado.Text = "De acuerdo con los síntomas ingresados, la enfermedad que más probablemente padece es:" & vbNewLine &
+            lblResultado.Text = "De acuerdo con los síntomas ingresados, la enfermedad que más probablemente padece es: " &
                                 enfermedadesDiagnosticadas.Items(0).Nombre & ", con una certeza del " & Math.Round(enfermedadesDiagnosticadas.Probabilidad(0), 1) & "%."
         End If
 
-        Dim diagnosticoRealizado As DiagnosticoPrimario = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
-        'nuevoDiagnostico = True
-        diagnosticoMostrado = diagnosticoRealizado
+        diagnosticoMostrado = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
     End Sub
 
     Public Sub New(diagnostico As DiagnosticoPrimario)

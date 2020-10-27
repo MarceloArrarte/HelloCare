@@ -5,7 +5,7 @@ Imports Clases
 
 Public Class FrmHistorialPacientes
     Private Sub FrmHistorialPacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim ultimasConsultas As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico(1)
+        Dim ultimasConsultas As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico()
         For Each d As DiagnosticoPrimarioConConsulta In ultimasConsultas
             tblUltimasConsultas.Rows.Add(d, d.Paciente, d.Enfermedades(d.IndiceEnfermedadMasProbable), d.FechaHora)
         Next

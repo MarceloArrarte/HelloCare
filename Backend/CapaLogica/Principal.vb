@@ -95,6 +95,18 @@ Public Module Principal
         Return ObtenerListadoEspecialidades()
     End Function
 
+    Public Function CargarTodosLosPacientes() As List(Of Paciente)
+        Return ObtenerListadoPacientes()
+    End Function
+
+    Public Function CargarTodosLosMedicos() As List(Of Medico)
+        Return ObtenerListadoMedicos()
+    End Function
+
+    Public Function CargarTodosLosAdministrativos() As List(Of Administrativo)
+        Return ObtenerListadoAdministrativos()
+    End Function
+
     Public Function DuplicarFila(filaADuplicar As DataGridViewRow) As DataGridViewRow
         Dim nuevaFila As DataGridViewRow = filaADuplicar.Clone
         For i = 0 To filaADuplicar.Cells.Count - 1
@@ -165,8 +177,22 @@ Public Module Principal
         Return mensajes
     End Function
 
+    Public Function CargarUltimosMetadatosArchivosDiagnostico(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidad As Integer) As List(Of Mensaje)
+        Dim metadatosArchivos As List(Of Mensaje) = ObtenerUltimosMetadatosArchivosPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta, cantidad)
+        metadatosArchivos.Reverse()
+        Return metadatosArchivos
+    End Function
+
     Public Function ContarMensajes(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
         Return ObtenerCantidadMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta)
+    End Function
+
+    Public Function ContarArchivos(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
+        Return ObtenerCantidadArchivosPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta)
+    End Function
+
+    Public Function CargarContenidoArchivoPorID(idArchivo As Integer) As Byte()
+        Return ObtenerArchivoPorID(idArchivo).Contenido
     End Function
 
     Public Function ContarDiagnosticosDiferenciales(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
@@ -265,8 +291,8 @@ Public Module Principal
         Return consultaConMedico
     End Function
 
-    Public Function CargarConsultasMedico(mesesHistorial As Integer) As List(Of DiagnosticoPrimarioConConsulta)
-        Return ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medicoLogeado, mesesHistorial)
+    Public Function CargarConsultasMedico() As List(Of DiagnosticoPrimarioConConsulta)
+        Return ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medicoLogeado)
     End Function
 
     Public Sub CrearSintoma(nombre As String, descripcion As String, recomendaciones As String, urgencia As Integer,
@@ -297,6 +323,51 @@ Public Module Principal
             Select Case ex.Number
                 Case 1062
                     Throw New Exception("Ya existe una enfermedad con ese nombre.")
+                Case Else
+                    Throw ex
+            End Select
+        End Try
+    End Sub
+
+    Public Sub CrearMedico(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, especialidades As List(Of Especialidad))
+        Dim nuevoMedico As New Medico(ci, nombre, apellido, correo, localidad, especialidades)
+        Try
+            InsertarObjeto(nuevoMedico, TiposObjeto.Medico)
+        Catch ex As MySqlException
+            Select Case ex.Number
+                Case 1062
+                    Throw New Exception("Ya existe un medico con ese nombre.")
+                Case Else
+                    Throw ex
+            End Select
+        End Try
+    End Sub
+
+    Public Sub CrearAdministrativo(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, esEncargado As Boolean)
+        Dim nuevoAdministrativo As New Administrativo(ci, nombre, apellido, correo, localidad, esEncargado)
+
+        Try
+            InsertarObjeto(nuevoAdministrativo, TiposObjeto.Administrativo)
+        Catch ex As MySqlException
+            Select Case ex.Number
+                Case 1062
+                    Throw New Exception("Ya existe un administrativo con ese nombre.")
+                Case Else
+                    Throw ex
+            End Select
+        End Try
+
+    End Sub
+
+    Public Sub CrearPaciente(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, telefonoMovil As String,
+            telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, fechaDeFuncion As Date, calle As String, numeroPuerta As String, apartamento As String)
+        Dim nuevoPaciente As New Paciente(ci, nombre, apellido, correo, localidad, telefonoMovil, telefonoFijo, sexo, fechaNacimiento, fechaDeFuncion, calle, numeroPuerta, apartamento)
+        Try
+            InsertarObjeto(nuevoPaciente, TiposObjeto.Paciente)
+        Catch ex As MySqlException
+            Select Case ex.Number
+                Case 1062
+                    Throw New Exception("Ya existe un paciente con ese nombre.")
                 Case Else
                     Throw ex
             End Select
@@ -352,12 +423,45 @@ Public Module Principal
         ModificarObjeto(nuevaEnfermedad, TiposObjeto.Enfermedad)
     End Sub
 
+    Public Sub ActualizarPaciente(pacienteViejo As Paciente, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad,
+                                  telefonoMovil As String, telefonoFijo As String, sexo As TiposSexo, fechaNacimiento As Date, fechaDeFuncion As Date,
+                                  calle As String, numeroPuerta As String, apartamento As String)
+        Dim nuevoPaciente As New Paciente(pacienteViejo.ID, ci, nombre, apellido, correo, localidad, telefonoMovil, telefonoFijo, sexo, fechaNacimiento, fechaDeFuncion, calle, numeroPuerta, apartamento)
+
+        ModificarObjeto(nuevoPaciente, TiposObjeto.Paciente)
+    End Sub
+
+    Public Sub ActualizarAdministrativo(administrativoViejo As Administrativo, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, EsEncargado As Boolean, habilitado As Boolean)
+
+        Dim nuevoAdministrativo As New Administrativo(administrativoViejo.ID, ci, nombre, apellido, correo, localidad, EsEncargado, habilitado)
+        ModificarObjeto(nuevoAdministrativo, TiposObjeto.Administrativo)
+    End Sub
+
+
+    Public Sub ActualizarMedico(medicoViejo As Medico, ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, especialidades As List(Of Especialidad))
+
+        Dim nuevoMedico As New Medico(medicoViejo.ID, ci, nombre, apellido, correo, localidad, especialidades, True)
+
+        ModificarObjeto(nuevoMedico, TiposObjeto.Medico)
+    End Sub
+
     Public Sub EliminarSintoma(sintoma As Sintoma)
         EliminarObjeto(sintoma, TiposObjeto.Sintoma)
     End Sub
 
     Public Sub EliminarEnfermedad(enfermedad As Enfermedad)
         EliminarObjeto(enfermedad, TiposObjeto.Enfermedad)
+    End Sub
+
+    Public Sub EliminarPaciente(paciente As Paciente)
+        EliminarObjeto(paciente, TiposObjeto.Paciente)
+    End Sub
+    Public Sub EliminarMedico(medico As Medico)
+        EliminarObjeto(medico, TiposObjeto.Medico)
+    End Sub
+
+    Public Sub EliminarAdministrativo(administrativo As Administrativo)
+        EliminarObjeto(administrativo, TiposObjeto.Administrativo)
     End Sub
 
     Public Sub ImportarEnfermedades(nombreArchivo As String)

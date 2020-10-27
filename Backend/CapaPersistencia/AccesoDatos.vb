@@ -781,7 +781,7 @@ Public Module AccesoDatos
 
     Public Function ObtenerDiagnosticosPrimariosPorPaciente(paciente As Paciente) As List(Of DiagnosticoPrimario)
         Dim ds As New DataSet
-        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosDiagnosticos WHERE `ID paciente`=@ID_PACIENTE;")
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosDiagnosticos WHERE `ID paciente`=@ID_PACIENTE ORDER BY `Fecha hora diagnostico primario` DESC;")
         comando.Parameters.AddWithValue("@ID_PACIENTE", paciente.ID)
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Diagnosticos"))
         comando.CommandText = "SELECT * FROM ObtenerSintomasDeDiagnosticosPrimarios;"
@@ -872,11 +872,10 @@ Public Module AccesoDatos
         Return listaDiagnosticosPrimarios
     End Function
 
-    Public Function ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medico As Medico, mesesHistorial As Integer) As List(Of DiagnosticoPrimarioConConsulta)
+    Public Function ObtenerUltimosDiagnosticosPrimariosConConsultaPorMedico(medico As Medico) As List(Of DiagnosticoPrimarioConConsulta)
         Dim ds As New DataSet
-        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosConsultas WHERE `ID medico`=@ID_MEDICO AND `Fecha hora diagnostico primario`>DATE_SUB(NOW(), INTERVAL @MESES_HISTORIAL MONTH);")
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerDatosConsultas WHERE `ID medico`=@ID_MEDICO ORDER BY `Fecha hora diagnostico primario` DESC;")
         comando.Parameters.AddWithValue("@ID_MEDICO", medico.ID)
-        comando.Parameters.AddWithValue("@MESES_HISTORIAL", mesesHistorial)
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "Diagnosticos"))
         comando.CommandText = "SELECT * FROM ObtenerSintomasDeDiagnosticosPrimarios;"
         ds.Tables.Add(ConexionBD.EjecutarConsulta(comando, "SintomasEvaluados"))
@@ -969,7 +968,7 @@ Public Module AccesoDatos
     End Function
 
     Public Function ObtenerUltimosMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidadARetornar As Integer) As List(Of Mensaje)
-        Dim comando As New MySqlCommand("SELECT * FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO LIMIT @CANTIDAD_MENSAJES;")
+        Dim comando As New MySqlCommand("SELECT * FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO AND `Formato mensaje`='TXT' LIMIT @CANTIDAD_MENSAJES;")
         comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
         comando.Parameters.AddWithValue("@CANTIDAD_MENSAJES", cantidadARetornar)
         Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
@@ -990,8 +989,36 @@ Public Module AccesoDatos
         Return listaMensajes
     End Function
 
+    Public Function ObtenerUltimosMetadatosArchivosPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidadARetornar As Integer) As List(Of Mensaje)
+        Dim comando As New MySqlCommand("SELECT `ID mensaje`, `Fecha hora mensaje`, `Formato mensaje`, `Nombre archivo`, `Remitente mensaje`, `ID diagnostico` FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO AND `Formato mensaje`!='TXT' LIMIT @CANTIDAD_MENSAJES;")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+        comando.Parameters.AddWithValue("@CANTIDAD_MENSAJES", cantidadARetornar)
+        Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
+
+        Dim listaMensajes As New List(Of Mensaje)
+
+        For i = 0 To datos.Rows.Count - 1
+            Dim fila As DataRow = datos.Rows(i)
+            Dim idMensaje As Integer = fila("ID mensaje")
+            Dim fechaHoraMensaje As Date = CType(fila("Fecha hora mensaje"), MySqlDateTime).Value
+            Dim formatoMensaje As FormatosMensajeAdmitidos = [Enum].Parse(GetType(FormatosMensajeAdmitidos), fila("Formato mensaje"))
+            Dim nombreArchivoMensaje As String = If(TypeOf fila("Nombre archivo") IsNot DBNull, fila("Nombre archivo"), Nothing)
+            Dim remitenteMensaje As TiposRemitente = [Enum].Parse(GetType(TiposRemitente), fila("Remitente mensaje"))
+            listaMensajes.Add(New Mensaje(idMensaje, fechaHoraMensaje, formatoMensaje, Nothing, remitenteMensaje, nombreArchivoMensaje, diagnosticoPrimarioConConsulta))
+        Next
+
+        Return listaMensajes
+    End Function
+
     Public Function ObtenerCantidadMensajesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
-        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO;")
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO AND `Formato mensaje`='TXT';")
+        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+        Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
+        Return cantidad
+    End Function
+
+    Public Function ObtenerCantidadArchivosPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As Integer
+        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM ObtenerUltimosMensajesConsulta WHERE `ID diagnostico`=@ID_DIAGNOSTICO AND `Formato mensaje`!='TXT';")
         comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
         Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
         Return cantidad
@@ -1002,6 +1029,21 @@ Public Module AccesoDatos
         comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
         Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
         Return cantidad
+    End Function
+
+    Public Function ObtenerArchivoPorID(idArchivo As Integer) As Mensaje
+        Dim comando As New MySqlCommand("SELECT * FROM mensajes WHERE ID=@ID;")
+        comando.Parameters.AddWithValue("@ID", idArchivo)
+        Dim fila As DataRow = ConexionBD.EjecutarConsulta(comando).Rows(0)
+
+        Dim idMensaje As Integer = fila("ID")
+        Dim fechaHoraMensaje As Date = CType(fila("FECHAHORA"), MySqlDateTime).Value
+        Dim formatoMensaje As FormatosMensajeAdmitidos = [Enum].Parse(GetType(FormatosMensajeAdmitidos), fila("FORMATO"))
+        Dim nombreArchivoMensaje As String = If(TypeOf fila("NOMBRE_ARCHIVO") IsNot DBNull, fila("NOMBRE_ARCHIVO"), Nothing)
+        Dim contenidoMensaje() As Byte = fila("CONTENIDO")
+        Dim remitenteMensaje As TiposRemitente = [Enum].Parse(GetType(TiposRemitente), fila("REMITENTE"))
+
+        Return New Mensaje(idMensaje, fechaHoraMensaje, formatoMensaje, contenidoMensaje, remitenteMensaje, nombreArchivoMensaje, Nothing)
     End Function
 
     Public Function ObtenerDiagnosticosDiferencialesPorDiagnosticoPrimarioConConsulta(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta) As List(Of DiagnosticoDiferencial)

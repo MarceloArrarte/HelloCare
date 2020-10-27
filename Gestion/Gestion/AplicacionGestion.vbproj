@@ -84,6 +84,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAltaAdministrativo.designer.vb">
+      <DependentUpon>FrmAltaAdministrativo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAltaAdministrativo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaMedico.designer.vb">
+      <DependentUpon>FrmAltaMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAltaMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaPaciente.designer.vb">
+      <DependentUpon>FrmAltaPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAltaPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmConfiguracion.designer.vb">
       <DependentUpon>FrmConfiguracion.vb</DependentUpon>
     </Compile>
@@ -100,6 +118,24 @@
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoAdministrativos.designer.vb">
+      <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoAdministrativos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoMedicos.designer.vb">
+      <DependentUpon>FrmListadoMedicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoMedicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPacientes.designer.vb">
+      <DependentUpon>FrmListadoPacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoPacientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.vb">
@@ -139,6 +175,24 @@
     <Compile Include="FrmListadoSintomas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmModificacionAdministrativo.designer.vb">
+      <DependentUpon>FrmModificacionAdministrativo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificacionAdministrativo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificacionMedico.designer.vb">
+      <DependentUpon>FrmModificacionMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificacionMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificacionPaciente.designer.vb">
+      <DependentUpon>FrmModificacionPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificacionPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmModificacionSintomas.Designer.vb">
       <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
     </Compile>
@@ -155,6 +209,30 @@
       <DependentUpon>FrmRegistro.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoUsuario.designer.vb">
+      <DependentUpon>FrmTipoUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTipoUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerAdministrativo.designer.vb">
+      <DependentUpon>FrmVerAdministrativo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVerAdministrativo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerMedicos.designer.vb">
+      <DependentUpon>FrmVerMedicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVerMedicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerPaciente.designer.vb">
+      <DependentUpon>FrmVerPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVerPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -187,6 +265,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmAltaAdministrativo.en.resx">
+      <DependentUpon>FrmAltaAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaAdministrativo.es.resx">
+      <DependentUpon>FrmAltaAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaAdministrativo.resx">
+      <DependentUpon>FrmAltaAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaEnfermedades.en.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +282,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaEnfermedades.es.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaMedico.en.resx">
+      <DependentUpon>FrmAltaMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaMedico.es.resx">
+      <DependentUpon>FrmAltaMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaMedico.resx">
+      <DependentUpon>FrmAltaMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaPaciente.en.resx">
+      <DependentUpon>FrmAltaPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaPaciente.es.resx">
+      <DependentUpon>FrmAltaPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaPaciente.resx">
+      <DependentUpon>FrmAltaPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaSintomas.en.resx">
       <DependentUpon>FrmAltaSintomas.vb</DependentUpon>
@@ -223,11 +328,38 @@
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoAdministrativos.en.resx">
+      <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoAdministrativos.es.resx">
+      <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoAdministrativos.resx">
+      <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoEnfermedades.en.resx">
       <DependentUpon>FrmListadoEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoEnfermedades.es.resx">
       <DependentUpon>FrmListadoEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMedicos.en.resx">
+      <DependentUpon>FrmListadoMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMedicos.es.resx">
+      <DependentUpon>FrmListadoMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMedicos.resx">
+      <DependentUpon>FrmListadoMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPacientes.en.resx">
+      <DependentUpon>FrmListadoPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPacientes.es.resx">
+      <DependentUpon>FrmListadoPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPacientes.resx">
+      <DependentUpon>FrmListadoPacientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoSintomas.en.resx">
       <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
@@ -268,11 +400,38 @@
     <EmbeddedResource Include="FrmListadoSintomas.resx">
       <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionAdministrativo.en.resx">
+      <DependentUpon>FrmModificacionAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionAdministrativo.es.resx">
+      <DependentUpon>FrmModificacionAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionAdministrativo.resx">
+      <DependentUpon>FrmModificacionAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificacionEnfermedades.en.resx">
       <DependentUpon>FrmModificacionEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificacionEnfermedades.es.resx">
       <DependentUpon>FrmModificacionEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionMedico.en.resx">
+      <DependentUpon>FrmModificacionMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionMedico.es.resx">
+      <DependentUpon>FrmModificacionMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionMedico.resx">
+      <DependentUpon>FrmModificacionMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionPaciente.en.resx">
+      <DependentUpon>FrmModificacionPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionPaciente.es.resx">
+      <DependentUpon>FrmModificacionPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificacionPaciente.resx">
+      <DependentUpon>FrmModificacionPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificacionSintomas.en.resx">
       <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
@@ -295,11 +454,47 @@
     <EmbeddedResource Include="FrmRegistro.resx">
       <DependentUpon>FrmRegistro.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoUsuario.en.resx">
+      <DependentUpon>FrmTipoUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoUsuario.es.resx">
+      <DependentUpon>FrmTipoUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoUsuario.resx">
+      <DependentUpon>FrmTipoUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerAdministrativo.en.resx">
+      <DependentUpon>FrmVerAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerAdministrativo.es.resx">
+      <DependentUpon>FrmVerAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerAdministrativo.resx">
+      <DependentUpon>FrmVerAdministrativo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVerEnfermedades.en.resx">
       <DependentUpon>FrmVerEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVerEnfermedades.es.resx">
       <DependentUpon>FrmVerEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerMedicos.en.resx">
+      <DependentUpon>FrmVerMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerMedicos.es.resx">
+      <DependentUpon>FrmVerMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerMedicos.resx">
+      <DependentUpon>FrmVerMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerPaciente.en.resx">
+      <DependentUpon>FrmVerPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerPaciente.es.resx">
+      <DependentUpon>FrmVerPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerPaciente.resx">
+      <DependentUpon>FrmVerPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVerSintomas.en.resx">
       <DependentUpon>FrmVerSintomas.vb</DependentUpon>

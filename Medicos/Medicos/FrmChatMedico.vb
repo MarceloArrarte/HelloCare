@@ -6,11 +6,9 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmChatMedico
-    Dim consultaEnCurso As DiagnosticoPrimarioConConsulta
-    Dim mensajesMostrados As List(Of Mensaje)
-    Dim cantidadTotalMensajes As Integer
-    Dim lotesMensajes As Integer = 1
-    Const tamanoLote As Integer = 50
+    Private consultaEnCurso As DiagnosticoPrimarioConConsulta
+    Private cantidadTotalMensajes As Integer
+    Private cantidadTotalArchivos As Integer
 
     Public Sub New(consulta As DiagnosticoPrimarioConConsulta)
 
@@ -26,10 +24,11 @@ Public Class FrmChatMedico
         lblNombrePaciente.Text = consultaEnCurso.Paciente.ToString
 
         cantidadTotalMensajes = ContarMensajes(consulta)
-        mensajesMostrados = CargarUltimosMensajesDiagnostico(consultaEnCurso, lotesMensajes * tamanoLote)
-        MostrarNuevosMensajes(mensajesMostrados)
+        cantidadTotalArchivos = ContarArchivos(consulta)
+        MostrarNuevosMensajes(CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadTotalMensajes))
+        MostrarNuevosMensajes(CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadTotalArchivos))
 
-        tmrActualizaMensajes.Enabled = True
+        tmrActualizar.Enabled = True
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
@@ -40,6 +39,7 @@ Public Class FrmChatMedico
     End Sub
 
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
+        expAdjuntar.FileName = ""
         If expAdjuntar.ShowDialog() = DialogResult.OK Then
             Dim ruta As String = expAdjuntar.FileName
             Dim nombreArchivo As String = expAdjuntar.SafeFileName
@@ -56,15 +56,18 @@ Public Class FrmChatMedico
                     formato = FormatosMensajeAdmitidos.PNG
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
+            EnviarMensaje(FormatosMensajeAdmitidos.TXT, Encoding.UTF8.GetBytes(medicoLogeado.ToString & " envió un archivo " & formato.ToString & " (" & nombreArchivo & ")."),
+                          TiposRemitente.Medico, consultaEnCurso)
+
             EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Medico, consultaEnCurso, nombreArchivo)
             ActualizarMensajes()
         End If
     End Sub
 
-    Private Sub tmrActualizaMensajes_Tick(sender As Object, e As EventArgs) Handles tmrActualizaMensajes.Tick
-        tmrActualizaMensajes.Enabled = False
+    Private Sub tmrActualizar_Tick(sender As Object, e As EventArgs) Handles tmrActualizar.Tick
+        tmrActualizar.Enabled = False
         ActualizarMensajes()
-        tmrActualizaMensajes.Enabled = True
+        tmrActualizar.Enabled = True
     End Sub
 
     Private Sub ActualizarMensajes()
@@ -73,9 +76,17 @@ Public Class FrmChatMedico
 
         If cantidadNuevosMensajes > 0 Then
             Dim nuevosMensajes As List(Of Mensaje) = CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadNuevosMensajes)
-            mensajesMostrados.AddRange(nuevosMensajes)
             cantidadTotalMensajes = cantidadActualizadaMensajes
             MostrarNuevosMensajes(nuevosMensajes)
+        End If
+
+        Dim cantidadActualizadaArchivos As Integer = ContarArchivos(consultaEnCurso)
+        Dim cantidadNuevosArchivos As Integer = cantidadActualizadaArchivos - cantidadTotalArchivos
+
+        If cantidadNuevosArchivos > 0 Then
+            Dim nuevosArchivos As List(Of Mensaje) = CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadNuevosArchivos)
+            cantidadTotalArchivos = cantidadActualizadaArchivos
+            MostrarNuevosMensajes(nuevosArchivos)
         End If
     End Sub
 
@@ -90,12 +101,7 @@ Public Class FrmChatMedico
                 End If
                 txtConversacion.Text &= prefijoMensaje & m.ToString & vbNewLine
             Else
-                If m.Remitente = TiposRemitente.Medico Then
-                    txtConversacion.Text &= "Enviaste un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
-                Else
-                    txtConversacion.Text &= consultaEnCurso.Paciente.ToString & " envió un archivo " & m.Formato.ToString & " (" & m.ToString & ")." & vbNewLine
-                End If
-                lstArchivos.Items.Add(m.ToString)
+                lstArchivos.Items.Add(m)
             End If
         Next
     End Sub
@@ -122,8 +128,11 @@ Public Class FrmChatMedico
 
     Private Sub lstArchivos_DoubleClick(sender As Object, e As EventArgs) Handles lstArchivos.DoubleClick
         If lstArchivos.SelectedItems.Count = 1 Then
-            Dim archivo As Mensaje = lstArchivos.SelectedItem
-            Dim ruta As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\" & archivo.NombreArchivo
+            ' Llamada a método para obtener archivo de la BD en base a ID
+            Dim metadatos As Mensaje = lstArchivos.SelectedItem
+            Dim contenidoArchivo As Byte() = CargarContenidoArchivoPorID(metadatos.ID)
+
+            Dim ruta As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\" & metadatos.NombreArchivo
             If File.Exists(ruta) Then
                 Dim extension As String = ruta.Substring(ruta.Length - 1 - StrReverse(ruta).IndexOf("."))
                 Dim nombreArchivo As String = ruta.Substring(0, ruta.Length - extension.Length)
@@ -133,11 +142,12 @@ Public Class FrmChatMedico
                 End While
                 ruta = nombreArchivo & "(" & numeradorArchivo & ")" & extension
             End If
-            File.WriteAllBytes(ruta, archivo.Contenido)
+            File.WriteAllBytes(ruta, contenidoArchivo)
             Dim abrirArchivo As New Process
             abrirArchivo.StartInfo.FileName = ruta
             abrirArchivo.Start()
         End If
+        lstArchivos.ClearSelected()
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click

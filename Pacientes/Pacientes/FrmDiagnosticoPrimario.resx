@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="colProbabilidad.HeaderText" xml:space="preserve">
+    <value>Probabilidad</value>
+  </data>
   <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -125,14 +128,11 @@
     <value>206, 25</value>
   </data>
   <data name="btnDiagnosticosDiferenciales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 585</value>
+    <value>549, 611</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblDiagnosticosDiferenciales.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
-  </data>
-  <data name="lblResultado.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;lblTitulo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -143,8 +143,9 @@
   <data name="lblSintomas.Location" type="System.Drawing.Point, System.Drawing">
     <value>507, 137</value>
   </data>
-  <data name="colProbabilidad.HeaderText" xml:space="preserve">
-    <value>Probabilidad</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnSalir.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -278,7 +279,6 @@
   <data name="&gt;&gt;colNombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblDiagnostico.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
@@ -1512,7 +1512,7 @@
     <value>14</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 452</value>
+    <value>509, 468</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Diagnóstico primario</value>
@@ -1526,8 +1526,8 @@
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
   </data>
   <data name="lblDiagnostico.Text" xml:space="preserve">
     <value>Posibles enfermedades:</value>
@@ -1539,7 +1539,7 @@
     <value>$this</value>
   </data>
   <data name="lblResultado.Size" type="System.Drawing.Size, System.Drawing">
-    <value>659, 37</value>
+    <value>659, 95</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -3885,9 +3885,6 @@
   <data name="&gt;&gt;colProbabilidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
   <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
@@ -3910,13 +3907,13 @@
     <value>147, 573</value>
   </data>
   <data name="tblEnfermedadesDiagnosticadas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 212</value>
+    <value>412, 179</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtRecomendaciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 439</value>
+    <value>707, 468</value>
   </data>
   <data name="&gt;&gt;lstSintomas.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3931,7 +3928,7 @@
     <value>Lato, 15.75pt</value>
   </data>
   <data name="lblResultado.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 389</value>
+    <value>509, 359</value>
   </data>
   <data name="lstSintomas.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4146,6 +4143,9 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 43</value>
   </data>
+  <data name="&gt;&gt;lblResultado.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;txtRecomendaciones.Name" xml:space="preserve">
     <value>txtRecomendaciones</value>
   </data>
@@ -4170,9 +4170,6 @@
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
   <data name="lblResultado.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
@@ -4181,6 +4178,9 @@
   </data>
   <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
+    <value>colObjeto</value>
   </data>
   <data name="&gt;&gt;btnRealizarConsulta.Name" xml:space="preserve">
     <value>btnRealizarConsulta</value>
@@ -4195,7 +4195,7 @@
     <value>377, 42</value>
   </data>
   <data name="btnRealizarConsulta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>967, 585</value>
+    <value>1007, 609</value>
   </data>
   <data name="lblDiagnostico.Location" type="System.Drawing.Point, System.Drawing">
     <value>751, 138</value>
@@ -4237,7 +4237,7 @@
     <value>Zoom</value>
   </data>
   <data name="lstSintomas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 204</value>
+    <value>201, 179</value>
   </data>
   <data name="&gt;&gt;lstSintomas.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -4276,11 +4276,11 @@ para sus síntomas:</value>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-93, 629</value>
   </data>
-  <data name="&gt;&gt;lblResultado.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblDiagnostico.Size" type="System.Drawing.Size, System.Drawing">
     <value>229, 25</value>
@@ -4322,7 +4322,7 @@ para sus síntomas:</value>
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblDiagnosticosDiferenciales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>475, 549</value>
+    <value>504, 573</value>
   </data>
   <data name="btnDiagnosticosDiferenciales.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -4366,11 +4366,8 @@ para sus síntomas:</value>
   <data name="&gt;&gt;colNombre.Name" xml:space="preserve">
     <value>colNombre</value>
   </data>
-  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
-    <value>colObjeto</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
