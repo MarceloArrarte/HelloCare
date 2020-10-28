@@ -54,8 +54,8 @@ Partial Class FrmVerAdministrativo
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -70,21 +70,25 @@ Partial Class FrmVerAdministrativo
         '
         resources.ApplyResources(Me.txtCorreo, "txtCorreo")
         Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.ReadOnly = True
         '
         'txtApellido
         '
         resources.ApplyResources(Me.txtApellido, "txtApellido")
         Me.txtApellido.Name = "txtApellido"
+        Me.txtApellido.ReadOnly = True
         '
         'txtNombre
         '
         resources.ApplyResources(Me.txtNombre, "txtNombre")
         Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.ReadOnly = True
         '
         'txtCI
         '
         resources.ApplyResources(Me.txtCI, "txtCI")
         Me.txtCI.Name = "txtCI"
+        Me.txtCI.ReadOnly = True
         '
         'Label7
         '
@@ -114,6 +118,7 @@ Partial Class FrmVerAdministrativo
         '
         resources.ApplyResources(Me.txtLocalidad, "txtLocalidad")
         Me.txtLocalidad.Name = "txtLocalidad"
+        Me.txtLocalidad.ReadOnly = True
         '
         'checkEncargado
         '
@@ -124,8 +129,8 @@ Partial Class FrmVerAdministrativo
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

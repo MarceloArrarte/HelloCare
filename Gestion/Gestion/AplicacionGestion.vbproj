@@ -487,6 +487,9 @@
     <EmbeddedResource Include="FrmVerMedicos.resx">
       <DependentUpon>FrmVerMedicos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerPaciente.en-DE.resx">
+      <DependentUpon>FrmVerPaciente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVerPaciente.en.resx">
       <DependentUpon>FrmVerPaciente.vb</DependentUpon>
     </EmbeddedResource>

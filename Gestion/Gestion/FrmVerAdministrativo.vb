@@ -11,17 +11,7 @@ Public Class FrmVerAdministrativo
         txtApellido.Text = administrativo.Apellido
         txtCorreo.Text = administrativo.Correo
         txtLocalidad.Text = administrativo.Localidad.ToString
-        If administrativo.EsEncargado = True Then
-            checkEncargado.Checked = True
-        End If
-
-
-        txtCI.ReadOnly = True
-        txtNombre.ReadOnly = True
-        txtApellido.ReadOnly = True
-        txtCorreo.ReadOnly = True
-        checkEncargado.Enabled = False
-        txtLocalidad.ReadOnly = True
+        checkEncargado.Checked = administrativo.EsEncargado
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
@@ -30,5 +20,9 @@ Public Class FrmVerAdministrativo
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub FrmVerAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.ActiveControl = Nothing
     End Sub
 End Class

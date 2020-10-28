@@ -76,26 +76,30 @@ Partial Class FrmVerMedicos
         '
         resources.ApplyResources(Me.txtCI, "txtCI")
         Me.txtCI.Name = "txtCI"
+        Me.txtCI.ReadOnly = True
         '
         'txtNombre
         '
         resources.ApplyResources(Me.txtNombre, "txtNombre")
         Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.ReadOnly = True
         '
         'txtApellido
         '
         resources.ApplyResources(Me.txtApellido, "txtApellido")
         Me.txtApellido.Name = "txtApellido"
+        Me.txtApellido.ReadOnly = True
         '
         'txtCorreo
         '
         resources.ApplyResources(Me.txtCorreo, "txtCorreo")
         Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.ReadOnly = True
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -116,10 +120,10 @@ Partial Class FrmVerMedicos
         '
         resources.ApplyResources(Me.txtLocalidad, "txtLocalidad")
         Me.txtLocalidad.Name = "txtLocalidad"
+        Me.txtLocalidad.ReadOnly = True
         '
         'tblEspecialidades
         '
-        resources.ApplyResources(Me.tblEspecialidades, "tblEspecialidades")
         Me.tblEspecialidades.AllowUserToAddRows = False
         Me.tblEspecialidades.AllowUserToDeleteRows = False
         Me.tblEspecialidades.AllowUserToResizeColumns = False
@@ -129,6 +133,7 @@ Partial Class FrmVerMedicos
         Me.tblEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblEspecialidades.ColumnHeadersVisible = False
         Me.tblEspecialidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
+        resources.ApplyResources(Me.tblEspecialidades, "tblEspecialidades")
         Me.tblEspecialidades.MultiSelect = False
         Me.tblEspecialidades.Name = "tblEspecialidades"
         Me.tblEspecialidades.ReadOnly = True
@@ -143,8 +148,8 @@ Partial Class FrmVerMedicos
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

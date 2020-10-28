@@ -58,8 +58,8 @@ Partial Class FrmVerPaciente
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -68,51 +68,61 @@ Partial Class FrmVerPaciente
         '
         resources.ApplyResources(Me.txtApartamento, "txtApartamento")
         Me.txtApartamento.Name = "txtApartamento"
+        Me.txtApartamento.ReadOnly = True
         '
         'txtNumeroPuerta
         '
         resources.ApplyResources(Me.txtNumeroPuerta, "txtNumeroPuerta")
         Me.txtNumeroPuerta.Name = "txtNumeroPuerta"
+        Me.txtNumeroPuerta.ReadOnly = True
         '
         'txtCalle
         '
         resources.ApplyResources(Me.txtCalle, "txtCalle")
         Me.txtCalle.Name = "txtCalle"
+        Me.txtCalle.ReadOnly = True
         '
         'txtFechaNacimiento
         '
         resources.ApplyResources(Me.txtFechaNacimiento, "txtFechaNacimiento")
         Me.txtFechaNacimiento.Name = "txtFechaNacimiento"
+        Me.txtFechaNacimiento.ReadOnly = True
         '
         'txtTelFijo
         '
         resources.ApplyResources(Me.txtTelFijo, "txtTelFijo")
         Me.txtTelFijo.Name = "txtTelFijo"
+        Me.txtTelFijo.ReadOnly = True
         '
         'txtTelMovil
         '
         resources.ApplyResources(Me.txtTelMovil, "txtTelMovil")
         Me.txtTelMovil.Name = "txtTelMovil"
+        Me.txtTelMovil.ReadOnly = True
         '
         'txtCorreo
         '
         resources.ApplyResources(Me.txtCorreo, "txtCorreo")
         Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.ReadOnly = True
         '
         'txtApellido
         '
         resources.ApplyResources(Me.txtApellido, "txtApellido")
         Me.txtApellido.Name = "txtApellido"
+        Me.txtApellido.ReadOnly = True
         '
         'txtNombre
         '
         resources.ApplyResources(Me.txtNombre, "txtNombre")
         Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.ReadOnly = True
         '
         'txtCi
         '
         resources.ApplyResources(Me.txtCi, "txtCi")
         Me.txtCi.Name = "txtCi"
+        Me.txtCi.ReadOnly = True
         '
         'Label13
         '
@@ -196,11 +206,13 @@ Partial Class FrmVerPaciente
         '
         resources.ApplyResources(Me.txtLocalidad, "txtLocalidad")
         Me.txtLocalidad.Name = "txtLocalidad"
+        Me.txtLocalidad.ReadOnly = True
         '
         'txtDepartamento
         '
         resources.ApplyResources(Me.txtDepartamento, "txtDepartamento")
         Me.txtDepartamento.Name = "txtDepartamento"
+        Me.txtDepartamento.ReadOnly = True
         '
         'Label6
         '
@@ -212,6 +224,7 @@ Partial Class FrmVerPaciente
         '
         resources.ApplyResources(Me.txtSexo, "txtSexo")
         Me.txtSexo.Name = "txtSexo"
+        Me.txtSexo.ReadOnly = True
         '
         'Label14
         '
@@ -223,11 +236,12 @@ Partial Class FrmVerPaciente
         '
         resources.ApplyResources(Me.txtFechaDefuncion, "txtFechaDefuncion")
         Me.txtFechaDefuncion.Name = "txtFechaDefuncion"
+        Me.txtFechaDefuncion.ReadOnly = True
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

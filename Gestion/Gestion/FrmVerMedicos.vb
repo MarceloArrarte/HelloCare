@@ -12,14 +12,6 @@ Public Class FrmVerMedicos
         txtCorreo.Text = medico.Correo
         txtLocalidad.Text = medico.Localidad.ToString
 
-        'Vuelve los txt inmodificables
-        txtCI.ReadOnly = True
-        txtNombre.ReadOnly = True
-        txtApellido.ReadOnly = True
-        txtCorreo.ReadOnly = True
-        txtLocalidad.ReadOnly = True
-
-
         For i = 0 To medico.Especialidades.Count - 1
             tblEspecialidades.Rows.Add(medico.Especialidades(i).Nombre)
         Next
@@ -30,5 +22,9 @@ Public Class FrmVerMedicos
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub FrmVerMedicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.ActiveControl = Nothing
     End Sub
 End Class

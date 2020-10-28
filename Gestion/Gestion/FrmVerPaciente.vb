@@ -14,10 +14,10 @@ Public Class FrmVerPaciente
         txtSexo.Text = paciente.Sexo.ToString
         txtFechaNacimiento.Text = paciente.FechaNacimiento.ToString("dd-MM-yyyy")
 
-        If paciente.FechaDefuncion = Nothing Then
-            txtFechaDefuncion.Text = Nothing
-        Else
+        If paciente.FechaDefuncion <> Nothing Then
             txtFechaDefuncion.Text = paciente.FechaDefuncion.ToString("dd-MM-yyyy")
+        Else
+            txtFechaDefuncion.Visible = False
         End If
 
         txtCalle.Text = paciente.Calle
@@ -25,25 +25,6 @@ Public Class FrmVerPaciente
         txtApartamento.Text = paciente.Apartamento
         txtLocalidad.Text = paciente.Localidad.ToString
         txtDepartamento.Text = paciente.Localidad.Departamento.ToString
-
-
-
-
-        txtCi.ReadOnly = True
-        txtNombre.ReadOnly = True
-        txtApellido.ReadOnly = True
-        txtCorreo.ReadOnly = True
-        txtTelMovil.ReadOnly = True
-        txtTelFijo.ReadOnly = True
-        txtSexo.ReadOnly = True
-        txtFechaNacimiento.ReadOnly = True
-        txtCalle.ReadOnly = True
-        txtNumeroPuerta.ReadOnly = True
-        txtApartamento.ReadOnly = True
-        txtLocalidad.ReadOnly = True
-        txtDepartamento.ReadOnly = True
-        txtFechaDefuncion.ReadOnly = True
-
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()

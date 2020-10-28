@@ -181,3 +181,4 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestio
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.en.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.es.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.en-DE.resources
