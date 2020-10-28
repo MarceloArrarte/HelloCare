@@ -1,5 +1,5 @@
 ﻿Public Class FrmTipoUsuario
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnPaciente.Click
+    Private Sub btnPaciente_Click(sender As Object, e As EventArgs) Handles btnPaciente.Click
         Dim frm As New FrmListadoPacientes
         Me.Hide()
         frm.ShowDialog()
@@ -10,17 +10,21 @@
         Me.Close()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMedico.Click
+    Private Sub btnMedico_Click(sender As Object, e As EventArgs) Handles btnMedico.Click
         Dim frm As New FrmListadoMedicos
         Me.Hide()
         frm.ShowDialog()
         Me.Show()
     End Sub
 
-    Private Sub btnAdministrador_Click(sender As Object, e As EventArgs) Handles btnAdministrador.Click
+    Private Sub btnAdministrativo_Click(sender As Object, e As EventArgs) Handles btnAdministrativo.Click
         Dim frm As New FrmListadoAdministrativos
         Me.Hide()
         frm.ShowDialog()
         Me.Show()
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

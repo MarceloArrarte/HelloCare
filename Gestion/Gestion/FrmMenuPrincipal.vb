@@ -24,6 +24,13 @@ Public Class FrmMenuPrincipal
         Me.Show()
     End Sub
 
+    Private Sub btnABMUsuarios_Click(sender As Object, e As EventArgs) Handles btnABMUsuarios.Click
+        Dim frm As New FrmTipoUsuario
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+    End Sub
+
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub

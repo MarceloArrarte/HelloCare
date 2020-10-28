@@ -28,27 +28,25 @@ Public Class FrmModificacionAdministrativo
 
     Private Sub FrmModificacionAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Se añade y se oculta las localidades 
-        For i = 0 To tblLocalidad.Rows.Count - 1
-            tblLocalidad.Rows(i).Visible = False
-        Next
-
-        'Se añade los departamentos al comboBox
-        cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
-
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
         Next
+
+        For i = 0 To tblLocalidad.Rows.Count - 1
+            tblLocalidad.Rows(i).Visible = False
+        Next
+        tblLocalidad.ClearSelection()
+
+        'Se añade los departamentos al comboBox
+        cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
 
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).ID = administrativoAModificar.Localidad.ID Then
                 r.Visible = True
             Else
                 r.Visible = False
-
             End If
         Next
-        'Deja sin seleccionar una localidad
-        tblLocalidad.ClearSelection()
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
@@ -68,8 +66,6 @@ Public Class FrmModificacionAdministrativo
                 Throw New Exception("No se selecciono ninguna localidad")
             End Try
 
-
-
             ActualizarAdministrativo(administrativoAModificar, txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, esEncargado, True)
             MsgBox("Administrativo modificado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
             Me.Close()
@@ -87,7 +83,10 @@ Public Class FrmModificacionAdministrativo
                 r.Visible = False
             End If
         Next
-        'Deja sin seleccionar una localidad
         tblLocalidad.ClearSelection()
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

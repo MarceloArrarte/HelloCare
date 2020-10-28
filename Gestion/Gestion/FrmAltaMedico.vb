@@ -1,12 +1,7 @@
 ﻿Imports Clases
 Imports CapaLogica
 Public Class FrmAltaMedico
-
-    ' Esta bandera se implementa para indicar al evento FormClosing 
-    ' si el formulario se cierra para volver sin guardar o habiendo ingresado datos
-    Private requiereConfirmacionSalida As Boolean = True
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-
         If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
             MsgBoxResult.Yes Then
             Me.Close()
@@ -15,22 +10,19 @@ Public Class FrmAltaMedico
 
     Private Sub FrmAltaMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Añade todas las especialidades 
-        tblEspecialidades.ClearSelection()
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
         Next
-
-
-
-
-        'Vuelve invisibles las filas del listado de localidades
-        For i = 0 To tblLocalidad.Rows.Count - 1
-            tblLocalidad.Rows(i).Visible = False
-        Next
+        tblEspecialidades.ClearSelection()
 
         'Añade todas las localidades existentes al data grid
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
+        Next
+
+        'Vuelve invisibles las filas del listado de localidades
+        For i = 0 To tblLocalidad.Rows.Count - 1
+            tblLocalidad.Rows(i).Visible = False
         Next
 
         'Añade al combo box de departamento los departamentos existentes
@@ -46,9 +38,8 @@ Public Class FrmAltaMedico
                 r.Visible = False
             End If
         Next
+        tblLocalidad.ClearSelection()
     End Sub
-
-
 
     Private Sub txtBuscarEspecialidades_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEspecialidades.TextChanged
         For Each r As DataGridViewRow In tblEspecialidades.Rows
@@ -76,8 +67,8 @@ Public Class FrmAltaMedico
 
 
             For Each r As DataGridViewRow In tblAsociados.Rows
-                    listaEspecialidades.Add(CType(r.Cells(0).Value, Especialidad))
-                Next
+                listaEspecialidades.Add(CType(r.Cells(0).Value, Especialidad))
+            Next
 
 
             'Verifica si se ingreso una especialidad como minimo
@@ -152,5 +143,9 @@ Public Class FrmAltaMedico
         Else
             MsgBox("Debe seleccionar al menos uno de las especialidades disponibles.", MsgBoxStyle.Critical, "Error")
         End If
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

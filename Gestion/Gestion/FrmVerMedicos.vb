@@ -3,7 +3,6 @@
 Imports Clases
 Public Class FrmVerMedicos
 
-    Dim medicoAVer As Medico
     Sub New(medico As Medico)
         'Carga en los txt los datos del medico
         InitializeComponent()
@@ -24,21 +23,12 @@ Public Class FrmVerMedicos
         For i = 0 To medico.Especialidades.Count - 1
             tblEspecialidades.Rows.Add(medico.Especialidades(i).Nombre)
         Next
-
-
-
-
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
 
-
-    Private Sub FrmVerMedicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub tblEspecialidades_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tblEspecialidades.CellContentClick
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

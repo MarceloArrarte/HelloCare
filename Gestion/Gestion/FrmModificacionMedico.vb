@@ -2,8 +2,8 @@
 Imports Clases
 Public Class FrmModificacionMedico
 
-
     Dim medicoAModificar As Medico
+
     Sub New(medico As Medico)
         'Carga en los txt los datos del medico
         InitializeComponent()
@@ -12,16 +12,8 @@ Public Class FrmModificacionMedico
         txtApellido.Text = medico.Apellido
         txtCorreo.Text = medico.Correo
 
-
-
-
-
-
-
-
         ' Almacena el medico que se va a estar modificando
         medicoAModificar = medico
-
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
@@ -30,15 +22,12 @@ Public Class FrmModificacionMedico
         End If
     End Sub
 
-
-
     Private Sub FrmModificacionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Añade todas las especialidades 
         tblEspecialidades.ClearSelection()
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
         Next
-
 
         'Precarga los datos de las especialidades del medico
         For i = 0 To medicoAModificar.Especialidades.Count - 1
@@ -50,40 +39,29 @@ Public Class FrmModificacionMedico
             tblLocalidad.Rows(i).Visible = False
         Next
 
-
-
-
         'Añade todas las localidades existentes al data grid
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
         Next
         tblLocalidad.ClearSelection()
 
-
-
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).ID = medicoAModificar.Localidad.ID Then
                 r.Visible = True
-
             Else
                 r.Visible = False
-
             End If
         Next
-
-
 
         'Añade al combo box de departamento los departamentos existentes
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
 
         'Oculta las especialidades ya asignadas
         OcultarEspecialidadesSeleccionadasOFiltradas()
-
     End Sub
 
 
     Private Sub cmbDepartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartamento.SelectedIndexChanged
-
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).Departamento = cmbDepartamento.SelectedItem Then
                 r.Visible = True
@@ -196,12 +174,13 @@ Public Class FrmModificacionMedico
 
     End Sub
 
-
-
     Private Sub DeseleccionarTablas()
         tblAsociados.ClearSelection()
         tblEspecialidades.ClearSelection()
         tblLocalidad.ClearSelection()
     End Sub
 
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
+    End Sub
 End Class

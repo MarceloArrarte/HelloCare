@@ -1,6 +1,10 @@
 ﻿Imports CapaLogica
 Imports Clases
 Public Class FrmListadoAdministrativos
+    Private Sub FrmListadoAdministrativos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ActualizarAdministrativos()
+    End Sub
+
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
@@ -15,7 +19,6 @@ Public Class FrmListadoAdministrativos
         Else
             MsgBox("Seleccione una sola fila para ver los detalles del administrativo.", MsgBoxStyle.Critical, "Error")
         End If
-        ActualizarAdministrativos()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -47,13 +50,6 @@ Public Class FrmListadoAdministrativos
         Next
         tblAdministrativo.ClearSelection()
     End Sub
-    Private Sub FrmListadoAdministrativo_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        ActualizarAdministrativos()
-    End Sub
-    Private Sub FrmListadoAdministrativos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizarAdministrativos()
-    End Sub
-
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If tblAdministrativo.SelectedRows.Count > 0 Then
@@ -70,7 +66,7 @@ Public Class FrmListadoAdministrativos
         End If
     End Sub
 
-    Private Sub tblAdministrativo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tblAdministrativo.CellContentClick
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

@@ -12,8 +12,6 @@ Public Class FrmListadoMedicos
         Else
             MsgBox("Seleccione una sola fila para ver los detalles del Medico", MsgBoxStyle.Critical, "Error")
         End If
-        ActualizarMedicos()
-
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
@@ -48,6 +46,7 @@ Public Class FrmListadoMedicos
             tblMedicos.Rows.Add(Medico, Medico.CI, Medico.Nombre, Medico.Apellido, Medico.Correo, Medico.Localidad)
         Next
 
+        ' ???
         For intI = tblMedicos.Rows.Count - 1 To 0 Step -1
             For intJ = intI - 1 To 0 Step -1
                 If tblMedicos.Rows(intI).Cells(1).Value = tblMedicos.Rows(intJ).Cells(1).Value Then
@@ -56,13 +55,7 @@ Public Class FrmListadoMedicos
                 End If
             Next
         Next
-
-
         tblMedicos.ClearSelection()
-
-    End Sub
-    Private Sub FrmListadoMedico_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        ActualizarMedicos()
     End Sub
 
     Private Sub FrmListadoMedicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -84,7 +77,7 @@ Public Class FrmListadoMedicos
         End If
     End Sub
 
-    Private Sub tblMedicos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tblMedicos.CellContentClick
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

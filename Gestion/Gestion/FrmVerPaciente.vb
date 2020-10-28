@@ -20,8 +20,6 @@ Public Class FrmVerPaciente
             txtFechaDefuncion.Text = paciente.FechaDefuncion.ToString("dd-MM-yyyy")
         End If
 
-
-
         txtCalle.Text = paciente.Calle
         txtNumeroPuerta.Text = paciente.NumeroPuerta
         txtApartamento.Text = paciente.Apartamento
@@ -51,26 +49,12 @@ Public Class FrmVerPaciente
         Me.Close()
     End Sub
 
-
-
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub cmbDepartamento_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     ' Evita que algún control quede seleccionado 
     Private Sub FrmVerPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ActiveControl = Nothing
     End Sub
 
-    Private Sub txtFechaDefuncion_TextChanged(sender As Object, e As EventArgs) Handles txtFechaDefuncion.TextChanged
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

@@ -30,6 +30,7 @@ Partial Class FrmMenuPrincipal
         Me.lblLogeado = New System.Windows.Forms.Label()
         Me.btnConfiguracion = New System.Windows.Forms.Button()
         Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.btnABMUsuarios = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -84,10 +85,19 @@ Partial Class FrmMenuPrincipal
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
+        'btnABMUsuarios
+        '
+        resources.ApplyResources(Me.btnABMUsuarios, "btnABMUsuarios")
+        Me.btnABMUsuarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnABMUsuarios.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnABMUsuarios.Name = "btnABMUsuarios"
+        Me.btnABMUsuarios.UseVisualStyleBackColor = False
+        '
         'FrmMenuPrincipal
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnABMUsuarios)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnConfiguracion)
         Me.Controls.Add(Me.lblLogeado)
@@ -110,4 +120,5 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents lblLogeado As Label
     Friend WithEvents btnConfiguracion As Button
     Friend WithEvents lblTraducir As Label
+    Friend WithEvents btnABMUsuarios As Button
 End Class

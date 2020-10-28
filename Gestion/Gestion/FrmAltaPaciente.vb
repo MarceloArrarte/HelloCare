@@ -1,10 +1,6 @@
 ﻿Imports Clases
 Imports CapaLogica
 Public Class FrmAltaPaciente
-    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
-
-    End Sub
-
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
             MsgBoxResult.Yes Then
@@ -20,17 +16,12 @@ Public Class FrmAltaPaciente
 
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
 
-
-
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
         Next
     End Sub
 
-
-
     Private Sub cmbDepartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartamento.SelectedIndexChanged
-
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).Departamento = cmbDepartamento.SelectedItem Then
                 r.Visible = True
@@ -38,15 +29,12 @@ Public Class FrmAltaPaciente
                 r.Visible = False
             End If
         Next
-
-
+        tblLocalidad.ClearSelection()
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-
         Try
             Dim localidad As Localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-
 
             Try
                 localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
@@ -61,14 +49,9 @@ Public Class FrmAltaPaciente
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-
     End Sub
 
-    Private Sub dtpFecha_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha.ValueChanged
-
-    End Sub
-
-    Private Sub tblLocalidad_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tblLocalidad.CellContentClick
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

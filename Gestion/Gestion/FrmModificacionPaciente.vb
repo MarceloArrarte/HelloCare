@@ -2,7 +2,6 @@
 Imports Clases
 Public Class FrmModificacionPaciente
 
-
     Dim pacienteAModificar As Paciente
 
     Sub New(paciente As Paciente)
@@ -124,5 +123,9 @@ Public Class FrmModificacionPaciente
         Else
             dtpFechaDefuncion.Visible = False
         End If
+    End Sub
+
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

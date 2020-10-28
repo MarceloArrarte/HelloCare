@@ -123,10 +123,16 @@
   <data name="btnMedico.Text" xml:space="preserve">
     <value>Doctor</value>
   </data>
-  <data name="btnAdministrador.Text" xml:space="preserve">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAdministrativo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="btnAdministrativo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
+  </data>
+  <data name="btnAdministrativo.Text" xml:space="preserve">
     <value>Administrative</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>269, 42</value>
   </data>

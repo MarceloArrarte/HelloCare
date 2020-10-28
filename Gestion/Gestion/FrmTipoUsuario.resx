@@ -117,8 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btnPaciente.Name" xml:space="preserve">
-    <value>btnPaciente</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrativo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrativo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
   </data>
   <data name="&gt;&gt;btnAdministrador.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -132,7 +142,6 @@
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnPaciente.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 45</value>
   </data>
@@ -146,14 +155,14 @@
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmTipoUsuario</value>
-  </data>
-  <data name="&gt;&gt;btnPaciente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnAdministrador.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrativo.Name" xml:space="preserve">
+    <value>btnAdministrativo</value>
   </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -1250,6 +1259,9 @@
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
@@ -1262,8 +1274,8 @@
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="btnMedico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Selección de usuario</value>
@@ -1273,6 +1285,9 @@
   </data>
   <data name="&gt;&gt;btnPaciente.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrador.Name" xml:space="preserve">
+    <value>btnAdministrador</value>
   </data>
   <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1341,7 +1356,7 @@
     <value>241, 43</value>
   </data>
   <data name="btnAdministrador.Text" xml:space="preserve">
-    <value>Administrador</value>
+    <value>Administrativo</value>
   </data>
   <data name="&gt;&gt;btnPaciente.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1349,14 +1364,17 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnMedico.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 300</value>
+  </data>
+  <data name="btnAdministrativo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 372</value>
   </data>
   <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="btnMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 300</value>
+  <data name="&gt;&gt;btnPaciente.Name" xml:space="preserve">
+    <value>btnPaciente</value>
   </data>
   <data name="btnPaciente.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1376,14 +1394,14 @@
   <data name="btnAdministrador.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 42</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnAdministrativo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="btnAdministrador.Location" type="System.Drawing.Point, System.Drawing">
     <value>524, 372</value>
-  </data>
-  <data name="&gt;&gt;btnMedico.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
@@ -1397,14 +1415,11 @@
   <data name="btnPaciente.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
   </data>
   <data name="&gt;&gt;btnMedico.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="btnMedico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 45</value>
   </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1418,17 +1433,20 @@
   <data name="btnPaciente.Text" xml:space="preserve">
     <value>Paciente</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="btnMedico.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmTipoUsuario</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;btnMedico.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1439,8 +1457,8 @@
   <data name="&gt;&gt;btnAdministrador.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnMedico.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 13</value>
@@ -1448,14 +1466,17 @@
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmTipoUsuario</value>
   </data>
   <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnAdministrador.Name" xml:space="preserve">
-    <value>btnAdministrador</value>
+  <data name="&gt;&gt;btnPaciente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>301, 23</value>
@@ -1463,11 +1484,11 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 42</value>
   </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
+  <data name="&gt;&gt;btnAdministrativo.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="btnMedico.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1481,13 +1502,10 @@
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 25</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es</value>
+    <value>en</value>
   </metadata>
 </root>

@@ -25,7 +25,7 @@ Partial Class FrmTipoUsuario
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTipoUsuario))
         Me.btnPaciente = New System.Windows.Forms.Button()
         Me.btnMedico = New System.Windows.Forms.Button()
-        Me.btnAdministrador = New System.Windows.Forms.Button()
+        Me.btnAdministrativo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -49,13 +49,13 @@ Partial Class FrmTipoUsuario
         Me.btnMedico.Name = "btnMedico"
         Me.btnMedico.UseVisualStyleBackColor = False
         '
-        'btnAdministrador
+        'btnAdministrativo
         '
-        resources.ApplyResources(Me.btnAdministrador, "btnAdministrador")
-        Me.btnAdministrador.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAdministrador.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAdministrador.Name = "btnAdministrador"
-        Me.btnAdministrador.UseVisualStyleBackColor = False
+        resources.ApplyResources(Me.btnAdministrativo, "btnAdministrativo")
+        Me.btnAdministrativo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAdministrativo.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnAdministrativo.Name = "btnAdministrativo"
+        Me.btnAdministrativo.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -98,7 +98,7 @@ Partial Class FrmTipoUsuario
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnAdministrador)
+        Me.Controls.Add(Me.btnAdministrativo)
         Me.Controls.Add(Me.btnMedico)
         Me.Controls.Add(Me.btnPaciente)
         Me.DoubleBuffered = True
@@ -110,7 +110,7 @@ Partial Class FrmTipoUsuario
 
     Friend WithEvents btnPaciente As Button
     Friend WithEvents btnMedico As Button
-    Friend WithEvents btnAdministrador As Button
+    Friend WithEvents btnAdministrativo As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label

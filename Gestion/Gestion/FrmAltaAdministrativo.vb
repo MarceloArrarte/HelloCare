@@ -9,6 +9,7 @@ Public Class FrmAltaAdministrativo
     End Sub
 
     Private Sub FrmAltaAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' comentable?
         For i = 0 To tblLocalidad.Rows.Count - 1
             tblLocalidad.Rows(i).Visible = False
         Next
@@ -28,6 +29,7 @@ Public Class FrmAltaAdministrativo
                 r.Visible = False
             End If
         Next
+        tblLocalidad.ClearSelection()
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
@@ -58,7 +60,7 @@ Public Class FrmAltaAdministrativo
         End Try
     End Sub
 
-    Private Sub cmbEncargado_SelectedIndexChanged(sender As Object, e As EventArgs)
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class

@@ -126,8 +126,8 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
+    <value>btnVolver</value>
   </data>
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -148,28 +148,31 @@
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
   <data name="btnConfirmar.Text" xml:space="preserve">
     <value>Agregar</value>
   </data>
+  <data name="&gt;&gt;Label14.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="cmbDepartamento.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 21</value>
   </data>
-  <data name="&gt;&gt;cmbDepartamento.Name" xml:space="preserve">
-    <value>cmbDepartamento</value>
+  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tblLocalidad.TabIndex" type="System.Int32, mscorlib">
     <value>154</value>
@@ -1250,12 +1253,6 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
-  </data>
-  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>180</value>
-  </data>
   <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1280,29 +1277,29 @@
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>158</value>
-  </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
+  </data>
+  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 20</value>
   </data>
   <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
     <value>149</value>
   </data>
-  <data name="btnConfirmar.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="&gt;&gt;checkEncargado.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1312,9 +1309,6 @@
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 13</value>
-  </data>
-  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;cmbDepartamento.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1345,9 +1339,6 @@
   </data>
   <data name="&gt;&gt;tblLocalidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 240</value>
   </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1397,8 +1388,8 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnVolver.Text" xml:space="preserve">
-    <value>Volver</value>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label6.Name" xml:space="preserve">
     <value>Label6</value>
@@ -1409,17 +1400,11 @@
   <data name="txtCI.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 20</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
   </data>
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
     <value>14</value>
-  </data>
-  <data name="&gt;&gt;txtCI.Name" xml:space="preserve">
-    <value>txtCI</value>
   </data>
   <data name="&gt;&gt;cmbDepartamento.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1445,8 +1430,8 @@
   <data name="tblLocalidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 206</value>
   </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>158</value>
   </data>
   <data name="&gt;&gt;tblLocalidad.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1463,8 +1448,8 @@
   <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
+  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 240</value>
   </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 43</value>
@@ -1472,14 +1457,14 @@
   <data name="checkEncargado.TabIndex" type="System.Int32, mscorlib">
     <value>179</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="txtApellido.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 20</value>
   </data>
   <data name="btnConfirmar.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 37</value>
+  </data>
+  <data name="Label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>696, 152</value>
@@ -1493,6 +1478,9 @@
   <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 42</value>
   </data>
+  <data name="&gt;&gt;txtCI.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
   <data name="&gt;&gt;txtApellido.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -1505,6 +1493,12 @@
   <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 257</value>
   </data>
+  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
+    <value>147</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="txtCI.Location" type="System.Drawing.Point, System.Drawing">
     <value>481, 187</value>
   </data>
@@ -1514,8 +1508,8 @@
   <data name="&gt;&gt;txtNombre.Name" xml:space="preserve">
     <value>txtNombre</value>
   </data>
-  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 20</value>
+  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
+    <value>180</value>
   </data>
   <data name="tblLocalidad.Location" type="System.Drawing.Point, System.Drawing">
     <value>969, 184</value>
@@ -1528,6 +1522,12 @@
   </data>
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="btnConfirmar.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1562,8 +1562,8 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmAltaAdministrativo</value>
   </data>
-  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
-    <value>btnVolver</value>
+  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>144</value>
@@ -1571,17 +1571,11 @@
   <data name="checkEncargado.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>Alta Administrativo</value>
-  </data>
-  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkEncargado.Name" xml:space="preserve">
     <value>checkEncargado</value>
@@ -1592,8 +1586,8 @@
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtCI.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>476, 263</value>
@@ -1616,8 +1610,8 @@
   <data name="&gt;&gt;Label14.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbDepartamento.Name" xml:space="preserve">
+    <value>cmbDepartamento</value>
   </data>
   <data name="&gt;&gt;btnConfirmar.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1634,14 +1628,17 @@
   <data name="colNomEnfermedad.HeaderText" xml:space="preserve">
     <value>Nombre</value>
   </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label14.Text" xml:space="preserve">
+    <value>Seleccione el departamento</value>
+  </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>16</value>
-  </data>
-  <data name="&gt;&gt;txtCI.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="txtCorreo.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 20</value>
@@ -1652,8 +1649,8 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="Label14.Text" xml:space="preserve">
-    <value>Seleccione el departamento</value>
+  <data name="&gt;&gt;checkEncargado.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>146</value>
@@ -1682,8 +1679,8 @@
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
   </data>
   <data name="&gt;&gt;txtCorreo.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1691,8 +1688,8 @@
   <data name="Label4.Text" xml:space="preserve">
     <value>Apellido</value>
   </data>
-  <data name="Label14.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnVolver.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 25</value>
@@ -1709,10 +1706,13 @@
   <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
@@ -1724,8 +1724,8 @@
   <data name="&gt;&gt;txtCorreo.Name" xml:space="preserve">
     <value>txtCorreo</value>
   </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;txtCI.Name" xml:space="preserve">
+    <value>txtCI</value>
   </data>
   <data name="Label14.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
@@ -1739,11 +1739,11 @@
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>145</value>
   </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>147</value>
+  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;Label14.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;txtCI.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>

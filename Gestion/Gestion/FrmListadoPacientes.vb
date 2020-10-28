@@ -1,9 +1,12 @@
 ﻿Imports CapaLogica
 Imports Clases
 Public Class FrmListadoPacientes
+    Private Sub FrmListadoPacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ActualizarPacientes()
+    End Sub
 
     'Abre un formulario con los detalles de un paciente
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVer.Click
+    Private Sub btnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
         If tblPacientes.SelectedRows.Count = 1 Then
             Dim Paciente As Paciente = tblPacientes.SelectedRows(0).Cells(0).Value
             Dim frm As New FrmVerPaciente(Paciente)
@@ -14,15 +17,14 @@ Public Class FrmListadoPacientes
         Else
             MsgBox("Seleccione una sola fila para ver los detalles del paciente.", MsgBoxStyle.Critical, "Error")
         End If
-        ActualizarPacientes()
     End Sub
 
     'Vuelve a la ventana anterior
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If tblPacientes.SelectedRows.Count = 1 Then
             Dim paciente As Paciente = tblPacientes.SelectedRows(0).Cells(0).Value
             Dim frm As New FrmModificacionPaciente(paciente)
@@ -60,28 +62,17 @@ Public Class FrmListadoPacientes
     End Sub
     Private Sub ActualizarPacientes()
         tblPacientes.Rows.Clear()
-        For Each Paciente As Paciente In CargarTodosLosPacientes()
-            If Paciente.FechaDefuncion = Nothing Then
-                tblPacientes.Rows.Add(Paciente, Paciente.CI, Paciente.Nombre, Paciente.Apellido, Paciente.Correo, Paciente.Localidad, Paciente.TelefonoMovil, Paciente.TelefonoFijo, Paciente.Sexo, Paciente.FechaNacimiento, Nothing, Paciente.Calle, Paciente.NumeroPuerta, Paciente.Apartamento)
+        For Each paciente As Paciente In CargarTodosLosPacientes()
+            If paciente.FechaDefuncion = Nothing Then
+                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento, Nothing, paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
             Else
-                tblPacientes.Rows.Add(Paciente, Paciente.CI, Paciente.Nombre, Paciente.Apellido, Paciente.Correo, Paciente.Localidad, Paciente.TelefonoMovil, Paciente.TelefonoFijo, Paciente.Sexo, Paciente.FechaNacimiento, Paciente.FechaDefuncion, Paciente.Calle, Paciente.NumeroPuerta, Paciente.Apartamento)
+                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento, paciente.FechaDefuncion, paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
             End If
         Next
-
-
         tblPacientes.ClearSelection()
-
-
-
-    End Sub
-    Private Sub FrmListadoPacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizarPacientes()
     End Sub
 
-    Private Sub FrmListadoPaciente_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        ActualizarPacientes()
-    End Sub
-    Private Sub tblPacientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tblPacientes.CellContentClick
-
+    Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
+        TraducirAplicacion()
     End Sub
 End Class
