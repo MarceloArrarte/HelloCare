@@ -180,5 +180,12 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestio
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerMedicos.es.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.en.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.es.resources
-C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmVerPaciente.en-DE.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\en-DE\AplicacionGestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\en-DE\AplicacionGestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.FrmListadoAdministrativos.en-DE.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\Manual.pdf
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\itextsharp.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\CapaLogica.dll.config
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\itextsharp.xml
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache

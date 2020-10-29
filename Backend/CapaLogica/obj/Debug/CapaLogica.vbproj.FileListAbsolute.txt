@@ -58,3 +58,6 @@ C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\CapaLogica\obj\D
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\CapaLogica\obj\Debug\CapaLogica.xml
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\marce\source\repos\HelloCare\Backend\CapaLogica\bin\Debug\CapaLogica.dll.config
+C:\Users\marce\source\repos\HelloCare\Backend\CapaLogica\bin\Debug\itextsharp.dll
+C:\Users\marce\source\repos\HelloCare\Backend\CapaLogica\bin\Debug\itextsharp.xml

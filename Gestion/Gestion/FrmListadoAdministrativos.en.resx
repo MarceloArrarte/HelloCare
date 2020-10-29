@@ -220,6 +220,30 @@
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Traducir</value>
   </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 25</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>ID card:</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 25</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Search tool</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 25</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="cbEs_Encargado.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 29</value>
+  </data>
+  <data name="cbEs_Encargado.Text" xml:space="preserve">
+    <value>Only managers</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXsAAAMSCAYAAAA7gxcyAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

@@ -70,7 +70,7 @@ Public Class FrmModificacionPaciente
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close this window?", "Exit") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -93,7 +93,7 @@ Public Class FrmModificacionPaciente
         Try
             Dim localidad As Localidad
             Try
-                Localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
             Catch ex As Exception
                 Throw New Exception("No se selecciono ninguna localidad")
             End Try
@@ -102,13 +102,13 @@ Public Class FrmModificacionPaciente
                 ActualizarPaciente(pacienteAModificar, txtCi.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, txtTelMovil.Text,
                              txtTelFijo.Text, [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem), dtpFechaNacimiento.Value, dtpFechaDefuncion.Value, txtCalle.Text,
                              txtNumeroPuerta.Text, txtApartamento.Text)
-                MsgBox("Paciente modificado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+                MostrarMensaje(MsgBoxStyle.OkOnly, "Paciente modificado con éxito.", "Éxito", "Patient successfully modified.", "Success")
                 Me.Close()
             Else
                 ActualizarPaciente(pacienteAModificar, txtCi.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, txtTelMovil.Text,
                              txtTelFijo.Text, [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem), dtpFechaNacimiento.Value, Nothing, txtCalle.Text,
                              txtNumeroPuerta.Text, txtApartamento.Text)
-                MsgBox("Paciente modificado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+                MostrarMensaje(MsgBoxStyle.OkOnly, "Paciente modificado con éxito.", "Éxito", "Patient successfully modified.", "Success")
                 Me.Close()
             End If
 

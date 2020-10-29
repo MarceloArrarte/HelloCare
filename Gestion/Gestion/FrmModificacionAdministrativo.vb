@@ -11,16 +11,10 @@ Public Class FrmModificacionAdministrativo
         txtApellido.Text = Administrativo.Apellido
         txtCorreo.Text = Administrativo.Correo
         administrativoAModificar = Administrativo
-
-        If Administrativo.EsEncargado = True Then
-            checkEncargado.Checked = True
-        End If
-
-
-
+        checkEncargado.Checked = Administrativo.EsEncargado
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -67,11 +61,10 @@ Public Class FrmModificacionAdministrativo
             End Try
 
             ActualizarAdministrativo(administrativoAModificar, txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, esEncargado, True)
-            MsgBox("Administrativo modificado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+            MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo modificado con éxito.", "Éxito", "Administrative staff successfully modified.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-
         End Try
     End Sub
 

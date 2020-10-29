@@ -42,6 +42,9 @@ Partial Class FrmListadoEnfermedades
         Me.colRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.exploradorArchivos = New System.Windows.Forms.OpenFileDialog()
         Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtBuscarEnfermedad = New System.Windows.Forms.TextBox()
         CType(Me.tblEnfermedades, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -198,11 +201,33 @@ Partial Class FrmListadoEnfermedades
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Name = "Label3"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Name = "Label4"
+        '
+        'txtBuscarEnfermedad
+        '
+        resources.ApplyResources(Me.txtBuscarEnfermedad, "txtBuscarEnfermedad")
+        Me.txtBuscarEnfermedad.Name = "txtBuscarEnfermedad"
+        '
         'FrmListadoEnfermedades
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnVolver
+        Me.Controls.Add(Me.txtBuscarEnfermedad)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.tblEnfermedades)
         Me.Controls.Add(Me.btnModificar)
@@ -238,4 +263,7 @@ Partial Class FrmListadoEnfermedades
     Friend WithEvents colGravedad As DataGridViewTextBoxColumn
     Friend WithEvents colRec As DataGridViewTextBoxColumn
     Friend WithEvents lblTraducir As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtBuscarEnfermedad As TextBox
 End Class

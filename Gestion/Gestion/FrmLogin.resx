@@ -123,12 +123,11 @@
   <data name="Label4.Text" xml:space="preserve">
     <value>Gestión</value>
   </data>
+  <data name="&gt;&gt;txtCedula.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="&gt;&gt;txtContrasena.Name" xml:space="preserve">
     <value>txtContrasena</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Label7.Font" type="System.Drawing.Font, System.Drawing">
@@ -159,17 +158,21 @@
   <data name="&gt;&gt;btnIngresar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmLogin</value>
   </data>
   <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>394, 55</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -189,8 +192,8 @@
   <data name="btnIngresar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3350,9 +3353,6 @@
   <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmLogin</value>
-  </data>
   <data name="txtCedula.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
@@ -3368,14 +3368,8 @@
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Login de administrativos</value>
-  </data>
   <data name="chkMostrarContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
-  </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-91, 629</value>
@@ -3404,6 +3398,9 @@
         jci0+mfE+4E8AZeYm8xqiNqGhMZpEhqnSWicHqOZ3/mQ18VY6+36AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
@@ -3413,14 +3410,11 @@
   <data name="txtContrasena.Text" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
-  </data>
-  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
-    <value>btnIngresar</value>
+  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnIngresar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 20.25pt</value>
@@ -3497,9 +3491,6 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 43</value>
   </data>
-  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>BIENVENIDO</value>
   </data>
@@ -3521,17 +3512,14 @@
   <data name="txtContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>INICIAR SESIÓN</value>
-  </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="txtContrasena.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>INICIAR SESIÓN</value>
   </data>
   <data name="btnIngresar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -3586,6 +3574,9 @@
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>712, 209</value>
+  </data>
+  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
+    <value>btnIngresar</value>
   </data>
   <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5934,8 +5925,11 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -5946,11 +5940,14 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Login de administrativos</value>
   </data>
   <data name="&gt;&gt;chkMostrarContrasena.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5982,8 +5979,8 @@
   <data name="btnIngresar.Text" xml:space="preserve">
     <value>INGRESAR</value>
   </data>
-  <data name="&gt;&gt;txtCedula.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
@@ -6002,6 +5999,9 @@
   </data>
   <data name="btnIngresar.Location" type="System.Drawing.Point, System.Drawing">
     <value>813, 493</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>
@@ -6053,8 +6053,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>

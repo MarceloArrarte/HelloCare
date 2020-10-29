@@ -10,12 +10,11 @@ Public Class FrmListadoPacientes
         If tblPacientes.SelectedRows.Count = 1 Then
             Dim Paciente As Paciente = tblPacientes.SelectedRows(0).Cells(0).Value
             Dim frm As New FrmVerPaciente(Paciente)
-
             Me.Hide()
             frm.ShowDialog()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para ver los detalles del paciente.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para ver los detalles del paciente.", "Error", "Select a single row to view details about a patient.", "Error")
         End If
     End Sub
 
@@ -33,23 +32,20 @@ Public Class FrmListadoPacientes
             ActualizarPacientes()
             Me.Show()
         Else
-            MsgBox("Seleccione una sola fila para modificar el paciente correspondiente.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para modificar el paciente correspondiente.", "Error", "Select a single row to modify the data of a patient.", "Error")
         End If
-        ActualizarPacientes()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If tblPacientes.SelectedRows.Count > 0 Then
-            If MsgBox("¿Confirma que desea eliminar este paciente?" & vbNewLine &
-                      "Estos cambios no podrán deshacerse.", MsgBoxStyle.YesNo, "Advertencia") = MsgBoxResult.Yes Then
-
+            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar este paciente?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this/these patient(s)?" & vbNewLine & "These changes cannot be undone.", "Warning") = MsgBoxResult.Yes Then
                 For Each r As DataGridViewRow In tblPacientes.SelectedRows
                     EliminarPaciente(r.Cells(0).Value)
                 Next
                 ActualizarPacientes()
             End If
         Else
-            MsgBox("Seleccione al menos una fila para eliminar el o los pacientes.")
+            MostrarMensaje(MsgBoxStyle.Critical, "Seleccione al menos una fila para eliminar el o los pacientes.", "", "Select at least one row to delete patients.", "")
         End If
     End Sub
 
@@ -74,5 +70,28 @@ Public Class FrmListadoPacientes
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub OcultarPacientes()
+        tblPacientes.ClearSelection()
+        For Each r As DataGridViewRow In tblPacientes.Rows
+            If r.Cells(1).Value.ToString.ToLower Like ("*" & txtBP_CI.Text & "*").ToLower And r.Cells(4).Value.ToString.ToLower Like ("*" & txtBP_Localidad.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                If Not r.Selected Then
+                    r.Visible = False
+                End If
+            End If
+
+        Next
+    End Sub
+
+    Private Sub txtBP_CI_TextChanged(sender As Object, e As EventArgs) Handles txtBP_CI.TextChanged
+        OcultarPacientes()
+    End Sub
+
+    Private Sub txtBP_Localidad_TextChanged(sender As Object, e As EventArgs) Handles txtBP_Localidad.TextChanged
+
+        OcultarPacientes()
     End Sub
 End Class

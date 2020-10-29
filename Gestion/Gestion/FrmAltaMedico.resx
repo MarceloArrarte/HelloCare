@@ -1529,6 +1529,9 @@
   <data name="&gt;&gt;tblEspecialidades.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
   <data name="&gt;&gt;tblAsociados.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1570,9 +1573,6 @@
   </data>
   <data name="btnConfirmar.TabIndex" type="System.Int32, mscorlib">
     <value>143</value>
-  </data>
-  <data name="&gt;&gt;lblEspecialidad.Name" xml:space="preserve">
-    <value>lblEspecialidad</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1862,8 +1862,8 @@
   <data name="&gt;&gt;btnQuitarE.Name" xml:space="preserve">
     <value>btnQuitarE</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
+  <data name="&gt;&gt;lblEspecialidad.Name" xml:space="preserve">
+    <value>lblEspecialidad</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -1916,9 +1916,6 @@
   <data name="&gt;&gt;Label14.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

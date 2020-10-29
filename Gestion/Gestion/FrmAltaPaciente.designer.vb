@@ -182,7 +182,6 @@ Partial Class FrmAltaPaciente
         '
         'tblLocalidad
         '
-        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.AllowUserToAddRows = False
         Me.tblLocalidad.AllowUserToDeleteRows = False
         Me.tblLocalidad.AllowUserToResizeColumns = False
@@ -192,6 +191,7 @@ Partial Class FrmAltaPaciente
         Me.tblLocalidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblLocalidad.ColumnHeadersVisible = False
         Me.tblLocalidad.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto})
+        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.Name = "tblLocalidad"
         Me.tblLocalidad.RowHeadersVisible = False
         Me.tblLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -203,30 +203,31 @@ Partial Class FrmAltaPaciente
         '
         'btnAgregar
         '
-        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'cmbSexo
         '
-        resources.ApplyResources(Me.cmbSexo, "cmbSexo")
         Me.cmbSexo.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbSexo, "cmbSexo")
         Me.cmbSexo.Name = "cmbSexo"
         '
         'cmbDepartamento
         '
-        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
+        Me.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDepartamento.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.Name = "cmbDepartamento"
         '
         'Label14
@@ -242,8 +243,8 @@ Partial Class FrmAltaPaciente
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

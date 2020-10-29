@@ -91,4 +91,16 @@ Public Class FrmListadoEnfermedades
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
     End Sub
+
+    Private Sub txtBuscarEnfermedad_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarEnfermedad.TextChanged
+        For Each r As DataGridViewRow In tblEnfermedades.Rows
+            If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEnfermedad.Text & "*").ToLower Then
+                r.Visible = True
+            Else
+                If Not r.Selected Then
+                    r.Visible = False
+                End If
+            End If
+        Next
+    End Sub
 End Class

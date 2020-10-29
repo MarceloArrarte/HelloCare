@@ -132,9 +132,6 @@
   <data name="lblLogeado.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btnABMSintomas.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -150,9 +147,8 @@
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
   </data>
-  <data name="lblLogeado.Text" xml:space="preserve">
-    <value>Bienvenido/a,
-#</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmMenuPrincipal</value>
   </data>
   <data name="&gt;&gt;lblLogeado.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1245,6 +1241,9 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 42</value>
+  </data>
   <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1259,9 +1258,6 @@
   </data>
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="&gt;&gt;btnABMSintomas.Name" xml:space="preserve">
-    <value>btnABMSintomas</value>
   </data>
   <data name="lblLogeado.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1359,6 +1355,9 @@
   <data name="&gt;&gt;btnABMUsuarios.Name" xml:space="preserve">
     <value>btnABMUsuarios</value>
   </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Menú principal</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -1371,8 +1370,8 @@
   <data name="btnSalir.Text" xml:space="preserve">
     <value>Salir</value>
   </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Menú principal</value>
+  <data name="btnABMSintomas.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="btnConfiguracion.Location" type="System.Drawing.Point, System.Drawing">
     <value>905, 553</value>
@@ -1386,17 +1385,14 @@
   <data name="&gt;&gt;btnABMEnfermedades.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmMenuPrincipal</value>
-  </data>
-  <data name="&gt;&gt;btnConfiguracion.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;lblLogeado.Name" xml:space="preserve">
     <value>lblLogeado</value>
   </data>
   <data name="btnABMSintomas.Text" xml:space="preserve">
     <value>ABM síntomas</value>
+  </data>
+  <data name="&gt;&gt;lblLogeado.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;btnABMEnfermedades.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1418,6 +1414,9 @@
   </data>
   <data name="btnSalir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="&gt;&gt;btnABMUsuarios.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3775,8 +3774,8 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Menú principal</value>
+  <data name="&gt;&gt;btnConfiguracion.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnConfiguracion.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -3787,8 +3786,8 @@
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 42</value>
+  <data name="&gt;&gt;btnABMSintomas.Name" xml:space="preserve">
+    <value>btnABMSintomas</value>
   </data>
   <data name="btnABMSintomas.Location" type="System.Drawing.Point, System.Drawing">
     <value>556, 174</value>
@@ -3796,8 +3795,8 @@
   <data name="&gt;&gt;lblLogeado.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnABMUsuarios.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Menú principal</value>
   </data>
   <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 571</value>
@@ -3817,8 +3816,9 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblLogeado.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="lblLogeado.Text" xml:space="preserve">
+    <value>Bienvenido/a,
+#</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>

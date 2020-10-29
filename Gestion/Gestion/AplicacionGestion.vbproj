@@ -328,6 +328,9 @@
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoAdministrativos.en-DE.resx">
+      <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoAdministrativos.en.resx">
       <DependentUpon>FrmListadoAdministrativos.vb</DependentUpon>
     </EmbeddedResource>
@@ -519,6 +522,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Manual.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

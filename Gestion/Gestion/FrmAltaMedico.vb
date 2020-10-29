@@ -2,7 +2,7 @@
 Imports CapaLogica
 Public Class FrmAltaMedico
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Cerrar", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close this window?", "Close") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -15,14 +15,10 @@ Public Class FrmAltaMedico
         Next
         tblEspecialidades.ClearSelection()
 
-        'Añade todas las localidades existentes al data grid
+        'Añade todas las localidades existentes al data grid y las oculta
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
-        Next
-
-        'Vuelve invisibles las filas del listado de localidades
-        For i = 0 To tblLocalidad.Rows.Count - 1
-            tblLocalidad.Rows(i).Visible = False
+            tblLocalidad.Rows(tblLocalidad.Rows.Count - 1).Visible = False
         Next
 
         'Añade al combo box de departamento los departamentos existentes
@@ -80,10 +76,10 @@ Public Class FrmAltaMedico
             End If
 
             If sinEspecialidad = True Then
-                MsgBox("Debe ingresar al menos una especialidad", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos una especialidad.", "Error", "You must select at least one specialty.", "Error")
             Else
                 CrearMedico(txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, listaEspecialidades)
-                MsgBox("Medico agregado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+                MostrarMensaje(MsgBoxStyle.OkOnly, "Médico agregado con éxito.", "Éxito", "Doctor successfully added.", "Success")
                 Me.Close()
             End If
         Catch ex As Exception

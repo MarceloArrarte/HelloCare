@@ -16,7 +16,7 @@ Public Class FrmModificacionMedico
         medicoAModificar = medico
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved.", "Exit") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -114,11 +114,10 @@ Public Class FrmModificacionMedico
             End If
 
             If sinEspecialidad = True Then
-                MsgBox("Debe ingresar al menos una especialidad", MsgBoxStyle.Critical, "Error")
+                MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos una especialidad.", "Error", "You must select at least one medical specialty.", "Error")
             Else
                 ActualizarMedico(medicoAModificar, txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, listaEspecialidades)
-
-                MsgBox("Medico Modificado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+                MostrarMensaje(MsgBoxStyle.OkOnly, "Médico modificado con éxito.", "Éxito", "Doctor successfully modified.", "Success")
                 Me.Close()
             End If
         Catch ex As Exception
@@ -138,6 +137,7 @@ Public Class FrmModificacionMedico
             Next
             OcultarEspecialidadesSeleccionadasOFiltradas()
         Else
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos una de las especialidades asociadas.", "Error", "You must select at least one of the associated specialties.", "Error")
             MsgBox("Debe seleccionar al menos uno de las especialidades asociadas.", MsgBoxStyle.Critical, "Error")
         End If
     End Sub
@@ -148,7 +148,7 @@ Public Class FrmModificacionMedico
             Next
             OcultarEspecialidadesSeleccionadasOFiltradas()
         Else
-            MsgBox("Debe seleccionar al menos uno de las especialidades disponibles.", MsgBoxStyle.Critical, "Error")
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de las especialidades disponibles.", "Error", "You must select at least one of the available specialties.", "Error")
         End If
     End Sub
 

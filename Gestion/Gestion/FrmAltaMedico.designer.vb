@@ -153,6 +153,7 @@ Partial Class FrmAltaMedico
         'cmbDepartamento
         '
         resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
+        Me.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDepartamento.FormattingEnabled = True
         Me.cmbDepartamento.Name = "cmbDepartamento"
         '

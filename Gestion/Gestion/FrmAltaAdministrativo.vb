@@ -2,7 +2,7 @@
 Imports Clases
 Public Class FrmAltaAdministrativo
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MsgBox("Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", MsgBoxStyle.YesNo, "Salir") =
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Cerrar", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close this window?", "Close") =
             MsgBoxResult.Yes Then
             Me.Close()
         End If
@@ -10,14 +10,12 @@ Public Class FrmAltaAdministrativo
 
     Private Sub FrmAltaAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' comentable?
-        For i = 0 To tblLocalidad.Rows.Count - 1
-            tblLocalidad.Rows(i).Visible = False
-        Next
 
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
 
         For Each localidad As Localidad In CargarTodasLasLocalidades()
             tblLocalidad.Rows.Add(localidad)
+            tblLocalidad.Rows(tblLocalidad.Rows.Count - 1).Visible = False
         Next
     End Sub
 
@@ -52,11 +50,10 @@ Public Class FrmAltaAdministrativo
 
 
             CrearAdministrativo(txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, esEncargado)
-            MsgBox("Administrativo agregado con éxito.", MsgBoxStyle.OkOnly, "Éxito")
+            MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo agregado con éxito.", "Éxito", "Administrative staff successfully added.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-
         End Try
     End Sub
 

@@ -211,6 +211,36 @@
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Traducir</value>
   </data>
+  <data name="txtBM_Localidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="txtBM_Localidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 33</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 25</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="txtBM_CI.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="txtBM_CI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 33</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 25</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>ID card:</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 25</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Search tool</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXsAAAMSCAYAAAA7gxcyAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

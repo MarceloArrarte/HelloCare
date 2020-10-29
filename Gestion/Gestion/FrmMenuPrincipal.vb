@@ -58,4 +58,10 @@ Public Class FrmMenuPrincipal
             lblLogeado.Text = lblLogeado.Text.Replace("#", administrativoLogeado.ToString)
         End If
     End Sub
+
+    Private Sub FrmMenuPrincipal_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
+    End Sub
 End Class

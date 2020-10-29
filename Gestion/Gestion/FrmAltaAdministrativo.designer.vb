@@ -47,23 +47,22 @@ Partial Class FrmAltaAdministrativo
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblLocalidad
         '
-        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.AllowUserToAddRows = False
         Me.tblLocalidad.AllowUserToDeleteRows = False
         Me.tblLocalidad.AllowUserToResizeColumns = False
@@ -73,6 +72,7 @@ Partial Class FrmAltaAdministrativo
         Me.tblLocalidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblLocalidad.ColumnHeadersVisible = False
         Me.tblLocalidad.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNomEnfermedad})
+        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.Name = "tblLocalidad"
         Me.tblLocalidad.RowHeadersVisible = False
         Me.tblLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -147,8 +147,9 @@ Partial Class FrmAltaAdministrativo
         '
         'cmbDepartamento
         '
-        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
+        Me.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDepartamento.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.Name = "cmbDepartamento"
         '
         'Label14
@@ -166,8 +167,8 @@ Partial Class FrmAltaAdministrativo
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

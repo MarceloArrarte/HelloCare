@@ -25,14 +25,6 @@ Partial Class FrmListadoPacientes
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoPacientes))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tblPacientes = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.btnVer = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,6 +39,19 @@ Partial Class FrmListadoPacientes
         Me.colCalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNumeroPuerta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colApartamento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.btnVer = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.txtBP_Localidad = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtBP_CI = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.tblPacientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,65 +80,6 @@ Partial Class FrmListadoPacientes
         Me.tblPacientes.RowHeadersVisible = False
         Me.tblPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tblPacientes.TabStop = False
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Name = "Label1"
-        '
-        'btnVolver
-        '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
-        Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.UseVisualStyleBackColor = False
-        '
-        'btnVer
-        '
-        resources.ApplyResources(Me.btnVer, "btnVer")
-        Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnVer.ForeColor = System.Drawing.Color.Transparent
-        Me.btnVer.Name = "btnVer"
-        Me.btnVer.UseVisualStyleBackColor = False
-        '
-        'btnModificar
-        '
-        resources.ApplyResources(Me.btnModificar, "btnModificar")
-        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnModificar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.UseVisualStyleBackColor = False
-        '
-        'btnEliminar
-        '
-        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnEliminar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = False
-        '
-        'btnAgregar
-        '
-        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
-        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAgregar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.UseVisualStyleBackColor = False
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
         '
         'colObjeto
         '
@@ -243,10 +189,105 @@ Partial Class FrmListadoPacientes
         Me.colApartamento.ReadOnly = True
         Me.colApartamento.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Name = "Label1"
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = False
+        '
+        'btnVer
+        '
+        resources.ApplyResources(Me.btnVer, "btnVer")
+        Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnVer.ForeColor = System.Drawing.Color.Transparent
+        Me.btnVer.Name = "btnVer"
+        Me.btnVer.UseVisualStyleBackColor = False
+        '
+        'btnModificar
+        '
+        resources.ApplyResources(Me.btnModificar, "btnModificar")
+        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnModificar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'btnEliminar
+        '
+        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEliminar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = False
+        '
+        'btnAgregar
+        '
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.UseVisualStyleBackColor = False
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
+        'txtBP_Localidad
+        '
+        resources.ApplyResources(Me.txtBP_Localidad, "txtBP_Localidad")
+        Me.txtBP_Localidad.Name = "txtBP_Localidad"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Name = "Label5"
+        '
+        'txtBP_CI
+        '
+        resources.ApplyResources(Me.txtBP_CI, "txtBP_CI")
+        Me.txtBP_CI.Name = "txtBP_CI"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Name = "Label4"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Name = "Label3"
+        '
         'FrmListadoPacientes
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.txtBP_Localidad)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtBP_CI)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.btnEliminar)
@@ -287,4 +328,9 @@ Partial Class FrmListadoPacientes
     Friend WithEvents colCalle As DataGridViewTextBoxColumn
     Friend WithEvents colNumeroPuerta As DataGridViewTextBoxColumn
     Friend WithEvents colApartamento As DataGridViewTextBoxColumn
+    Friend WithEvents txtBP_Localidad As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtBP_CI As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
 End Class

@@ -32,8 +32,6 @@ Partial Class FrmListadoAdministrativos
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblAdministrativo = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,6 +39,14 @@ Partial Class FrmListadoAdministrativos
         Me.colRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colLocalidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colEncargado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.txtBA_CI = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtBA_Localidad = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbEs_Encargado = New System.Windows.Forms.CheckBox()
         CType(Me.tblAdministrativo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -124,19 +130,6 @@ Partial Class FrmListadoAdministrativos
         Me.tblAdministrativo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tblAdministrativo.TabStop = False
         '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'lblTraducir
-        '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
-        '
         'colObjeto
         '
         resources.ApplyResources(Me.colObjeto, "colObjeto")
@@ -190,10 +183,68 @@ Partial Class FrmListadoAdministrativos
         Me.colEncargado.ReadOnly = True
         Me.colEncargado.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'lblTraducir
+        '
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
+        '
+        'txtBA_CI
+        '
+        resources.ApplyResources(Me.txtBA_CI, "txtBA_CI")
+        Me.txtBA_CI.Name = "txtBA_CI"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Name = "Label4"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Name = "Label3"
+        '
+        'txtBA_Localidad
+        '
+        resources.ApplyResources(Me.txtBA_Localidad, "txtBA_Localidad")
+        Me.txtBA_Localidad.Name = "txtBA_Localidad"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Name = "Label5"
+        '
+        'cbEs_Encargado
+        '
+        resources.ApplyResources(Me.cbEs_Encargado, "cbEs_Encargado")
+        Me.cbEs_Encargado.BackColor = System.Drawing.Color.Transparent
+        Me.cbEs_Encargado.ForeColor = System.Drawing.Color.White
+        Me.cbEs_Encargado.Name = "cbEs_Encargado"
+        Me.cbEs_Encargado.UseVisualStyleBackColor = False
+        '
         'FrmListadoAdministrativos
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.cbEs_Encargado)
+        Me.Controls.Add(Me.txtBA_Localidad)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtBA_CI)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.btnEliminar)
@@ -227,4 +278,10 @@ Partial Class FrmListadoAdministrativos
     Friend WithEvents colRec As DataGridViewTextBoxColumn
     Friend WithEvents colLocalidad As DataGridViewTextBoxColumn
     Friend WithEvents colEncargado As DataGridViewTextBoxColumn
+    Friend WithEvents txtBA_CI As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtBA_Localidad As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents cbEs_Encargado As CheckBox
 End Class

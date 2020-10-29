@@ -132,6 +132,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.btnIngresar)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()

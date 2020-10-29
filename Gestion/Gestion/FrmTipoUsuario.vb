@@ -1,4 +1,6 @@
-﻿Public Class FrmTipoUsuario
+﻿Imports CapaLogica
+
+Public Class FrmTipoUsuario
     Private Sub btnPaciente_Click(sender As Object, e As EventArgs) Handles btnPaciente.Click
         Dim frm As New FrmListadoPacientes
         Me.Hide()
