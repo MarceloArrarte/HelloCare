@@ -120,6 +120,7 @@ Partial Class FrmContrasenaOlvidada
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblTitulo)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmContrasenaOlvidada"
         Me.ResumeLayout(False)
         Me.PerformLayout()

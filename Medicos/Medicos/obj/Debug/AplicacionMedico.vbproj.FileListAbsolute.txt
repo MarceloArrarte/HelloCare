@@ -114,4 +114,6 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarCon
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarContrasenaES.html
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatEN.html
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatES.html
-C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\AplicacionMedico.vbprojAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\itextsharp.dll
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\CapaLogica.dll.config
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\itextsharp.xml

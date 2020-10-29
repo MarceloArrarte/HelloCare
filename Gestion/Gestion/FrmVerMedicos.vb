@@ -27,4 +27,10 @@ Public Class FrmVerMedicos
     Private Sub FrmVerMedicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ActiveControl = Nothing
     End Sub
+
+    Private Sub FrmVerMedicos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
+    End Sub
 End Class

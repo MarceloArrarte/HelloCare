@@ -123,10 +123,6 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
   <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
     <value>btnVolver</value>
   </data>
@@ -160,6 +156,10 @@
   </data>
   <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;txtBA_Localidad.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1252,6 +1252,9 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
+  </data>
   <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1278,9 +1281,6 @@
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>14</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
@@ -1311,9 +1311,6 @@
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="btnModificar.Text" xml:space="preserve">
-    <value>Modificar</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1418,6 +1415,9 @@
   <data name="colLocalidad.HeaderText" xml:space="preserve">
     <value>Localidad</value>
   </data>
+  <data name="tblAdministrativo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>509, 170</value>
+  </data>
   <data name="&gt;&gt;btnEliminar.Name" xml:space="preserve">
     <value>btnEliminar</value>
   </data>
@@ -1481,9 +1481,6 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 43</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato Black, 15.749999pt, style=Bold, Italic</value>
   </data>
@@ -1505,20 +1502,20 @@
   <data name="&gt;&gt;btnModificar.Name" xml:space="preserve">
     <value>btnModificar</value>
   </data>
+  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
+    <value>btnAgregar</value>
+  </data>
   <data name="txtBA_Localidad.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="txtBA_CI.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 158</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>76</value>
   </data>
   <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1610,6 +1607,9 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
   <data name="btnEliminar.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 37</value>
   </data>
@@ -1658,8 +1658,8 @@
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="tblAdministrativo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 170</value>
+  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
   </data>
   <data name="&gt;&gt;btnEliminar.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1673,8 +1673,8 @@
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtBA_CI.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1709,20 +1709,20 @@
   <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
+  <data name="btnModificar.Text" xml:space="preserve">
+    <value>Modificar</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="btnEliminar.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1742,8 +1742,8 @@
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
   </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
   </data>
   <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

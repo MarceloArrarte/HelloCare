@@ -4,7 +4,7 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmListadoSintomas
-    Private Sub FrmListadoSintomas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Private Sub FrmListadoSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ActualizarSintomas()
     End Sub
 
@@ -106,5 +106,11 @@ Public Class FrmListadoSintomas
                 End If
             End If
         Next
+    End Sub
+
+    Private Sub FrmListadoSintomas_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
     End Sub
 End Class

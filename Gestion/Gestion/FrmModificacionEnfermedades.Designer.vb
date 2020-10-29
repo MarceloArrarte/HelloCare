@@ -352,6 +352,7 @@ Partial Class FrmModificacionEnfermedades
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmModificacionEnfermedades"
         CType(Me.tblSintomas, System.ComponentModel.ISupportInitialize).EndInit()

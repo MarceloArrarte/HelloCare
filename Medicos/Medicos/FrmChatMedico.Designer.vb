@@ -34,9 +34,9 @@ Partial Class FrmChatMedico
         Me.Label2 = New System.Windows.Forms.Label()
         Me.expAdjuntar = New System.Windows.Forms.OpenFileDialog()
         Me.txtConversacion = New System.Windows.Forms.TextBox()
-        Me.btnDiagnosticar = New System.Windows.Forms.Button()
         Me.tmrActualizar = New System.Windows.Forms.Timer(Me.components)
         Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.btnDiagnosticar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnSalir
@@ -78,58 +78,60 @@ Partial Class FrmChatMedico
         '
         'lstArchivos
         '
-        Me.lstArchivos.FormattingEnabled = True
         resources.ApplyResources(Me.lstArchivos, "lstArchivos")
+        Me.lstArchivos.FormattingEnabled = True
         Me.lstArchivos.Name = "lstArchivos"
         '
         'Label2
         '
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label2.Name = "Label2"
         '
         'expAdjuntar
         '
         Me.expAdjuntar.FileName = "OpenFileDialog1"
+        resources.ApplyResources(Me.expAdjuntar, "expAdjuntar")
         '
         'txtConversacion
         '
         Me.txtConversacion.AcceptsReturn = True
         Me.txtConversacion.AcceptsTab = True
+        resources.ApplyResources(Me.txtConversacion, "txtConversacion")
         Me.txtConversacion.BackColor = System.Drawing.SystemColors.Control
         Me.txtConversacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        resources.ApplyResources(Me.txtConversacion, "txtConversacion")
         Me.txtConversacion.Name = "txtConversacion"
         Me.txtConversacion.ReadOnly = True
-        '
-        'btnDiagnosticar
-        '
-        resources.ApplyResources(Me.btnDiagnosticar, "btnDiagnosticar")
-        Me.btnDiagnosticar.Name = "btnDiagnosticar"
-        Me.btnDiagnosticar.UseVisualStyleBackColor = True
         '
         'tmrActualizar
         '
         '
         'lblTraducir
         '
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
+        '
+        'btnDiagnosticar
+        '
+        resources.ApplyResources(Me.btnDiagnosticar, "btnDiagnosticar")
+        Me.btnDiagnosticar.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnDiagnosticar.Name = "btnDiagnosticar"
+        Me.btnDiagnosticar.UseVisualStyleBackColor = True
         '
         'FrmChatMedico
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.btnDiagnosticar)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.lstArchivos)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblNombrePaciente)
-        Me.Controls.Add(Me.btnDiagnosticar)
         Me.Controls.Add(Me.txtConversacion)
         Me.Controls.Add(Me.btnAdjuntar)
         Me.Controls.Add(Me.btnEnviar)
@@ -152,7 +154,7 @@ Partial Class FrmChatMedico
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents expAdjuntar As Windows.Forms.OpenFileDialog
     Friend WithEvents txtConversacion As Windows.Forms.TextBox
-    Friend WithEvents btnDiagnosticar As Button
     Friend WithEvents tmrActualizar As Timer
     Friend WithEvents lblTraducir As Label
+    Friend WithEvents btnDiagnosticar As Button
 End Class

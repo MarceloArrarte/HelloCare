@@ -120,6 +120,10 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
   <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
     <value>btnVolver</value>
   </data>
@@ -131,10 +135,6 @@
   </data>
   <data name="colTelFijo.HeaderText" xml:space="preserve">
     <value>TelefonoFijo</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;btnModificar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -148,14 +148,15 @@
   <data name="&gt;&gt;colLocalidad.Name" xml:space="preserve">
     <value>colLocalidad</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtBP_CI.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="tblPacientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>718, 376</value>
-  </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;colTelFijo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1254,11 +1255,20 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
+  </data>
+  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
   <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;colCalle.Name" xml:space="preserve">
+    <value>colCalle</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>Buscador</value>
@@ -1277,6 +1287,9 @@
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;colNumeroPuerta.Name" xml:space="preserve">
+    <value>colNumeroPuerta</value>
   </data>
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
@@ -1302,12 +1315,8 @@
   <data name="&gt;&gt;txtBP_CI.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="btnModificar.Text" xml:space="preserve">
-    <value>Modificar</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1397,9 +1406,6 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;btnEliminar.Name" xml:space="preserve">
-    <value>btnEliminar</value>
-  </data>
   <data name="&gt;&gt;txtBP_Localidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1418,8 +1424,8 @@
   <data name="colLocalidad.HeaderText" xml:space="preserve">
     <value>Localidad</value>
   </data>
-  <data name="&gt;&gt;tblPacientes.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;btnEliminar.Name" xml:space="preserve">
+    <value>btnEliminar</value>
   </data>
   <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1481,14 +1487,14 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 43</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;btnEliminar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="colSexo.HeaderText" xml:space="preserve">
     <value>Sexo</value>
+  </data>
+  <data name="&gt;&gt;tblPacientes.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato Black, 15.749999pt, style=Bold, Italic</value>
@@ -1505,23 +1511,17 @@
   <data name="&gt;&gt;btnModificar.Name" xml:space="preserve">
     <value>btnModificar</value>
   </data>
-  <data name="&gt;&gt;tblPacientes.Name" xml:space="preserve">
-    <value>tblPacientes</value>
-  </data>
   <data name="&gt;&gt;colCalle.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="colFechaNacimiento.HeaderText" xml:space="preserve">
-    <value>FechaNacimiento</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
   </data>
   <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
+  <data name="tblPacientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>718, 376</value>
   </data>
   <data name="&gt;&gt;colGravedad.Name" xml:space="preserve">
     <value>colGravedad</value>
@@ -1601,9 +1601,6 @@
   <data name="txtBP_Localidad.Location" type="System.Drawing.Point, System.Drawing">
     <value>210, 226</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1619,6 +1616,9 @@
   <data name="&gt;&gt;ColFechaDefuncion.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
   <data name="&gt;&gt;tblPacientes.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1627,9 +1627,6 @@
   </data>
   <data name="colNombre.HeaderText" xml:space="preserve">
     <value>CI</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
   </data>
   <data name="txtBP_Localidad.TabIndex" type="System.Int32, mscorlib">
     <value>87</value>
@@ -1655,6 +1652,9 @@
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;colSexo.Name" xml:space="preserve">
+    <value>colSexo</value>
+  </data>
   <data name="&gt;&gt;txtBP_CI.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1667,8 +1667,11 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
-    <value>lblTraducir</value>
+  <data name="&gt;&gt;colFechaNacimiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="colTelMovil.HeaderText" xml:space="preserve">
     <value>TelefonoMovil</value>
@@ -1682,14 +1685,14 @@
   <data name="&gt;&gt;btnModificar.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;colNumeroPuerta.Name" xml:space="preserve">
-    <value>colNumeroPuerta</value>
+  <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+  <data name="&gt;&gt;tblPacientes.Name" xml:space="preserve">
+    <value>tblPacientes</value>
   </data>
   <data name="&gt;&gt;colApartamento.Name" xml:space="preserve">
     <value>colApartamento</value>
@@ -1703,14 +1706,11 @@
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 25</value>
   </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+  <data name="colFechaNacimiento.HeaderText" xml:space="preserve">
+    <value>FechaNacimiento</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
-  </data>
-  <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 37</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>CI:</value>
@@ -1724,8 +1724,8 @@
   <data name="txtBP_CI.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 33</value>
   </data>
-  <data name="&gt;&gt;colCalle.Name" xml:space="preserve">
-    <value>colCalle</value>
+  <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 37</value>
   </data>
   <data name="&gt;&gt;colNombre.Name" xml:space="preserve">
     <value>colNombre</value>
@@ -1739,8 +1739,8 @@
   <data name="btnModificar.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
+  <data name="btnModificar.Text" xml:space="preserve">
+    <value>Modificar</value>
   </data>
   <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
     <value>1059, 583</value>
@@ -1748,17 +1748,17 @@
   <data name="&gt;&gt;colSexo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;colFechaNacimiento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
+    <value>lblTraducir</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="btnEliminar.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1778,11 +1778,11 @@
   <data name="tblPacientes.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>86</value>
+  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
+    <value>btnAgregar</value>
   </data>
-  <data name="&gt;&gt;colSexo.Name" xml:space="preserve">
-    <value>colSexo</value>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <metadata name="colObjeto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1791,9 +1791,6 @@
     <value>True</value>
   </metadata>
   <metadata name="colNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colDesc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colGravedad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1823,10 +1820,13 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="ColFechaDefuncion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colFechaNacimiento.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colFechaNacimiento.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colDesc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ColFechaDefuncion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colTelFijo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

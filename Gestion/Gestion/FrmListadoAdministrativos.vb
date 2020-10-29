@@ -104,4 +104,10 @@ Public Class FrmListadoAdministrativos
     Private Sub cbEs_Encargado_CheckedChanged(sender As Object, e As EventArgs) Handles cbEs_Encargado.CheckedChanged
         OcultarAdministrativo()
     End Sub
+
+    Private Sub FrmListadoAdministrativos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
+    End Sub
 End Class

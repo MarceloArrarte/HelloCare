@@ -118,60 +118,477 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtUrgencia.Multiline" type="System.Boolean, mscorlib">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblUrgenciaSintoma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 25</value>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>686, 37</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>309, 42</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Alta de síntomas</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>473, 128</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 25</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Nombre del sintoma:</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>473, 155</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 25</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Informacion del sintoma:</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
-    <value>btnVolver</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;txtUrgencia.Name" xml:space="preserve">
-    <value>txtUrgencia</value>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="colAsociacion.HeaderText" xml:space="preserve">
-    <value>Asociar</value>
-  </data>
-  <data name="lblUrgenciaSintoma.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;colFrecuencia.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>853, 156</value>
   </data>
-  <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 25</value>
   </data>
-  <data name="txtDescripcion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 12pt</value>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Recomendaciones del sintoma:</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
   </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tblPatologias.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtNombre.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>671, 132</value>
+  </data>
+  <data name="txtNombre.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Name" xml:space="preserve">
+    <value>txtNombre</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-92, 629</value>
+  <data name="txtDescripcion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 12pt</value>
+  </data>
+  <data name="txtDescripcion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 183</value>
+  </data>
+  <data name="txtDescripcion.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtDescripcion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 212</value>
+  </data>
+  <data name="txtDescripcion.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcion.Name" xml:space="preserve">
+    <value>txtDescripcion</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtDescripcion.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txtRecomendaciones.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 12pt</value>
+  </data>
+  <data name="txtRecomendaciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>853, 184</value>
+  </data>
+  <data name="txtRecomendaciones.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtRecomendaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>349, 211</value>
+  </data>
+  <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.Name" xml:space="preserve">
+    <value>txtRecomendaciones</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtRecomendaciones.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>776, 398</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 25</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Patologias a asociar:</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnAgregar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>771, 633</value>
+  </data>
+  <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
+  </data>
+  <data name="btnAgregar.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnAgregar.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
+    <value>btnAgregar</value>
   </data>
   <data name="&gt;&gt;btnAgregar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;btnAgregar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 571</value>
+  </data>
+  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
+  </data>
+  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnVolver.Text" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
+    <value>btnVolver</value>
+  </data>
+  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblUrgenciaSintoma.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUrgenciaSintoma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
+  <data name="lblUrgenciaSintoma.Location" type="System.Drawing.Point, System.Drawing">
+    <value>853, 131</value>
+  </data>
+  <data name="lblUrgenciaSintoma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 25</value>
+  </data>
+  <data name="lblUrgenciaSintoma.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lblUrgenciaSintoma.Text" xml:space="preserve">
+    <value>Urgencia:</value>
+  </data>
+  <data name="&gt;&gt;lblUrgenciaSintoma.Name" xml:space="preserve">
+    <value>lblUrgenciaSintoma</value>
+  </data>
+  <data name="&gt;&gt;lblUrgenciaSintoma.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUrgenciaSintoma.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblUrgenciaSintoma.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtUrgencia.Location" type="System.Drawing.Point, System.Drawing">
+    <value>959, 135</value>
+  </data>
+  <data name="txtUrgencia.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtUrgencia.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 21</value>
+  </data>
+  <data name="txtUrgencia.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtUrgencia.Name" xml:space="preserve">
+    <value>txtUrgencia</value>
+  </data>
+  <data name="&gt;&gt;txtUrgencia.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUrgencia.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtUrgencia.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="colObjeto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="colObjeto.HeaderText" xml:space="preserve">
+    <value>Objeto</value>
+  </data>
+  <data name="colObjeto.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="colAsociacion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="colAsociacion.HeaderText" xml:space="preserve">
+    <value>Asociar</value>
+  </data>
+  <metadata name="colEnfermedades.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="colEnfermedades.HeaderText" xml:space="preserve">
+    <value>Enfermedad</value>
+  </data>
+  <metadata name="colFrecuencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="colFrecuencia.HeaderText" xml:space="preserve">
     <value>Frecuencia</value>
   </data>
-  <data name="&gt;&gt;colAsociacion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tblPatologias.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 426</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 25</value>
+  <data name="tblPatologias.Size" type="System.Drawing.Size, System.Drawing">
+    <value>724, 201</value>
+  </data>
+  <data name="tblPatologias.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;tblPatologias.Name" xml:space="preserve">
+    <value>tblPatologias</value>
+  </data>
+  <data name="&gt;&gt;tblPatologias.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblPatologias.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tblPatologias.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        v9Ld6gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-92, 629</value>
+  </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 43</value>
+  </data>
+  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="lblTraducir.Text" xml:space="preserve">
+    <value>Translate</value>
+  </data>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
+    <value>lblTraducir</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1246,53 +1663,12 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Informacion del sintoma:</value>
-  </data>
-  <data name="&gt;&gt;colEnfermedades.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Patologias a asociar:</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>686, 37</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Alta de síntomas</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="txtRecomendaciones.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 12pt</value>
-  </data>
-  <data name="colObjeto.HeaderText" xml:space="preserve">
-    <value>Objeto</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="tblPatologias.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3629,416 +4005,40 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;txtRecomendaciones.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Alta de síntomas</value>
   </data>
   <data name="&gt;&gt;colObjeto.Name" xml:space="preserve">
     <value>colObjeto</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>776, 398</value>
-  </data>
-  <data name="&gt;&gt;txtUrgencia.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;colObjeto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colAsociacion.Name" xml:space="preserve">
     <value>colAsociacion</value>
   </data>
-  <data name="btnAgregar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>771, 633</value>
-  </data>
-  <data name="tblPatologias.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 426</value>
-  </data>
-  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        v9Ld6gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="txtDescripcion.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtNombre.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="txtRecomendaciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>853, 184</value>
-  </data>
-  <data name="lblUrgenciaSintoma.Location" type="System.Drawing.Point, System.Drawing">
-    <value>853, 131</value>
-  </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 25</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lblUrgenciaSintoma.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmAltaSintomas</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 155</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
-  </data>
-  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>671, 132</value>
-  </data>
-  <data name="&gt;&gt;tblPatologias.Name" xml:space="preserve">
-    <value>tblPatologias</value>
-  </data>
-  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 43</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tblPatologias.Size" type="System.Drawing.Size, System.Drawing">
-    <value>724, 201</value>
-  </data>
-  <data name="&gt;&gt;txtRecomendaciones.Name" xml:space="preserve">
-    <value>txtRecomendaciones</value>
-  </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 571</value>
-  </data>
-  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 45</value>
-  </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="txtDescripcion.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtDescripcion.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblUrgenciaSintoma.Text" xml:space="preserve">
-    <value>Urgencia:</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="txtDescripcion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 183</value>
-  </data>
-  <data name="txtRecomendaciones.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtDescripcion.Name" xml:space="preserve">
-    <value>txtDescripcion</value>
-  </data>
-  <data name="&gt;&gt;txtNombre.Name" xml:space="preserve">
-    <value>txtNombre</value>
-  </data>
-  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblTraducir.Text" xml:space="preserve">
-    <value>Translate</value>
-  </data>
-  <data name="&gt;&gt;colObjeto.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtNombre.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
-  </data>
-  <data name="btnVolver.Text" xml:space="preserve">
-    <value>Volver</value>
-  </data>
-  <data name="colEnfermedades.HeaderText" xml:space="preserve">
-    <value>Enfermedad</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Nombre del sintoma:</value>
-  </data>
-  <data name="btnAgregar.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 128</value>
-  </data>
-  <data name="btnAgregar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="btnAgregar.Text" xml:space="preserve">
-    <value>Agregar</value>
-  </data>
-  <data name="&gt;&gt;tblPatologias.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>309, 42</value>
-  </data>
-  <data name="&gt;&gt;lblUrgenciaSintoma.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Alta de síntomas</value>
-  </data>
-  <data name="txtUrgencia.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 21</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>853, 156</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tblPatologias.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblUrgenciaSintoma.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;txtDescripcion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtDescripcion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 212</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblUrgenciaSintoma.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtRecomendaciones.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="txtRecomendaciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 211</value>
-  </data>
-  <data name="&gt;&gt;btnVolver.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
-  </data>
-  <data name="txtUrgencia.Location" type="System.Drawing.Point, System.Drawing">
-    <value>959, 135</value>
-  </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="&gt;&gt;txtUrgencia.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 25</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Recomendaciones del sintoma:</value>
+  <data name="&gt;&gt;colAsociacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colEnfermedades.Name" xml:space="preserve">
     <value>colEnfermedades</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 25</value>
-  </data>
-  <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 45</value>
-  </data>
-  <data name="colObjeto.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;txtDescripcion.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lato, 15.75pt</value>
-  </data>
-  <data name="txtUrgencia.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
-    <value>lblTraducir</value>
-  </data>
-  <data name="&gt;&gt;lblUrgenciaSintoma.Name" xml:space="preserve">
-    <value>lblUrgenciaSintoma</value>
-  </data>
-  <data name="lblUrgenciaSintoma.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtRecomendaciones.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtRecomendaciones.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;colEnfermedades.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colFrecuencia.Name" xml:space="preserve">
     <value>colFrecuencia</value>
   </data>
-  <data name="&gt;&gt;btnAgregar.Name" xml:space="preserve">
-    <value>btnAgregar</value>
+  <data name="&gt;&gt;colFrecuencia.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtUrgencia.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmAltaSintomas</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colObjeto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colAsociacion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colFrecuencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colEnfermedades.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

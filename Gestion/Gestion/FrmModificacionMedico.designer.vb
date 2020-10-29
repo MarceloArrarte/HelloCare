@@ -288,6 +288,7 @@ Partial Class FrmModificacionMedico
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmModificacionMedico"
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tblAsociados, System.ComponentModel.ISupportInitialize).EndInit()

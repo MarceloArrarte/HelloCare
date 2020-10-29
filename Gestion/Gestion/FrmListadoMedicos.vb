@@ -100,4 +100,10 @@ Public Class FrmListadoMedicos
     Private Sub txtBM_Localidad_TextChanged(sender As Object, e As EventArgs) Handles txtBM_Localidad.TextChanged
         OcultarMedicos()
     End Sub
+
+    Private Sub FrmListadoMedicos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
+    End Sub
 End Class

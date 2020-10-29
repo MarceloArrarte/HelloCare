@@ -148,12 +148,8 @@
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-92, 629</value>
+  <data name="btnImportar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;txtBuscarSintomas.Parent" xml:space="preserve">
     <value>$this</value>
@@ -161,6 +157,7 @@
   <data name="&gt;&gt;btnAgregar.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnModificar.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 45</value>
   </data>
@@ -1263,9 +1260,6 @@
   </data>
   <data name="txtBuscarSintomas.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="colObjeto.HeaderText" xml:space="preserve">
     <value>Objeto</value>
@@ -3759,9 +3753,6 @@
   <data name="tblSintomas.Location" type="System.Drawing.Point, System.Drawing">
     <value>479, 149</value>
   </data>
-  <data name="btnImportar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
@@ -3830,6 +3821,9 @@
   </data>
   <data name="&gt;&gt;btnAgregar.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btnVer.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -3936,6 +3930,9 @@
   <data name="&gt;&gt;btnModificar.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
@@ -3972,6 +3969,9 @@
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 25</value>
   </data>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-92, 629</value>
+  </data>
   <data name="btnAgregar.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 45</value>
   </data>
@@ -3996,11 +3996,11 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmListadoSintomas</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;colNombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

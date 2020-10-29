@@ -298,6 +298,7 @@ Partial Class FrmListadoPacientes
         Me.Controls.Add(Me.tblPacientes)
         Me.Controls.Add(Me.Label2)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmListadoPacientes"
         CType(Me.tblPacientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

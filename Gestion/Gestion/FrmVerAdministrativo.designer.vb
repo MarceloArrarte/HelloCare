@@ -154,6 +154,7 @@ Partial Class FrmVerAdministrativo
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmVerAdministrativo"
         Me.ResumeLayout(False)
         Me.PerformLayout()

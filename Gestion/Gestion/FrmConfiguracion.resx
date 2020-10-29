@@ -117,25 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btnCambiarDepartamentoDeLocalidad.Parent" xml:space="preserve">
-    <value>TabPage10</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAgregarDepartamento.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="TabPage9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
   <data name="&gt;&gt;TabPage4.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="TabPage4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>661, 162</value>
+  </data>
+  <data name="txtLocalidadParaCambiarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 16</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Label14.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="btnVolver.Text" xml:space="preserve">
-    <value>Volver</value>
+  <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage10</value>
+  </data>
+  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="txtNombreLocalidadAModificar.Size" type="System.Drawing.Size, System.Drawing">
     <value>352, 33</value>
@@ -155,14 +158,14 @@
   <data name="txtNuevoNombreLocalidad.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="Label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 58</value>
-  </data>
   <data name="Label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;txtAgregarEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtAgregarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>308, 22</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TabPage10.Parent" xml:space="preserve">
     <value>TabControl3</value>
@@ -175,6 +178,9 @@
   </data>
   <data name="btnModificarEspecialidad.Text" xml:space="preserve">
     <value>Modificar especialidad</value>
+  </data>
+  <data name="TabPage12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>653, 155</value>
   </data>
   <data name="&gt;&gt;txtNombreLocalidadAModificar.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -191,11 +197,11 @@
   <data name="&gt;&gt;btnEliminarLocalidad.Name" xml:space="preserve">
     <value>btnEliminarLocalidad</value>
   </data>
-  <data name="&gt;&gt;TabPage10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 58</value>
+  </data>
+  <data name="&gt;&gt;Label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtNuevoNombreDepartamento.Size" type="System.Drawing.Size, System.Drawing">
     <value>338, 33</value>
@@ -218,14 +224,8 @@
   <data name="Label6.Text" xml:space="preserve">
     <value>Departamento:</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Nuevo nombre:</value>
-  </data>
   <data name="Label17.Text" xml:space="preserve">
     <value>Especialidad:</value>
-  </data>
-  <data name="Label9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;Label12.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -266,23 +266,14 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>TabPage4</value>
   </data>
-  <data name="btnEliminarLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;btnModificarLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Label18.Name" xml:space="preserve">
     <value>Label18</value>
   </data>
   <data name="TabPage8.Text" xml:space="preserve">
     <value>Modificar</value>
   </data>
-  <data name="&gt;&gt;txtAgregarEspecialidad.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbxDepartamentos.Parent" xml:space="preserve">
-    <value>TabPage2</value>
+  <data name="TabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
   </data>
   <data name="&gt;&gt;cbxNuevoDepartamentoDeLocalidad.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -299,14 +290,17 @@
   <data name="&gt;&gt;Label12.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 13</value>
+  </data>
+  <data name="&gt;&gt;grdDepartamentos.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
   <data name="&gt;&gt;txtNombreDepartamentoAModificar.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="&gt;&gt;TabPage8.Name" xml:space="preserve">
     <value>TabPage8</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TabPage8.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -326,23 +320,23 @@
   <data name="&gt;&gt;Label19.Name" xml:space="preserve">
     <value>Label19</value>
   </data>
-  <data name="&gt;&gt;txtEliminarEspecialidad.Name" xml:space="preserve">
-    <value>txtEliminarEspecialidad</value>
+  <data name="&gt;&gt;btnModificarDepartamento.Name" xml:space="preserve">
+    <value>btnModificarDepartamento</value>
   </data>
   <data name="&gt;&gt;txtBuscarEspecialidad.Name" xml:space="preserve">
     <value>txtBuscarEspecialidad</value>
   </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>TabPage5</value>
   </data>
-  <data name="&gt;&gt;TabPage13.Parent" xml:space="preserve">
-    <value>TabControl4</value>
+  <data name="btnAgregarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
   </data>
   <data name="&gt;&gt;btnCambiarDepartamentoDeLocalidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDepartamentoActual.Parent" xml:space="preserve">
+    <value>TabPage10</value>
   </data>
   <data name="grdLocalidades.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 91</value>
@@ -365,9 +359,6 @@
   <data name="&gt;&gt;Label18.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;btnModificarLocalidad.Parent" xml:space="preserve">
     <value>TabPage8</value>
   </data>
@@ -386,8 +377,8 @@
   <data name="&gt;&gt;Label9.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;btnAgregarEspecialidad.Name" xml:space="preserve">
-    <value>btnAgregarEspecialidad</value>
+  <data name="&gt;&gt;Label19.Parent" xml:space="preserve">
+    <value>TabPage3</value>
   </data>
   <data name="&gt;&gt;TabPage3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -407,9 +398,6 @@
   <data name="&gt;&gt;Label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnEliminarEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
   <data name="&gt;&gt;txtDepartamentoActual.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
@@ -428,6 +416,12 @@
   <data name="Label15.Text" xml:space="preserve">
     <value>Nueva especialidad:</value>
   </data>
+  <data name="btnEliminarDepartamento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
   <data name="txtNuevoNombreDepartamento.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 58</value>
   </data>
@@ -444,14 +438,11 @@
   <data name="&gt;&gt;Label19.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Label18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabPage13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 155</value>
+  <data name="&gt;&gt;txtAgregarDepartamento.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TabPage9.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -477,14 +468,17 @@
   <data name="Label9.Text" xml:space="preserve">
     <value>Departamento actual:</value>
   </data>
+  <data name="&gt;&gt;btnAgregarLocalidad.Name" xml:space="preserve">
+    <value>btnAgregarLocalidad</value>
+  </data>
   <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label10.Text" xml:space="preserve">
     <value>Localidad:</value>
   </data>
-  <data name="btnAgregarDepartamento.Text" xml:space="preserve">
-    <value>Agregar departamento</value>
+  <data name="&gt;&gt;txtDepartamentoActual.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cbxDepartamentos.Location" type="System.Drawing.Point, System.Drawing">
     <value>286, 13</value>
@@ -495,17 +489,725 @@
   <data name="&gt;&gt;txtNuevoNombreEspecialidad.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;cbxDepartamentos.Name" xml:space="preserve">
+    <value>cbxDepartamentos</value>
+  </data>
   <data name="TabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 25</value>
   </data>
-  <data name="txtBuscarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>433, 33</value>
+  <data name="&gt;&gt;txtAgregarEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label19.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtEliminarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 33</value>
+  </data>
+  <data name="Label12.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;TabPage12.Parent" xml:space="preserve">
+    <value>TabControl4</value>
+  </data>
+  <data name="txtBuscarDepartamento.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnModificarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 114</value>
+  </data>
+  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Localidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 19</value>
+  </data>
+  <data name="&gt;&gt;cbxDepartamentoDeNuevaLocalidad.Name" xml:space="preserve">
+    <value>cbxDepartamentoDeNuevaLocalidad</value>
+  </data>
+  <data name="&gt;&gt;Localidad.Parent" xml:space="preserve">
+    <value>TabPage8</value>
+  </data>
+  <data name="TabPage7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 188</value>
+  </data>
+  <data name="TabPage13.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="txtNombreDepartamentoAModificar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 33</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 59</value>
+  </data>
+  <data name="btnCambiarDepartamentoDeLocalidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="&gt;&gt;cbxNuevoDepartamentoDeLocalidad.Name" xml:space="preserve">
+    <value>cbxNuevoDepartamentoDeLocalidad</value>
+  </data>
+  <data name="&gt;&gt;txtEliminarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage6</value>
+  </data>
+  <data name="&gt;&gt;txtNombreLocalidadAModificar.Name" xml:space="preserve">
+    <value>txtNombreLocalidadAModificar</value>
+  </data>
+  <data name="&gt;&gt;txtBuscarEspecialidad.Parent" xml:space="preserve">
+    <value>TabPage3</value>
+  </data>
+  <data name="txtNombreEspecialidadAModificar.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage4</value>
+  </data>
+  <data name="&gt;&gt;Label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Nuevo departamento:</value>
+  </data>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="TabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="&gt;&gt;txtNuevoNombreDepartamento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TabPage11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="txtNuevoNombreEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-92, 629</value>
+  </data>
+  <data name="DataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Column1</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabPage7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="Label20.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TabPage9.Parent" xml:space="preserve">
+    <value>TabControl3</value>
+  </data>
+  <data name="TabPage12.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;txtBuscarDepartamento.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtBuscarLocalidades.Name" xml:space="preserve">
+    <value>txtBuscarLocalidades</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>TabPage6</value>
+  </data>
+  <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 19</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>DataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="&gt;&gt;TabPage6.Parent" xml:space="preserve">
+    <value>TabControl2</value>
+  </data>
+  <data name="txtNombreLocalidadAModificar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 16</value>
+  </data>
+  <data name="&gt;&gt;grdDepartamentos.Name" xml:space="preserve">
+    <value>grdDepartamentos</value>
+  </data>
+  <data name="TabPage5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="Label16.Text" xml:space="preserve">
+    <value>Nuevo nombre:</value>
+  </data>
+  <data name="txtEliminarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 19</value>
+  </data>
+  <data name="&gt;&gt;Label10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 58</value>
+  </data>
+  <data name="TabPage6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>661, 162</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarDepartamento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtEliminarLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grdEspecialidades.Name" xml:space="preserve">
+    <value>grdEspecialidades</value>
+  </data>
+  <data name="Label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 22</value>
+  </data>
+  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 35</value>
+  </data>
+  <data name="&gt;&gt;cbxNuevoDepartamentoDeLocalidad.Parent" xml:space="preserve">
+    <value>TabPage10</value>
+  </data>
+  <data name="&gt;&gt;btnModificarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage5</value>
+  </data>
+  <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbxNuevoDepartamentoDeLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 33</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarLocalidad.Parent" xml:space="preserve">
+    <value>TabPage7</value>
+  </data>
+  <data name="grdEspecialidades.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 56</value>
+  </data>
+  <data name="TabControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txtNuevoNombreEspecialidad.Parent" xml:space="preserve">
+    <value>TabPage12</value>
+  </data>
+  <data name="txtEliminarLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
+  </data>
+  <data name="&gt;&gt;cbxDepartamentoDeNuevaLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label17.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;Label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label14.Text" xml:space="preserve">
+    <value>Nuevo departamento:</value>
+  </data>
+  <data name="&gt;&gt;btnModificarLocalidad.Name" xml:space="preserve">
+    <value>btnModificarLocalidad</value>
+  </data>
+  <data name="Label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 25</value>
+  </data>
+  <data name="&gt;&gt;btnModificarLocalidad.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtNombreEspecialidadAModificar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 33</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 61</value>
+  </data>
+  <data name="btnAgregarLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarDepartamento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 25</value>
+  </data>
+  <data name="&gt;&gt;Label15.Parent" xml:space="preserve">
+    <value>TabPage11</value>
+  </data>
+  <data name="Label16.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;TabPage7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbxNuevoDepartamentoDeLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 22</value>
+  </data>
+  <data name="TabPage5.Text" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="TabPage5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;TabPage4.Name" xml:space="preserve">
+    <value>TabPage4</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarLocalidad.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 25</value>
+  </data>
+  <data name="txtBuscarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 33</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarDepartamento.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TabPage4.Parent" xml:space="preserve">
+    <value>TabControl2</value>
+  </data>
+  <data name="txtNuevoNombreLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 55</value>
+  </data>
+  <data name="&gt;&gt;txtNuevoNombreDepartamento.Name" xml:space="preserve">
+    <value>txtNuevoNombreDepartamento</value>
+  </data>
+  <data name="Label19.Text" xml:space="preserve">
+    <value>Buscar especialidad:</value>
+  </data>
+  <data name="cbxDepartamentoDeNuevaLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="TabPage9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 188</value>
+  </data>
+  <data name="grdEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>661, 210</value>
+  </data>
+  <data name="TabPage13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="btnModificarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 19</value>
+  </data>
+  <data name="&gt;&gt;DataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarEspecialidad.Name" xml:space="preserve">
+    <value>btnEliminarEspecialidad</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbxDepartamentos.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="TabPage12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="btnAgregarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="cbxDepartamentoDeNuevaLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>367, 33</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarDepartamento.Name" xml:space="preserve">
+    <value>txtAgregarDepartamento</value>
+  </data>
+  <data name="TabPage2.Text" xml:space="preserve">
+    <value>Localidades</value>
+  </data>
+  <data name="Label18.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;TabPage7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbxNuevoDepartamentoDeLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 96</value>
+  </data>
+  <data name="&gt;&gt;txtBuscarLocalidades.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtEliminarDepartamento.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 20</value>
+  </data>
+  <data name="txtLocalidadParaCambiarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 33</value>
+  </data>
+  <data name="txtNuevoNombreEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 55</value>
+  </data>
+  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TabControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>653, 226</value>
+  </data>
+  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtAgregarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 33</value>
+  </data>
+  <data name="btnModificarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 107</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="TabPage11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="Label20.Text" xml:space="preserve">
+    <value>Localidad:</value>
+  </data>
+  <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 25</value>
+  </data>
+  <data name="btnAgregarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label17.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Localidad.Text" xml:space="preserve">
+    <value>Localidad:</value>
+  </data>
+  <data name="txtBuscarLocalidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>390, 33</value>
+  </data>
+  <data name="Label10.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label10.Parent" xml:space="preserve">
+    <value>TabPage9</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 25</value>
+  </data>
+  <data name="btnVolver.Text" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="&gt;&gt;TabPage10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>661, 193</value>
+  </data>
+  <data name="&gt;&gt;TabPage5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarDepartamento.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnModificarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 127</value>
+  </data>
+  <data name="&gt;&gt;Label17.Name" xml:space="preserve">
+    <value>Label17</value>
+  </data>
+  <data name="&gt;&gt;TabPage7.Name" xml:space="preserve">
+    <value>TabPage7</value>
+  </data>
+  <data name="TabPage4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnEliminarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="Label9.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        v9Ld6gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>Seleccionar departamento:</value>
+  </data>
+  <data name="txtAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtNombreEspecialidadAModificar.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtNombreEspecialidadAModificar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnAgregarDepartamento.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;grdDepartamentos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label14.Parent" xml:space="preserve">
+    <value>TabPage10</value>
+  </data>
+  <data name="&gt;&gt;TabControl3.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="Label11.Text" xml:space="preserve">
+    <value>Buscar localidad:</value>
+  </data>
+  <data name="&gt;&gt;TabPage9.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TabPage8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 188</value>
+  </data>
+  <data name="&gt;&gt;Label11.Parent" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="TabPage12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="btnEliminarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 132</value>
+  </data>
+  <data name="&gt;&gt;txtNombreDepartamentoAModificar.Name" xml:space="preserve">
+    <value>txtNombreDepartamentoAModificar</value>
+  </data>
+  <data name="Label18.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnCambiarDepartamentoDeLocalidad.Text" xml:space="preserve">
+    <value>Cambiar departamento</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarLocalidad.Name" xml:space="preserve">
+    <value>txtAgregarLocalidad</value>
+  </data>
+  <data name="TabPage6.Text" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="btnCambiarDepartamentoDeLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 135</value>
+  </data>
+  <data name="txtEliminarDepartamento.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 25</value>
+  </data>
+  <data name="TabPage9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
+  </data>
+  <data name="&gt;&gt;btnModificarEspecialidad.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnEliminarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="TabPage9.Text" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="btnModificarEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="&gt;&gt;Label13.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAgregarEspecialidad.Name" xml:space="preserve">
+    <value>btnAgregarEspecialidad</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarEspecialidad.Parent" xml:space="preserve">
+    <value>TabPage13</value>
+  </data>
+  <data name="&gt;&gt;TabControl2.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="txtBuscarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 17</value>
+  </data>
+  <data name="grdLocalidades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>653, 135</value>
+  </data>
+  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Label20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label16.Parent" xml:space="preserve">
+    <value>TabPage12</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarLocalidad.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>707, 519</value>
+  </data>
+  <data name="txtBuscarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 33</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
+    <value>lblTraducir</value>
+  </data>
+  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnModificarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtNombreLocalidadAModificar.Parent" xml:space="preserve">
+    <value>TabPage8</value>
+  </data>
+  <data name="Label11.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 25</value>
+  </data>
+  <data name="&gt;&gt;txtNombreEspecialidadAModificar.Parent" xml:space="preserve">
+    <value>TabPage12</value>
+  </data>
+  <data name="Label19.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtEliminarLocalidad.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Label17.Parent" xml:space="preserve">
+    <value>TabPage12</value>
+  </data>
+  <data name="txtAgregarDepartamento.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarEspecialidad.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;grdLocalidades.Name" xml:space="preserve">
+    <value>grdLocalidades</value>
+  </data>
+  <data name="txtDepartamentoActual.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Label13.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1580,653 +2282,26 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Label12.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;TabPage12.Parent" xml:space="preserve">
-    <value>TabControl4</value>
-  </data>
-  <data name="txtBuscarDepartamento.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnModificarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 114</value>
-  </data>
-  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Localidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 19</value>
-  </data>
-  <data name="&gt;&gt;cbxDepartamentoDeNuevaLocalidad.Name" xml:space="preserve">
-    <value>cbxDepartamentoDeNuevaLocalidad</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>TabPage5</value>
-  </data>
-  <data name="&gt;&gt;Localidad.Parent" xml:space="preserve">
-    <value>TabPage8</value>
-  </data>
-  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
-    <value>TabPage7</value>
-  </data>
-  <data name="TabPage13.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="txtNombreDepartamentoAModificar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 33</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 59</value>
-  </data>
-  <data name="btnCambiarDepartamentoDeLocalidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="&gt;&gt;cbxNuevoDepartamentoDeLocalidad.Name" xml:space="preserve">
-    <value>cbxNuevoDepartamentoDeLocalidad</value>
-  </data>
-  <data name="&gt;&gt;txtNombreLocalidadAModificar.Name" xml:space="preserve">
-    <value>txtNombreLocalidadAModificar</value>
-  </data>
-  <data name="&gt;&gt;txtBuscarEspecialidad.Parent" xml:space="preserve">
-    <value>TabPage3</value>
-  </data>
-  <data name="txtNombreEspecialidadAModificar.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarDepartamento.Parent" xml:space="preserve">
-    <value>TabPage4</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Nuevo departamento:</value>
-  </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="TabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="&gt;&gt;txtNuevoNombreDepartamento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnAgregarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 130</value>
-  </data>
-  <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-92, 629</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TabPage7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="Label20.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;TabPage9.Parent" xml:space="preserve">
-    <value>TabControl3</value>
-  </data>
-  <data name="TabPage12.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;txtBuscarDepartamento.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtBuscarLocalidades.Name" xml:space="preserve">
-    <value>txtBuscarLocalidades</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>TabPage6</value>
-  </data>
-  <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 19</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>DataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;TabPage6.Parent" xml:space="preserve">
-    <value>TabControl2</value>
-  </data>
-  <data name="txtNombreLocalidadAModificar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 16</value>
-  </data>
-  <data name="&gt;&gt;grdDepartamentos.Name" xml:space="preserve">
-    <value>grdDepartamentos</value>
-  </data>
-  <data name="TabPage5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="Label16.Text" xml:space="preserve">
-    <value>Nuevo nombre:</value>
-  </data>
-  <data name="txtEliminarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 19</value>
-  </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtEliminarLocalidad.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnAgregarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
-  </data>
-  <data name="TabPage6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 162</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarDepartamento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtEliminarLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grdEspecialidades.Name" xml:space="preserve">
-    <value>grdEspecialidades</value>
-  </data>
-  <data name="Label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 22</value>
-  </data>
-  <data name="btnVolver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 35</value>
-  </data>
-  <data name="&gt;&gt;cbxNuevoDepartamentoDeLocalidad.Parent" xml:space="preserve">
-    <value>TabPage10</value>
-  </data>
-  <data name="&gt;&gt;btnModificarDepartamento.Parent" xml:space="preserve">
-    <value>TabPage5</value>
-  </data>
-  <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbxNuevoDepartamentoDeLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 33</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>TabPage1</value>
-  </data>
-  <data name="&gt;&gt;txtAgregarLocalidad.Parent" xml:space="preserve">
-    <value>TabPage7</value>
-  </data>
-  <data name="grdEspecialidades.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 56</value>
-  </data>
-  <data name="TabControl4.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;TabPage5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
-  </data>
-  <data name="&gt;&gt;cbxDepartamentoDeNuevaLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;Label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label14.Text" xml:space="preserve">
-    <value>Nuevo departamento:</value>
-  </data>
-  <data name="btnModificarLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="TabPage8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 188</value>
-  </data>
-  <data name="Label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 25</value>
-  </data>
-  <data name="TabPage12.Text" xml:space="preserve">
-    <value>Modificar</value>
-  </data>
-  <data name="txtNombreEspecialidadAModificar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 33</value>
-  </data>
-  <data name="btnAgregarLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtAgregarDepartamento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage8.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 25</value>
-  </data>
-  <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label15.Parent" xml:space="preserve">
-    <value>TabPage11</value>
-  </data>
-  <data name="Label16.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;TabPage7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbxNuevoDepartamentoDeLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 22</value>
-  </data>
-  <data name="TabPage5.Text" xml:space="preserve">
-    <value>Modificar</value>
-  </data>
-  <data name="TabPage5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="&gt;&gt;TabPage4.Name" xml:space="preserve">
-    <value>TabPage4</value>
-  </data>
-  <data name="&gt;&gt;txtAgregarLocalidad.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtNuevoNombreEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 25</value>
-  </data>
-  <data name="txtBuscarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 33</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarDepartamento.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TabPage4.Parent" xml:space="preserve">
-    <value>TabControl2</value>
-  </data>
-  <data name="txtNuevoNombreLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 55</value>
-  </data>
-  <data name="Label19.Text" xml:space="preserve">
-    <value>Buscar especialidad:</value>
-  </data>
-  <data name="cbxDepartamentoDeNuevaLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="TabPage9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 188</value>
-  </data>
-  <data name="grdEspecialidades.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 210</value>
-  </data>
-  <data name="TabPage13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 19</value>
-  </data>
-  <data name="&gt;&gt;DataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarEspecialidad.Name" xml:space="preserve">
-    <value>btnEliminarEspecialidad</value>
-  </data>
-  <data name="Label19.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="cbxDepartamentos.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
-    <value>Label8</value>
-  </data>
-  <data name="TabPage12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="btnAgregarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
-  </data>
-  <data name="cbxDepartamentoDeNuevaLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>367, 33</value>
-  </data>
-  <data name="&gt;&gt;txtAgregarDepartamento.Name" xml:space="preserve">
-    <value>txtAgregarDepartamento</value>
-  </data>
-  <data name="TabPage2.Text" xml:space="preserve">
-    <value>Localidades</value>
-  </data>
-  <data name="&gt;&gt;btnModificarLocalidad.Name" xml:space="preserve">
-    <value>btnModificarLocalidad</value>
-  </data>
-  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
-    <value>btnVolver</value>
-  </data>
-  <data name="&gt;&gt;TabPage7.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbxNuevoDepartamentoDeLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 96</value>
-  </data>
-  <data name="&gt;&gt;txtBuscarLocalidades.Parent" xml:space="preserve">
-    <value>TabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtEliminarDepartamento.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 20</value>
-  </data>
-  <data name="txtLocalidadParaCambiarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 33</value>
-  </data>
-  <data name="txtNuevoNombreEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 55</value>
-  </data>
-  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TabControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 226</value>
-  </data>
-  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtAgregarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 33</value>
-  </data>
-  <data name="btnModificarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 107</value>
-  </data>
-  <data name="&gt;&gt;TabPage3.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="TabPage11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="Label20.Text" xml:space="preserve">
-    <value>Localidad:</value>
-  </data>
-  <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 25</value>
-  </data>
-  <data name="txtDepartamentoActual.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 55</value>
-  </data>
-  <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Label12.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Localidad.Text" xml:space="preserve">
-    <value>Localidad:</value>
-  </data>
-  <data name="txtBuscarLocalidades.Size" type="System.Drawing.Size, System.Drawing">
-    <value>390, 33</value>
-  </data>
-  <data name="btnEliminarEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="Label10.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Label10.Parent" xml:space="preserve">
-    <value>TabPage9</value>
-  </data>
-  <data name="grdDepartamentos.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtNombreEspecialidadAModificar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage10.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TabControl4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 193</value>
-  </data>
-  <data name="&gt;&gt;TabPage5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
-    <value>TabPage2</value>
-  </data>
-  <data name="&gt;&gt;TabPage7.Name" xml:space="preserve">
-    <value>TabPage7</value>
-  </data>
-  <data name="TabPage4.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="btnEliminarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
-  </data>
-  <data name="Label9.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="txtAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtNombreEspecialidadAModificar.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnAgregarDepartamento.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;TabPage11.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label17.Parent" xml:space="preserve">
-    <value>TabPage12</value>
-  </data>
-  <data name="&gt;&gt;Label14.Parent" xml:space="preserve">
-    <value>TabPage10</value>
-  </data>
-  <data name="&gt;&gt;TabControl3.Parent" xml:space="preserve">
-    <value>TabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtEliminarEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label11.Text" xml:space="preserve">
-    <value>Buscar localidad:</value>
-  </data>
-  <data name="&gt;&gt;Label11.Parent" xml:space="preserve">
-    <value>TabPage2</value>
-  </data>
-  <data name="TabPage12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="btnEliminarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 132</value>
-  </data>
-  <data name="&gt;&gt;txtNombreDepartamentoAModificar.Name" xml:space="preserve">
-    <value>txtNombreDepartamentoAModificar</value>
-  </data>
-  <data name="Label18.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnCambiarDepartamentoDeLocalidad.Text" xml:space="preserve">
-    <value>Cambiar departamento</value>
-  </data>
-  <data name="Label15.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnCambiarDepartamentoDeLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 135</value>
-  </data>
-  <data name="txtEliminarDepartamento.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtNombreLocalidadAModificar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 25</value>
-  </data>
-  <data name="&gt;&gt;cbxDepartamentos.Name" xml:space="preserve">
-    <value>cbxDepartamentos</value>
-  </data>
-  <data name="&gt;&gt;btnModificarEspecialidad.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage9.Text" xml:space="preserve">
-    <value>Eliminar</value>
-  </data>
-  <data name="btnModificarEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>707, 519</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 13</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarEspecialidad.Parent" xml:space="preserve">
-    <value>TabPage13</value>
-  </data>
-  <data name="&gt;&gt;TabControl2.Parent" xml:space="preserve">
-    <value>TabPage1</value>
-  </data>
-  <data name="txtBuscarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 17</value>
-  </data>
-  <data name="grdLocalidades.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 135</value>
-  </data>
-  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label14.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label16.Parent" xml:space="preserve">
-    <value>TabPage12</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarLocalidad.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>707, 519</value>
-  </data>
-  <data name="txtLocalidadParaCambiarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 16</value>
-  </data>
-  <data name="btnModificarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
-  </data>
-  <data name="&gt;&gt;TabPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtNombreLocalidadAModificar.Parent" xml:space="preserve">
-    <value>TabPage8</value>
-  </data>
-  <data name="Label11.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
-  </data>
-  <data name="&gt;&gt;txtNombreEspecialidadAModificar.Parent" xml:space="preserve">
-    <value>TabPage12</value>
-  </data>
-  <data name="Label19.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label13.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.Parent" xml:space="preserve">
-    <value>TabPage10</value>
-  </data>
-  <data name="txtAgregarDepartamento.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtDepartamentoActual.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grdLocalidades.Name" xml:space="preserve">
-    <value>grdLocalidades</value>
-  </data>
-  <data name="txtDepartamentoActual.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Label17.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label13.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 25</value>
-  </data>
-  <data name="TabControl4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 310</value>
-  </data>
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 43</value>
   </data>
-  <data name="btnModificarEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="Label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="TabPage4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 162</value>
+  <data name="TabPage7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 25</value>
-  </data>
-  <data name="txtBuscarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 13</value>
-  </data>
-  <data name="&gt;&gt;Label20.Name" xml:space="preserve">
-    <value>Label20</value>
-  </data>
-  <data name="&gt;&gt;Label17.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btnModificarLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
     <value>TabControl1</value>
   </data>
   <data name="&gt;&gt;TabPage10.Name" xml:space="preserve">
     <value>TabPage10</value>
+  </data>
+  <data name="Label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 25</value>
   </data>
   <data name="&gt;&gt;btnAgregarEspecialidad.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -2243,23 +2318,17 @@
   <data name="btnModificarLocalidad.Text" xml:space="preserve">
     <value>Modificar localidad</value>
   </data>
-  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 568</value>
   </data>
   <data name="&gt;&gt;TabControl4.Parent" xml:space="preserve">
     <value>TabPage3</value>
   </data>
-  <data name="txtEliminarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 33</value>
-  </data>
   <data name="TabPage6.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;txtAgregarDepartamento.Parent" xml:space="preserve">
-    <value>TabPage4</value>
+  <data name="TabPage13.Text" xml:space="preserve">
+    <value>Eliminar</value>
   </data>
   <data name="txtAgregarLocalidad.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2267,8 +2336,8 @@
   <data name="txtNombreDepartamentoAModificar.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="TabPage10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
+  <data name="btnModificarLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="TabPage6.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 34</value>
@@ -2282,8 +2351,8 @@
   <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 25</value>
   </data>
-  <data name="&gt;&gt;txtBuscarDepartamento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnCambiarDepartamentoDeLocalidad.Parent" xml:space="preserve">
+    <value>TabPage10</value>
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 25</value>
@@ -2300,12 +2369,6 @@
   <data name="Label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btnEliminarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
-  </data>
-  <data name="&gt;&gt;TabPage6.Name" xml:space="preserve">
-    <value>TabPage6</value>
-  </data>
   <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>487, 112</value>
   </data>
@@ -2315,11 +2378,8 @@
   <data name="btnAgregarEspecialidad.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtDepartamentoActual.Name" xml:space="preserve">
-    <value>txtDepartamentoActual</value>
+  <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
+    <value>btnVolver</value>
   </data>
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -2330,17 +2390,11 @@
   <data name="&gt;&gt;TabPage12.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnAgregarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 98</value>
-  </data>
   <data name="btnModificarLocalidad.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmConfiguracion</value>
-  </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="Label7.Text" xml:space="preserve">
     <value>Nueva localidad:</value>
@@ -2354,8 +2408,8 @@
   <data name="TabPage4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="Label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 25</value>
+  <data name="&gt;&gt;Label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TabControl2.Size" type="System.Drawing.Size, System.Drawing">
     <value>669, 200</value>
@@ -2396,11 +2450,8 @@
   <data name="&gt;&gt;txtNombreEspecialidadAModificar.Name" xml:space="preserve">
     <value>txtNombreEspecialidadAModificar</value>
   </data>
-  <data name="&gt;&gt;btnAgregarDepartamento.Name" xml:space="preserve">
-    <value>btnAgregarDepartamento</value>
-  </data>
-  <data name="btnAgregarLocalidad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="TabPage4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
   </data>
   <data name="&gt;&gt;btnAgregarEspecialidad.Parent" xml:space="preserve">
     <value>TabPage11</value>
@@ -2411,6 +2462,9 @@
   <data name="txtBuscarLocalidades.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="&gt;&gt;txtEliminarEspecialidad.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="Label19.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 20</value>
   </data>
@@ -2419,9 +2473,6 @@
   </data>
   <data name="&gt;&gt;Label14.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;Label11.Name" xml:space="preserve">
-    <value>Label11</value>
   </data>
   <data name="&gt;&gt;Label14.Name" xml:space="preserve">
     <value>Label14</value>
@@ -2447,14 +2498,8 @@
   <data name="TabPage3.Size" type="System.Drawing.Size, System.Drawing">
     <value>707, 519</value>
   </data>
-  <data name="TabPage4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="txtAgregarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 33</value>
-  </data>
-  <data name="TabPage10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 188</value>
+  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>707, 519</value>
   </data>
   <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2462,8 +2507,8 @@
   <data name="btnEliminarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
     <value>181, 103</value>
   </data>
-  <data name="btnAgregarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
+  <data name="Label15.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>
@@ -2474,8 +2519,8 @@
   <data name="&gt;&gt;grdEspecialidades.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;grdDepartamentos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAgregarEspecialidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 98</value>
   </data>
   <data name="&gt;&gt;Label14.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2498,8 +2543,8 @@
   <data name="txtAgregarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
     <value>259, 56</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 61</value>
+  <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;TabPage13.Name" xml:space="preserve">
     <value>TabPage13</value>
@@ -2522,8 +2567,8 @@
   <data name="cbxDepartamentos.Size" type="System.Drawing.Size, System.Drawing">
     <value>390, 33</value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Departamento:</value>
+  <data name="&gt;&gt;txtNombreLocalidadAModificar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label7.Name" xml:space="preserve">
     <value>Label7</value>
@@ -2531,20 +2576,17 @@
   <data name="Label12.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 16</value>
   </data>
-  <data name="btnEliminarDepartamento.Text" xml:space="preserve">
-    <value>Eliminar departamento</value>
-  </data>
   <data name="&gt;&gt;txtNuevoNombreEspecialidad.Name" xml:space="preserve">
     <value>txtNuevoNombreEspecialidad</value>
   </data>
   <data name="&gt;&gt;btnAgregarLocalidad.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Label12.Text" xml:space="preserve">
-    <value>Seleccionar departamento:</value>
+  <data name="&gt;&gt;TabPage10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label17.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
   </data>
   <data name="&gt;&gt;Label15.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2552,8 +2594,8 @@
   <data name="&gt;&gt;TabControl2.Name" xml:space="preserve">
     <value>TabControl2</value>
   </data>
-  <data name="&gt;&gt;txtEliminarDepartamento.Parent" xml:space="preserve">
-    <value>TabPage6</value>
+  <data name="btnEliminarDepartamento.Text" xml:space="preserve">
+    <value>Eliminar departamento</value>
   </data>
   <data name="Label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 55</value>
@@ -2561,11 +2603,8 @@
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>472, 42</value>
   </data>
-  <data name="btnEliminarDepartamento.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
-  <data name="btnCambiarDepartamentoDeLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
+  <data name="&gt;&gt;TabPage11.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtNombreDepartamentoAModificar.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2573,8 +2612,8 @@
   <data name="&gt;&gt;Label16.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtNuevoNombreEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 33</value>
+  <data name="&gt;&gt;Label20.Name" xml:space="preserve">
+    <value>Label20</value>
   </data>
   <data name="&gt;&gt;btnAgregarLocalidad.Parent" xml:space="preserve">
     <value>TabPage7</value>
@@ -2582,20 +2621,17 @@
   <data name="txtEliminarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>357, 33</value>
   </data>
-  <data name="&gt;&gt;TabPage12.Name" xml:space="preserve">
-    <value>TabPage12</value>
-  </data>
-  <data name="&gt;&gt;btnModificarLocalidad.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="TabPage10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 188</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 25</value>
   </data>
-  <data name="DataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Column1</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarDepartamento.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TabPage6.Name" xml:space="preserve">
     <value>TabPage6</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>TabPage5</value>
   </data>
   <data name="&gt;&gt;grdLocalidades.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2606,8 +2642,11 @@
   <data name="&gt;&gt;TabPage9.Name" xml:space="preserve">
     <value>TabPage9</value>
   </data>
-  <data name="Label18.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;txtDepartamentoActual.Name" xml:space="preserve">
+    <value>txtDepartamentoActual</value>
+  </data>
+  <data name="TabControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 310</value>
   </data>
   <data name="&gt;&gt;txtEliminarDepartamento.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2618,11 +2657,14 @@
   <data name="&gt;&gt;txtNuevoNombreLocalidad.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Localidad.Name" xml:space="preserve">
-    <value>Localidad</value>
+  <data name="&gt;&gt;Localidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtEliminarLocalidad.Parent" xml:space="preserve">
     <value>TabPage9</value>
+  </data>
+  <data name="&gt;&gt;TabPage3.Name" xml:space="preserve">
+    <value>TabPage3</value>
   </data>
   <data name="TabPage7.Text" xml:space="preserve">
     <value>Agregar</value>
@@ -2663,8 +2705,11 @@
   <data name="grdDepartamentos.Size" type="System.Drawing.Size, System.Drawing">
     <value>649, 216</value>
   </data>
-  <data name="&gt;&gt;btnModificarDepartamento.Name" xml:space="preserve">
-    <value>btnModificarDepartamento</value>
+  <data name="TabPage13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>653, 155</value>
+  </data>
+  <data name="&gt;&gt;txtAgregarLocalidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -2675,8 +2720,11 @@
   <data name="&gt;&gt;cbxDepartamentos.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="txtAgregarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 22</value>
+  <data name="txtDepartamentoActual.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 55</value>
+  </data>
+  <data name="TabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;TabControl4.Name" xml:space="preserve">
     <value>TabControl4</value>
@@ -2696,17 +2744,14 @@
   <data name="&gt;&gt;grdEspecialidades.Parent" xml:space="preserve">
     <value>TabPage3</value>
   </data>
-  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;Label11.Name" xml:space="preserve">
+    <value>Label11</value>
   </data>
   <data name="TabPage10.Text" xml:space="preserve">
     <value>Cambiar departamento</value>
   </data>
-  <data name="&gt;&gt;TabControl4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label10.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 25</value>
@@ -2726,11 +2771,8 @@
   <data name="&gt;&gt;cbxDepartamentoDeNuevaLocalidad.Parent" xml:space="preserve">
     <value>TabPage7</value>
   </data>
-  <data name="&gt;&gt;txtAgregarLocalidad.Name" xml:space="preserve">
-    <value>txtAgregarLocalidad</value>
-  </data>
-  <data name="txtEliminarLocalidad.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnEliminarEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
   </data>
   <data name="TabPage11.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2744,8 +2786,8 @@
   <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;txtDepartamentoActual.Parent" xml:space="preserve">
-    <value>TabPage10</value>
+  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
+    <value>TabPage7</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>715, 557</value>
@@ -2762,11 +2804,11 @@
   <data name="Label20.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 19</value>
   </data>
-  <data name="&gt;&gt;Label20.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="btnAgregarDepartamento.Text" xml:space="preserve">
+    <value>Agregar departamento</value>
   </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="txtNuevoNombreEspecialidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 33</value>
   </data>
   <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.Name" xml:space="preserve">
     <value>txtLocalidadParaCambiarDepartamento</value>
@@ -2774,14 +2816,14 @@
   <data name="btnAgregarEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;btnAgregarLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAgregarLocalidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>
   </data>
-  <data name="TabPage13.Text" xml:space="preserve">
-    <value>Eliminar</value>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Departamento:</value>
   </data>
   <data name="&gt;&gt;Label16.Name" xml:space="preserve">
     <value>Label16</value>
@@ -2789,8 +2831,8 @@
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="&gt;&gt;Label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="grdDepartamentos.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;Label11.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -2801,8 +2843,11 @@
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>561, 42</value>
   </data>
-  <data name="&gt;&gt;btnAgregarDepartamento.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;Label16.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnEliminarEspecialidad.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmConfiguracion</value>
@@ -2813,17 +2858,17 @@
   <data name="btnAgregarEspecialidad.Text" xml:space="preserve">
     <value>Agregar especialidad</value>
   </data>
-  <data name="TabPage7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="btnAgregarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 130</value>
   </data>
-  <data name="txtNuevoNombreEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;TabPage13.Parent" xml:space="preserve">
+    <value>TabControl4</value>
   </data>
-  <data name="&gt;&gt;btnEliminarEspecialidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtBuscarDepartamento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TabControl4.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;btnEliminarDepartamento.Name" xml:space="preserve">
     <value>btnEliminarDepartamento</value>
@@ -2834,11 +2879,11 @@
   <data name="&gt;&gt;txtBuscarLocalidades.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 25</value>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 25</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtBuscarDepartamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 13</value>
   </data>
   <data name="&gt;&gt;Label9.Parent" xml:space="preserve">
     <value>TabPage10</value>
@@ -2852,29 +2897,32 @@
   <data name="&gt;&gt;txtLocalidadParaCambiarDepartamento.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grdDepartamentos.Parent" xml:space="preserve">
-    <value>TabPage1</value>
+  <data name="&gt;&gt;txtEliminarEspecialidad.Name" xml:space="preserve">
+    <value>txtEliminarEspecialidad</value>
   </data>
   <data name="txtAgregarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
     <value>367, 33</value>
   </data>
-  <data name="&gt;&gt;txtNuevoNombreEspecialidad.Parent" xml:space="preserve">
-    <value>TabPage12</value>
+  <data name="&gt;&gt;txtNuevoNombreEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAgregarLocalidad.Name" xml:space="preserve">
-    <value>btnAgregarLocalidad</value>
+  <data name="txtAgregarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 33</value>
   </data>
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="btnEliminarLocalidad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
+  <data name="&gt;&gt;Label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label16.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnEliminarEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label17.Name" xml:space="preserve">
-    <value>Label17</value>
+  <data name="&gt;&gt;btnAgregarDepartamento.Name" xml:space="preserve">
+    <value>btnAgregarDepartamento</value>
+  </data>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAgregarDepartamento.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2888,8 +2936,8 @@
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnModificarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 42</value>
+  <data name="&gt;&gt;TabControl4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtBuscarEspecialidad.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2900,68 +2948,23 @@
   <data name="&gt;&gt;btnModificarEspecialidad.Name" xml:space="preserve">
     <value>btnModificarEspecialidad</value>
   </data>
-  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
+  <data name="TabPage12.Text" xml:space="preserve">
+    <value>Modificar</value>
   </data>
   <data name="&gt;&gt;TabPage8.Parent" xml:space="preserve">
     <value>TabControl3</value>
   </data>
-  <data name="&gt;&gt;Localidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnEliminarLocalidad.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        v9Ld6gAAAABJRU5ErkJggg==
-</value>
+  <data name="&gt;&gt;btnEliminarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage6</value>
   </data>
   <data name="TabPage11.Size" type="System.Drawing.Size, System.Drawing">
     <value>653, 155</value>
   </data>
-  <data name="&gt;&gt;TabPage3.Name" xml:space="preserve">
-    <value>TabPage3</value>
+  <data name="TabPage10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 34</value>
   </data>
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
@@ -2969,14 +2972,14 @@
   <data name="Label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="TabPage7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 188</value>
+  <data name="Label19.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Localidad.Name" xml:space="preserve">
+    <value>Localidad</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2987,26 +2990,23 @@
   <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
     <value>TabControl1</value>
   </data>
-  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
-    <value>TabPage1</value>
+  <data name="&gt;&gt;Label17.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;txtAgregarDepartamento.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
+    <value>TabPage2</value>
+  </data>
+  <data name="&gt;&gt;Label20.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="btnModificarLocalidad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 127</value>
-  </data>
-  <data name="&gt;&gt;txtAgregarLocalidad.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TabPage13.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabPage12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 155</value>
+  <data name="btnModificarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="TabPage6.Text" xml:space="preserve">
-    <value>Eliminar</value>
+  <data name="&gt;&gt;TabPage5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 25</value>
@@ -3020,20 +3020,20 @@
   <data name="TabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;TabPage11.Parent" xml:space="preserve">
-    <value>TabControl4</value>
+  <data name="txtBuscarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;txtEliminarEspecialidad.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="btnCambiarDepartamentoDeLocalidad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 42</value>
   </data>
   <data name="cbxDepartamentoDeNuevaLocalidad.Location" type="System.Drawing.Point, System.Drawing">
     <value>259, 17</value>
   </data>
-  <data name="TabPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Nuevo nombre:</value>
   </data>
-  <data name="&gt;&gt;TabPage9.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;txtAgregarDepartamento.Parent" xml:space="preserve">
+    <value>TabPage4</value>
   </data>
   <data name="&gt;&gt;cbxDepartamentos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3041,11 +3041,11 @@
   <data name="&gt;&gt;txtNuevoNombreDepartamento.Parent" xml:space="preserve">
     <value>TabPage5</value>
   </data>
-  <data name="&gt;&gt;txtNuevoNombreDepartamento.Name" xml:space="preserve">
-    <value>txtNuevoNombreDepartamento</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;TabPage11.Parent" xml:space="preserve">
+    <value>TabControl4</value>
   </data>
   <data name="txtNombreLocalidadAModificar.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3056,8 +3056,11 @@
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
-    <value>lblTraducir</value>
+  <data name="&gt;&gt;TabControl4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbxDepartamentos.Parent" xml:space="preserve">
+    <value>TabPage2</value>
   </data>
   <data name="&gt;&gt;txtEliminarLocalidad.Name" xml:space="preserve">
     <value>txtEliminarLocalidad</value>
@@ -3068,23 +3071,20 @@
   <data name="&gt;&gt;Localidad.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Label17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TabPage12.Name" xml:space="preserve">
+    <value>TabPage12</value>
   </data>
-  <data name="&gt;&gt;Label19.Parent" xml:space="preserve">
-    <value>TabPage3</value>
-  </data>
-  <data name="txtBuscarEspecialidad.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
+    <value>TabPage1</value>
   </data>
   <data name="&gt;&gt;DataGridViewTextBoxColumn2.Name" xml:space="preserve">
     <value>DataGridViewTextBoxColumn2</value>
   </data>
-  <data name="TabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="btnEliminarEspecialidad.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="TabPage11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
+  <data name="&gt;&gt;txtEliminarEspecialidad.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtEliminarDepartamento.Size" type="System.Drawing.Size, System.Drawing">
     <value>338, 33</value>

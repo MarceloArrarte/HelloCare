@@ -194,6 +194,7 @@ Partial Class FrmModificacionAdministrativo
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmModificacionAdministrativo"
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

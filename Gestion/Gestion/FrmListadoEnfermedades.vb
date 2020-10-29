@@ -5,7 +5,7 @@ Imports Clases
 
 Public Class FrmListadoEnfermedades
     ' Cada vez que el formulario recibe el foco, actualiza las enfermedades del sistema
-    Private Sub FrmListadoEnfermedades_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Private Sub FrmListadoEnfermedades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ActualizarEnfermedades()
     End Sub
 
@@ -102,5 +102,11 @@ Public Class FrmListadoEnfermedades
                 End If
             End If
         Next
+    End Sub
+
+    Private Sub FrmListadoEnfermedades_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
     End Sub
 End Class

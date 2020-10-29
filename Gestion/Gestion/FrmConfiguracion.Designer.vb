@@ -712,6 +712,7 @@ Partial Class FrmConfiguracion
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TabControl1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmConfiguracion"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)

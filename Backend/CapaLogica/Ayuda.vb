@@ -86,11 +86,77 @@ Public Module Ayuda
         Return rangoPaginas
     End Function
 
+    Private Function ObtenerRangoPaginasManualPaciente(form As Form) As String
+        Dim nombreCompletoForm As String = form.GetType.ToString
+        Dim nombreCortoForm As String = nombreCompletoForm.Substring(nombreCompletoForm.IndexOf("."c) + 1)
+        Dim rangoPaginas As String = ""
+        Select Case nombreCortoForm
+            Case "FrmChatPaciente"
+                rangoPaginas = "7-8"
+            Case "FrmComentariosAdicionales"
+                rangoPaginas = "7-7"
+            Case "FrmContrasenaOlvidada"
+                '' FALTA
+            Case "FrmDiagnosticoPrimario"
+                rangoPaginas = "5-7"
+            Case "FrmDiagnosticosDiferenciales"
+                '' FALTA
+            Case "FrmHistorialDiagnosticos"
+                rangoPaginas = "4-5"
+            Case "FrmIngresoSintoma"
+                rangoPaginas = "3-4"
+            Case "FrmLogin"
+                rangoPaginas = "1-1"
+            Case "FrmMenuPrincipal"
+                rangoPaginas = "2-5"
+            Case "FrmRegistro"
+                rangoPaginas = "1-2"
+            Case Else
+                Throw New Exception("No se encontró ayuda para esta ventana.")
+        End Select
+        Return rangoPaginas
+    End Function
+
+    Private Function ObtenerRangoPaginasManualMedico(form As Form) As String
+        Dim nombreCompletoForm As String = form.GetType.ToString
+        Dim nombreCortoForm As String = nombreCompletoForm.Substring(nombreCompletoForm.IndexOf("."c) + 1)
+        Dim rangoPaginas As String = ""
+        Select Case nombreCortoForm
+            Case "FrmChatMedico"
+                rangoPaginas = "7-8"
+            Case "FrmHistorialChats"
+                rangoPaginas = "7-7"
+            Case "FrmHistorialPacientes"
+                rangoPaginas = "7-7"
+            Case "FrmContrasenaOlvidada"
+                '' FALTA
+            Case "FrmLogin"
+                rangoPaginas = "1-1"
+            Case "FrmMenuPrincipal"
+                rangoPaginas = "2-5"
+            Case "FrmNuevoDiagnostico"
+                rangoPaginas = "2-5"
+            Case "FrmPeticionesChat"
+                rangoPaginas = "2-5"
+            Case "FrmRegistro"
+                rangoPaginas = "1-2"
+            Case Else
+                Throw New Exception("No se encontró ayuda para esta ventana.")
+        End Select
+        Return rangoPaginas
+    End Function
+
     Private Sub AbrirPDFAyuda(primeraPagina As Integer, ultimaPagina As Integer)
         Dim rutaSalida As String = "Ayuda de HelloCare.pdf"
+
         If File.Exists(rutaSalida) Then
-            File.Delete(rutaSalida)
+            Try
+                File.Delete(rutaSalida)
+            Catch ex As UnauthorizedAccessException
+                Throw New Exception("Por favor, cierre la ventana de ayuda para abrir otra sección del manual.")
+            End Try
         End If
+
         Dim os As Stream = New StreamWriter(rutaSalida).BaseStream
         Dim doc As New Document()
         Dim lector As PdfReader = New PdfReader("Manual.pdf")

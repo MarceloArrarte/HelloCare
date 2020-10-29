@@ -57,23 +57,22 @@ Partial Class FrmAltaMedico
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblLocalidad
         '
-        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.AllowUserToAddRows = False
         Me.tblLocalidad.AllowUserToDeleteRows = False
         Me.tblLocalidad.AllowUserToResizeColumns = False
@@ -83,6 +82,7 @@ Partial Class FrmAltaMedico
         Me.tblLocalidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblLocalidad.ColumnHeadersVisible = False
         Me.tblLocalidad.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNomEnfermedad})
+        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.Name = "tblLocalidad"
         Me.tblLocalidad.RowHeadersVisible = False
         Me.tblLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -152,9 +152,9 @@ Partial Class FrmAltaMedico
         '
         'cmbDepartamento
         '
-        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDepartamento.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.Name = "cmbDepartamento"
         '
         'Label14
@@ -165,7 +165,6 @@ Partial Class FrmAltaMedico
         '
         'tblEspecialidades
         '
-        resources.ApplyResources(Me.tblEspecialidades, "tblEspecialidades")
         Me.tblEspecialidades.AllowUserToAddRows = False
         Me.tblEspecialidades.AllowUserToDeleteRows = False
         Me.tblEspecialidades.AllowUserToResizeColumns = False
@@ -175,6 +174,7 @@ Partial Class FrmAltaMedico
         Me.tblEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblEspecialidades.ColumnHeadersVisible = False
         Me.tblEspecialidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
+        resources.ApplyResources(Me.tblEspecialidades, "tblEspecialidades")
         Me.tblEspecialidades.MultiSelect = False
         Me.tblEspecialidades.Name = "tblEspecialidades"
         Me.tblEspecialidades.ReadOnly = True
@@ -206,23 +206,22 @@ Partial Class FrmAltaMedico
         '
         'btnAgregarE
         '
-        resources.ApplyResources(Me.btnAgregarE, "btnAgregarE")
         Me.btnAgregarE.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregarE, "btnAgregarE")
         Me.btnAgregarE.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAgregarE.Name = "btnAgregarE"
         Me.btnAgregarE.UseVisualStyleBackColor = False
         '
         'btnQuitarE
         '
-        resources.ApplyResources(Me.btnQuitarE, "btnQuitarE")
         Me.btnQuitarE.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnQuitarE, "btnQuitarE")
         Me.btnQuitarE.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnQuitarE.Name = "btnQuitarE"
         Me.btnQuitarE.UseVisualStyleBackColor = False
         '
         'tblAsociados
         '
-        resources.ApplyResources(Me.tblAsociados, "tblAsociados")
         Me.tblAsociados.AllowUserToAddRows = False
         Me.tblAsociados.AllowUserToDeleteRows = False
         Me.tblAsociados.AllowUserToResizeColumns = False
@@ -232,6 +231,7 @@ Partial Class FrmAltaMedico
         Me.tblAsociados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblAsociados.ColumnHeadersVisible = False
         Me.tblAsociados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
+        resources.ApplyResources(Me.tblAsociados, "tblAsociados")
         Me.tblAsociados.MultiSelect = False
         Me.tblAsociados.Name = "tblAsociados"
         Me.tblAsociados.ReadOnly = True
@@ -252,8 +252,8 @@ Partial Class FrmAltaMedico
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -286,6 +286,7 @@ Partial Class FrmAltaMedico
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmAltaMedico"
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tblEspecialidades, System.ComponentModel.ISupportInitialize).EndInit()

@@ -255,6 +255,7 @@ Partial Class FrmListadoAdministrativos
         Me.Controls.Add(Me.tblAdministrativo)
         Me.Controls.Add(Me.Label2)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmListadoAdministrativos"
         CType(Me.tblAdministrativo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

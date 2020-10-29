@@ -135,4 +135,10 @@ Public Class FrmAltaEnfermedades
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
     End Sub
+
+    Private Sub FrmAltaEnfermedades_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            AbrirAyuda(TiposUsuario.Administrativo, Me)
+        End If
+    End Sub
 End Class

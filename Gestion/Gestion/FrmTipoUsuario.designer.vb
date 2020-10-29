@@ -102,6 +102,7 @@ Partial Class FrmTipoUsuario
         Me.Controls.Add(Me.btnMedico)
         Me.Controls.Add(Me.btnPaciente)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmTipoUsuario"
         Me.ResumeLayout(False)
         Me.PerformLayout()

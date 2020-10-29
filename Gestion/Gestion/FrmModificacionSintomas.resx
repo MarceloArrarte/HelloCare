@@ -143,9 +143,6 @@
   <data name="&gt;&gt;txtBuscarPatologia.Name" xml:space="preserve">
     <value>txtBuscarPatologia</value>
   </data>
-  <data name="btnVolver.Text" xml:space="preserve">
-    <value>Volver</value>
-  </data>
   <data name="&gt;&gt;colNomEnfermedad.Name" xml:space="preserve">
     <value>colNomEnfermedad</value>
   </data>
@@ -169,9 +166,6 @@
   </data>
   <data name="btnConfirmar.Text" xml:space="preserve">
     <value>Confirmar</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="tblAsociadas.Size" type="System.Drawing.Size, System.Drawing">
     <value>299, 250</value>
@@ -1264,6 +1258,9 @@
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1214, 681</value>
+  </data>
   <data name="&gt;&gt;colPatologia.Name" xml:space="preserve">
     <value>colPatologia</value>
   </data>
@@ -1321,8 +1318,8 @@
   <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="colObjeto2.HeaderText" xml:space="preserve">
-    <value>Objeto</value>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btnQuitarPatologia.Location" type="System.Drawing.Point, System.Drawing">
     <value>792, 401</value>
@@ -1332,9 +1329,6 @@
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 25</value>
-  </data>
-  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="txtBuscarPatologia.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 28</value>
@@ -1408,9 +1402,6 @@
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>18</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="tblAsociadas.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1496,6 +1487,9 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 43</value>
   </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="btnConfirmar.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 37</value>
   </data>
@@ -1523,6 +1517,9 @@
   <data name="txtDescripcion.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;txtUrgencia.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="Label7.Text" xml:space="preserve">
     <value>Patologías:</value>
   </data>
@@ -1534,6 +1531,9 @@
   </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
+  </data>
+  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
   </data>
   <data name="&gt;&gt;txtBuscarPatologia.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1613,8 +1613,8 @@
   <data name="Label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>898, 221</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>461, 42</value>
@@ -1646,6 +1646,9 @@
   <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 25</value>
   </data>
+  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 149</value>
   </data>
@@ -1654,9 +1657,6 @@
   </data>
   <data name="&gt;&gt;txtDescripcion.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
-    <value>Label8</value>
   </data>
   <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1667,14 +1667,11 @@
   <data name="txtBuscarPatologia.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 252</value>
-  </data>
   <data name="txtDescripcion.Size" type="System.Drawing.Size, System.Drawing">
     <value>436, 72</value>
   </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>898, 221</value>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
   </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4065,11 +4062,11 @@
   <data name="txtDescripcion.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 177</value>
   </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 252</value>
+  </data>
   <data name="colPatologia.HeaderText" xml:space="preserve">
     <value>Nombre</value>
-  </data>
-  <data name="&gt;&gt;btnAgregarPatologia.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -4086,14 +4083,14 @@
   <data name="&gt;&gt;txtBuscarPatologia.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1214, 681</value>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;colPatologia.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tblAsociadas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 249</value>
+  <data name="colObjeto2.HeaderText" xml:space="preserve">
+    <value>Objeto</value>
   </data>
   <data name="btnQuitarPatologia.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -4107,8 +4104,8 @@
   <data name="&gt;&gt;tblAsociadas.Name" xml:space="preserve">
     <value>tblAsociadas</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 25</value>
+  <data name="btnVolver.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 25</value>
@@ -4122,13 +4119,13 @@
   <data name="&gt;&gt;txtDescripcion.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 25</value>
   </data>
   <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lato, 15.75pt</value>
   </data>
-  <data name="&gt;&gt;txtUrgencia.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnAgregarPatologia.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="txtUrgencia.TabIndex" type="System.Int32, mscorlib">
@@ -4137,7 +4134,7 @@
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtRecomendaciones.Multiline" type="System.Boolean, mscorlib">
@@ -4145,6 +4142,9 @@
   </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
+  </data>
+  <data name="tblAsociadas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 249</value>
   </data>
   <data name="&gt;&gt;txtRecomendaciones.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4164,8 +4164,8 @@
   <data name="&gt;&gt;colFrecuencia.Name" xml:space="preserve">
     <value>colFrecuencia</value>
   </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btnQuitarPatologia.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 37</value>
