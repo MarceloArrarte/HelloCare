@@ -54,6 +54,25 @@
         Next
     End Sub
 
+    Friend Sub ValidarCaracteresCalle(nombreCalle As String)
+        Dim caracteresInvalidosDetectados As New List(Of Char)
+        For Each c As Char In nombreCalle.ToCharArray
+            If Not (CaracteresPermitidosNombres & CaracteresPermitidosNumeros).Contains(c) Then
+                caracteresInvalidosDetectados.Add(c)
+            End If
+        Next
+
+        If caracteresInvalidosDetectados.Count > 0 Then
+            Dim listaCaracteres As New List(Of String)
+            For Each c As Char In caracteresInvalidosDetectados.Distinct.ToArray
+                listaCaracteres.Add(c)
+            Next
+
+            Throw New ArgumentException("El nombre de la calle no puede contener los siguientes caracteres:" & vbNewLine & vbNewLine &
+                                        String.Join(" "c, caracteresInvalidosDetectados.Distinct.ToArray))
+        End If
+    End Sub
+
     Friend Sub ValidarCaracteresCorreo(correo As String)
         Dim caracteresInvalidosDetectados As New List(Of Char)
         For Each c As Char In correo.ToCharArray

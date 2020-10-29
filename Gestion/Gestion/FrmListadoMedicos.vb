@@ -47,14 +47,14 @@ Public Class FrmListadoMedicos
         Next
 
         ' ???
-        For intI = tblMedicos.Rows.Count - 1 To 0 Step -1
-            For intJ = intI - 1 To 0 Step -1
-                If tblMedicos.Rows(intI).Cells(1).Value = tblMedicos.Rows(intJ).Cells(1).Value Then
-                    tblMedicos.Rows.RemoveAt(intI)
-                    Exit For
-                End If
-            Next
-        Next
+        'For intI = tblMedicos.Rows.Count - 1 To 0 Step -1
+        '    For intJ = intI - 1 To 0 Step -1
+        '        If tblMedicos.Rows(intI).Cells(1).Value = tblMedicos.Rows(intJ).Cells(1).Value Then
+        '            tblMedicos.Rows.RemoveAt(intI)
+        '            Exit For
+        '        End If
+        '    Next
+        'Next
         tblMedicos.ClearSelection()
     End Sub
 

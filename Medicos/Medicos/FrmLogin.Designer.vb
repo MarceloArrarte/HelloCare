@@ -32,7 +32,7 @@ Partial Class FrmLogin
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblContrasenaOlvidada = New System.Windows.Forms.Label()
         Me.lblTraducir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -98,12 +98,12 @@ Partial Class FrmLogin
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Name = "Label2"
         '
-        'Label6
+        'lblContrasenaOlvidada
         '
-        resources.ApplyResources(Me.Label6, "Label6")
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label6.Name = "Label6"
+        resources.ApplyResources(Me.lblContrasenaOlvidada, "lblContrasenaOlvidada")
+        Me.lblContrasenaOlvidada.BackColor = System.Drawing.Color.Transparent
+        Me.lblContrasenaOlvidada.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada"
         '
         'lblTraducir
         '
@@ -118,7 +118,7 @@ Partial Class FrmLogin
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.lblTraducir)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.lblContrasenaOlvidada)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label4)
@@ -144,6 +144,6 @@ Partial Class FrmLogin
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label6 As Label
+    Friend WithEvents lblContrasenaOlvidada As Label
     Friend WithEvents lblTraducir As Label
 End Class

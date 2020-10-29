@@ -188,4 +188,3 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\Manual.pdf
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\itextsharp.dll
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\CapaLogica.dll.config
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\itextsharp.xml
-C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\AplicacionGestion.vbprojAssemblyReference.cache

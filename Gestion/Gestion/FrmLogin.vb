@@ -72,4 +72,11 @@ Public Class FrmLogin
             AbrirAyuda(TiposUsuario.Administrativo, Me)
         End If
     End Sub
+
+    Private Sub lblContrasenaOlvidada_Click(sender As Object, e As EventArgs) Handles lblContrasenaOlvidada.Click
+        Dim frm As New FrmContrasenaOlvidada
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+    End Sub
 End Class

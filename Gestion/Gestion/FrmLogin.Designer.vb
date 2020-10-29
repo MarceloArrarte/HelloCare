@@ -32,30 +32,30 @@ Partial Class FrmLogin
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblContrasenaOlvidada = New System.Windows.Forms.Label()
         Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnIngresar
         '
-        resources.ApplyResources(Me.btnIngresar, "btnIngresar")
         Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnIngresar, "btnIngresar")
         Me.btnIngresar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.UseVisualStyleBackColor = False
         '
         'txtContrasena
         '
-        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.ForeColor = System.Drawing.Color.White
         Me.txtContrasena.Name = "txtContrasena"
         '
         'txtCedula
         '
-        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.ForeColor = System.Drawing.Color.White
         Me.txtCedula.Name = "txtCedula"
         '
@@ -90,28 +90,28 @@ Partial Class FrmLogin
         '
         'Label1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '
-        'Label2
+        'lblContrasenaOlvidada
         '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label2.Name = "Label2"
+        resources.ApplyResources(Me.lblContrasenaOlvidada, "lblContrasenaOlvidada")
+        Me.lblContrasenaOlvidada.BackColor = System.Drawing.Color.Transparent
+        Me.lblContrasenaOlvidada.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada"
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -121,7 +121,7 @@ Partial Class FrmLogin
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.lblTraducir)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblContrasenaOlvidada)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label7)
@@ -150,6 +150,6 @@ Partial Class FrmLogin
     Friend WithEvents Label7 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblContrasenaOlvidada As Label
     Friend WithEvents lblTraducir As Label
 End Class

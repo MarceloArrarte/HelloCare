@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
-    <value>btnIngresar</value>
+  <data name="chkMostrarContrasena.Text" xml:space="preserve">
+    <value>Mostrar Contraseña</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Pacientes</value>
@@ -185,6 +185,24 @@
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmLogin</value>
+  </data>
+  <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAALFSURBVFhHxZe3zhUxEEb/AmjI
+        oiG0JImCXAMSogER3oUkKAkFFAhESXgEEFREiZIXIHSkDoEQmQIu5yD7yvbO3n+huHzSkXZnxnvt8Tjc
+        mdFo9F8JjdMkNE6T0DiBdXAM7sNT+Jzw+R4chbUQtQ0JjQHb4AEMlR3cCtG3KkJjwVy4DL9AvYMrsB/M
+        xvyEzwfgKhijbHMJ5kD07T+ExsRSeAjqC5yCRRDFlhhzGr6CMhtLIIrt7YAjzyl/A05BFDeJjfAC1COY
+        B524jiFh2tUrWAmtfx/YQQvwU3reC22cbV+DugitP+yAo3X+TPvmZCsxvX1ymtr4LeB0/EzPlb96SeTU
+        Rx9z5Oo7HIYViSPJpqJMnAHlUq181QtYzcpKjgouF6U/3vrcA5QDaH2L4T2oNTD2lUFyHJRLrfWJ862W
+        Q+vTpj5C65NroMzW2F4GiClSrunWJx9AmfbWZ8EpY1qfHAJ1F8b2MkCeg+rbTnMHq1Ek3KLVHWh9kqf3
+        GYztZYCYPrUQWp/sAWXBOeeOWvzxH6B2Q9TWb6pqisoAma0Dch76dA6iNjKoA7NNgfP4Fvqkz5io7aAp
+        mFSErm83E3UDdkA+jHbCTVDGRHtBLsKqRsoAyWvZU620L4O8AqICzORCNNY2pe86qGoPKQOkbyM6CcqR
+        l/ERt0CdgGwbvBGJx6dyz8+2xxqQaS9jI3aBsk22ndWAOku0ekl4k/Ew8gDJh0e+ZCyANr4lV7ttfPdw
+        +wbWxqZkG1O9FHiTUR6lqyCKGYJt83F8AToxHUPCa1SeCi8k2yGKm4SjfQnK1RVezTqGAq9RuRNOh0eq
+        xRTFlhjjnJt25d7/11eyjL32JpPXv5XscjoI68GaEJ9d5/pytdvGtP/zpbRkA9yGoTLlndtPRGicgGvY
+        jci0+mfE+4E8AZeYm8xqiNqGhMZpEhqnSWicHqOZ3/mQ18VY6+36AAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -3398,9 +3416,6 @@
   <data name="chkMostrarContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 55</value>
-  </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-91, 629</value>
   </data>
@@ -3422,11 +3437,8 @@
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>¿Contraseña olvidada?</value>
-  </data>
-  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnIngresar.Name" xml:space="preserve">
+    <value>btnIngresar</value>
   </data>
   <data name="btnIngresar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 20.25pt</value>
@@ -5772,8 +5784,8 @@
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblContrasenaOlvidada.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label6.Name" xml:space="preserve">
     <value>Label6</value>
@@ -5832,6 +5844,9 @@
   <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 43</value>
   </data>
+  <data name="&gt;&gt;txtContrasena.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>INICIAR SESIÓN</value>
   </data>
@@ -5844,11 +5859,26 @@
   <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="PictureBox2.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAFTSURBVEhLzdXNLgRREIbh2WBF
+        rFnZ4l6I2xhcCCH+7oY9RogE4SZI/CxJe79JtZzqU92mj40veWJOVU6d1tMzM6iq6jcz2MIFPsw5NjGN
+        aM+PsJhYxC3acoMFRHvHwqLRldfDH7GGWbOOJyjXaP1PwqLZhqLh82j2VasPGaLZHwuL5hKKrjzqywYU
+        vSdRv/OAdyi6JVFf5qC8Iep3HlAn6qXqRL3/ccASdnGFFzxjhB2oVyeaMdEBX/Y3StqLZrQeoM9A32hP
+        NisrmGP0zRGyWVkBy+i6LW3RnlW4eW5hdCWlOYSb5xbmAaW5h5vnFkZfx6XRXjfPLYw+9qV5hZvnFuYv
+        t+gObp5bmAOUZg9unlsYPWqf6Bvt0SPu5rlF4gR9kz2ikhWMfgLPMGlOMYVsVlZI6BB9ZXTdLvV05eFw
+        CYsNK9iHnhD9yole6w3N7rlXDb4BvE2uueCpMdkAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="txtCedula.Size" type="System.Drawing.Size, System.Drawing">
     <value>314, 37</value>
   </data>
   <data name="txtCedula.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblContrasenaOlvidada.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="txtContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -5859,8 +5889,11 @@
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 37</value>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblContrasenaOlvidada.Location" type="System.Drawing.Point, System.Drawing">
+    <value>729, 551</value>
   </data>
   <data name="btnIngresar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -5892,9 +5925,6 @@
   <data name="txtContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
-  </data>
   <data name="&gt;&gt;btnIngresar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -5910,20 +5940,23 @@
   <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
     <value>PictureBox2</value>
   </data>
+  <data name="&gt;&gt;lblContrasenaOlvidada.Name" xml:space="preserve">
+    <value>lblContrasenaOlvidada</value>
+  </data>
+  <data name="&gt;&gt;txtCedula.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="txtContrasena.Location" type="System.Drawing.Point, System.Drawing">
     <value>760, 348</value>
   </data>
   <data name="&gt;&gt;txtContrasena.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtCedula.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="txtContrasena.Text" xml:space="preserve">
+    <value>Contraseña:</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -5931,11 +5964,11 @@
   <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="lblContrasenaOlvidada.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="chkMostrarContrasena.Text" xml:space="preserve">
-    <value>Mostrar Contraseña</value>
   </data>
   <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5949,8 +5982,8 @@
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 342</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>¿Contraseña olvidada?</value>
   </data>
   <data name="PictureBox1.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5982,11 +6015,14 @@
   <data name="&gt;&gt;chkMostrarContrasena.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="txtContrasena.Text" xml:space="preserve">
-    <value>Contraseña:</value>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
   </data>
   <data name="&gt;&gt;txtCedula.Name" xml:space="preserve">
     <value>txtCedula</value>
@@ -6002,6 +6038,9 @@
   </data>
   <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnIngresar.Text" xml:space="preserve">
     <value>INGRESAR</value>
@@ -6021,6 +6060,9 @@
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lblContrasenaOlvidada.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>729, 551</value>
   </data>
@@ -6033,23 +6075,8 @@
   <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 36pt, style=Underline</value>
   </data>
-  <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAALFSURBVFhHxZe3zhUxEEb/AmjI
-        oiG0JImCXAMSogER3oUkKAkFFAhESXgEEFREiZIXIHSkDoEQmQIu5yD7yvbO3n+huHzSkXZnxnvt8Tjc
-        mdFo9F8JjdMkNE6T0DiBdXAM7sNT+Jzw+R4chbUQtQ0JjQHb4AEMlR3cCtG3KkJjwVy4DL9AvYMrsB/M
-        xvyEzwfgKhijbHMJ5kD07T+ExsRSeAjqC5yCRRDFlhhzGr6CMhtLIIrt7YAjzyl/A05BFDeJjfAC1COY
-        B524jiFh2tUrWAmtfx/YQQvwU3reC22cbV+DugitP+yAo3X+TPvmZCsxvX1ymtr4LeB0/EzPlb96SeTU
-        Rx9z5Oo7HIYViSPJpqJMnAHlUq181QtYzcpKjgouF6U/3vrcA5QDaH2L4T2oNTD2lUFyHJRLrfWJ862W
-        Q+vTpj5C65NroMzW2F4GiClSrunWJx9AmfbWZ8EpY1qfHAJ1F8b2MkCeg+rbTnMHq1Ek3KLVHWh9kqf3
-        GYztZYCYPrUQWp/sAWXBOeeOWvzxH6B2Q9TWb6pqisoAma0Dch76dA6iNjKoA7NNgfP4Fvqkz5io7aAp
-        mFSErm83E3UDdkA+jHbCTVDGRHtBLsKqRsoAyWvZU620L4O8AqICzORCNNY2pe86qGoPKQOkbyM6CcqR
-        l/ERt0CdgGwbvBGJx6dyz8+2xxqQaS9jI3aBsk22ndWAOku0ekl4k/Ew8gDJh0e+ZCyANr4lV7ttfPdw
-        +wbWxqZkG1O9FHiTUR6lqyCKGYJt83F8AToxHUPCa1SeCi8k2yGKm4SjfQnK1RVezTqGAq9RuRNOh0eq
-        xRTFlhjjnJt25d7/11eyjL32JpPXv5XscjoI68GaEJ9d5/pytdvGtP/zpbRkA9yGoTLlndtPRGicgGvY
-        jci0+mfE+4E8AZeYm8xqiNqGhMZpEhqnSWicHqOZ3/mQ18VY6+36AAAAAElFTkSuQmCC
-</value>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 37</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>
@@ -6063,17 +6090,8 @@
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="PictureBox2.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAFTSURBVEhLzdXNLgRREIbh2WBF
-        rFnZ4l6I2xhcCCH+7oY9RogE4SZI/CxJe79JtZzqU92mj40veWJOVU6d1tMzM6iq6jcz2MIFPsw5NjGN
-        aM+PsJhYxC3acoMFRHvHwqLRldfDH7GGWbOOJyjXaP1PwqLZhqLh82j2VasPGaLZHwuL5hKKrjzqywYU
-        vSdRv/OAdyi6JVFf5qC8Iep3HlAn6qXqRL3/ccASdnGFFzxjhB2oVyeaMdEBX/Y3StqLZrQeoM9A32hP
-        NisrmGP0zRGyWVkBy+i6LW3RnlW4eW5hdCWlOYSb5xbmAaW5h5vnFkZfx6XRXjfPLYw+9qV5hZvnFuYv
-        t+gObp5bmAOUZg9unlsYPWqf6Bvt0SPu5rlF4gR9kz2ikhWMfgLPMGlOMYVsVlZI6BB9ZXTdLvV05eFw
-        CYsNK9iHnhD9yole6w3N7rlXDb4BvE2uueCpMdkAAAAASUVORK5CYII=
-</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 55</value>
   </data>
   <data name="PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>726, 354</value>

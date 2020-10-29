@@ -135,3 +135,7 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRegistro
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRegistroUsuarioES.html
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRestaurarContrasenaEN.html
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MailRestaurarContrasenaES.html
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\itextsharp.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\CapaLogica.dll.config
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\itextsharp.xml
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\AplicacionPacientes.vbprojAssemblyReference.cache

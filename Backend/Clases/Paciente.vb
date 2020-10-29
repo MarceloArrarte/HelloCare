@@ -166,7 +166,7 @@
                 Throw New ArgumentException("La fecha de defunción del paciente no puede ser posterior al momento actual.")
             End If
 
-            If fechaDefuncion > New Date(1900, 1, 1) Then
+            If fechaDefuncion < New Date(1900, 1, 1) Then
                 Throw New ArgumentException("La fecha de defunción del paciente no puede ser anterior a 1900.")
             End If
 
@@ -185,7 +185,7 @@
             Throw New ArgumentException("La calle no puede tener más de 100 caracteres.")
         End If
 
-        ValidarCaracteresNombre(calle)
+        ValidarCaracteresCalle(calle)
 
         ' numeroPuerta tiene un valor nulo
         If numeroPuerta Is Nothing Or numeroPuerta = "" Then

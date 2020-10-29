@@ -305,8 +305,12 @@ Public Module AccesoDatos
                 Next
 
                 If estaDeshabilitado Then
-                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
-                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID=@ID;"
+                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID_MEDICO;"
+                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID_MEDICO;"
+                    For i = 0 To medico.Especialidades.Count - 1
+                        comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
+                    Next
                     comando.Parameters.AddWithValue("@CI", medico.CI)
                     comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
                     comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
@@ -327,9 +331,13 @@ Public Module AccesoDatos
 
                     idMedicoBD = ConexionBD.ObtenerUltimoIdInsertado
                     comando.Parameters.Clear()
-                    comando.CommandText = "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID, @TIPO);"
-                    comando.CommandText &= "INSERT INTO medicos VALUES (@ID);"
-                    comando.Parameters.AddWithValue("@ID", idMedicoBD)
+                    comando.CommandText = "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID_MEDICO, @TIPO);"
+                    comando.CommandText &= "INSERT INTO medicos VALUES (@ID_MEDICO);"
+                    For i = 0 To medico.Especialidades.Count - 1
+                        comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
+                    Next
+                    comando.Parameters.AddWithValue("@ID_MEDICO", idMedicoBD)
                     comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Medico.ToString)
                 End If
 
@@ -379,23 +387,24 @@ Public Module AccesoDatos
 
             Case TiposObjeto.Especialidad
                 Dim especialidad As Especialidad = objetoAEliminar
-                comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID"
+                comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID;"
                 comando.Parameters.AddWithValue("@ID", especialidad.ID)
 
             Case TiposObjeto.Departamento
                 Dim departamento As Departamento = objetoAEliminar
-                comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID"
+                comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID;"
                 comando.Parameters.AddWithValue("@ID", departamento.ID)
 
             Case TiposObjeto.Localidad
                 Dim localidad As Localidad = objetoAEliminar
-                comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID"
+                comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID;"
                 comando.Parameters.AddWithValue("@ID", localidad.ID)
 
             Case TiposObjeto.Sintoma
                 Dim sintoma As Sintoma = objetoAEliminar
                 comando.CommandText &= "UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;"
                 comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
+                comando.Parameters.AddWithValue("@ID", sintoma.ID)
 
             Case TiposObjeto.Usuario
                 Dim usuario As Usuario = objetoAEliminar
@@ -404,7 +413,7 @@ Public Module AccesoDatos
 
             Case TiposObjeto.Administrativo
                 Dim administrativo As Administrativo = objetoAEliminar
-                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID"
+                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
                 comando.Parameters.AddWithValue("@ID", administrativo.ID)
 
             Case TiposObjeto.Paciente
