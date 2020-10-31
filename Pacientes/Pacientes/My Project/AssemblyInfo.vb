@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("Pacientes")>
+<Assembly: AssemblyTitle("AplicacionMedicos")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Pacientes")>
+<Assembly: AssemblyProduct("AplicacionMedicos")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-<Assembly: Guid("d740894e-a3e9-44e5-b38e-79e02ab169af")>
+<Assembly: Guid("7454eda5-bfa0-404b-bf56-bb644c05113b")>
 
 ' La información de versión de un ensamblado consta de los cuatro valores siguientes:
 '
@@ -27,8 +27,8 @@ Imports System.Runtime.InteropServices
 '      Número de compilación
 '      Revisión
 '
-' Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
-' utilizando el carácter "*", como se muestra a continuación:
+' Puede especificar todos los valores o utilizar los números de compilación y de revisión predeterminados
+' mediante el carácter '*', como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.0.0")>

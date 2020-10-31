@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports System.Windows.Forms
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmChatMedico
     Inherits System.Windows.Forms.Form
 
@@ -143,17 +145,17 @@ Partial Class FrmChatMedico
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Splitter1 As Windows.Forms.Splitter
-    Friend WithEvents btnSalir As Windows.Forms.Button
-    Friend WithEvents txtMensaje As Windows.Forms.RichTextBox
-    Friend WithEvents btnEnviar As Windows.Forms.Button
-    Friend WithEvents btnAdjuntar As Windows.Forms.Button
-    Friend WithEvents Label3 As Windows.Forms.Label
-    Friend WithEvents lblNombrePaciente As Windows.Forms.Label
-    Friend WithEvents lstArchivos As Windows.Forms.ListBox
-    Friend WithEvents Label2 As Windows.Forms.Label
-    Friend WithEvents expAdjuntar As Windows.Forms.OpenFileDialog
-    Friend WithEvents txtConversacion As Windows.Forms.TextBox
+    Friend WithEvents Splitter1 As Splitter
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents txtMensaje As RichTextBox
+    Friend WithEvents btnEnviar As Button
+    Friend WithEvents btnAdjuntar As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents lblNombrePaciente As Label
+    Friend WithEvents lstArchivos As ListBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents expAdjuntar As OpenFileDialog
+    Friend WithEvents txtConversacion As TextBox
     Friend WithEvents tmrActualizar As Timer
     Friend WithEvents lblTraducir As Label
     Friend WithEvents btnDiagnosticar As Button

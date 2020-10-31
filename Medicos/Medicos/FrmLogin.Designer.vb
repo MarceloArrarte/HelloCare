@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmLogin
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
         Me.txtCedula = New System.Windows.Forms.TextBox()
@@ -135,11 +135,11 @@ Partial Class FrmLogin
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txtCedula As Windows.Forms.TextBox
-    Friend WithEvents txtContrasena As Windows.Forms.TextBox
-    Friend WithEvents btnIngresar As Windows.Forms.Button
-    Friend WithEvents chkMostrarContrasena As Windows.Forms.CheckBox
-    Friend WithEvents Label3 As Windows.Forms.Label
+    Friend WithEvents txtCedula As TextBox
+    Friend WithEvents txtContrasena As TextBox
+    Friend WithEvents btnIngresar As Button
+    Friend WithEvents chkMostrarContrasena As CheckBox
+    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label

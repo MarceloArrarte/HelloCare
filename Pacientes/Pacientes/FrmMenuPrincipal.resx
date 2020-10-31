@@ -117,12 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Menú principal</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnSalir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnIngresoSintoma.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 61</value>
+  </data>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblLogeado.AutoSize" type="System.Boolean, mscorlib">
@@ -134,27 +138,29 @@
   <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
-  <data name="btnIngresoSintoma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="lblLogeado.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 292</value>
   </data>
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="btnHistorialDiagnosticos.Text" xml:space="preserve">
     <value>Historial de diagnósticos</value>
   </data>
+  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 43</value>
+  </data>
   <data name="&gt;&gt;btnIngresoSintoma.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -165,7 +171,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXsAAAMSCAYAAAA7gxcyAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAPoLSURBVHhe7J0HnBxnfb/vJDds
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAPoLSURBVHhe7J0HnBxnfb/vJDds
         U5MQktD+BJIQwF2W5N4BY4PBxgYbCL2ZboopwfTeQg+9E4xt3M5INu7q5e7Uu2T13ruu/P7z7u6rnZ39
         bp9ts8/D52H37nbmnR2k086TN+903d11omHt9pTpPV0ndZx/xbIc131yScd3Zb034d4X+LeuUzpE915P
         qlK3bXueq/szPiB8sOvUWHyoqKcEnoyx6c5nVHXe0z7cfVqOgzt2mw0NGwAAAAAAAFQPsTcme8pUxdCk
@@ -1241,7 +1247,7 @@
   <data name="btnSalir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -1376,14 +1382,11 @@
   <data name="btnHistorialDiagnosticos.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 60</value>
   </data>
-  <data name="lblLogeado.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnHistorialDiagnosticos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1403,6 +1406,9 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
@@ -1412,11 +1418,11 @@
   <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="btnHistorialDiagnosticos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;btnHistorialDiagnosticos.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1478,8 +1484,8 @@
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblTraducir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 43</value>
+  <data name="lblLogeado.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1490,7 +1496,7 @@
   <data name="btnIngresoSintoma.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -1619,11 +1625,17 @@
   <data name="lblLogeado.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 84</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;lblLogeado.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnIngresoSintoma.Location" type="System.Drawing.Point, System.Drawing">
     <value>560, 152</value>
+  </data>
+  <data name="btnIngresoSintoma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1646,32 +1658,20 @@
   <data name="lblLogeado.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 90</value>
-  </data>
-  <data name="btnIngresoSintoma.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
   <data name="btnHistorialDiagnosticos.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;lblLogeado.Name" xml:space="preserve">
     <value>lblLogeado</value>
   </data>
+  <data name="btnHistorialDiagnosticos.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
   </data>
   <data name="btnIngresoSintoma.Text" xml:space="preserve">
     <value>Ingresar un síntoma</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblLogeado.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblLogeado.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 292</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -4026,17 +4026,14 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;btnIngresoSintoma.Name" xml:space="preserve">
     <value>btnIngresoSintoma</value>
   </data>
-  <data name="btnHistorialDiagnosticos.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
+  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btnIngresoSintoma.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4047,12 +4044,11 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMenuPrincipal</value>
   </data>
-  <data name="lblLogeado.Text" xml:space="preserve">
-    <value>Bienvenido/a,
-#</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Menú principal</value>
   </data>
   <data name="&gt;&gt;btnIngresoSintoma.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4078,8 +4074,8 @@
   <data name="&gt;&gt;btnHistorialDiagnosticos.Name" xml:space="preserve">
     <value>btnHistorialDiagnosticos</value>
   </data>
-  <data name="&gt;&gt;btnIngresoSintoma.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="btnIngresoSintoma.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
   </data>
   <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 573</value>
@@ -4096,7 +4092,7 @@
   <data name="btnHistorialDiagnosticos.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -4222,23 +4218,27 @@
         YII=
 </value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 90</value>
   </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="lblLogeado.Text" xml:space="preserve">
+    <value>Bienvenido/a,
+#</value>
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Translate</value>
   </data>
-  <data name="btnSalir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>323, 77</value>
   </data>
-  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnIngresoSintoma.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 49</value>

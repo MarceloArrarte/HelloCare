@@ -14,3 +14,13 @@ C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.dll
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.xml
 C:\Users\marce\Downloads\Look and feel\HelloCare-master\Backend\Clases\obj\Debug\Clases.pdb
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\bin\Debug\Clases.dll
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\bin\Debug\Clases.pdb
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\bin\Debug\Clases.xml
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.Resources.resources
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.vbproj.GenerateResource.cache
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.vbproj.CoreCompileInputs.cache
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.dll
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.xml
+C:\Users\alumno\source\repos\Hellocare\Backend\Clases\obj\Debug\Clases.pdb
+C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbprojResolveAssemblyReference.cache

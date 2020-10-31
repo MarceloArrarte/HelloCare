@@ -111,12 +111,12 @@ Partial Class FrmRegistro
 
     End Sub
 
-    Friend WithEvents txtContrasena As Windows.Forms.TextBox
-    Friend WithEvents txtRepetir As Windows.Forms.TextBox
-    Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents Label2 As Windows.Forms.Label
-    Friend WithEvents chkMostrarContrasena As Windows.Forms.CheckBox
-    Friend WithEvents btnGuardar As Windows.Forms.Button
-    Friend WithEvents lblTitulo As Windows.Forms.Label
+    Friend WithEvents txtContrasena As TextBox
+    Friend WithEvents txtRepetir As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents chkMostrarContrasena As CheckBox
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents lblTitulo As Label
     Friend WithEvents lblTraducir As Label
 End Class

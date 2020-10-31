@@ -127,7 +127,7 @@
   <data name="btnIngresoSintoma.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -262,7 +262,7 @@
   <data name="btnSalir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -394,7 +394,7 @@
   <data name="btnHistorialDiagnosticos.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMMAAAA7CAYAAADGvj7eAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAByYSURBVHhe7VNLu51lsVz68M90
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAByYSURBVHhe7VNLu51lsVz68M90
         xBk4ZQ4hctEogqgEvCDiBUFBPKIIGOUW4Hjh+D98uCRBlBAJBuQOCTrR73R1dXX3+65vbbYcZ+xBpbur
         q6v7/fbKZlmWAxzgAIZV8gAH+ChilTzAAT6KWCUPcICPIlbJAxzgo4jN+5ddunn/UuCyiI6PG3+xxXuM
         P2XxfasXx6WXBaIW53EXQg/kTKuHKG14Og+u1R2zj2aHvNWDToh+7p4xz3ed5ckFD595T9ZNl70+p9kV
@@ -520,6 +520,9 @@
         YII=
 </value>
   </data>
+  <data name="btnHistorialDiagnosticos.Text" xml:space="preserve">
+    <value>Diagnosis history</value>
+  </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>See all diagnosis you have received from doctors and the system.</value>
   </data>
@@ -593,7 +596,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXsAAAMSCAYAAAA7gxcyAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAPoLSURBVHhe7J0HnBxnfb/vJDds
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAPoLSURBVHhe7J0HnBxnfb/vJDds
         U5MQktD+BJIQwF2W5N4BY4PBxgYbCL2ZboopwfTeQg+9E4xt3M5INu7q5e7Uu2T13ruu/P7z7u6rnZ39
         bp9ts8/D52H37nbmnR2k086TN+903d11omHt9pTpPV0ndZx/xbIc131yScd3Zb034d4X+LeuUzpE915P
         qlK3bXueq/szPiB8sOvUWHyoqKcEnoyx6c5nVHXe0z7cfVqOgzt2mw0NGwAAAAAAAFQPsTcme8pUxdCk

@@ -1,9 +1,10 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports System.Windows.Forms
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmContrasenaOlvidada
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +21,7 @@ Partial Class FrmContrasenaOlvidada
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmContrasenaOlvidada))
         Me.lblTitulo = New System.Windows.Forms.Label()
@@ -108,12 +109,12 @@ Partial Class FrmContrasenaOlvidada
 
     End Sub
 
-    Friend WithEvents lblTitulo As Windows.Forms.Label
-    Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents txtCedula As Windows.Forms.TextBox
-    Friend WithEvents btnEnviarCodigo As Windows.Forms.Button
-    Friend WithEvents lblCodigo As Windows.Forms.Label
-    Friend WithEvents txtCodigo As Windows.Forms.TextBox
-    Friend WithEvents btnConfirmar As Windows.Forms.Button
+    Friend WithEvents lblTitulo As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtCedula As TextBox
+    Friend WithEvents btnEnviarCodigo As Button
+    Friend WithEvents lblCodigo As Label
+    Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents btnConfirmar As Button
     Friend WithEvents lblTraducir As Label
 End Class
