@@ -79,3 +79,4 @@ C:\Users\alumno\source\repos\Hellocare\Backend\CapaLogica\obj\Debug\CapaLogica.d
 C:\Users\alumno\source\repos\Hellocare\Backend\CapaLogica\obj\Debug\CapaLogica.xml
 C:\Users\alumno\source\repos\Hellocare\Backend\CapaLogica\obj\Debug\CapaLogica.pdb
 C:\Users\marce\source\repos\HelloCare\Backend\CapaLogica\obj\Debug\CapaLogica.vbprojResolveAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Backend\CapaLogica\obj\Debug\CapaLogica.FrmEsperar.resources

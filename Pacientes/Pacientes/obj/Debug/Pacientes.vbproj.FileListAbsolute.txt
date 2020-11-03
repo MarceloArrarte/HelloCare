@@ -72,3 +72,4 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\es\Pacientes
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.exe
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.xml
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.pdb
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\Manual.pdf

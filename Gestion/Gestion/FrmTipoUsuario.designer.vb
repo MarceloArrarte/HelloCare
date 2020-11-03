@@ -25,12 +25,12 @@ Partial Class FrmTipoUsuario
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTipoUsuario))
         Me.btnPaciente = New System.Windows.Forms.Button()
         Me.btnMedico = New System.Windows.Forms.Button()
-        Me.btnAdministrativo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnPaciente
@@ -48,14 +48,6 @@ Partial Class FrmTipoUsuario
         Me.btnMedico.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnMedico.Name = "btnMedico"
         Me.btnMedico.UseVisualStyleBackColor = False
-        '
-        'btnAdministrativo
-        '
-        resources.ApplyResources(Me.btnAdministrativo, "btnAdministrativo")
-        Me.btnAdministrativo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAdministrativo.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAdministrativo.Name = "btnAdministrativo"
-        Me.btnAdministrativo.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -89,16 +81,24 @@ Partial Class FrmTipoUsuario
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'FrmTipoUsuario
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnAdministrativo)
         Me.Controls.Add(Me.btnMedico)
         Me.Controls.Add(Me.btnPaciente)
         Me.DoubleBuffered = True
@@ -111,10 +111,10 @@ Partial Class FrmTipoUsuario
 
     Friend WithEvents btnPaciente As Button
     Friend WithEvents btnMedico As Button
-    Friend WithEvents btnAdministrativo As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btnVolver As Button
     Friend WithEvents lblTraducir As Label
+    Friend WithEvents Button1 As Button
 End Class
