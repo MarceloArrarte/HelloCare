@@ -30,6 +30,12 @@ Public Class FrmAltaAdministrativo
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
+        Dim ci As String = txtCI.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
+        Dim esEncargado As Boolean = checkEncargado.Checked
+
         Dim localidad As Localidad
         If tblLocalidad.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
@@ -37,12 +43,6 @@ Public Class FrmAltaAdministrativo
         Else
             localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
         End If
-
-        Dim ci As String = txtCI.Text
-        Dim nombre As String = txtNombre.Text
-        Dim apellido As String = txtApellido.Text
-        Dim correo As String = txtCorreo.Text
-        Dim esEncargado As Boolean = checkEncargado.Checked
 
         Dim ventanaEspera As New FrmEsperar
         ventanaEspera.Show()

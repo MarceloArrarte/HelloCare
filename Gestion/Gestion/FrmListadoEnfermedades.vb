@@ -28,12 +28,12 @@ Public Class FrmListadoEnfermedades
 
         If nombreArchivo = "" Then
             MostrarMensaje(MsgBoxStyle.Exclamation, "No se seleccionó ningún archivo CSV para importar.", "", "No CSV file was selected.", "")
-            Exit Sub
+            Return
         End If
 
         If Not nombreArchivo.EndsWith(".csv") Then
             MostrarMensaje(MsgBoxStyle.Critical, "El archivo seleccionado no es de formato CSV.", "", "The selected file does not have the required CSV format.", "")
-            Exit Sub
+            Return
         End If
 
         Try
@@ -63,9 +63,8 @@ Public Class FrmListadoEnfermedades
         Dim frm As New FrmAltaEnfermedades
         Me.Hide()
         frm.ShowDialog()
-        Me.Show()
-
         ActualizarEnfermedades()
+        Me.Show()
     End Sub
 
     ' Abre un formulario para que el usuario pueda ingresar nuevos datos para una enfermedad ya almacenada
@@ -79,9 +78,8 @@ Public Class FrmListadoEnfermedades
         Dim frm As New FrmModificacionEnfermedades(enfermedad)
         Me.Hide()
         frm.ShowDialog()
-        Me.Show()
-
         ActualizarEnfermedades()
+        Me.Show()
     End Sub
 
     ' Permite eliminar una o varias de las enfermedades del sistema, luego de recibir confirmación del usuario
@@ -92,13 +90,14 @@ Public Class FrmListadoEnfermedades
         End If
 
         If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this illness(es)?" & vbNewLine & "These changes cannot be undone.", "Warning") = DialogResult.Yes Then
-            For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
-                Try
+
+            Try
+                For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
                     EliminarEnfermedad(r.Cells(0).Value)
-                Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-                End Try
-            Next
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
             ActualizarEnfermedades()
         End If
     End Sub

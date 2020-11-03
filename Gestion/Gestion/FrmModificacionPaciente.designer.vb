@@ -54,7 +54,7 @@ Partial Class FrmModificacionPaciente
         Me.cmbSexo = New System.Windows.Forms.ComboBox()
         Me.dtpFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaDefuncion = New System.Windows.Forms.DateTimePicker()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.lblFechaDefuncion = New System.Windows.Forms.Label()
         Me.cbHabilitarFD = New System.Windows.Forms.CheckBox()
         Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,23 +62,22 @@ Partial Class FrmModificacionPaciente
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.Color.Transparent
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'tblLocalidad
         '
-        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
         Me.tblLocalidad.AllowUserToAddRows = False
         Me.tblLocalidad.AllowUserToDeleteRows = False
         Me.tblLocalidad.AllowUserToResizeColumns = False
@@ -88,6 +87,8 @@ Partial Class FrmModificacionPaciente
         Me.tblLocalidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblLocalidad.ColumnHeadersVisible = False
         Me.tblLocalidad.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto})
+        resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
+        Me.tblLocalidad.MultiSelect = False
         Me.tblLocalidad.Name = "tblLocalidad"
         Me.tblLocalidad.RowHeadersVisible = False
         Me.tblLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -222,8 +223,8 @@ Partial Class FrmModificacionPaciente
         '
         'cmbDepartamento
         '
-        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbDepartamento, "cmbDepartamento")
         Me.cmbDepartamento.Name = "cmbDepartamento"
         '
         'Label14
@@ -234,8 +235,8 @@ Partial Class FrmModificacionPaciente
         '
         'cmbSexo
         '
-        resources.ApplyResources(Me.cmbSexo, "cmbSexo")
         Me.cmbSexo.FormattingEnabled = True
+        resources.ApplyResources(Me.cmbSexo, "cmbSexo")
         Me.cmbSexo.Name = "cmbSexo"
         '
         'dtpFechaNacimiento
@@ -248,11 +249,11 @@ Partial Class FrmModificacionPaciente
         resources.ApplyResources(Me.dtpFechaDefuncion, "dtpFechaDefuncion")
         Me.dtpFechaDefuncion.Name = "dtpFechaDefuncion"
         '
-        'Label15
+        'lblFechaDefuncion
         '
-        resources.ApplyResources(Me.Label15, "Label15")
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Name = "Label15"
+        resources.ApplyResources(Me.lblFechaDefuncion, "lblFechaDefuncion")
+        Me.lblFechaDefuncion.BackColor = System.Drawing.Color.Transparent
+        Me.lblFechaDefuncion.Name = "lblFechaDefuncion"
         '
         'cbHabilitarFD
         '
@@ -263,8 +264,8 @@ Partial Class FrmModificacionPaciente
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -275,7 +276,7 @@ Partial Class FrmModificacionPaciente
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.cbHabilitarFD)
         Me.Controls.Add(Me.dtpFechaDefuncion)
-        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.lblFechaDefuncion)
         Me.Controls.Add(Me.dtpFechaNacimiento)
         Me.Controls.Add(Me.cmbSexo)
         Me.Controls.Add(Me.cmbDepartamento)
@@ -345,7 +346,7 @@ Partial Class FrmModificacionPaciente
     Friend WithEvents dtpFechaNacimiento As DateTimePicker
     Friend WithEvents colObjeto As DataGridViewTextBoxColumn
     Friend WithEvents dtpFechaDefuncion As DateTimePicker
-    Friend WithEvents Label15 As Label
+    Friend WithEvents lblFechaDefuncion As Label
     Friend WithEvents cbHabilitarFD As CheckBox
     Friend WithEvents lblTraducir As Label
 End Class

@@ -13,6 +13,7 @@ Public Class FrmModificacionAdministrativo
         administrativoAModificar = Administrativo
         checkEncargado.Checked = Administrativo.EsEncargado
     End Sub
+
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved." & vbNewLine & "Are you sure you wish to close the window?", "Exit") =
             MsgBoxResult.Yes Then
@@ -21,12 +22,10 @@ Public Class FrmModificacionAdministrativo
     End Sub
 
     Private Sub FrmModificacionAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Se añade y se oculta las localidades 
-        For Each localidad As Localidad In CargarTodasLasLocalidades()
-            tblLocalidad.Rows.Add(localidad)
-        Next
-
-        For i = 0 To tblLocalidad.Rows.Count - 1
+        'Se añade y se oculta las localidades
+        Dim localidades As List(Of Localidad) = CargarTodasLasLocalidades()
+        For i = 0 To localidades.Count - 1
+            tblLocalidad.Rows.Add(localidades(i))
             tblLocalidad.Rows(i).Visible = False
         Next
         tblLocalidad.ClearSelection()
@@ -44,22 +43,21 @@ Public Class FrmModificacionAdministrativo
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
+        Dim ci As String = txtCI.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
+        Dim esEncargado As Boolean = checkEncargado.Checked
+
+        Dim localidad As Localidad
+        If tblLocalidad.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
+            Return
+        Else
+            localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+        End If
+
         Try
-            Dim localidad As Localidad
-
-            Dim esEncargado As Boolean
-            If checkEncargado.Checked = True Then
-                esEncargado = True
-            Else
-                esEncargado = False
-            End If
-
-            Try
-                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-            Catch ex As Exception
-                Throw New Exception("No se selecciono ninguna localidad")
-            End Try
-
             ActualizarAdministrativo(administrativoAModificar, txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, esEncargado, True)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo modificado con éxito.", "Éxito", "Administrative staff successfully modified.", "Success")
             Me.Close()

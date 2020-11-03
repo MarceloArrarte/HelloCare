@@ -29,20 +29,33 @@ Public Class FrmModificacionEnfermedades
 
         ' Almacena la enfermedad que se va a estar modificando
         enfermedadAModificar = enfermedad
-        For Each sintoma As Sintoma In CargarTodosLosSintomas()
+
+        Dim sintomas As List(Of Sintoma)
+        Try
+            sintomas = CargarTodosLosSintomas()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+
+        For Each sintoma As Sintoma In sintomas
             tblSintomas.Rows.Add(sintoma, sintoma.Nombre)
         Next
-        For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
+        OcultarSintomasSeleccionadosOFiltrados()
+
+        Dim especialidades As List(Of Especialidad)
+        Try
+            especialidades = CargarTodasLasEspecialidades()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+        For Each especialidad As Especialidad In especialidades
             tblEspecialidades.Rows.Add(especialidad)
         Next
 
-        OcultarSintomasSeleccionadosOFiltrados()
-    End Sub
-
-    Private Sub FrmModificacionEnfermedades_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        tblEspecialidades.ClearSelection()
         For Each r As DataGridViewRow In tblEspecialidades.Rows
-            If CType(r.Cells(0).Value, Especialidad).ID = enfermedadAModificar.Especialidad.ID Then
+            If CType(r.Cells(0).Value, Especialidad).ID = enfermedad.Especialidad.ID Then
                 r.Selected = True
             End If
         Next
@@ -57,67 +70,74 @@ Public Class FrmModificacionEnfermedades
             If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEspecialidades.Text & "*").ToLower Then
                 r.Visible = True
             Else
-                If Not r.Selected Then
-                    r.Visible = False
-                End If
+                r.Visible = False
             End If
         Next
     End Sub
 
     Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
-        If tblSintomas.SelectedRows.Count > 0 Then
-            For Each r As DataGridViewRow In tblSintomas.SelectedRows
-                tblAsociados.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "")
-            Next
-            OcultarSintomasSeleccionadosOFiltrados()
-        Else
+        If tblSintomas.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de los síntomas disponibles.", "Error", "You must select at least one of the available symptoms.", "Error")
+            Return
         End If
+
+        For Each r As DataGridViewRow In tblSintomas.SelectedRows
+            tblAsociados.Rows.Add(r.Cells(0).Value, r.Cells(1).Value, "")
+        Next
+        OcultarSintomasSeleccionadosOFiltrados()
     End Sub
 
     Private Sub btnQuitarSintoma_Click(sender As Object, e As EventArgs) Handles btnQuitarSintoma.Click
-        If tblAsociados.SelectedRows.Count > 0 Then
-            For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
-                For Each rPatologia As DataGridViewRow In tblSintomas.Rows
-                    If rPatologia.Cells(1).Value = rAsociada.Cells(1).Value Then
-                        rPatologia.Visible = True
-                    End If
-                Next
-                tblAsociados.Rows.Remove(rAsociada)
-            Next
-            OcultarSintomasSeleccionadosOFiltrados()
-        Else
+        If tblAsociados.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de los síntomas asociados.", "Error", "You must select at least one of the associated symptoms.", "Error")
+            Return
         End If
+
+        For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
+            For Each rPatologia As DataGridViewRow In tblSintomas.Rows
+                If rPatologia.Cells(1).Value = rAsociada.Cells(1).Value Then
+                    rPatologia.Visible = True
+                End If
+            Next
+            tblAsociados.Rows.Remove(rAsociada)
+        Next
+        OcultarSintomasSeleccionadosOFiltrados()
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        Try
-            For Each r As DataGridViewRow In tblAsociados.Rows
-                If r.Cells(2).Value Is Nothing Then
-                    Throw New Exception("No se ha ingresado la frecuencia del síntoma """ & r.Cells(0).Value.ToString & """.")
-                End If
-            Next
-            Dim especialidad As Especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
-            Dim listaSintomas As New List(Of Sintoma)
-            Dim listaFrecuencias As New List(Of Decimal)
-            For Each r As DataGridViewRow In tblAsociados.Rows
-                listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
-                Try
-                    listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
-                Catch ex As Exception
-                    Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
-                End Try
-            Next
-
-            Dim gravedadParseado As Integer
-            If Not Integer.TryParse(txtGravedad.Text, gravedadParseado) Then
-                Throw New Exception("La gravedad debe ser un valor numérico entero.")
+        Dim listaSintomas As New List(Of Sintoma)
+        Dim listaFrecuencias As New List(Of Decimal)
+        For Each r As DataGridViewRow In tblAsociados.Rows
+            Dim frecuencia As Decimal
+            If Not Decimal.TryParse(r.Cells(2).Value.ToString.Replace("%", ""), frecuencia) Then
+                MostrarMensaje(MsgBoxStyle.Critical, "Las frecuencias solo pueden ser valores numéricos.", "Error", "Frequencies can only be numeric values.", "Error")
+                Return
+            Else
+                listaSintomas.Add(r.Cells(0).Value)
+                listaFrecuencias.Add(frecuencia)
             End If
+        Next
 
-            ActualizarEnfermedad(enfermedadAModificar, txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, txtGravedad.Text,
-                                 listaSintomas, listaFrecuencias, especialidad)
+        Dim especialidad As Especialidad
+        If tblEspecialidades.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna especialidad.", "Error", "No specialty was selected.", "Error")
+            Return
+        Else
+            especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
+        End If
 
+        Dim nombre As String = txtNombre.Text
+        Dim descripcion As String = txtDescripcion.Text
+        Dim recomendaciones As String = txtRecomendaciones.Text
+
+        Dim gravedad As Integer
+        If Not Integer.TryParse(txtGravedad.Text, gravedad) Then
+            MostrarMensaje(MsgBoxStyle.Critical, "La gravedad debe ser un valor numérico entero.", "Error", "Severity must be an integer value.", "Error")
+            Return
+        End If
+
+        Try
+            ActualizarEnfermedad(enfermedadAModificar, nombre, descripcion, recomendaciones, gravedad, listaSintomas, listaFrecuencias, especialidad)
             MostrarMensaje(MsgBoxStyle.Information, "Modificación realizada con éxito", "Éxito", "Illness has been successfully modified.", "Success")
             requiereConfirmacionSalida = False
             Me.Close()

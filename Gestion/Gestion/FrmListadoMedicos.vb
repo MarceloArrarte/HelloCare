@@ -57,18 +57,16 @@ Public Class FrmListadoMedicos
         Dim frm As New FrmModificacionMedico(Medico)
         Me.Hide()
         frm.ShowDialog()
-        Me.Show()
-
         ActualizarMedicos()
+        Me.Show()
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim frm As New FrmAltaMedico
         Me.Hide()
         frm.ShowDialog()
-        Me.Show()
-
         ActualizarMedicos()
+        Me.Show()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -78,13 +76,14 @@ Public Class FrmListadoMedicos
         End If
 
         If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar este/os Medico/s?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure to delete this/these doctor(s)?" & vbNewLine & "These changes cannot be undone.", "Warning") = MsgBoxResult.Yes Then
-            For Each r As DataGridViewRow In tblMedicos.SelectedRows
-                Try
+
+            Try
+                For Each r As DataGridViewRow In tblMedicos.SelectedRows
                     EliminarMedico(r.Cells(0).Value)
-                Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-                End Try
-            Next
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
             ActualizarMedicos()
         End If
     End Sub
@@ -95,8 +94,11 @@ Public Class FrmListadoMedicos
 
     Private Sub OcultarMedicos()
         tblMedicos.ClearSelection()
+
+        Dim filtroCI As String = txtBM_CI.Text
+        Dim filtroLocalidad As String = txtBM_Localidad.Text
         For Each r As DataGridViewRow In tblMedicos.Rows
-            If r.Cells(1).Value.ToString.ToLower Like ("*" & txtBM_CI.Text & "*").ToLower And r.Cells(5).Value.ToString.ToLower Like ("*" & txtBM_Localidad.Text & "*").ToLower Then
+            If r.Cells(1).Value.ToString.ToLower Like ("*" & filtroCI & "*").ToLower And r.Cells(5).Value.ToString.ToLower Like ("*" & filtroLocalidad & "*").ToLower Then
                 r.Visible = True
             Else
                 r.Visible = False

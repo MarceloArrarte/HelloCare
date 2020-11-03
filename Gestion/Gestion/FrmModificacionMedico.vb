@@ -15,6 +15,7 @@ Public Class FrmModificacionMedico
         ' Almacena el medico que se va a estar modificando
         medicoAModificar = medico
     End Sub
+
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved.", "Exit") =
             MsgBoxResult.Yes Then
@@ -23,8 +24,7 @@ Public Class FrmModificacionMedico
     End Sub
 
     Private Sub FrmModificacionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Añade todas las especialidades 
-        tblEspecialidades.ClearSelection()
+        'Añade todas las especialidades
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
         Next
@@ -34,10 +34,10 @@ Public Class FrmModificacionMedico
             tblAsociados.Rows.Add(medicoAModificar.Especialidades(i))
         Next
 
-        'Vuelve invisibles las filas del listado de localidades
-        For i = 0 To tblLocalidad.Rows.Count - 1
-            tblLocalidad.Rows(i).Visible = False
-        Next
+        ''Vuelve invisibles las filas del listado de localidades
+        'For i = 0 To tblLocalidad.Rows.Count - 1
+        '    tblLocalidad.Rows(i).Visible = False
+        'Next
 
         'Añade todas las localidades existentes al data grid
         For Each localidad As Localidad In CargarTodasLasLocalidades()
@@ -60,7 +60,6 @@ Public Class FrmModificacionMedico
         OcultarEspecialidadesSeleccionadasOFiltradas()
     End Sub
 
-
     Private Sub cmbDepartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartamento.SelectedIndexChanged
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).Departamento = cmbDepartamento.SelectedItem Then
@@ -78,9 +77,7 @@ Public Class FrmModificacionMedico
             If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEspecialidades.Text & "*").ToLower Then
                 r.Visible = True
             Else
-                If Not r.Selected Then
-                    r.Visible = False
-                End If
+                r.Visible = False
             End If
         Next
 
@@ -89,67 +86,64 @@ Public Class FrmModificacionMedico
 
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        Try
-            Dim listaEspecialidades As New List(Of Especialidad)
-            Dim localidad As Localidad
-
-
-            Try
-                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-            Catch ex As Exception
-                Throw New Exception("No se selecciono ninguna localidad")
-            End Try
-
-
-            For Each r As DataGridViewRow In tblAsociados.Rows
-                listaEspecialidades.Add(CType(r.Cells(0).Value, Especialidad))
+        Dim listaEspecialidades As New List(Of Especialidad)
+        If tblEspecialidades.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos una especialidad.", "Error", "You must select at least one medical specialty.", "Error")
+            Return
+        Else
+            For Each r As DataGridViewRow In tblAsociados.SelectedRows
+                listaEspecialidades.Add(r.Cells(0).Value)
             Next
+        End If
 
-            'Verifica si se ingreso una especialidad como minimo
-            Dim sinEspecialidad As Boolean = True
-            If tblAsociados.Rows.Count = 0 Then
-                sinEspecialidad = True
-            Else
-                sinEspecialidad = False
-            End If
+        Dim localidad As Localidad
+        If tblLocalidad.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
+            Return
+        Else
+            localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+        End If
 
-            If sinEspecialidad = True Then
-                MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos una especialidad.", "Error", "You must select at least one medical specialty.", "Error")
-            Else
-                ActualizarMedico(medicoAModificar, txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, listaEspecialidades)
-                MostrarMensaje(MsgBoxStyle.OkOnly, "Médico modificado con éxito.", "Éxito", "Doctor successfully modified.", "Success")
-                Me.Close()
-            End If
+        Dim ci As String = txtCI.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
+
+        Try
+            ActualizarMedico(medicoAModificar, ci, nombre, apellido, correo, localidad, listaEspecialidades)
+            MostrarMensaje(MsgBoxStyle.OkOnly, "Médico modificado con éxito.", "Éxito", "Doctor successfully modified.", "Success")
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
     Private Sub btnQuitarE_Click(sender As Object, e As EventArgs) Handles btnQuitarE.Click
-        If tblAsociados.SelectedRows.Count > 0 Then
-            For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
-                For Each rEspecialidad As DataGridViewRow In tblEspecialidades.Rows
-                    If rEspecialidad.Cells(0).Value = rAsociada.Cells(0).Value Then
-                        rEspecialidad.Visible = True
-                    End If
-                Next
-                tblAsociados.Rows.Remove(rAsociada)
-            Next
-            OcultarEspecialidadesSeleccionadasOFiltradas()
-        Else
+        If tblAsociados.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos una de las especialidades asociadas.", "Error", "You must select at least one of the associated specialties.", "Error")
-            MsgBox("Debe seleccionar al menos uno de las especialidades asociadas.", MsgBoxStyle.Critical, "Error")
+            Return
         End If
+
+        For Each rAsociada As DataGridViewRow In tblAsociados.SelectedRows
+            For Each rEspecialidad As DataGridViewRow In tblEspecialidades.Rows
+                If rEspecialidad.Cells(0).Value = rAsociada.Cells(0).Value Then
+                    rEspecialidad.Visible = True
+                End If
+            Next
+            tblAsociados.Rows.Remove(rAsociada)
+        Next
+        OcultarEspecialidadesSeleccionadasOFiltradas()
     End Sub
     Private Sub btnAgregarE_Click(sender As Object, e As EventArgs) Handles btnAgregarE.Click
-        If tblEspecialidades.SelectedRows.Count > 0 Then
-            For Each r As DataGridViewRow In tblEspecialidades.SelectedRows
-                tblAsociados.Rows.Add(r.Cells(0).Value)
-            Next
-            OcultarEspecialidadesSeleccionadasOFiltradas()
-        Else
+        If tblEspecialidades.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos uno de las especialidades disponibles.", "Error", "You must select at least one of the available specialties.", "Error")
+            Return
         End If
+
+        For Each r As DataGridViewRow In tblEspecialidades.SelectedRows
+            tblAsociados.Rows.Add(r.Cells(0).Value)
+        Next
+        OcultarEspecialidadesSeleccionadasOFiltradas()
     End Sub
 
     Private Sub OcultarEspecialidadesSeleccionadasOFiltradas()
