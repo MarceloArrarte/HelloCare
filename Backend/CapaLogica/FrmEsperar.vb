@@ -1,7 +1,7 @@
 ﻿Imports Clases
 
-Friend Class FrmEsperar
-    Friend Sub New(msjES As String, msjEN As String)
+Public Class FrmEsperar
+    Public Sub New()
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -9,9 +9,9 @@ Friend Class FrmEsperar
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
-                lblMensaje.Text = msjES
+                lblMensaje.Text = "Por favor, espere un momento."
             Case Idiomas.Ingles
-                lblMensaje.Text = msjEN
+                lblMensaje.Text = "Please, wait a moment."
         End Select
     End Sub
 End Class

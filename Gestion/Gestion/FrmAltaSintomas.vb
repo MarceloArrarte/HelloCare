@@ -27,33 +27,41 @@ Public Class FrmAltaSintomas
         Next
 
         ' Procede a insertar el nuevo síntoma si se ingresaron patologías o si se confirma que se desea insertarlo sin patologías asociadas
-        If hayPatologiasAsociadas OrElse
+        If hayPatologiasAsociadas Or
            (Not hayPatologiasAsociadas And MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se asoció el nuevo síntoma a ninguna patología del sistema." & vbNewLine & "¿Desea continuar de todas formas?", "Aviso", "Warning: the new symptom has not been associated with any illness in the system." & vbNewLine & "Do you wish to continue anyway?", "Warning") = MsgBoxResult.Yes) Then
 
-            Try
-                Dim listaEnfermedades As New List(Of Enfermedad)
-                Dim listaFrecuencias As New List(Of Decimal)
-                For Each r As DataGridViewRow In tblPatologias.Rows
-                    If r.Cells(1).Value = True Then
-                        listaEnfermedades.Add(CType(r.Cells(0).Value, Enfermedad))
-                        Try
-                            listaFrecuencias.Add(r.Cells(3).Value.ToString.Replace("%", ""))
-                        Catch ex As Exception
-                            Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
-                        End Try
+
+            Dim listaEnfermedades As New List(Of Enfermedad)
+            Dim listaFrecuencias As New List(Of Decimal)
+            For Each r As DataGridViewRow In tblPatologias.Rows
+                If r.Cells(1).Value = True Then
+                    Dim frecuencia As Decimal
+                    If Not Decimal.TryParse(r.Cells(3).Value.ToString.Replace("%", ""), frecuencia) Then
+                        MostrarMensaje(MsgBoxStyle.Critical, "Las frecuencias solo pueden ser valores numéricos.", "Error", "Frequencies can only be numeric values.", "Error")
+                        Return
+                    Else
+                        listaEnfermedades.Add(r.Cells(0).Value)
+                        listaFrecuencias.Add(r.Cells(3).Value.ToString.Replace("%", ""))
                     End If
-                Next
-
-                Dim urgenciaParseado As Integer
-                If Not Integer.TryParse(txtUrgencia.Text, urgenciaParseado) Then
-                    Throw New Exception("La gravedad debe ser un valor numérico entero.")
                 End If
+            Next
 
-                CrearSintoma(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, urgenciaParseado, listaEnfermedades, listaFrecuencias)
+            Dim urgencia As Integer
+            If Not Integer.TryParse(txtUrgencia.Text, urgencia) Then
+                MostrarMensaje(MsgBoxStyle.Critical, "La urgencia debe ser un valor numérico entero.", "Error", "Urgency must be an integer value.", "Error")
+                Return
+            End If
+
+            Dim nombre As String = txtNombre.Text
+            Dim descripcion As String = txtDescripcion.Text
+            Dim recomendaciones As String = txtRecomendaciones.Text
+
+            Try
+                CrearSintoma(nombre, descripcion, recomendaciones, urgencia, listaEnfermedades, listaFrecuencias)
                 MostrarMensaje(MsgBoxStyle.OkOnly, "Síntoma agregado con éxito.", "Éxito", "Symptom has been successfully created.", "Success")
                 Me.Close()
             Catch ex As Exception
-                MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
         End If
     End Sub

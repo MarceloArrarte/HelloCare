@@ -50,40 +50,38 @@ Public Class FrmAltaMedico
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        Try
-            Dim listaEspecialidades As New List(Of Especialidad)
-            Dim localidad As Localidad
+        Dim localidad As Localidad
+        If tblLocalidad.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
+            Return
+        Else
+            localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+        End If
 
-            'Verifica si se selecciono alguna localidad
-            Try
-                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-            Catch ex As Exception
-                Throw New Exception("No se selecciono ninguna localidad")
-            End Try
-
-
-            For Each r As DataGridViewRow In tblAsociados.Rows
-                listaEspecialidades.Add(CType(r.Cells(0).Value, Especialidad))
+        Dim listaEspecialidades As New List(Of Especialidad)
+        If tblAsociados.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna especialidad.", "Error", "No specialties were selected.", "Error")
+            Return
+        Else
+            For Each r As DataGridViewRow In tblAsociados.SelectedRows
+                listaEspecialidades.Add(r.Cells(0).Value)
             Next
+        End If
 
+        Dim ci As String = txtCI.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
 
-            'Verifica si se ingreso una especialidad como minimo
-            Dim sinEspecialidad As Boolean = True
-            If tblAsociados.Rows.Count = 0 Then
-                sinEspecialidad = True
-            Else
-                sinEspecialidad = False
-            End If
-
-            If sinEspecialidad = True Then
-                MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar al menos una especialidad.", "Error", "You must select at least one specialty.", "Error")
-            Else
-                CrearMedico(txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, listaEspecialidades)
-                MostrarMensaje(MsgBoxStyle.OkOnly, "Médico agregado con éxito.", "Éxito", "Doctor successfully added.", "Success")
-                Me.Close()
-            End If
+        Dim ventanaEspera As New FrmEsperar
+        ventanaEspera.Show()
+        Try
+            CrearMedico(ci, nombre, apellido, correo, localidad, listaEspecialidades)
+            MostrarMensaje(MsgBoxStyle.OkOnly, "Médico agregado con éxito.", "Éxito", "Doctor successfully added.", "Success")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            ventanaEspera.Close()
         End Try
     End Sub
 

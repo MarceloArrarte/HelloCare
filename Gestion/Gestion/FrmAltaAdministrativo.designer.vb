@@ -73,6 +73,7 @@ Partial Class FrmAltaAdministrativo
         Me.tblLocalidad.ColumnHeadersVisible = False
         Me.tblLocalidad.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNomEnfermedad})
         resources.ApplyResources(Me.tblLocalidad, "tblLocalidad")
+        Me.tblLocalidad.MultiSelect = False
         Me.tblLocalidad.Name = "tblLocalidad"
         Me.tblLocalidad.RowHeadersVisible = False
         Me.tblLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

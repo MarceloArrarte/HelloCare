@@ -320,6 +320,13 @@ Public Module Principal
                     Throw ex
             End Select
         End Try
+
+        Try
+            EnviarCorreoAlta(nuevoMedico)
+        Catch ex As Exception
+            Throw New Exception("No se pudo enviar el correo electrónico de alta al médico.")
+        End Try
+
     End Sub
 
     Public Sub CrearAdministrativo(ci As String, nombre As String, apellido As String, correo As String, localidad As Localidad, esEncargado As Boolean)
@@ -334,6 +341,12 @@ Public Module Principal
                 Case Else
                     Throw ex
             End Select
+        End Try
+
+        Try
+            EnviarCorreoAlta(nuevoAdministrativo)
+        Catch ex As Exception
+            Throw New Exception("No se pudo enviar el correo electrónico de alta al administrativo.")
         End Try
 
     End Sub
@@ -351,6 +364,13 @@ Public Module Principal
                     Throw ex
             End Select
         End Try
+
+        Try
+            EnviarCorreoAlta(nuevoPaciente)
+        Catch ex As Exception
+            Throw New Exception("No se pudo enviar el correo electrónico de alta al paciente.")
+        End Try
+
     End Sub
 
     Public Function CrearDiagnosticoPrimario(paciente As Paciente, sintomas As List(Of Sintoma), enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas) As DiagnosticoPrimario
@@ -587,7 +607,10 @@ Public Module Principal
     Public Sub RegistrarUsuario(persona As Persona, contrasena As String)
         Dim nuevoUsuario As New Usuario(CifrarClave(contrasena), persona)
         InsertarObjeto(nuevoUsuario, TiposObjeto.Usuario)
+        Dim ventanaEspera As New FrmEsperar()
+        ventanaEspera.Show()
         EnviarCorreoRegistro(persona, contrasena)
+        ventanaEspera.Close()
     End Sub
 
 

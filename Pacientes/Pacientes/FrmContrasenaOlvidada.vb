@@ -9,6 +9,7 @@ Public Class FrmContrasenaOlvidada
         If AutenticarUsuarioPaciente(txtCedula.Text, ".") = ResultadosLogin.PersonaNoExiste Then
             MostrarMensaje(MsgBoxStyle.Critical, "No se han encontrado datos registrados para un paciente con esta cédula.", "Error", "No registered data was found for this ID card.", "Error")
         Else
+            Dim ventanaEspera As New FrmEsperar()
             EnviarCorreoRestauracionContrasena(CargarPacientePorCI(txtCedula.Text))
             MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail with steps for restoring your password has been sent to you. Don't close this window.", "")
             txtCedula.Enabled = False

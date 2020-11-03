@@ -8,7 +8,10 @@ Public Class FrmContrasenaOlvidada
         If AutenticarUsuarioAdministrativo(txtCedula.Text, ".") = ResultadosLogin.PersonaNoExiste Then
             MostrarMensaje(MsgBoxStyle.Critical, "No se han encontrado datos registrados para un administrativo con esta cédula.", "Error", "No registered data was found for an administrative with this ID card.", "Error")
         Else
+            Dim ventanaEspera As New FrmEsperar()
+            ventanaEspera.Show()
             EnviarCorreoRestauracionContrasena(CargarAdministrativoPorCI(txtCedula.Text))
+            ventanaEspera.Close()
             MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail has been sent to your e-mail address with steps to restore your password. Don't close this window.", "")
             txtCedula.Enabled = False
             btnEnviarCodigo.Enabled = False

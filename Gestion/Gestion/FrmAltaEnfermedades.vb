@@ -38,31 +38,44 @@ Public Class FrmAltaEnfermedades
     ' Intenta crear un nuevo objeto y atrapa cualquier error que se produzca.
     ' Si no hay ningún error informa al usuario que la creación fue exitosa y cierra la ventana.
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        Try
-            Dim especialidad As Especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
-            Dim listaSintomas As New List(Of Sintoma)
-            Dim listaFrecuencias As New List(Of Decimal)
-            For Each r As DataGridViewRow In tblAsociados.Rows
-                listaSintomas.Add(CType(r.Cells(0).Value, Sintoma))
-                Try
-                    listaFrecuencias.Add(r.Cells(2).Value.ToString.Replace("%", ""))
-                Catch ex As Exception
-                    Throw New Exception("Las frecuencias solo pueden ser valores numéricos.")
-                End Try
-            Next
+        Dim especialidad As Especialidad
+        If tblEspecialidades.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna especialidad.", "Error", "No specialty was selected.", "Error")
+            Return
+        Else
+            especialidad = tblEspecialidades.SelectedRows(0).Cells(0).Value
+        End If
 
-            Dim gravedadParseado As Integer
-            If Not Integer.TryParse(txtGravedad.Text, gravedadParseado) Then
-                Throw New Exception("La gravedad debe ser un valor numérico entero.")
+        Dim listaSintomas As New List(Of Sintoma)
+        Dim listaFrecuencias As New List(Of Decimal)
+        For Each r As DataGridViewRow In tblAsociados.Rows
+            Dim frecuencia As Decimal
+            If Not Decimal.TryParse(r.Cells(2).Value.ToString.Replace("%", ""), frecuencia) Then
+                MostrarMensaje(MsgBoxStyle.Critical, "Las frecuencias solo pueden ser valores numéricos.", "Error", "Frequencies can only be numeric values.", "Error")
+                Return
+            Else
+                listaSintomas.Add(r.Cells(0).Value)
+                listaFrecuencias.Add(frecuencia)
             End If
+        Next
 
-            CrearEnfermedad(txtNombre.Text, txtDescripcion.Text, txtRecomendaciones.Text, gravedadParseado, listaSintomas, listaFrecuencias, especialidad)
+        Dim gravedad As Integer
+        If Not Integer.TryParse(txtGravedad.Text, gravedad) Then
+            MostrarMensaje(MsgBoxStyle.Critical, "La gravedad debe ser un valor numérico entero.", "Error", "Severity must be an integer value.", "Error")
+            Return
+        End If
 
+        Dim nombre As String = txtNombre.Text
+        Dim descripcion As String = txtDescripcion.Text
+        Dim recomendaciones As String = txtRecomendaciones.Text
+
+        Try
+            CrearEnfermedad(nombre, descripcion, recomendaciones, gravedad, listaSintomas, listaFrecuencias, especialidad)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Enfermedad agregada con éxito.", "Éxito", "The illness has been successfully created.", "Success")
             requiereConfirmacionSalida = False
             Me.Close()
         Catch ex As Exception
-            MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 

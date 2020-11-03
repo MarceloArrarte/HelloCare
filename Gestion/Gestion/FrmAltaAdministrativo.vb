@@ -9,13 +9,12 @@ Public Class FrmAltaAdministrativo
     End Sub
 
     Private Sub FrmAltaAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' comentable?
-
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
 
-        For Each localidad As Localidad In CargarTodasLasLocalidades()
-            tblLocalidad.Rows.Add(localidad)
-            tblLocalidad.Rows(tblLocalidad.Rows.Count - 1).Visible = False
+        Dim localidades As List(Of Localidad) = CargarTodasLasLocalidades()
+        For i = 0 To localidades.Count - 1
+            tblLocalidad.Rows.Add(localidades(i))
+            tblLocalidad.Rows(i).Visible = False
         Next
     End Sub
 
@@ -31,29 +30,29 @@ Public Class FrmAltaAdministrativo
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
+        Dim localidad As Localidad
+        If tblLocalidad.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
+            Exit Sub
+        Else
+            localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+        End If
 
+        Dim ci As String = txtCI.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
+        Dim esEncargado As Boolean = checkEncargado.Checked
+
+        Dim ventanaEspera As New FrmEsperar
+        ventanaEspera.Show()
         Try
-            Dim localidad As Localidad
-            Dim esEncargado As Boolean
-            If checkEncargado.Checked = True Then
-                esEncargado = True
-            Else
-                esEncargado = False
-            End If
-
-
-            Try
-                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-            Catch ex As Exception
-                Throw New Exception("No se selecciono ninguna localidad")
-            End Try
-
-
-            CrearAdministrativo(txtCI.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, esEncargado)
+            CrearAdministrativo(ci, nombre, apellido, correo, localidad, esEncargado)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo agregado con éxito.", "Éxito", "Administrative staff successfully added.", "Success")
-            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            ventanaEspera.Close()
         End Try
     End Sub
 

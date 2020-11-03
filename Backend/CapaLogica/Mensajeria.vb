@@ -4,7 +4,7 @@ Imports CapaPersistencia
 Imports System.IO
 
 Public Module Mensajeria
-    Friend Sub EnviarCorreoAlta(paciente As Paciente, contrasena As String)
+    Friend Sub EnviarCorreoAlta(paciente As Paciente)
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
         SmtpServer.Port = 587
@@ -52,7 +52,7 @@ Public Module Mensajeria
         SmtpServer.Send(mail)
     End Sub
 
-    Friend Sub EnviarCorreoAlta(medico As Medico, contrasena As String)
+    Friend Sub EnviarCorreoAlta(medico As Medico)
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
         SmtpServer.Port = 587
@@ -88,7 +88,7 @@ Public Module Mensajeria
         SmtpServer.Send(mail)
     End Sub
 
-    Friend Sub EnviarCorreoAlta(administrativo As Administrativo, contrasena As String)
+    Friend Sub EnviarCorreoAlta(administrativo As Administrativo)
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
         SmtpServer.Port = 587

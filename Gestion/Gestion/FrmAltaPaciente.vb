@@ -34,20 +34,43 @@ Public Class FrmAltaPaciente
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim localidad As Localidad
+        If tblLocalidad.SelectedRows.Count = 0 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna localidad.", "Error", "No location was selected.", "Error")
+            Return
+        Else
+            localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
+        End If
+
+        Dim sexo As TiposSexo
+        If cmbSexo.SelectedIndex = -1 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "Debe seleccionar el sexo del paciente.", "Error", "You must indicate the patient's sex.", "Error")
+            Return
+        Else
+            sexo = [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem)
+        End If
+
+        Dim ci As String = txtCi.Text
+        Dim nombre As String = txtNombre.Text
+        Dim apellido As String = txtApellido.Text
+        Dim correo As String = txtCorreo.Text
+        Dim movil As String = txtTelMovil.Text
+        Dim fijo As String = txtTelFijo.Text
+        Dim fechaNecimiento As Date = dtpFecha.Value
+        Dim calle As String = txtCalle.Text
+        Dim numeroPuerta As String = txtNumeroPuerta.Text
+        Dim apartamento As String = txtApartamento.Text
+
+        Dim ventanaEspera As New FrmEsperar
+        ventanaEspera.Show()
         Try
-            Dim localidad As Localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-
-            Try
-                localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
-            Catch ex As Exception
-                Throw New Exception("No se selecciono ninguna localidad")
-            End Try
-
-            CrearPaciente(txtCi.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, localidad, txtTelMovil.Text, txtTelFijo.Text, [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem), dtpFecha.Value, Nothing, txtCalle.Text, txtNumeroPuerta.Text, txtApartamento.Text)
+            CrearPaciente(ci, nombre, apellido, correo, localidad, movil, fijo, sexo, fechaNecimiento, Nothing, calle, numeroPuerta, apartamento)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Paciente agregado con éxito.", "Éxito", "Patient successfully added.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            ventanaEspera.Close()
         End Try
     End Sub
 
