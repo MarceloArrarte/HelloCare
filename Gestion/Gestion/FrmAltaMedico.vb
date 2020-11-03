@@ -59,11 +59,11 @@ Public Class FrmAltaMedico
         End If
 
         Dim listaEspecialidades As New List(Of Especialidad)
-        If tblAsociados.SelectedRows.Count = 0 Then
+        If tblAsociados.Rows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó ninguna especialidad.", "Error", "No specialties were selected.", "Error")
             Return
         Else
-            For Each r As DataGridViewRow In tblAsociados.SelectedRows
+            For Each r As DataGridViewRow In tblAsociados.Rows
                 listaEspecialidades.Add(r.Cells(0).Value)
             Next
         End If

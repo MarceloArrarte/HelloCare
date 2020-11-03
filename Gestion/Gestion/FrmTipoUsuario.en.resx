@@ -131,7 +131,7 @@
     <value>User selection</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 25</value>
+    <value>197, 25</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>Select type of user.</value>
@@ -187,13 +187,23 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Button1.Text" xml:space="preserve">
+  <data name="btnAdministrativos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnAdministrativos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAdministrativos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 45</value>
+  </data>
+  <data name="btnAdministrativos.Text" xml:space="preserve">
     <value>Admin. staff</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXsAAAMSCAYAAAA7gxcyAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAPoLSURBVHhe7J0HnBxnfb/vJDds
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAPoLSURBVHhe7J0HnBxnfb/vJDds
         U5MQktD+BJIQwF2W5N4BY4PBxgYbCL2ZboopwfTeQg+9E4xt3M5INu7q5e7Uu2T13ruu/P7z7u6rnZ39
         bp9ts8/D52H37nbmnR2k086TN+903d11omHt9pTpPV0ndZx/xbIc131yScd3Zb034d4X+LeuUzpE915P
         qlK3bXueq/szPiB8sOvUWHyoqKcEnoyx6c5nVHXe0z7cfVqOgzt2mw0NGwAAAAAAAFQPsTcme8pUxdCk

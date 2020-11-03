@@ -548,14 +548,19 @@ Public Module AccesoDatos
 
             Case TiposObjeto.Medico
                 Dim medico As Medico = objetoAModificar
-                comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
+                comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID_MEDICO;"
+                comando.CommandText &= "DELETE FROM especialidades_medicos WHERE ID_MEDICO=@ID_MEDICO"
+                For i = 0 To medico.Especialidades.Count - 1
+                    comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
+                    comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
+                Next
                 comando.Parameters.AddWithValue("@CI", medico.CI)
                 comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
                 comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
                 comando.Parameters.AddWithValue("@CORREO", medico.Correo)
                 comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
                 comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
-                comando.Parameters.AddWithValue("@ID", medico.ID)
+                comando.Parameters.AddWithValue("@ID_MEDICO", medico.ID)
         End Select
 
         Try

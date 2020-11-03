@@ -11,9 +11,13 @@ Public Class FrmListadoEnfermedades
 
     Private Sub ActualizarEnfermedades()
         tblEnfermedades.Rows.Clear()
-        For Each e As Enfermedad In CargarTodasLasEnfermedades()
-            tblEnfermedades.Rows.Add(e, e.Nombre, e.Descripcion, e.Gravedad, e.Recomendaciones)
-        Next
+        Try
+            For Each e As Enfermedad In CargarTodasLasEnfermedades()
+                tblEnfermedades.Rows.Add(e, e.Nombre, e.Descripcion, e.Gravedad, e.Recomendaciones)
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
         tblEnfermedades.ClearSelection()
     End Sub
 
@@ -32,21 +36,26 @@ Public Class FrmListadoEnfermedades
             Exit Sub
         End If
 
-        ImportarEnfermedades(nombreArchivo)
-        MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
+        Try
+            ImportarEnfermedades(nombreArchivo)
+            MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     ' Abre un formulario con los detalles de una enfermedad
     Private Sub btnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
-        If tblEnfermedades.SelectedRows.Count = 1 Then
-            Dim enfermedad As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
-            Dim frm As New FrmVerEnfermedades(enfermedad)
-            Me.Hide()
-            frm.ShowDialog()
-            Me.Show()
-        Else
+        If tblEnfermedades.SelectedRows.Count <> 1 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para ver los detalles de la enfermedad.", "Error", "Select a single row to see details of the illness.", "Error")
+            Return
         End If
+
+        Dim enfermedad As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
+        Dim frm As New FrmVerEnfermedades(enfermedad)
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
     End Sub
 
     ' Abre un formulario que permite al usuario ingresar una nueva patología
@@ -55,32 +64,42 @@ Public Class FrmListadoEnfermedades
         Me.Hide()
         frm.ShowDialog()
         Me.Show()
+
+        ActualizarEnfermedades()
     End Sub
 
     ' Abre un formulario para que el usuario pueda ingresar nuevos datos para una enfermedad ya almacenada
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If tblEnfermedades.SelectedRows.Count = 1 Then
-            Dim enfermedad As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
-            Dim frm As New FrmModificacionEnfermedades(enfermedad)
-            Me.Hide()
-            frm.ShowDialog()
-            Me.Show()
-        Else
+        If tblEnfermedades.SelectedRows.Count <> 1 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Seleccione una sola fila para modificar una enfermedad.", "Error", "Select a single row to modify an illness.", "Error")
+            Return
         End If
+
+        Dim enfermedad As Enfermedad = tblEnfermedades.SelectedRows(0).Cells(0).Value
+        Dim frm As New FrmModificacionEnfermedades(enfermedad)
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Show()
+
+        ActualizarEnfermedades()
     End Sub
 
     ' Permite eliminar una o varias de las enfermedades del sistema, luego de recibir confirmación del usuario
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If tblEnfermedades.SelectedRows.Count > 0 Then
-            If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this illness(es)?" & vbNewLine & "These changes cannot be undone.", "Warning") = DialogResult.Yes Then
-                For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
-                    EliminarEnfermedad(r.Cells(0).Value)
-                Next
-                ActualizarEnfermedades()
-            End If
-        Else
+        If tblEnfermedades.SelectedRows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Information, "Seleccione al menos una fila para eliminar la(s) enfermedad(es).", "", "Select at least one row to delete the illness(es).", "")
+            Return
+        End If
+
+        If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar esta(s) enfermedad(es)?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure you wish to delete this illness(es)?" & vbNewLine & "These changes cannot be undone.", "Warning") = DialogResult.Yes Then
+            For Each r As DataGridViewRow In tblEnfermedades.SelectedRows
+                Try
+                    EliminarEnfermedad(r.Cells(0).Value)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                End Try
+            Next
+            ActualizarEnfermedades()
         End If
     End Sub
 
@@ -97,11 +116,10 @@ Public Class FrmListadoEnfermedades
             If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEnfermedad.Text & "*").ToLower Then
                 r.Visible = True
             Else
-                If Not r.Selected Then
-                    r.Visible = False
-                End If
+                r.Visible = False
             End If
         Next
+        tblEnfermedades.ClearSelection()
     End Sub
 
     Private Sub FrmListadoEnfermedades_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

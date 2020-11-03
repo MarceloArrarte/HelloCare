@@ -30,7 +30,7 @@ Partial Class FrmTipoUsuario
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.lblTraducir = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAdministrativos = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnPaciente
@@ -81,19 +81,19 @@ Partial Class FrmTipoUsuario
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
-        'Button1
+        'btnAdministrativos
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = False
+        resources.ApplyResources(Me.btnAdministrativos, "btnAdministrativos")
+        Me.btnAdministrativos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAdministrativos.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnAdministrativos.Name = "btnAdministrativos"
+        Me.btnAdministrativos.UseVisualStyleBackColor = False
         '
         'FrmTipoUsuario
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAdministrativos)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label3)
@@ -116,5 +116,5 @@ Partial Class FrmTipoUsuario
     Friend WithEvents Label3 As Label
     Friend WithEvents btnVolver As Button
     Friend WithEvents lblTraducir As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAdministrativos As Button
 End Class

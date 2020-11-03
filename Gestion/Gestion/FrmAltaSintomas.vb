@@ -41,7 +41,7 @@ Public Class FrmAltaSintomas
                         Return
                     Else
                         listaEnfermedades.Add(r.Cells(0).Value)
-                        listaFrecuencias.Add(r.Cells(3).Value.ToString.Replace("%", ""))
+                        listaFrecuencias.Add(frecuencia)
                     End If
                 End If
             Next

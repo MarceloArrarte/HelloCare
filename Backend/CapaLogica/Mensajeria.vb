@@ -195,7 +195,7 @@ Public Module Mensajeria
         SmtpServer.Send(mail)
     End Sub
 
-    Friend Sub EnviarSesionChat(paciente As Paciente, diagnostico As DiagnosticoDiferencial, contenidoChat As String,
+    Public Sub EnviarSesionChat(paciente As Paciente, diagnostico As DiagnosticoDiferencial, contenidoChat As String,
                                 archivos As List(Of Mensaje))
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
