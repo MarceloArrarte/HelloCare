@@ -8,7 +8,15 @@ Public Class FrmPeticionesChat
 
     Private Sub RefrescarPeticiones()
         tblPeticiones.Rows.Clear()
-        For Each d As DiagnosticoPrimarioConConsulta In CargarConsultasSinAtenderParaMedicoLogeado()
+        Dim consultas As List(Of DiagnosticoPrimarioConConsulta)
+        Try
+            consultas = CargarConsultasSinAtenderParaMedicoLogeado()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+
+        For Each d As DiagnosticoPrimarioConConsulta In consultas
             Dim enfermedadMasProbable As Enfermedad = d.Enfermedades(d.IndiceEnfermedadMasProbable)
             Dim color As Color
             Dim etiqueta As String = ""
@@ -39,29 +47,32 @@ Public Class FrmPeticionesChat
     End Sub
 
     Private Sub btnAceptarConsulta_Click(sender As Object, e As EventArgs) Handles btnAceptarConsulta.Click
-        If tblPeticiones.SelectedRows.Count = 1 Then
-            Dim peticion As DiagnosticoPrimarioConConsulta = tblPeticiones.SelectedRows(0).Cells(0).Value
-            Dim yaFueAtendida As Boolean = False
-            For Each c As DiagnosticoPrimarioConConsulta In CargarConsultasSinAtenderParaMedicoLogeado()
-                If peticion.ID = c.ID And c.Medico IsNot Nothing Then
-                    yaFueAtendida = True
-                End If
-            Next
-
-            If Not yaFueAtendida Then
-                Dim frm As New FrmChatMedico(peticion)
-                Me.Hide()
-                frm.ShowDialog()
-                RefrescarPeticiones()
-                Me.Show()
-            Else
-                MostrarMensaje(MsgBoxStyle.Information, "La petición seleccionada ya fue atendida por un doctor. Por favor, seleccione otra.", "Petición ya aceptada", "The selected chat request has already been accepted by a doctor. Please, select another one.", "Request already accepted")
-                RefrescarPeticiones()
-            End If
-
-        Else
+        If tblPeticiones.SelectedRows.Count <> 1 Then
             MostrarMensaje(MsgBoxStyle.Information, "Seleccione un diagnóstico para aceptar la petición e iniciar el chat.", "", "Select a diagnosis to accept the chat request.", "")
+            Return
         End If
+
+        Dim peticion As DiagnosticoPrimarioConConsulta = tblPeticiones.SelectedRows(0).Cells(0).Value
+        Dim consultasActuales As List(Of DiagnosticoPrimarioConConsulta)
+        Try
+            consultasActuales = CargarConsultasSinAtenderParaMedicoLogeado()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+
+        For Each c As DiagnosticoPrimarioConConsulta In consultasActuales
+            If peticion.ID = c.ID And c.Medico IsNot Nothing Then
+                MostrarMensaje(MsgBoxStyle.Information, "La petición seleccionada ya fue atendida por un doctor. Por favor, seleccione otra.", "Petición ya aceptada", "The selected chat request has already been accepted by a doctor. Please, select another one.", "Request already accepted")
+                Return
+            End If
+        Next
+
+        Dim frm As New FrmChatMedico(peticion)
+        Me.Hide()
+        frm.ShowDialog()
+        RefrescarPeticiones()
+        Me.Show()
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

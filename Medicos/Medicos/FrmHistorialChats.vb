@@ -5,10 +5,23 @@ Imports Clases
 
 Public Class FrmHistorialChats
     Private Sub FrmHistorialChats_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta) = CargarConsultasMedico()
+        Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta)
+        Try
+            consultasMedico = CargarConsultasMedico()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
 
         For Each d As DiagnosticoPrimarioConConsulta In consultasMedico
-            Dim ultimoMensaje As Mensaje = CargarUltimosMensajesDiagnostico(d, 1).SingleOrDefault
+            Dim ultimoMensaje As Mensaje
+            Try
+                ultimoMensaje = CargarUltimosMensajesDiagnostico(d, 1).SingleOrDefault
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                Return
+            End Try
+
             If ultimoMensaje IsNot Nothing Then
                 Dim prefijoMensaje As String
                 If ultimoMensaje.Remitente = TiposRemitente.Medico Then
