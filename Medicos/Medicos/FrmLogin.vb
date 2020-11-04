@@ -10,44 +10,39 @@ Public Class FrmLogin
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Dim ci As String = txtCedula.Text
         Dim contrasena As String = txtContrasena.Text
-
-        Dim resultadoLogin As ResultadosLogin
         Try
-            resultadoLogin = AutenticarUsuarioMedico(ci, contrasena)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            Return
-        End Try
-
-        Select Case resultadoLogin
-            Case ResultadosLogin.OK
-                Dim frm As New FrmMenuPrincipal
-                Me.Hide()
-                frm.ShowDialog()
-                txtCedula.Clear()
-                txtContrasena.Clear()
-                Me.Show()
-
-            Case ResultadosLogin.ContrasenaIncorrecta, ResultadosLogin.PersonaNoExiste
-                MostrarMensaje(MsgBoxStyle.Critical, "La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.", "Error", "The entered ID card and/or password are not correct" & vbNewLine & "Verify your credentials and retry.", "Error")
-
-            Case ResultadosLogin.SinUsuario
-                Dim frmReg As New FrmRegistro
-                Me.Hide()
-                Dim resultadoRegistro As DialogResult = frmReg.ShowDialog()
-                Me.Show()
-                If resultadoRegistro = DialogResult.OK Then
-                    Dim frmMenu As New FrmMenuPrincipal
+            Select Case AutenticarUsuarioMedico(ci, contrasena)
+                Case ResultadosLogin.OK
+                    Dim frm As New FrmMenuPrincipal
                     Me.Hide()
-                    frmMenu.ShowDialog()
+                    frm.ShowDialog()
                     txtCedula.Clear()
                     txtContrasena.Clear()
                     Me.Show()
-                Else
-                    MostrarMensaje(MsgBoxStyle.Exclamation, "Su usuario no fue creado. Tenga en cuenta que no podrá acceder al servicio HelloCare hasta que tenga su usuario personal.", "Aviso", "Your user was not created. Keep in mind you won't be able to use HelloCare until you have your personal user.", "Warning")
-                    medicoLogeado = Nothing
-                End If
-        End Select
+
+                Case ResultadosLogin.ContrasenaIncorrecta, ResultadosLogin.PersonaNoExiste
+                    MostrarMensaje(MsgBoxStyle.Critical, "La cédula y/o contraseña ingresada no son correctas." & vbNewLine & "Verifique los datos y reintente.", "Error", "The entered ID card and/or password are not correct." & vbNewLine & "Verify your credentials and retry.", "Error")
+
+                Case ResultadosLogin.SinUsuario
+                    Dim frmReg As New FrmRegistro
+                    Me.Hide()
+                    Dim resultado As DialogResult = frmReg.ShowDialog()
+                    Me.Show()
+                    If resultado = DialogResult.OK Then
+                        Dim frmMenu As New FrmMenuPrincipal
+                        Me.Hide()
+                        frmMenu.ShowDialog()
+                        txtCedula.Clear()
+                        txtContrasena.Clear()
+                        Me.Show()
+                    Else
+                        MostrarMensaje(MsgBoxStyle.Exclamation, "Su usuario no fue creado. Tenga en cuenta que no podrá acceder al servicio HelloCare hasta que tenga su usuario personal.", "Aviso", "Your user was not created. Keep in mind you won't be able to use HelloCare until you have your personal user.", "Warning")
+                        medicoLogeado = Nothing
+                    End If
+            End Select
+        Catch ex As Exception
+            MostrarMensaje(MsgBoxStyle.Critical, ex.Message, "Error", ex.Message, "Error")
+        End Try
     End Sub
 
     ' Permite al usuario ver su contraseña escrita en el campo de texto
