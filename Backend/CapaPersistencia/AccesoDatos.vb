@@ -529,19 +529,23 @@ Public Module AccesoDatos
 
             Case TiposObjeto.Paciente
                 Dim paciente As Paciente = objetoAModificar
-                comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
-                comando.CommandText &= "UPDATE pacientes SET TELEFONOMOVIL=@TELEFONOMOVIL, TELEFONOFIJO=@TELEFONOFIJO, SEXO=@SEXO, FECHANACIMIENTO=@FECHANACIMIENTO, CALLE=@CALLE, NUMEROPUERTA=@NUMEROPUERTA, APARTAMENTO=@APARTAMENTO WHERE ID_PERSONA=@ID;"
+                comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD WHERE ID=@ID;"
+                comando.CommandText &= "UPDATE pacientes SET TELEFONOMOVIL=@TELEFONOMOVIL, TELEFONOFIJO=@TELEFONOFIJO, SEXO=@SEXO, FECHANACIMIENTO=@FECHANACIMIENTO, FECHADEFUNCION=@FECHADEFUNCION, CALLE=@CALLE, NUMEROPUERTA=@NUMEROPUERTA, APARTAMENTO=@APARTAMENTO WHERE ID_PERSONA=@ID;"
                 comando.Parameters.AddWithValue("@CI", paciente.CI)
                 comando.Parameters.AddWithValue("@NOMBRE", paciente.Nombre)
                 comando.Parameters.AddWithValue("@APELLIDO", paciente.Apellido)
                 comando.Parameters.AddWithValue("@CORREO", paciente.Correo)
                 comando.Parameters.AddWithValue("@ID_LOCALIDAD", paciente.Localidad.ID)
-                comando.Parameters.AddWithValue("@TIPO", paciente.Tipo.ToString)
                 comando.Parameters.AddWithValue("@ID", paciente.ID)
                 comando.Parameters.AddWithValue("@TELEFONOMOVIL", paciente.TelefonoMovil)
                 comando.Parameters.AddWithValue("@TELEFONOFIJO", paciente.TelefonoFijo)
                 comando.Parameters.AddWithValue("@SEXO", paciente.Sexo.ToString)
                 comando.Parameters.AddWithValue("@FECHANACIMIENTO", paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"))
+                If paciente.FechaDefuncion <> Date.MinValue Then
+                    comando.Parameters.AddWithValue("@FECHADEFUNCION", paciente.FechaDefuncion.ToString("yyyy-MM-dd HH:mm:ss"))
+                Else
+                    comando.Parameters.AddWithValue("@FECHADEFUNCION", DBNull.Value)
+                End If
                 comando.Parameters.AddWithValue("@CALLE", paciente.Calle)
                 comando.Parameters.AddWithValue("@NUMEROPUERTA", paciente.NumeroPuerta)
                 comando.Parameters.AddWithValue("@APARTAMENTO", paciente.Apartamento)
@@ -549,7 +553,7 @@ Public Module AccesoDatos
             Case TiposObjeto.Medico
                 Dim medico As Medico = objetoAModificar
                 comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID_MEDICO;"
-                comando.CommandText &= "DELETE FROM especialidades_medicos WHERE ID_MEDICO=@ID_MEDICO"
+                comando.CommandText &= "DELETE FROM especialidades_medicos WHERE ID_MEDICO=@ID_MEDICO;"
                 For i = 0 To medico.Especialidades.Count - 1
                     comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
                     comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
@@ -589,26 +593,31 @@ Public Module AccesoDatos
     Public Function ObtenerMedicoPorCI(ci As String) As Medico
         Dim comando As New MySqlCommand("SELECT * FROM ObtenerMedicos WHERE `CI Persona`=@CI;")
         comando.Parameters.AddWithValue("@CI", ci)
-        Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
-        Dim filas As DataRowCollection = datos.Rows
+        Dim tablaMedico As DataTable = ConexionBD.EjecutarConsulta(comando)
+        Dim filaMedico As DataRow = tablaMedico.Rows(0)
 
-        Dim idMedico As Integer = filas(0)("ID Persona")
-        Dim ciMedico As String = filas(0)("CI Persona")
-        Dim nombreMedico As String = filas(0)("Nombre persona")
-        Dim apellidoMedico As String = filas(0)("Apellido persona")
-        Dim correoMedico As String = filas(0)("Correo persona")
-        Dim idLocalidad As String = filas(0)("ID localidad")
-        Dim nombreLocalidad As String = filas(0)("Nombre localidad")
-        Dim idDepartamento As String = filas(0)("ID departamento")
-        Dim nombreDepartamento As String = filas(0)("Nombre departamento")
+        Dim idMedico As Integer = filaMedico("ID Persona")
+        Dim ciMedico As String = filaMedico("CI Persona")
+        Dim nombreMedico As String = filaMedico("Nombre persona")
+        Dim apellidoMedico As String = filaMedico("Apellido persona")
+        Dim correoMedico As String = filaMedico("Correo persona")
+        Dim idLocalidad As String = filaMedico("ID localidad")
+        Dim nombreLocalidad As String = filaMedico("Nombre localidad")
+        Dim idDepartamento As String = filaMedico("ID departamento")
+        Dim nombreDepartamento As String = filaMedico("Nombre departamento")
 
         Dim departamentoLocalidad As New Departamento(idDepartamento, nombreDepartamento)
         Dim localidadMedico As New Localidad(idLocalidad, nombreLocalidad, departamentoLocalidad)
 
+        comando = New MySqlCommand("SELECT * FROM ObtenerEspecialidadesPorMedico WHERE `ID medico`=@ID_MEDICO")
+        comando.Parameters.AddWithValue("@ID_MEDICO", idMedico)
+        Dim tablaEspecialidadesAsociadas As DataTable = ConexionBD.EjecutarConsulta(comando)
+        Dim filasEspecialidades As DataRowCollection = tablaEspecialidadesAsociadas.Rows
+
         Dim especialidadesMedico As New List(Of Especialidad)
-        For i = 0 To filas.Count - 1
-            Dim idEspecialidad As String = filas(i)("ID especialidad")
-            Dim nombreEspecialidad As String = filas(i)("Nombre especialidad")
+        For i = 0 To filasEspecialidades.Count - 1
+            Dim idEspecialidad As String = filasEspecialidades(i)("ID especialidad")
+            Dim nombreEspecialidad As String = filasEspecialidades(i)("Nombre especialidad")
             especialidadesMedico.Add(New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, True))
         Next
 
@@ -630,8 +639,7 @@ Public Module AccesoDatos
         Dim telefonoFijoPaciente As String = filas(0)("Telefonofijo paciente")
         Dim sexoPaciente As TiposSexo = [Enum].Parse(GetType(TiposSexo), filas(0)("Sexo paciente"))
         Dim fechaNacimientoPaciente As Date = CType(filas(0)("Fecha nacimiento paciente"), MySqlDateTime).Value
-        Dim fechaDefuncionPaciente As Date = If(TypeOf filas(0)("Fecha defuncion paciente") IsNot DBNull,
-                                                CType(filas(0)("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
+        Dim fechaDefuncionPaciente As Date = If(TypeOf filas(0)("Fecha defuncion paciente") IsNot DBNull, CType(filas(0)("Fecha defuncion paciente"), MySqlDateTime).Value, Nothing)
         Dim callePaciente As String = filas(0)("Calle paciente")
         Dim numeroPuertaPaciente As String = filas(0)("Numero puerta paciente")
         Dim apartamentoPaciente As String = If(TypeOf filas(0)("Apartamento paciente") IsNot DBNull, filas(0)("Apartamento paciente"), Nothing)

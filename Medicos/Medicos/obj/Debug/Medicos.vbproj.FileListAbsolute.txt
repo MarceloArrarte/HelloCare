@@ -147,3 +147,4 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarCon
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatEN.html
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatES.html
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\Manual.pdf
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\Medicos.vbprojResolveAssemblyReference.cache

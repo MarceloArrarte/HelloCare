@@ -33,4 +33,3 @@ C:\Users\alumno\Desktop\HelloCare\Backend\Clases\obj\Debug\Clases.vbproj.CoreCom
 C:\Users\alumno\Desktop\HelloCare\Backend\Clases\obj\Debug\Clases.dll
 C:\Users\alumno\Desktop\HelloCare\Backend\Clases\obj\Debug\Clases.xml
 C:\Users\alumno\Desktop\HelloCare\Backend\Clases\obj\Debug\Clases.pdb
-C:\Users\marce\source\repos\HelloCare\Backend\Clases\obj\Debug\Clases.vbprojResolveAssemblyReference.cache

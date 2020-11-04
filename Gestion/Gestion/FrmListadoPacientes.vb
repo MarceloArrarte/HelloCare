@@ -9,7 +9,7 @@ Public Class FrmListadoPacientes
         tblPacientes.Rows.Clear()
         Try
             For Each paciente As Paciente In CargarTodosLosPacientes()
-                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento, If(paciente.FechaDefuncion <> Date.MinValue, paciente.FechaDefuncion, Nothing), paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
+                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento.ToString("d/M/yyyy"), If(paciente.FechaDefuncion <> Date.MinValue, paciente.FechaDefuncion.ToString("d/M/yyyy"), ""), paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
             Next
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -84,9 +84,9 @@ Public Class FrmListadoPacientes
         tblPacientes.ClearSelection()
 
         Dim filtroCI As String = txtBP_CI.Text
-        Dim filtroLocalidad As String = txtBP_CI.Text
+        Dim filtroLocalidad As String = txtBP_Localidad.Text
         For Each r As DataGridViewRow In tblPacientes.Rows
-            If r.Cells(1).Value.ToString.ToLower Like ("*" & filtroCI & "*").ToLower And r.Cells(4).Value.ToString.ToLower Like ("*" & filtroLocalidad & "*").ToLower Then
+            If r.Cells(1).Value.ToString.ToLower Like ("*" & filtroCI & "*").ToLower And r.Cells(5).Value.ToString.ToLower Like ("*" & filtroLocalidad & "*").ToLower Then
                 r.Visible = True
             Else
                 r.Visible = False

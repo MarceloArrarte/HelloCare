@@ -14,33 +14,36 @@ Public Class FrmModificacionMedico
 
         ' Almacena el medico que se va a estar modificando
         medicoAModificar = medico
-    End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved.", "Exit") =
-            MsgBoxResult.Yes Then
-            Me.Close()
-        End If
-    End Sub
-
-    Private Sub FrmModificacionMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Añade todas las especialidades
+        Dim especialidades As List(Of Especialidad)
+        Try
+            especialidades = CargarTodasLasEspecialidades()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
         For Each especialidad As Especialidad In CargarTodasLasEspecialidades()
             tblEspecialidades.Rows.Add(especialidad)
         Next
+
+        'Oculta las especialidades ya asignadas
+        OcultarEspecialidadesSeleccionadasOFiltradas()
 
         'Precarga los datos de las especialidades del medico
         For i = 0 To medicoAModificar.Especialidades.Count - 1
             tblAsociados.Rows.Add(medicoAModificar.Especialidades(i))
         Next
 
-        ''Vuelve invisibles las filas del listado de localidades
-        'For i = 0 To tblLocalidad.Rows.Count - 1
-        '    tblLocalidad.Rows(i).Visible = False
-        'Next
-
         'Añade todas las localidades existentes al data grid
-        For Each localidad As Localidad In CargarTodasLasLocalidades()
+        Dim localidades As List(Of Localidad)
+        Try
+            localidades = CargarTodasLasLocalidades()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+        For Each localidad As Localidad In localidades
             tblLocalidad.Rows.Add(localidad)
         Next
         tblLocalidad.ClearSelection()
@@ -48,6 +51,7 @@ Public Class FrmModificacionMedico
         For Each r As DataGridViewRow In tblLocalidad.Rows
             If CType(r.Cells(0).Value, Localidad).ID = medicoAModificar.Localidad.ID Then
                 r.Visible = True
+                r.Selected = True
             Else
                 r.Visible = False
             End If
@@ -55,9 +59,13 @@ Public Class FrmModificacionMedico
 
         'Añade al combo box de departamento los departamentos existentes
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
+    End Sub
 
-        'Oculta las especialidades ya asignadas
-        OcultarEspecialidadesSeleccionadasOFiltradas()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: no changes have been saved.", "Exit") =
+            MsgBoxResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 
     Private Sub cmbDepartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartamento.SelectedIndexChanged
@@ -90,11 +98,11 @@ Public Class FrmModificacionMedico
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         Dim listaEspecialidades As New List(Of Especialidad)
-        If tblEspecialidades.SelectedRows.Count = 0 Then
+        If tblAsociados.Rows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos una especialidad.", "Error", "You must select at least one medical specialty.", "Error")
             Return
         Else
-            For Each r As DataGridViewRow In tblAsociados.SelectedRows
+            For Each r As DataGridViewRow In tblAsociados.Rows
                 listaEspecialidades.Add(r.Cells(0).Value)
             Next
         End If
@@ -174,7 +182,6 @@ Public Class FrmModificacionMedico
     Private Sub DeseleccionarTablas()
         tblAsociados.ClearSelection()
         tblEspecialidades.ClearSelection()
-        tblLocalidad.ClearSelection()
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click

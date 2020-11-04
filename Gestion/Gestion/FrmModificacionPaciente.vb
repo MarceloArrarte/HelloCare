@@ -33,6 +33,7 @@ Public Class FrmModificacionPaciente
 
         'Añade los sexos disponibles al combo box
         cmbSexo.Items.AddRange([Enum].GetNames(GetType(TiposSexo)))
+        cmbSexo.SelectedItem = pacienteAModificar.Sexo.ToString
 
         'Añade los departamentos disponibles al combo box
         cmbDepartamento.Items.AddRange(CargarTodosLosDepartamentos.ToArray)
@@ -90,13 +91,20 @@ Public Class FrmModificacionPaciente
             localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
         End If
 
+        Dim sexo As TiposSexo
+        If cmbSexo.SelectedIndex = -1 Then
+            MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó el sexo del paciente.", "Error", "You haven't selected the patient's sex.", "Error")
+            Return
+        Else
+            sexo = [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem)
+        End If
+
         Dim ci As String = txtCi.Text
         Dim nombre As String = txtNombre.Text
         Dim apellido As String = txtApellido.Text
         Dim correo As String = txtCorreo.Text
         Dim movil As String = txtTelMovil.Text
         Dim fijo As String = txtTelFijo.Text
-        Dim sexo As TiposSexo = [Enum].Parse(GetType(TiposSexo), cmbSexo.SelectedItem)
         Dim fechaNacimiento As Date = dtpFechaNacimiento.Value
         Dim fechaDefuncion As Date = If(dtpFechaDefuncion.Visible, dtpFechaDefuncion.Value, Nothing)
         Dim calle As String = txtCalle.Text
