@@ -40,7 +40,10 @@ Public Class FrmListadoSintomas
             MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
         End Try
+
+        ActualizarSintomas()
     End Sub
 
     ' Abre un formulario con los detalles de un síntoma
@@ -114,8 +117,9 @@ Public Class FrmListadoSintomas
             If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarSintomas.Text & "*").ToLower Then
                 r.Visible = True
             Else
-                If Not r.Selected Then
-                    r.Visible = False
+                r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
                 End If
             End If
         Next

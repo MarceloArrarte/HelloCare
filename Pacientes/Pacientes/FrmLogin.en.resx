@@ -157,19 +157,6 @@
   <data name="Label5.Text" xml:space="preserve">
     <value>SIGN IN</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblContrasenaOlvidada.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblContrasenaOlvidada.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt, style=Underline</value>
-  </data>
-  <data name="lblContrasenaOlvidada.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 37</value>
-  </data>
-  <data name="lblContrasenaOlvidada.Text" xml:space="preserve">
-    <value>Forgot your password?</value>
-  </data>
   <data name="PictureBox1.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
@@ -316,6 +303,12 @@
   </data>
   <data name="lblTraducir.Text" xml:space="preserve">
     <value>Traducir</value>
+  </data>
+  <data name="lblContrasenaOlvidada.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 37</value>
+  </data>
+  <data name="lblContrasenaOlvidada.Text" xml:space="preserve">
+    <value>Forgot your password?</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

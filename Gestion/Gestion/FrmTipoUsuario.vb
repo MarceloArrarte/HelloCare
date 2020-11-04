@@ -20,7 +20,7 @@ Public Class FrmTipoUsuario
         Me.Show()
     End Sub
 
-    Private Sub btnAdministrativo_Click(sender As Object, e As EventArgs) Handles btnAdministrativos.Click
+    Private Sub btnAdministrativo_Click(sender As Object, e As EventArgs) Handles btnAdministrativo.Click
         Dim frm As New FrmListadoAdministrativos
         Me.Hide()
         frm.ShowDialog()

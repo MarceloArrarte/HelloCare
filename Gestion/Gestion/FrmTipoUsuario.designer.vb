@@ -30,7 +30,7 @@ Partial Class FrmTipoUsuario
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.lblTraducir = New System.Windows.Forms.Label()
-        Me.btnAdministrativos = New System.Windows.Forms.Button()
+        Me.btnAdministrativo = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnPaciente
@@ -81,19 +81,19 @@ Partial Class FrmTipoUsuario
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
-        'btnAdministrativos
+        'btnAdministrativo
         '
-        resources.ApplyResources(Me.btnAdministrativos, "btnAdministrativos")
-        Me.btnAdministrativos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAdministrativos.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnAdministrativos.Name = "btnAdministrativos"
-        Me.btnAdministrativos.UseVisualStyleBackColor = False
+        resources.ApplyResources(Me.btnAdministrativo, "btnAdministrativo")
+        Me.btnAdministrativo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAdministrativo.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnAdministrativo.Name = "btnAdministrativo"
+        Me.btnAdministrativo.UseVisualStyleBackColor = False
         '
         'FrmTipoUsuario
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnAdministrativos)
+        Me.Controls.Add(Me.btnAdministrativo)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.Label3)
@@ -116,5 +116,5 @@ Partial Class FrmTipoUsuario
     Friend WithEvents Label3 As Label
     Friend WithEvents btnVolver As Button
     Friend WithEvents lblTraducir As Label
-    Friend WithEvents btnAdministrativos As Button
+    Friend WithEvents btnAdministrativo As Button
 End Class

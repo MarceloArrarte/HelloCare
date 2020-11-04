@@ -39,23 +39,23 @@ Partial Class FrmLogin
         '
         'btnIngresar
         '
-        Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         resources.ApplyResources(Me.btnIngresar, "btnIngresar")
+        Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnIngresar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.UseVisualStyleBackColor = False
         '
         'txtContrasena
         '
-        Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         resources.ApplyResources(Me.txtContrasena, "txtContrasena")
+        Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         Me.txtContrasena.ForeColor = System.Drawing.Color.White
         Me.txtContrasena.Name = "txtContrasena"
         '
         'txtCedula
         '
-        Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
         resources.ApplyResources(Me.txtCedula, "txtCedula")
+        Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
         Me.txtCedula.ForeColor = System.Drawing.Color.White
         Me.txtCedula.Name = "txtCedula"
         '
@@ -90,14 +90,14 @@ Partial Class FrmLogin
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Name = "Label1"
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '
@@ -110,8 +110,8 @@ Partial Class FrmLogin
         '
         'lblTraducir
         '
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '

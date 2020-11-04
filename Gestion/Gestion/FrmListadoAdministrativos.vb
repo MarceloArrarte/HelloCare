@@ -92,10 +92,16 @@ Public Class FrmListadoAdministrativos
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
 
             If muestraSoloEncargados And r.Cells(6).Value = False Then
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
 
             'If cbEs_Encargado.Checked = True Then

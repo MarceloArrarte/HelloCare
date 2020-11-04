@@ -28,8 +28,9 @@ Public Class FrmAltaEnfermedades
             If r.Cells(0).Value.ToString.ToLower Like ("*" & txtBuscarEspecialidades.Text & "*").ToLower Then
                 r.Visible = True
             Else
-                If Not r.Selected Then
-                    r.Visible = False
+                r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
                 End If
             End If
         Next
@@ -113,6 +114,9 @@ Public Class FrmAltaEnfermedades
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
         Next
 

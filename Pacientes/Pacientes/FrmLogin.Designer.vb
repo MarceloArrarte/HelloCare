@@ -30,10 +30,10 @@ Partial Class FrmLogin
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.lblContrasenaOlvidada = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.lblTraducir = New System.Windows.Forms.Label()
+        Me.lblContrasenaOlvidada = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -92,13 +92,6 @@ Partial Class FrmLogin
         Me.Label5.ForeColor = System.Drawing.SystemColors.Control
         Me.Label5.Name = "Label5"
         '
-        'lblContrasenaOlvidada
-        '
-        resources.ApplyResources(Me.lblContrasenaOlvidada, "lblContrasenaOlvidada")
-        Me.lblContrasenaOlvidada.BackColor = System.Drawing.Color.Transparent
-        Me.lblContrasenaOlvidada.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada"
-        '
         'PictureBox1
         '
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
@@ -120,15 +113,22 @@ Partial Class FrmLogin
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
+        'lblContrasenaOlvidada
+        '
+        resources.ApplyResources(Me.lblContrasenaOlvidada, "lblContrasenaOlvidada")
+        Me.lblContrasenaOlvidada.BackColor = System.Drawing.Color.Transparent
+        Me.lblContrasenaOlvidada.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada"
+        '
         'FrmLogin
         '
         Me.AcceptButton = Me.btnIngresar
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblContrasenaOlvidada)
         Me.Controls.Add(Me.lblTraducir)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.lblContrasenaOlvidada)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -153,8 +153,8 @@ Partial Class FrmLogin
     Friend WithEvents Label3 As Windows.Forms.Label
     Friend WithEvents Label4 As Windows.Forms.Label
     Friend WithEvents Label5 As Windows.Forms.Label
-    Friend WithEvents lblContrasenaOlvidada As Windows.Forms.Label
     Friend WithEvents PictureBox1 As Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As Windows.Forms.PictureBox
     Friend WithEvents lblTraducir As Windows.Forms.Label
+    Friend WithEvents lblContrasenaOlvidada As Label
 End Class

@@ -9,7 +9,7 @@ Public Class FrmListadoPacientes
         tblPacientes.Rows.Clear()
         Try
             For Each paciente As Paciente In CargarTodosLosPacientes()
-                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento, paciente.FechaDefuncion, paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
+                tblPacientes.Rows.Add(paciente, paciente.CI, paciente.Nombre, paciente.Apellido, paciente.Correo, paciente.Localidad, paciente.TelefonoMovil, paciente.TelefonoFijo, paciente.Sexo, paciente.FechaNacimiento, If(paciente.FechaDefuncion <> Date.MinValue, paciente.FechaDefuncion, Nothing), paciente.Calle, paciente.NumeroPuerta, paciente.Apartamento)
             Next
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -90,6 +90,9 @@ Public Class FrmListadoPacientes
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
         Next
     End Sub

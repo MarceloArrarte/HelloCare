@@ -48,11 +48,11 @@ Public Class FrmChatPaciente
         Try
             EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, consultaEnCurso)
             ActualizarMensajes()
+            txtMensaje.Clear()
         Catch ex As Exception
+            MostrarMensaje(MsgBoxStyle.Critical, "Hubo un error al enviar el mensaje.", "Error", "There was an error while sending the message.", "Error")
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-
-        txtMensaje.Clear()
     End Sub
 
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click

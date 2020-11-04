@@ -55,7 +55,7 @@ Public Class Mensaje
                    remitente As TiposRemitente, diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta)
 
         _ID = Integer.MinValue
-        ValidarDatos(fechaHora, formato, nombreArchivo, remitente)
+        ValidarDatos(fechaHora, contenido, formato, nombreArchivo, remitente)
         _FechaHora = fechaHora
         _Formato = formato
         _NombreArchivo = nombreArchivo
@@ -68,7 +68,7 @@ Public Class Mensaje
                    nombreArchivo As String, diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta)
 
         _ID = id
-        ValidarDatos(fechaHora, formato, nombreArchivo, remitente)
+        ValidarDatos(fechaHora, contenido, formato, nombreArchivo, remitente)
         _FechaHora = fechaHora
         _Formato = formato
         _NombreArchivo = nombreArchivo
@@ -77,7 +77,7 @@ Public Class Mensaje
         _DiagnosticoPrimarioConConsulta = diagnosticoPrimarioConConsulta
     End Sub
 
-    Private Sub ValidarDatos(fechaHora As Date, formato As FormatosMensajeAdmitidos, nombreArchivo As String, remitente As TiposRemitente)
+    Private Sub ValidarDatos(fechaHora As Date, contenido As Byte(), formato As FormatosMensajeAdmitidos, nombreArchivo As String, remitente As TiposRemitente)
         If fechaHora = Nothing Or fechaHora < New Date(2010, 1, 1) Or fechaHora > Now Then
             Throw New ArgumentException("La fecha registrada en el mensaje no es válida.")
         End If
@@ -92,6 +92,10 @@ Public Class Mensaje
 
         If Not [Enum].IsDefined(GetType(TiposRemitente), remitente) Then
             Throw New ArgumentException("No se especificó un remitente válido para el mensaje.")
+        End If
+
+        If formato = FormatosMensajeAdmitidos.TXT Then
+            ValidarCaracteresTexto(Encoding.UTF8.GetString(contenido))
         End If
     End Sub
 

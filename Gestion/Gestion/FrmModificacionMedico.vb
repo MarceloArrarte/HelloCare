@@ -78,6 +78,9 @@ Public Class FrmModificacionMedico
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
         Next
 

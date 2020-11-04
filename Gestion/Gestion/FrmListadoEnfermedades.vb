@@ -41,7 +41,10 @@ Public Class FrmListadoEnfermedades
             MostrarMensaje(MsgBoxStyle.Information, "¡Importación finalizada!", "Tarea completada", "Import complete!", "Task complete")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
         End Try
+
+        ActualizarEnfermedades()
     End Sub
 
     ' Abre un formulario con los detalles de una enfermedad
@@ -116,6 +119,9 @@ Public Class FrmListadoEnfermedades
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Visible = False
+                End If
             End If
         Next
         tblEnfermedades.ClearSelection()

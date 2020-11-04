@@ -1152,10 +1152,16 @@ Public Module AccesoDatos
                     Dim recomendacionesEnfermedad As String = filaEnfermedad("Recomendaciones enfermedad")
                     Dim gravedadEnfermedad As Integer = filaEnfermedad("Gravedad enfermedad")
                     Dim habilitadoEnfermedad As Boolean = filaEnfermedad("Habilitado enfermedad")
+                    Dim frecuenciaEnfermedad As Decimal = filaEnfermedad("Frecuencia sintoma asociado")
+
                     Dim idEspecialidad As Integer = filaEnfermedad("ID especialidad")
                     Dim nombreEspecialidad As String = filaEnfermedad("Nombre especialidad")
                     Dim habilitadoEspecialidad As Boolean = filaEnfermedad("Habilitado especialidad")
+
                     Dim especialidadEnfermedad As New Especialidad(idEspecialidad, nombreEspecialidad, Nothing, habilitadoEspecialidad)
+
+                    listaEnfermedades.Add(New Enfermedad(idEnfermedad, nombreEnfermedad, recomendacionesEnfermedad, gravedadEnfermedad, descripcionEnfermedad, Nothing, especialidadEnfermedad, habilitadoEnfermedad))
+                    listaFrecuencias.Add(frecuenciaEnfermedad)
                 End If
             Next
 

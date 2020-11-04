@@ -117,6 +117,7 @@ Public Class FrmDiagnosticoPrimario
                     diagnosticoConConsulta = AgregarConsultaADiagnostico(diagnosticoMostrado, frmComentarios.txtComentariosAdicionales.Text)
                 Catch ex As Exception
                     MostrarMensaje(MsgBoxStyle.Critical, "Ocurrió un problema al solicitar la consulta médica.", "Error", "There was a problem when requesting a medical consultation.", "Error")
+                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
                     Return
                 End Try
             Else

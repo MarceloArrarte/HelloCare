@@ -71,6 +71,9 @@ Public Class FrmModificacionEnfermedades
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
         Next
     End Sub
@@ -153,13 +156,16 @@ Public Class FrmModificacionEnfermedades
                 r.Visible = True
             Else
                 r.Visible = False
+                If r.Selected Then
+                    r.Selected = False
+                End If
             End If
         Next
 
         ' Oculta los síntomas ya seleccionadas
         For Each rAsociado As DataGridViewRow In tblAsociados.Rows
             For Each rSintoma As DataGridViewRow In tblSintomas.Rows
-                If rAsociado.Cells(1).Value = rAsociado.Cells(1).Value Then
+                If rAsociado.Cells(1).Value = rSintoma.Cells(1).Value Then
                     rSintoma.Visible = False
                 End If
             Next
