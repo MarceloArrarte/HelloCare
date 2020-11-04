@@ -49,6 +49,7 @@ Public Class FrmAltaAdministrativo
         Try
             CrearAdministrativo(ci, nombre, apellido, correo, localidad, esEncargado)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo agregado con éxito.", "Éxito", "Administrative staff successfully added.", "Success")
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         Finally

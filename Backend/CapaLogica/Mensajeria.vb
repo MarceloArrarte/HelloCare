@@ -237,7 +237,7 @@ Public Module Mensajeria
 
         For i = 0 To archivos.Count - 1
             Dim archivo As Mensaje = archivos(i)
-            Dim stream As New MemoryStream(archivo.Contenido)
+            Dim stream As New MemoryStream(CargarContenidoArchivoPorID(archivo.ID))
             Dim adjunto As New Attachment(stream, archivo.NombreArchivo)
             mail.Attachments.Add(adjunto)
         Next

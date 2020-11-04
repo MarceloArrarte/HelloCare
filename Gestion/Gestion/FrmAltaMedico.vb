@@ -79,6 +79,7 @@ Public Class FrmAltaMedico
         Try
             CrearMedico(ci, nombre, apellido, correo, localidad, listaEspecialidades)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Médico agregado con éxito.", "Éxito", "Doctor successfully added.", "Success")
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         Finally
