@@ -11,6 +11,10 @@ Public Module Ayuda
         Select Case tipoUsuario
             Case TiposUsuario.Administrativo
                 rangoPaginas = ObtenerRangoPaginasManualAdministrativo(form)
+            Case TiposUsuario.Paciente
+                rangoPaginas = ObtenerRangoPaginasManualPaciente(form)
+            Case TiposUsuario.Medico
+                rangoPaginas = ObtenerRangoPaginasManualMedico(form)
         End Select
 
         Dim limitesRango As String() = rangoPaginas.Split("-"c)
@@ -37,7 +41,7 @@ Public Module Ayuda
             Case "FrmAltaPaciente"
                 rangoPaginas = "19-20"
             Case "FrmAltaSintomas"
-                rangoPaginas = "10-110"
+                rangoPaginas = "10-11"
             Case "FrmConfiguracion"
                 rangoPaginas = "28-29"
             Case "FrmContrasenaOlvidada"
@@ -56,9 +60,6 @@ Public Module Ayuda
                 rangoPaginas = "1-1"
             Case "FrmMenuPrincipal"
                 rangoPaginas = "4-6"
-
-
-                ''''
             Case "FrmModificacionAdministrativo"
                 rangoPaginas = "26-26"
             Case "FrmModificacionEnfermedades"
@@ -70,7 +71,7 @@ Public Module Ayuda
             Case "FrmModificacionSintomas"
                 rangoPaginas = "8-9"
             Case "FrmRegistro"
-                rangoPaginas = "3-3"
+                rangoPaginas = "2-3"
             Case "FrmTipoUsuario"
                 rangoPaginas = "16-16"
             Case "FrmVerAdministrativo"
@@ -95,25 +96,25 @@ Public Module Ayuda
         Dim rangoPaginas As String = ""
         Select Case nombreCortoForm
             Case "FrmChatPaciente"
-                rangoPaginas = "7-8"
+                rangoPaginas = "9-9"
             Case "FrmComentariosAdicionales"
-                rangoPaginas = "7-7"
+                rangoPaginas = "8-9"
             Case "FrmContrasenaOlvidada"
-                '' FALTA
+                rangoPaginas = "2-2"
             Case "FrmDiagnosticoPrimario"
                 rangoPaginas = "5-7"
             Case "FrmDiagnosticosDiferenciales"
-                '' FALTA
+                rangoPaginas = "5-7"
             Case "FrmHistorialDiagnosticos"
-                rangoPaginas = "4-5"
+                rangoPaginas = "5-7"
             Case "FrmIngresoSintoma"
-                rangoPaginas = "3-4"
+                rangoPaginas = "4-5"
             Case "FrmLogin"
                 rangoPaginas = "1-1"
             Case "FrmMenuPrincipal"
-                rangoPaginas = "2-5"
+                rangoPaginas = "3-7"
             Case "FrmRegistro"
-                rangoPaginas = "1-2"
+                rangoPaginas = "3-3"
             Case Else
                 Throw New Exception("No se encontró ayuda para esta ventana.")
         End Select
@@ -126,23 +127,23 @@ Public Module Ayuda
         Dim rangoPaginas As String = ""
         Select Case nombreCortoForm
             Case "FrmChatMedico"
-                rangoPaginas = "7-8"
+                rangoPaginas = "7-10"
             Case "FrmHistorialChats"
-                rangoPaginas = "7-7"
+                rangoPaginas = "10-11"
             Case "FrmHistorialPacientes"
-                rangoPaginas = "7-7"
+                rangoPaginas = "11-12"
             Case "FrmContrasenaOlvidada"
-                '' FALTA
+                rangoPaginas = "2-2"
             Case "FrmLogin"
                 rangoPaginas = "1-1"
             Case "FrmMenuPrincipal"
-                rangoPaginas = "2-5"
+                rangoPaginas = "3-7"
             Case "FrmNuevoDiagnostico"
-                rangoPaginas = "2-5"
+                rangoPaginas = "9-10"
             Case "FrmPeticionesChat"
-                rangoPaginas = "2-5"
+                rangoPaginas = "7-8"
             Case "FrmRegistro"
-                rangoPaginas = "1-2"
+                rangoPaginas = "3-3"
             Case Else
                 Throw New Exception("No se encontró ayuda para esta ventana.")
         End Select
@@ -162,7 +163,12 @@ Public Module Ayuda
 
         Dim os As Stream = New StreamWriter(rutaSalida).BaseStream
         Dim doc As New Document()
-        Dim lector As PdfReader = New PdfReader("Manual.pdf")
+        Dim lector As PdfReader
+        Try
+            lector = New PdfReader("Manual.pdf")
+        Catch ex As Exception
+            Throw New Exception("No se encuentra el manual del sistema en la carpeta de la aplicación.")
+        End Try
         Dim clonador As New PdfSmartCopy(doc, os)
         doc.Open()
         For i = primeraPagina To ultimaPagina

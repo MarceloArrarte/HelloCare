@@ -194,6 +194,7 @@ Partial Class FrmIngresoSintoma
         Me.Controls.Add(Me.Titulo)
         Me.Controls.Add(Me.LblIngresarSintoma)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmIngresoSintoma"
         CType(Me.tblDisponibles, System.ComponentModel.ISupportInitialize).EndInit()

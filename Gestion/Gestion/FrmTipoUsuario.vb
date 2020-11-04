@@ -33,7 +33,11 @@ Public Class FrmTipoUsuario
 
     Private Sub FrmTipoUsuario_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F1 Then
-            AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Try
+                AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 End Class

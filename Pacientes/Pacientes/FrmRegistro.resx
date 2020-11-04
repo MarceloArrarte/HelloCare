@@ -123,8 +123,8 @@
   <data name="Label4.Text" xml:space="preserve">
     <value>BIENVENIDO</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Pacientes</value>
+  <data name="&gt;&gt;txtContrasena.Name" xml:space="preserve">
+    <value>txtContrasena</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
@@ -150,11 +150,14 @@
   <data name="btnGuardar.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <data name="&gt;&gt;chkMostrarContrasena.Name" xml:space="preserve">
+    <value>chkMostrarContrasena</value>
+  </data>
   <data name="&gt;&gt;txtRepetir.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 46</value>
+  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -168,11 +171,11 @@
   <data name="&gt;&gt;btnGuardar.Name" xml:space="preserve">
     <value>btnGuardar</value>
   </data>
-  <data name="&gt;&gt;txtContrasena.Name" xml:space="preserve">
-    <value>txtContrasena</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;txtRepetir.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 46</value>
   </data>
   <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 21.75pt, style=Bold, Underline</value>
@@ -3332,9 +3335,6 @@
         XsHYmziMvRwOh8PhcDgcDocTjwH+P7321P12InLXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
   <data name="txtRepetir.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -3350,14 +3350,14 @@
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;chkMostrarContrasena.Name" xml:space="preserve">
-    <value>chkMostrarContrasena</value>
+  <data name="&gt;&gt;btnGuardar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 55</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FrmRegistro</value>
   </data>
   <data name="chkMostrarContrasena.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
@@ -3368,8 +3368,8 @@
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
@@ -3383,8 +3383,8 @@
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
   </data>
-  <data name="btnGuardar.Text" xml:space="preserve">
-    <value>Guardar contraseña</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 55</value>
   </data>
   <data name="txtRepetir.Location" type="System.Drawing.Point, System.Drawing">
     <value>742, 361</value>
@@ -3443,9 +3443,6 @@
   <data name="&gt;&gt;lblTitulo.Name" xml:space="preserve">
     <value>lblTitulo</value>
   </data>
-  <data name="&gt;&gt;btnGuardar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="chkMostrarContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -3455,14 +3452,14 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
   <data name="txtRepetir.Size" type="System.Drawing.Size, System.Drawing">
     <value>323, 44</value>
   </data>
   <data name="chkMostrarContrasena.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
+  </data>
+  <data name="&gt;&gt;txtRepetir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="txtContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3478,9 +3475,6 @@
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>Ingrese su nueva contraseña:</value>
-  </data>
-  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
@@ -3521,8 +3515,8 @@
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>700, 164</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="btnGuardar.Text" xml:space="preserve">
+    <value>Guardar contraseña</value>
   </data>
   <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3563,8 +3557,8 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FrmRegistro</value>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkMostrarContrasena.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3572,11 +3566,11 @@
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Pacientes</value>
+  </data>
   <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Underline</value>
-  </data>
-  <data name="chkMostrarContrasena.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 342</value>
@@ -3608,6 +3602,9 @@
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1213, 681</value>
   </data>
@@ -3628,6 +3625,9 @@
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
+  </data>
+  <data name="chkMostrarContrasena.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblTitulo.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>

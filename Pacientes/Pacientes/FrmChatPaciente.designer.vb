@@ -121,6 +121,7 @@ Partial Class FrmChatPaciente
         Me.Controls.Add(Me.txtMensaje)
         Me.Controls.Add(Me.btnSalir)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmChatPaciente"
         Me.ResumeLayout(False)
         Me.PerformLayout()

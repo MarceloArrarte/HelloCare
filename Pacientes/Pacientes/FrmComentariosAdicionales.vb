@@ -27,4 +27,14 @@ Public Class FrmComentariosAdicionales
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
     End Sub
+
+    Private Sub FrmComentariosAdicionales_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
 End Class

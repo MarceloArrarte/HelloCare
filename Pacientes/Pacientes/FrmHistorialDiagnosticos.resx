@@ -272,9 +272,6 @@
   <data name="&gt;&gt;Column1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
@@ -1370,8 +1367,8 @@
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="Column1.HeaderText" xml:space="preserve">
-    <value>Certeza</value>
+  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;btnVerDetalles.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1393,6 +1390,9 @@
   </data>
   <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="btnVerDetalles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>732, 573</value>
   </data>
   <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1462,6 +1462,9 @@
   </data>
   <data name="&gt;&gt;Column3.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Column1.HeaderText" xml:space="preserve">
+    <value>Certeza</value>
   </data>
   <data name="&gt;&gt;Column5.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1625,8 +1628,8 @@
   <data name="Column5.HeaderText" xml:space="preserve">
     <value>Objeto</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>583, 44</value>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
   </data>
   <data name="Column2.HeaderText" xml:space="preserve">
     <value>Diagnóstico</value>
@@ -1646,14 +1649,11 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="btnVerDetalles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1661,8 +1661,8 @@
   <data name="btnVerDetalles.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 49</value>
   </data>
-  <data name="btnVerDetalles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>732, 573</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1672,9 +1672,6 @@
   </data>
   <data name="Column3.HeaderText" xml:space="preserve">
     <value>Fecha y hora</value>
-  </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1699,6 +1696,9 @@
   </data>
   <data name="tblDiagnosticos.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 44</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>

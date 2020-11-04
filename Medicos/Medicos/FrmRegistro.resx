@@ -150,8 +150,8 @@
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmRegistro</value>
   </data>
   <data name="txtRepetir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
@@ -3329,9 +3329,6 @@
   <data name="txtRepetir.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmRegistro</value>
-  </data>
   <data name="&gt;&gt;lblTitulo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -3356,8 +3353,8 @@
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
@@ -3440,8 +3437,8 @@
   <data name="chkMostrarContrasena.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
-  <data name="&gt;&gt;txtRepetir.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="txtContrasena.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt</value>
   </data>
   <data name="txtContrasena.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3458,14 +3455,11 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Ingrese su nueva contraseña:</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="lblTitulo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Underline</value>
   </data>
-  <data name="txtContrasena.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 24pt</value>
+  <data name="&gt;&gt;txtRepetir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lblTitulo.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 37</value>
@@ -3487,6 +3481,9 @@
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>722, 157</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;chkMostrarContrasena.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3568,6 +3565,9 @@
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lblTitulo.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>

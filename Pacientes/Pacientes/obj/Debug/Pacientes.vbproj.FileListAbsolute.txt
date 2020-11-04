@@ -32,7 +32,6 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\itextsharp.x
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\MySql.Data.xml
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\CapaPersistencia.pdb
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\CapaPersistencia.xml
-C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.vbprojResolveAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.vbproj.Pacientes.exe.config
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.FrmChatPaciente.resources
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.FrmComentariosAdicionales.resources

@@ -21,7 +21,13 @@ Public Class FrmDiagnosticoPrimario
             txtRecomendaciones.Text &= s.Recomendaciones & vbNewLine & vbNewLine
         Next
 
-        Dim enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas = RealizarDiagnostico(sintomasIngresados)
+        Dim enfermedadesDiagnosticadas As EnfermedadesDiagnosticadas
+        Try
+            enfermedadesDiagnosticadas = RealizarDiagnostico(sintomasIngresados)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
 
         For i = 0 To enfermedadesDiagnosticadas.Items.Count - 1
             tblEnfermedadesDiagnosticadas.Rows.Add(enfermedadesDiagnosticadas.Items(i), enfermedadesDiagnosticadas.Probabilidad(i) & "%",
@@ -37,7 +43,11 @@ Public Class FrmDiagnosticoPrimario
                                 enfermedadesDiagnosticadas.Items(0).Nombre & ", con una certeza del " & Math.Round(enfermedadesDiagnosticadas.Probabilidad(0), 1) & "%."
         End If
 
-        diagnosticoMostrado = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
+        Try
+            diagnosticoMostrado = CrearDiagnosticoPrimario(pacienteLogeado, sintomasIngresados, enfermedadesDiagnosticadas)
+        Catch ex As Exception
+            MostrarMensaje(MsgBoxStyle.Critical, "Hubo un error al guardar el diagnóstico en la base de datos.", "Error", "There was an error while savine the diagnosis to the database.", "Error")
+        End Try
     End Sub
 
     Public Sub New(diagnostico As DiagnosticoPrimario)
@@ -61,7 +71,6 @@ Public Class FrmDiagnosticoPrimario
             txtRecomendaciones.Text &= s.Recomendaciones & vbNewLine & vbNewLine
         Next
 
-        'nuevoDiagnostico = False
         diagnosticoMostrado = diagnostico
     End Sub
 
@@ -71,13 +80,15 @@ Public Class FrmDiagnosticoPrimario
         Me.ActiveControl = lblTitulo
 
         If TypeOf diagnosticoMostrado Is DiagnosticoPrimarioConConsulta Then
-            Dim cantidadDiagnosticosDiferenciales As Integer = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
+            Dim cantidadDiagnosticosDiferenciales As Integer
+            Try
+                cantidadDiagnosticosDiferenciales = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                Return
+            End Try
             lblDiagnosticosDiferenciales.Text = lblDiagnosticosDiferenciales.Text.Replace("#", cantidadDiagnosticosDiferenciales)
-            If cantidadDiagnosticosDiferenciales > 0 Then
-                btnDiagnosticosDiferenciales.Visible = True
-            Else
-                btnDiagnosticosDiferenciales.Visible = False
-            End If
+            btnDiagnosticosDiferenciales.Visible = cantidadDiagnosticosDiferenciales > 0
         Else
             lblDiagnosticosDiferenciales.Hide()
             btnDiagnosticosDiferenciales.Hide()
@@ -102,7 +113,12 @@ Public Class FrmDiagnosticoPrimario
         If confirmacion = DialogResult.OK Then
             Dim diagnosticoConConsulta As DiagnosticoPrimarioConConsulta
             If TryCast(diagnosticoMostrado, DiagnosticoPrimarioConConsulta) Is Nothing Then
-                diagnosticoConConsulta = AgregarConsultaADiagnostico(diagnosticoMostrado, frmComentarios.txtComentariosAdicionales.Text)
+                Try
+                    diagnosticoConConsulta = AgregarConsultaADiagnostico(diagnosticoMostrado, frmComentarios.txtComentariosAdicionales.Text)
+                Catch ex As Exception
+                    MostrarMensaje(MsgBoxStyle.Critical, "Ocurrió un problema al solicitar la consulta médica.", "Error", "There was a problem when requesting a medical consultation.", "Error")
+                    Return
+                End Try
             Else
                 diagnosticoConConsulta = diagnosticoMostrado
             End If
@@ -126,7 +142,13 @@ Public Class FrmDiagnosticoPrimario
 
     Private Sub lblDiagnosticosDiferenciales_TextChanged(sender As Object, e As EventArgs) Handles lblDiagnosticosDiferenciales.TextChanged
         If TypeOf diagnosticoMostrado Is DiagnosticoPrimarioConConsulta Then
-            Dim cantidadDiagnosticosDiferenciales As Integer = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
+            Dim cantidadDiagnosticosDiferenciales As Integer
+            Try
+                cantidadDiagnosticosDiferenciales = ContarDiagnosticosDiferenciales(diagnosticoMostrado)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                Return
+            End Try
             lblDiagnosticosDiferenciales.Text = lblDiagnosticosDiferenciales.Text.Replace("#", cantidadDiagnosticosDiferenciales)
             If cantidadDiagnosticosDiferenciales > 0 Then
                 btnDiagnosticosDiferenciales.Visible = True
@@ -136,6 +158,16 @@ Public Class FrmDiagnosticoPrimario
         Else
             lblDiagnosticosDiferenciales.Hide()
             btnDiagnosticosDiferenciales.Hide()
+        End If
+    End Sub
+
+    Private Sub FrmDiagnosticoPrimario_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 End Class

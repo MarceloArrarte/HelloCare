@@ -62,15 +62,15 @@ Partial Class FrmMenuPrincipal
         '
         'lblLogeado
         '
-        resources.ApplyResources(Me.lblLogeado, "lblLogeado")
         Me.lblLogeado.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblLogeado, "lblLogeado")
         Me.lblLogeado.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblLogeado.Name = "lblLogeado"
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -92,6 +92,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnHistorialChat)
         Me.Controls.Add(Me.btnPeticiones)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmMenuPrincipal"
         Me.ResumeLayout(False)
         Me.PerformLayout()

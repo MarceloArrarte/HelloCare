@@ -1265,8 +1265,8 @@
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Aquí se muestran todos los diagnósticos diferenciales realizados por su médico, de acuerdo al diagnóstico primario realizado por el sistema.</value>
   </data>
   <data name="&gt;&gt;Column4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1493,6 +1493,9 @@
   <data name="btnVolver.Text" xml:space="preserve">
     <value>Volver</value>
   </data>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -1502,17 +1505,14 @@
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>580, 43</value>
   </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Aquí se muestran todos los diagnósticos diferenciales realizados por su médico, de acuerdo al diagnóstico primario realizado por el sistema.</value>
-  </data>
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="&gt;&gt;tblDiagnosticosDiferenciales.Name" xml:space="preserve">
     <value>tblDiagnosticosDiferenciales</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 9</value>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
   </data>
   <data name="Column2.HeaderText" xml:space="preserve">
     <value>N°</value>
@@ -1544,9 +1544,6 @@
   <data name="Column3.HeaderText" xml:space="preserve">
     <value>Enfermedad</value>
   </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
-  </data>
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1570,6 +1567,9 @@
   </data>
   <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 9</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1214, 681</value>

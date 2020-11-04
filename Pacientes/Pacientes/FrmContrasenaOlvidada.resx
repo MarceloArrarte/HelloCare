@@ -143,9 +143,15 @@
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 352</value>
   </data>
   <data name="btnConfirmar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -174,8 +180,8 @@
   <data name="btnConfirmar.Location" type="System.Drawing.Point, System.Drawing">
     <value>806, 517</value>
   </data>
-  <data name="lblCodigo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
+  <data name="btnEnviarCodigo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 282</value>
@@ -3443,6 +3449,9 @@
   <data name="&gt;&gt;lblTitulo.Name" xml:space="preserve">
     <value>lblTitulo</value>
   </data>
+  <data name="btnEnviarCodigo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 46</value>
+  </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -3473,8 +3482,8 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Ingrese su cédula:</value>
   </data>
-  <data name="btnEnviarCodigo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 46</value>
+  <data name="&gt;&gt;txtCodigo.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -3494,11 +3503,8 @@
   <data name="btnEnviarCodigo.Location" type="System.Drawing.Point, System.Drawing">
     <value>806, 258</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 42</value>
-  </data>
-  <data name="&gt;&gt;txtCodigo.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblCodigo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
   </data>
   <data name="txtCodigo.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -3560,11 +3566,8 @@
   <data name="txtCodigo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt</value>
   </data>
-  <data name="&gt;&gt;btnConfirmar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lblTitulo.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -3578,9 +3581,6 @@
   <data name="btnConfirmar.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 46</value>
   </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="btnConfirmar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 20.25pt</value>
   </data>
@@ -3590,14 +3590,14 @@
   <data name="&gt;&gt;lblTraducir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTitulo.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 42</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 352</value>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
@@ -3632,8 +3632,8 @@
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnEnviarCodigo.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>320, 55</value>

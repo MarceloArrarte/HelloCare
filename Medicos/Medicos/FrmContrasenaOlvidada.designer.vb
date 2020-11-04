@@ -50,14 +50,14 @@ Partial Class FrmContrasenaOlvidada
         '
         'txtCedula
         '
-        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.Name = "txtCedula"
         '
         'btnEnviarCodigo
         '
-        resources.ApplyResources(Me.btnEnviarCodigo, "btnEnviarCodigo")
         Me.btnEnviarCodigo.BackColor = System.Drawing.Color.LightCoral
+        resources.ApplyResources(Me.btnEnviarCodigo, "btnEnviarCodigo")
         Me.btnEnviarCodigo.ForeColor = System.Drawing.Color.White
         Me.btnEnviarCodigo.Name = "btnEnviarCodigo"
         Me.btnEnviarCodigo.UseVisualStyleBackColor = False
@@ -71,22 +71,22 @@ Partial Class FrmContrasenaOlvidada
         '
         'txtCodigo
         '
-        resources.ApplyResources(Me.txtCodigo, "txtCodigo")
         Me.txtCodigo.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCodigo, "txtCodigo")
         Me.txtCodigo.Name = "txtCodigo"
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.LightCoral
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -103,6 +103,7 @@ Partial Class FrmContrasenaOlvidada
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblTitulo)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmContrasenaOlvidada"
         Me.ResumeLayout(False)
         Me.PerformLayout()

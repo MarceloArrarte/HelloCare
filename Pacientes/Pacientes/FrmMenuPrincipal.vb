@@ -40,4 +40,14 @@ Public Class FrmMenuPrincipal
             lblLogeado.Text = lblLogeado.Text.Replace("#", pacienteLogeado.ToString)
         End If
     End Sub
+
+    Private Sub FrmMenuPrincipal_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
 End Class

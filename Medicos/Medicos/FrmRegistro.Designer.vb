@@ -105,6 +105,7 @@ Partial Class FrmRegistro
         Me.Controls.Add(Me.txtRepetir)
         Me.Controls.Add(Me.txtContrasena)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmRegistro"
         Me.ResumeLayout(False)
         Me.PerformLayout()

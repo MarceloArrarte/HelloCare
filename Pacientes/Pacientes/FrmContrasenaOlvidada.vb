@@ -6,18 +6,31 @@ Imports Clases
 
 Public Class FrmContrasenaOlvidada
     Private Sub btnEnviarCodigo_Click(sender As Object, e As EventArgs) Handles btnEnviarCodigo.Click
-        If AutenticarUsuarioPaciente(txtCedula.Text, ".") = ResultadosLogin.PersonaNoExiste Then
-            MostrarMensaje(MsgBoxStyle.Critical, "No se han encontrado datos registrados para un paciente con esta cédula.", "Error", "No registered data was found for this ID card.", "Error")
-        Else
-            Dim ventanaEspera As New FrmEsperar()
-            EnviarCorreoRestauracionContrasena(CargarPacientePorCI(txtCedula.Text))
-            MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail with steps for restoring your password has been sent to you. Don't close this window.", "")
+        Dim ci As String = txtCedula.Text
+
+        Dim estadoPersonaEnBD As ResultadosLogin
+        Try
+            estadoPersonaEnBD = AutenticarUsuarioPaciente(ci, ".")
+        Catch ex As Exception
+            MostrarMensaje(MsgBoxStyle.Critical, "No se han encontrado datos registrados para un paciente con esta cédula.", "Error", "No registered data was found for a patient with this ID card.", "Error")
+            Return
+        End Try
+
+        Dim ventanaEspera As New FrmEsperar()
+        ventanaEspera.Show()
+        Try
+            EnviarCorreoRestauracionContrasena(CargarPacientePorCI(ci))
+            MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail has been sent to your e-mail address with steps to restore your password. Don't close this window.", "")
             txtCedula.Enabled = False
             btnEnviarCodigo.Enabled = False
             lblCodigo.Visible = True
             txtCodigo.Visible = True
             btnConfirmar.Visible = True
-        End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            ventanaEspera.Close()
+        End Try
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
@@ -28,5 +41,15 @@ Public Class FrmContrasenaOlvidada
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub FrmContrasenaOlvidada_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 End Class

@@ -123,13 +123,10 @@
   <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnEnviar.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="&gt;&gt;Titulo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tblDisponibles.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
@@ -150,17 +147,14 @@
   <data name="btnSalir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;LblIngresarSintoma.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LblIngresarSintoma.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblSintomasSeleccionados.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 25</value>
+  <data name="btnEnviar.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="LblIngresarSintoma.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1421,14 +1415,17 @@
   <data name="LblIngresarSintoma.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="lblSintomasSeleccionados.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 25</value>
+  </data>
   <data name="lblSintomasSeleccionados.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tblSeleccionados.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tblSeleccionados.Name" xml:space="preserve">
+    <value>tblSeleccionados</value>
   </data>
   <data name="&gt;&gt;btnQuitar.Name" xml:space="preserve">
     <value>btnQuitar</value>
@@ -4050,6 +4047,9 @@
   <data name="&gt;&gt;lblSintomasSeleccionados.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tblSeleccionados.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
@@ -4333,8 +4333,8 @@ Luego, presione "Enviar" para enviar sus síntomas al sistema y recibir un diagn
   <data name="btnEnviar.Text" xml:space="preserve">
     <value>Enviar</value>
   </data>
-  <data name="&gt;&gt;tblSeleccionados.Name" xml:space="preserve">
-    <value>tblSeleccionados</value>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnQuitar.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -4525,8 +4525,8 @@ Luego, presione "Enviar" para enviar sus síntomas al sistema y recibir un diagn
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>

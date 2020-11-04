@@ -23,8 +23,8 @@ Partial Class FrmHistorialDiagnosticos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmHistorialDiagnosticos))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -84,8 +84,8 @@ Partial Class FrmHistorialDiagnosticos
         '
         'Column2
         '
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column2.FillWeight = 40.0!
         resources.ApplyResources(Me.Column2, "Column2")
         Me.Column2.Name = "Column2"
@@ -100,8 +100,8 @@ Partial Class FrmHistorialDiagnosticos
         '
         'Column3
         '
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column3.FillWeight = 40.0!
         resources.ApplyResources(Me.Column3, "Column3")
         Me.Column3.Name = "Column3"
@@ -135,6 +135,7 @@ Partial Class FrmHistorialDiagnosticos
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmHistorialDiagnosticos"
         CType(Me.tblDiagnosticos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

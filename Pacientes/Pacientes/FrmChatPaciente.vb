@@ -29,19 +29,30 @@ Public Class FrmChatPaciente
             End If
         End If
 
-        cantidadTotalMensajes = ContarMensajes(consultaEnCurso)
-        cantidadTotalArchivos = ContarArchivos(consultaEnCurso)
-        MostrarNuevosMensajes(CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadTotalMensajes))
-        MostrarNuevosMensajes(CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadTotalArchivos))
+        Try
+            cantidadTotalMensajes = ContarMensajes(consultaEnCurso)
+            cantidadTotalArchivos = ContarArchivos(consultaEnCurso)
+            MostrarNuevosMensajes(CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadTotalMensajes))
+            MostrarNuevosMensajes(CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadTotalArchivos))
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
 
         tmrActualizar.Enabled = True
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
         Dim bytesMensaje As Byte() = Encoding.UTF8.GetBytes(txtMensaje.Text.ToCharArray)
-        EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, consultaEnCurso)
+
+        Try
+            EnviarMensaje(FormatosMensajeAdmitidos.TXT, bytesMensaje, TiposRemitente.Paciente, consultaEnCurso)
+            ActualizarMensajes()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
         txtMensaje.Clear()
-        ActualizarMensajes()
     End Sub
 
     Private Sub btnAdjuntar_Click(sender As Object, e As EventArgs) Handles btnAdjuntar.Click
@@ -60,12 +71,21 @@ Public Class FrmChatPaciente
                     formato = FormatosMensajeAdmitidos.JPEG
                 Case ".png"
                     formato = FormatosMensajeAdmitidos.PNG
+                Case Else
+                    MostrarMensaje(MsgBoxStyle.Critical, "No se seleccionó un formato de archivo válido. Los formatos válidos son JPG, JPEG, PNG y PDF.", "Formato de archivo inválido", "The file selected has no valid format. Valid file formats are JPG, JPEG, PNG and PDF.", "Invalid file format")
+                    Return
             End Select
             Dim contenidoArchivo As Byte() = File.ReadAllBytes(ruta)
-            EnviarMensaje(FormatosMensajeAdmitidos.TXT, Encoding.UTF8.GetBytes(pacienteLogeado.ToString & " envió un archivo " & formato.ToString & " (" & nombreArchivo & ")."),
-                          TiposRemitente.Paciente, consultaEnCurso)
 
-            EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, consultaEnCurso, nombreArchivo)
+            Try
+                EnviarMensaje(FormatosMensajeAdmitidos.TXT, Encoding.UTF8.GetBytes(pacienteLogeado.ToString & " envió un archivo " & formato.ToString & " (" & nombreArchivo & ")."),
+                              TiposRemitente.Paciente, consultaEnCurso)
+
+                EnviarMensaje(formato, contenidoArchivo, TiposRemitente.Paciente, consultaEnCurso, nombreArchivo)
+            Catch ex As Exception
+                MostrarMensaje(MsgBoxStyle.Critical, "Hubo un error al enviar el archivo adjunto.", "Error", "There was an error when sending the attachment.", "Error")
+            End Try
+
             ActualizarMensajes()
         End If
     End Sub
@@ -85,23 +105,27 @@ Public Class FrmChatPaciente
     End Sub
 
     Private Sub ActualizarMensajes()
-        Dim cantidadActualizadaMensajes As Integer = ContarMensajes(consultaEnCurso)
-        Dim cantidadNuevosMensajes As Integer = cantidadActualizadaMensajes - cantidadTotalMensajes
+        Try
+            Dim cantidadActualizadaMensajes As Integer = ContarMensajes(consultaEnCurso)
+            Dim cantidadNuevosMensajes As Integer = cantidadActualizadaMensajes - cantidadTotalMensajes
 
-        If cantidadNuevosMensajes > 0 Then
-            Dim nuevosMensajes As List(Of Mensaje) = CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadNuevosMensajes)
-            cantidadTotalMensajes = cantidadActualizadaMensajes
-            MostrarNuevosMensajes(nuevosMensajes)
-        End If
+            If cantidadNuevosMensajes > 0 Then
+                Dim nuevosMensajes As List(Of Mensaje) = CargarUltimosMensajesDiagnostico(consultaEnCurso, cantidadNuevosMensajes)
+                cantidadTotalMensajes = cantidadActualizadaMensajes
+                MostrarNuevosMensajes(nuevosMensajes)
+            End If
 
-        Dim cantidadActualizadaArchivos As Integer = ContarArchivos(consultaEnCurso)
-        Dim cantidadNuevosArchivos As Integer = cantidadActualizadaArchivos - cantidadTotalArchivos
+            Dim cantidadActualizadaArchivos As Integer = ContarArchivos(consultaEnCurso)
+            Dim cantidadNuevosArchivos As Integer = cantidadActualizadaArchivos - cantidadTotalArchivos
 
-        If cantidadNuevosArchivos > 0 Then
-            Dim nuevosArchivos As List(Of Mensaje) = CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadNuevosArchivos)
-            cantidadTotalArchivos = cantidadActualizadaArchivos
-            MostrarNuevosMensajes(nuevosArchivos)
-        End If
+            If cantidadNuevosArchivos > 0 Then
+                Dim nuevosArchivos As List(Of Mensaje) = CargarUltimosMetadatosArchivosDiagnostico(consultaEnCurso, cantidadNuevosArchivos)
+                cantidadTotalArchivos = cantidadActualizadaArchivos
+                MostrarNuevosMensajes(nuevosArchivos)
+            End If
+        Catch ex As Exception
+            MostrarMensaje(MsgBoxStyle.Critical, "Hubo un error al intentar actualizar los mensajes.", "Error", "There was an error while updating the messages.", "Error")
+        End Try
     End Sub
 
     Private Sub MostrarNuevosMensajes(mensajes As List(Of Mensaje))
@@ -128,7 +152,13 @@ Public Class FrmChatPaciente
         If lstArchivos.SelectedItems.Count = 1 Then
             ' Llamada a método para obtener archivo de la BD en base a ID
             Dim metadatos As Mensaje = lstArchivos.SelectedItem
-            Dim contenidoArchivo As Byte() = CargarContenidoArchivoPorID(metadatos.ID)
+            Dim contenidoArchivo As Byte()
+            Try
+                contenidoArchivo = CargarContenidoArchivoPorID(metadatos.ID)
+            Catch ex As Exception
+                MostrarMensaje(MsgBoxStyle.Critical, "Ocurrió un error al recuperar los datos del archivo.", "Error", "An error occured while retrieving the file data.", "Error")
+                Return
+            End Try
 
             Dim ruta As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\" & metadatos.NombreArchivo
             If File.Exists(ruta) Then
@@ -161,6 +191,16 @@ Public Class FrmChatPaciente
             Else
                 lblMedico.Text = "A doctor will communicate with you shortly."
             End If
+        End If
+    End Sub
+
+    Private Sub FrmChatPaciente_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 End Class

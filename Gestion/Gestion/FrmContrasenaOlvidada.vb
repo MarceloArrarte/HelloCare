@@ -18,7 +18,7 @@ Public Class FrmContrasenaOlvidada
         Dim ventanaEspera As New FrmEsperar()
         ventanaEspera.Show()
         Try
-            EnviarCorreoRestauracionContrasena(CargarAdministrativoPorCI(txtCedula.Text))
+            EnviarCorreoRestauracionContrasena(CargarAdministrativoPorCI(ci))
             MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail has been sent to your e-mail address with steps to restore your password. Don't close this window.", "")
             txtCedula.Enabled = False
             btnEnviarCodigo.Enabled = False
@@ -44,7 +44,11 @@ Public Class FrmContrasenaOlvidada
 
     Private Sub FrmContrasenaOlvidada_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F1 Then
-            AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Try
+                AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 End Class

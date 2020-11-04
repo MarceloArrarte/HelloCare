@@ -11,7 +11,14 @@ Public Class FrmHistorialDiagnosticos
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        Dim diagnosticosPrimarios As List(Of DiagnosticoPrimario) = CargarDiagnosticosPrimariosDelPaciente(pacienteLogeado)
+        Dim diagnosticosPrimarios As List(Of DiagnosticoPrimario)
+        Try
+            diagnosticosPrimarios = CargarDiagnosticosPrimariosDelPaciente(pacienteLogeado)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+
         For Each d As DiagnosticoPrimario In diagnosticosPrimarios
             tblDiagnosticos.Rows.Add(d, d.Enfermedades(0), d.Probabilidad(0) & "%", d.FechaHora)
         Next
@@ -33,5 +40,15 @@ Public Class FrmHistorialDiagnosticos
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub FrmHistorialDiagnosticos_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 End Class

@@ -28,7 +28,6 @@ C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\itextsharp.xml
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MySql.Data.xml
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\CapaPersistencia.pdb
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\CapaPersistencia.xml
-C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\Medicos.vbprojResolveAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\Medicos.vbproj.Medicos.exe.config
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\Medicos.FrmChatMedico.resources
 C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\obj\Debug\Medicos.FrmContrasenaOlvidada.resources
@@ -141,3 +140,10 @@ C:\Users\alumno\Desktop\HelloCare\Medicos\Medicos\obj\Debug\Medicos.vbproj.CopyC
 C:\Users\alumno\Desktop\HelloCare\Medicos\Medicos\obj\Debug\Medicos.exe
 C:\Users\alumno\Desktop\HelloCare\Medicos\Medicos\obj\Debug\Medicos.xml
 C:\Users\alumno\Desktop\HelloCare\Medicos\Medicos\obj\Debug\Medicos.pdb
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRegistroUsuarioEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRegistroUsuarioES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarContrasenaEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailRestaurarContrasenaES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatEN.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\MailSesionChatES.html
+C:\Users\marce\source\repos\HelloCare\Medicos\Medicos\bin\Debug\Manual.pdf

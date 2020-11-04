@@ -11,18 +11,18 @@ Public Class FrmRegistro
             Return
         End If
 
-        If txtContrasena.Text = txtRepetir.Text Then
-            Try
-                RegistrarUsuario(administrativoLogeado, txtContrasena.Text)
-                MostrarMensaje(MsgBoxStyle.Information, "Su contraseña ha sido guardada. Se envió un correo electrónico a la dirección de correo proporcionada por usted con los datos de su registro. Cierre este mensaje para continuar al menú principal." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "Usuario registrado", "Your password has been saved. An e-mail has been sent to your e-mail address with information about your registration. Close this message to continue to the main menu." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "User created")
-                Me.DialogResult = DialogResult.OK
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            End Try
-
-        Else
+        If txtContrasena.Text <> txtRepetir.Text Then
             MostrarMensaje(MsgBoxStyle.Exclamation, "Las contraseñas no coinciden. Verifique los datos ingresados y reintente.", "Error", "Passwords don't match. Verify your entered passwords and retry.", "Error")
+            Return
         End If
+
+        Try
+            RegistrarUsuario(administrativoLogeado, txtContrasena.Text)
+            MostrarMensaje(MsgBoxStyle.Information, "Su contraseña ha sido guardada. Se envió un correo electrónico a la dirección de correo proporcionada por usted con los datos de su registro. Cierre este mensaje para continuar al menú principal." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "Usuario registrado", "Your password has been saved. An e-mail has been sent to your e-mail address with information about your registration. Close this message to continue to the main menu." & vbNewLine & vbNewLine & "¡Muchas gracias por utilizar HelloCare!", "User created")
+            Me.DialogResult = DialogResult.OK
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub chkMostrarContrasena_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContrasena.CheckedChanged
@@ -41,7 +41,11 @@ Public Class FrmRegistro
 
     Private Sub FrmRegistro_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F1 Then
-            AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Try
+                AbrirAyuda(TiposUsuario.Administrativo, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
         End If
     End Sub
 End Class

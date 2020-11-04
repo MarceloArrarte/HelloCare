@@ -86,6 +86,7 @@ Partial Class FrmComentariosAdicionales
         Me.Controls.Add(Me.txtComentariosAdicionales)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.Name = "FrmComentariosAdicionales"
         Me.ResumeLayout(False)
         Me.PerformLayout()

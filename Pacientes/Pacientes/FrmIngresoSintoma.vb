@@ -9,10 +9,15 @@ Public Class FrmIngresoSintoma
 
     ' Carga ambos DataGridView con los síntomas disponibles, y oculta todos en tblSeleccionados
     Private Sub FrmIngresoSintoma_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each s As Sintoma In CargarTodosLosSintomas()
+        Dim sintomas As List(Of Sintoma)
+        Try
+            sintomas = CargarTodosLosSintomas()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return
+        End Try
+        For Each s As Sintoma In sintomas
             tblDisponibles.Rows.Add(s, s.Nombre)
-            'tblSeleccionados.Rows.Add(s, s.Nombre)
-            'tblSeleccionados.Rows(tblSeleccionados.Rows.Count - 1).Visible = False
         Next
     End Sub
 
@@ -46,20 +51,21 @@ Public Class FrmIngresoSintoma
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-        'Si la lista de sintomas seleccionados esta vacía manda un mensaje de error
-        If tblSeleccionados.Rows.Count() > 0 Then
-            Dim sintomasSeleccionados As New List(Of Sintoma)
-            For Each r As DataGridViewRow In tblSeleccionados.Rows
-                sintomasSeleccionados.Add(r.Cells(0).Value)
-            Next
-            'Abre la ventana de diagnostico y cierra la actual
-            Dim frm As New FrmDiagnosticoPrimario(sintomasSeleccionados)
-            Me.Hide()
-            frm.ShowDialog()
-            Me.Close()
-        Else
+        If tblSeleccionados.Rows.Count = 0 Then
             MostrarMensaje(MsgBoxStyle.Critical, "Debe ingresar al menos un síntoma para recibir un diagnóstico.", "Error", "You must select at least one symptom to receive a diagnosis.", "Error")
+            Return
         End If
+
+        Dim sintomasSeleccionados As New List(Of Sintoma)
+        For Each r As DataGridViewRow In tblSeleccionados.Rows
+            sintomasSeleccionados.Add(r.Cells(0).Value)
+        Next
+
+        'Abre la ventana de diagnostico y cierra la actual
+        Dim frm As New FrmDiagnosticoPrimario(sintomasSeleccionados)
+        Me.Hide()
+        frm.ShowDialog()
+        Me.Close()
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -69,12 +75,6 @@ Public Class FrmIngresoSintoma
         End If
     End Sub
 
-    'Private Sub FrmIngresoSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-    '    If requiereConfirmacionSalida Then
-
-    '    End If
-    'End Sub
-
     Private Sub DeseleccionarTablas()
         tblDisponibles.ClearSelection()
         tblSeleccionados.ClearSelection()
@@ -82,5 +82,15 @@ Public Class FrmIngresoSintoma
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
+    End Sub
+
+    Private Sub FrmIngresoSintoma_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            Try
+                AbrirAyuda(TiposUsuario.Paciente, Me)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 End Class

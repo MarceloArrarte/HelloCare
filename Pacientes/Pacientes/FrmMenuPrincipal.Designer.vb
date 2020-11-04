@@ -104,6 +104,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnIngresoSintoma)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmMenuPrincipal"
         Me.ResumeLayout(False)
