@@ -27,7 +27,7 @@ Public Class FrmAltaSintomas
         Next
 
         ' Procede a insertar el nuevo síntoma si se ingresaron patologías o si se confirma que se desea insertarlo sin patologías asociadas
-        If hayPatologiasAsociadas Or
+        If hayPatologiasAsociadas OrElse
            (Not hayPatologiasAsociadas And MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se asoció el nuevo síntoma a ninguna patología del sistema." & vbNewLine & "¿Desea continuar de todas formas?", "Aviso", "Warning: the new symptom has not been associated with any illness in the system." & vbNewLine & "Do you wish to continue anyway?", "Warning") = MsgBoxResult.Yes) Then
 
 

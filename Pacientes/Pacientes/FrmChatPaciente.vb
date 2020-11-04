@@ -7,7 +7,7 @@ Imports CapaLogica
 Imports Clases
 
 Public Class FrmChatPaciente
-    Dim consultaEnCurso As DiagnosticoPrimarioConConsulta
+    Public consultaEnCurso As DiagnosticoPrimarioConConsulta
     Dim cantidadTotalArchivos As Integer
     Dim cantidadTotalMensajes As Integer
 

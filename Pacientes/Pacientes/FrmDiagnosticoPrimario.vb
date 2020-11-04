@@ -120,15 +120,16 @@ Public Class FrmDiagnosticoPrimario
                     MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
                     Return
                 End Try
+                diagnosticoMostrado = diagnosticoConConsulta
             Else
                 diagnosticoConConsulta = diagnosticoMostrado
             End If
-            diagnosticoMostrado = diagnosticoConConsulta
 
             Dim frmChat As New FrmChatPaciente(diagnosticoConConsulta)
             Me.Hide()
             frmChat.ShowDialog()
             Me.DialogResult = DialogResult.None
+            diagnosticoMostrado = frmChat.consultaEnCurso
             Me.Show()
         End If
     End Sub
