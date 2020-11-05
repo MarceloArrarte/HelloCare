@@ -20,7 +20,11 @@ Public Class FrmHistorialDiagnosticos
         End Try
 
         For Each d As DiagnosticoPrimario In diagnosticosPrimarios
-            tblDiagnosticos.Rows.Add(d, d.Enfermedades(0), d.Probabilidad(0) & "%", d.FechaHora)
+            If d.Enfermedades.Count > 0 Then
+                tblDiagnosticos.Rows.Add(d, d.Enfermedades(0), d.Probabilidad(0) & "%", d.FechaHora)
+            Else
+                tblDiagnosticos.Rows.Add(d, "Sin diagnóstico.", "", d.FechaHora)
+            End If
         Next
     End Sub
 

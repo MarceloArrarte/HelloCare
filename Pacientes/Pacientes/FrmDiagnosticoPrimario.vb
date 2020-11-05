@@ -62,8 +62,15 @@ Public Class FrmDiagnosticoPrimario
             tblEnfermedadesDiagnosticadas.Rows.Add(diagnostico.Enfermedades(i), diagnostico.Probabilidad(i) & "%", diagnostico.Enfermedades(i))
         Next
 
-        lblResultado.Text = "El resultado del diagnóstico es " & diagnostico.Enfermedades(0).ToString & ", con una certeza del " &
-                             Math.Round(diagnostico.Probabilidad(0), 1) & "%."
+        If diagnostico.Enfermedades.Count > 0 Then
+            lblResultado.Text = "El resultado del diagnóstico es " & diagnostico.Enfermedades(0).ToString & ", con una certeza del " &
+                                 Math.Round(diagnostico.Probabilidad(0), 1) & "%."
+        Else
+            tblEnfermedadesDiagnosticadas.Rows.Add("", "", "Ninguna enfermedad del sistema coincide con los síntomas seleccionados.")
+            tblEnfermedadesDiagnosticadas.Rows(0).Height *= 2       ' Permite visualizar dicho mensaje mejor
+            lblResultado.Visible = False                            ' Si no se determinó un resultado fiable, oculta el Label
+        End If
+
 
         ' Muestra las recomendaciones del sistema para tratar cada síntoma ingresado
         For Each s As Sintoma In diagnostico.Sintomas
