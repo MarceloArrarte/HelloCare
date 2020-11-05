@@ -170,6 +170,7 @@ Partial Class FrmPeticionesChat
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnAceptarConsulta)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmPeticionesChat"
         CType(Me.tblPeticiones, System.ComponentModel.ISupportInitialize).EndInit()

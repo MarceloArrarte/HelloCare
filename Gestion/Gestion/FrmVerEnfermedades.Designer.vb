@@ -47,9 +47,9 @@ Partial Class FrmVerEnfermedades
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -114,7 +114,6 @@ Partial Class FrmVerEnfermedades
         '
         'tblSintomas
         '
-        resources.ApplyResources(Me.tblSintomas, "tblSintomas")
         Me.tblSintomas.AllowUserToAddRows = False
         Me.tblSintomas.AllowUserToDeleteRows = False
         Me.tblSintomas.AllowUserToResizeColumns = False
@@ -139,6 +138,7 @@ Partial Class FrmVerEnfermedades
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblSintomas.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.tblSintomas, "tblSintomas")
         Me.tblSintomas.MultiSelect = False
         Me.tblSintomas.Name = "tblSintomas"
         Me.tblSintomas.ReadOnly = True
@@ -187,8 +187,8 @@ Partial Class FrmVerEnfermedades
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -211,6 +211,7 @@ Partial Class FrmVerEnfermedades
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmVerEnfermedades"

@@ -74,16 +74,12 @@ Public Class FrmAltaMedico
         Dim apellido As String = txtApellido.Text
         Dim correo As String = txtCorreo.Text
 
-        Dim ventanaEspera As New FrmEsperar
-        ventanaEspera.Show()
         Try
             CrearMedico(ci, nombre, apellido, correo, localidad, listaEspecialidades)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Médico agregado con éxito.", "Éxito", "Doctor successfully added.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            ventanaEspera.Close()
         End Try
     End Sub
 

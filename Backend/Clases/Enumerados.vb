@@ -1,4 +1,6 @@
-﻿Public Module Enumerados
+﻿' Este módulo define varios enumerados utilizados por el sistema para reducir la tasa de errores en los casos en que los valores posibles son finitos
+
+Public Module Enumerados
 #Region "Atributos de clases"
     Public Enum TiposObjeto
         DiagnosticoPrimario = 1
@@ -14,12 +16,6 @@
         Paciente = 11
         Medico = 12
         DiagnosticoPrimarioConConsulta = 13
-    End Enum
-
-    Public Enum TiposSeleccionBD
-        Habilitados = 1
-        Deshabilitados = 2
-        Ambos = 3
     End Enum
 
     Public Enum TiposPersona

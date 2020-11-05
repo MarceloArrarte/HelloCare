@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="txtCedula.Text" xml:space="preserve">
-    <value>ID Card</value>
+    <value>ID Card:</value>
   </data>
   <data name="txtContrasena.Text" xml:space="preserve">
-    <value>Password</value>
+    <value>Password:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnIngresar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -312,12 +312,6 @@
         t+gObp5bmAOUZg9unlsYPWqf6Bvt0SPu5rlF4gR9kz2ikhWMfgLPMGlOMYVsVlZI6BB9ZXTdLvV05eFw
         CYsNK9iHnhD9yole6w3N7rlXDb4BvE2uueCpMdkAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 37</value>
-  </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>Forgot your password?</value>
   </data>
   <data name="lblTraducir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5865,5 +5859,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Doctors login</value>
   </data>
 </root>

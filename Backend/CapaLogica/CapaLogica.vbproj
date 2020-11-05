@@ -85,12 +85,6 @@
   <ItemGroup>
     <Compile Include="Ayuda.vb" />
     <Compile Include="Config.vb" />
-    <Compile Include="FrmEsperar.Designer.vb">
-      <DependentUpon>FrmEsperar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEsperar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Localizacion.vb" />
     <Compile Include="Mensajeria.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -112,9 +106,6 @@
     <Compile Include="Autenticacion.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmEsperar.resx">
-      <DependentUpon>FrmEsperar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

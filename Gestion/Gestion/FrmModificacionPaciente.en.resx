@@ -238,12 +238,6 @@
   <data name="Label14.Text" xml:space="preserve">
     <value>Select department</value>
   </data>
-  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 25</value>
-  </data>
-  <data name="Label15.Text" xml:space="preserve">
-    <value>Date of death</value>
-  </data>
   <data name="cbHabilitarFD.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 29</value>
   </data>
@@ -1370,5 +1364,8 @@
         MvYCAACMZ+yVxhaGThl7NS5jb7/S+Lp0acDtk7EXAABgPGOvNLYwdMrYq3EZe/uVxtelSwNun4y9AAAA
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Modifying patient</value>
   </data>
 </root>

@@ -73,3 +73,6 @@ C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.xm
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.pdb
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\Manual.pdf
 C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.vbprojResolveAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\bin\Debug\aa\Pacientes.resources.dll
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\Pacientes.FrmComentariosAdicionales.aa.resources
+C:\Users\marce\source\repos\HelloCare\Pacientes\Pacientes\obj\Debug\aa\Pacientes.resources.dll

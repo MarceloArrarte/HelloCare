@@ -3,10 +3,12 @@ Imports Clases
 Imports CapaPersistencia
 Imports System.IO
 
+' Este módulo provee procedimientos para el envío de mensajes de correo desde la aplicación a través de la cuenta de correo de HelloCode Software
 Public Module Mensajeria
+    ' Envía un correo para confirmar el alta del paciente
     Friend Sub EnviarCorreoAlta(paciente As Paciente)
         Dim SmtpServer As New SmtpClient()
-        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
+        SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")      ' Registra las credenciales para autenticarse                                                                                                      contra el servidor de correo
         SmtpServer.Port = 587
         SmtpServer.Host = "smtp.gmail.com"
         SmtpServer.EnableSsl = True
@@ -19,6 +21,7 @@ Public Module Mensajeria
             mail.Subject = "¡Bienvenido a HelloCare!"
         End If
 
+        ' En base al idioma seleccionado, guarda en una variable el nombre del archivo con el correo correspondiente.
         Dim archivoCorreo As String = ""
         Select Case idiomaSeleccionado
             Case Idiomas.Espanol
@@ -27,6 +30,7 @@ Public Module Mensajeria
                 archivoCorreo = "MailAltaPacientesEN.html"
         End Select
 
+        ' Lee el cuerpo del mensaje del archivo HTML en la carpeta de instalación. Posteriormente reemplaza todos los espacios por valores del paciente en cuestión
         Dim cuerpoMensaje As String = My.Computer.FileSystem.ReadAllText(archivoCorreo)
         cuerpoMensaje = cuerpoMensaje.Replace("%o/a%", If(paciente.Sexo = TiposSexo.F, "a", "o"))
         cuerpoMensaje = cuerpoMensaje.Replace("%CI%", paciente.CI)
@@ -48,10 +52,12 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%MOVIL%", paciente.TelefonoMovil)
         cuerpoMensaje = cuerpoMensaje.Replace("%FIJO%", paciente.TelefonoFijo)
         mail.Body = cuerpoMensaje
-        mail.IsBodyHtml = True
+        mail.IsBodyHtml = True              ' Especifica que el cuerpo del mensaje debe interpretarse como código HTML
+        SmtpServer.Timeout = 10000          ' Especifica un timeout de la solicitud de 10 segundos, tras el cual el programa lanza una excepción.
         SmtpServer.Send(mail)
     End Sub
 
+    ' Envía un correo para confirmar el alta del médico
     Friend Sub EnviarCorreoAlta(medico As Medico)
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
@@ -85,9 +91,11 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%ESPECIALIDADES%", String.Join(", ", nombresEspecialidades))
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
+        SmtpServer.Timeout = 10000
         SmtpServer.Send(mail)
     End Sub
 
+    ' Envía un correo para confirmar el alta del administrativo
     Friend Sub EnviarCorreoAlta(administrativo As Administrativo)
         Dim SmtpServer As New SmtpClient()
         SmtpServer.Credentials = New Net.NetworkCredential("hellocode.software@gmail.com", "2020HCSW")
@@ -133,6 +141,7 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%CARGO%", If(administrativo.EsEncargado, "Encargado", "Empleado"))
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
+        SmtpServer.Timeout = 10000
         SmtpServer.Send(mail)
     End Sub
 
@@ -162,6 +171,7 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%CONTRASEÑA%", contrasena)
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
+        SmtpServer.Timeout = 10000
         SmtpServer.Send(mail)
     End Sub
 
@@ -192,6 +202,7 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%CIFRADO%", usuario.Contrasena)
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
+        SmtpServer.Timeout = 10000
         SmtpServer.Send(mail)
     End Sub
 
@@ -229,21 +240,23 @@ Public Module Mensajeria
         cuerpoMensaje = cuerpoMensaje.Replace("%ESPECIALIDAD%", diagnostico.EnfermedadDiagnosticada.Especialidad.ToString)
         cuerpoMensaje = cuerpoMensaje.Replace("%CHAT%", contenidoChat.Replace(vbNewLine, "<br/>"))
 
+        ' Presenta los síntomas con el formato HTML utilizado para tablas.
         Dim sintomasFormateados As String = ""
         For i = 0 To diagnostico.EnfermedadDiagnosticada.Sintomas.Count - 1
             sintomasFormateados &= "<tr><td style=""border: 1px solid black"">" & diagnostico.EnfermedadDiagnosticada.Sintomas(i).ToString & "</td><td style=""border: 1px solid black"">" & diagnostico.EnfermedadDiagnosticada.FrecuenciaSintoma(i) & "%</td></tr>"
         Next
         cuerpoMensaje = cuerpoMensaje.Replace("%SINTOMAS%", sintomasFormateados)
 
-        For i = 0 To archivos.Count - 1
+        For i = 0 To archivos.Count - 1                                                 ' Para cada archivo de la sesión de chat
             Dim archivo As Mensaje = archivos(i)
-            Dim stream As New MemoryStream(CargarContenidoArchivoPorID(archivo.ID))
-            Dim adjunto As New Attachment(stream, archivo.NombreArchivo)
-            mail.Attachments.Add(adjunto)
+            Dim stream As New MemoryStream(CargarContenidoArchivoPorID(archivo.ID))     ' almacena en memoria los datos del archivo extraído de la BD
+            Dim adjunto As New Attachment(stream, archivo.NombreArchivo)                ' Crea un archivo adjunto con el flujo de memoria y el nombre de                                                                               archivo
+            mail.Attachments.Add(adjunto)                                               ' Agrega el adjunto la lista de archivos adjuntos del correo.
         Next
 
         mail.Body = cuerpoMensaje
         mail.IsBodyHtml = True
+        SmtpServer.Timeout = 10000
         SmtpServer.Send(mail)
     End Sub
 End Module

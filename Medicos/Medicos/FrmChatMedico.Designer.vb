@@ -139,6 +139,7 @@ Partial Class FrmChatMedico
         Me.Controls.Add(Me.txtMensaje)
         Me.Controls.Add(Me.btnSalir)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmChatMedico"
         Me.ResumeLayout(False)

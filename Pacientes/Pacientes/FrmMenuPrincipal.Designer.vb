@@ -42,38 +42,38 @@ Partial Class FrmMenuPrincipal
         '
         'btnIngresoSintoma
         '
-        resources.ApplyResources(Me.btnIngresoSintoma, "btnIngresoSintoma")
         Me.btnIngresoSintoma.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnIngresoSintoma, "btnIngresoSintoma")
         Me.btnIngresoSintoma.ForeColor = System.Drawing.Color.White
         Me.btnIngresoSintoma.Name = "btnIngresoSintoma"
         Me.btnIngresoSintoma.UseVisualStyleBackColor = False
         '
         'Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
         'btnSalir
         '
-        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.ForeColor = System.Drawing.Color.Transparent
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnHistorialDiagnosticos
         '
-        resources.ApplyResources(Me.btnHistorialDiagnosticos, "btnHistorialDiagnosticos")
         Me.btnHistorialDiagnosticos.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnHistorialDiagnosticos, "btnHistorialDiagnosticos")
         Me.btnHistorialDiagnosticos.ForeColor = System.Drawing.Color.White
         Me.btnHistorialDiagnosticos.Name = "btnHistorialDiagnosticos"
         Me.btnHistorialDiagnosticos.UseVisualStyleBackColor = False
         '
         'Label3
         '
-        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
         '
         'lblLogeado
@@ -85,8 +85,8 @@ Partial Class FrmMenuPrincipal
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -104,6 +104,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnIngresoSintoma)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmMenuPrincipal"

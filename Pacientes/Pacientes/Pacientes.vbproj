@@ -173,6 +173,9 @@
     <EmbeddedResource Include="FrmChatPaciente.resx">
       <DependentUpon>FrmChatPaciente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmComentariosAdicionales.aa.resx">
+      <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmComentariosAdicionales.en.resx">
       <DependentUpon>FrmComentariosAdicionales.vb</DependentUpon>
     </EmbeddedResource>

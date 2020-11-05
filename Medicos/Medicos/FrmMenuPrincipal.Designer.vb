@@ -92,6 +92,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnHistorialChat)
         Me.Controls.Add(Me.btnPeticiones)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmMenuPrincipal"
         Me.ResumeLayout(False)

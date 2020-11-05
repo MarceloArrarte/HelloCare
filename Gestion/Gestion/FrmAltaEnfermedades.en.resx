@@ -3691,4 +3691,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>New illnesses</value>
+  </data>
 </root>

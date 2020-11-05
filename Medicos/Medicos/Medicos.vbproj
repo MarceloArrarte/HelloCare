@@ -215,6 +215,9 @@
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoDiagnostico.aa.resx">
+      <DependentUpon>FrmNuevoDiagnostico.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoDiagnostico.en.resx">
       <DependentUpon>FrmNuevoDiagnostico.vb</DependentUpon>
     </EmbeddedResource>

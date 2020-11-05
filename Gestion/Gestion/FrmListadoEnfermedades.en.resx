@@ -3646,4 +3646,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>List of illnesses</value>
+  </data>
 </root>

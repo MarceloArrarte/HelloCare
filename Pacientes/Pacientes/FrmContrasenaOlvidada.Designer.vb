@@ -51,15 +51,15 @@ Partial Class FrmContrasenaOlvidada
         '
         'txtCedula
         '
-        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.ForeColor = System.Drawing.Color.White
         Me.txtCedula.Name = "txtCedula"
         '
         'btnEnviarCodigo
         '
-        resources.ApplyResources(Me.btnEnviarCodigo, "btnEnviarCodigo")
         Me.btnEnviarCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEnviarCodigo, "btnEnviarCodigo")
         Me.btnEnviarCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnEnviarCodigo.Name = "btnEnviarCodigo"
         Me.btnEnviarCodigo.UseVisualStyleBackColor = False
@@ -73,15 +73,15 @@ Partial Class FrmContrasenaOlvidada
         '
         'txtCodigo
         '
-        resources.ApplyResources(Me.txtCodigo, "txtCodigo")
         Me.txtCodigo.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtCodigo, "txtCodigo")
         Me.txtCodigo.ForeColor = System.Drawing.Color.White
         Me.txtCodigo.Name = "txtCodigo"
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
@@ -102,8 +102,8 @@ Partial Class FrmContrasenaOlvidada
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -122,6 +122,7 @@ Partial Class FrmContrasenaOlvidada
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblTitulo)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmContrasenaOlvidada"
         Me.ResumeLayout(False)

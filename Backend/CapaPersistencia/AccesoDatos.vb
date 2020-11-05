@@ -1,17 +1,13 @@
-﻿Imports System.ComponentModel
-Imports System.ComponentModel.Design
-Imports System.Runtime.Remoting.Channels
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 Imports MySql.Data.Types
 Imports Clases
 Imports System.Text
-Imports System.Runtime.InteropServices.ComTypes
-Imports System.Runtime.Serialization
-Imports System.CodeDom
-Imports System.Xml
 
 Public Module AccesoDatos
+    ' Recibe un objeto a insertar junto con un valor de TiposObjeto que especifica su tipo.
+    ' El parámetro por referencia se utiliza para guardar el ID asignado por la base de datos al objeto, en caso de ser necesario por alguna capa superior.
     Public Sub InsertarObjeto(objetoAInsertar As Object, entidad As TiposObjeto, Optional ByRef idAsignado As Integer = -1)
+        ' Intenta abrir la conexión y comienza la transacción
         Dim comando As New MySqlCommand("BEGIN;")
         Try
             ConexionBD.Conexion.Open()
@@ -19,6 +15,7 @@ Public Module AccesoDatos
             Throw New Exception("No se puede establecer la conexión con la base de datos.")
         End Try
 
+        ' Define qué tipo de objeto se va a insertar y lo procesa en consecuencia.
         Try
             Select Case entidad
                 Case TiposObjeto.DiagnosticoPrimario
@@ -360,13 +357,15 @@ Public Module AccesoDatos
 
         Try
             comando.CommandText &= "COMMIT;"
-            ConexionBD.EjecutarTransaccion(comando)
+            ConexionBD.EjecutarTransaccion(comando)         ' Ejecuta el último comando de la transacción, agregando el commit correspondiente
         Catch ex As MySqlException
-            ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))
+            ConexionBD.EjecutarTransaccion(New MySqlCommand("ROLLBACK;"))       ' Si hubo un error de MySQL, anula la transacción
             ConexionBD.Conexion.Close()
             Throw ex
         Finally
-            ConexionBD.Conexion.Close()
+            If ConexionBD.Conexion.State = ConnectionState.Open Then            ' Cierra la conexión con la BD
+                ConexionBD.Conexion.Close()
+            End If
         End Try
     End Sub
 
@@ -386,53 +385,53 @@ Public Module AccesoDatos
         Select Case entidad
             Case TiposObjeto.Enfermedad
                 Dim enfermedad As Enfermedad = objetoAEliminar
-                    comando.CommandText &= "UPDATE enfermedades SET HABILITADO=FALSE WHERE ID=@ID;"
-                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID;"
-                    comando.Parameters.AddWithValue("@ID", enfermedad.Id)
+                comando.CommandText &= "UPDATE enfermedades SET HABILITADO=FALSE WHERE ID=@ID;"
+                comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID;"
+                comando.Parameters.AddWithValue("@ID", enfermedad.Id)
 
-                Case TiposObjeto.Especialidad
-                    Dim especialidad As Especialidad = objetoAEliminar
-                    comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID;"
-                    comando.Parameters.AddWithValue("@ID", especialidad.ID)
+            Case TiposObjeto.Especialidad
+                Dim especialidad As Especialidad = objetoAEliminar
+                comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID;"
+                comando.Parameters.AddWithValue("@ID", especialidad.ID)
 
-                Case TiposObjeto.Departamento
-                    Dim departamento As Departamento = objetoAEliminar
-                    comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID;"
-                    comando.Parameters.AddWithValue("@ID", departamento.ID)
+            Case TiposObjeto.Departamento
+                Dim departamento As Departamento = objetoAEliminar
+                comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID;"
+                comando.Parameters.AddWithValue("@ID", departamento.ID)
 
-                Case TiposObjeto.Localidad
-                    Dim localidad As Localidad = objetoAEliminar
-                    comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID;"
-                    comando.Parameters.AddWithValue("@ID", localidad.ID)
+            Case TiposObjeto.Localidad
+                Dim localidad As Localidad = objetoAEliminar
+                comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID;"
+                comando.Parameters.AddWithValue("@ID", localidad.ID)
 
-                Case TiposObjeto.Sintoma
-                    Dim sintoma As Sintoma = objetoAEliminar
-                    comando.CommandText &= "UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;"
-                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
-                    comando.Parameters.AddWithValue("@ID", sintoma.ID)
+            Case TiposObjeto.Sintoma
+                Dim sintoma As Sintoma = objetoAEliminar
+                comando.CommandText &= "UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;"
+                comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
+                comando.Parameters.AddWithValue("@ID", sintoma.ID)
 
-                Case TiposObjeto.Usuario
-                    Dim usuario As Usuario = objetoAEliminar
-                    comando.CommandText &= "UPDATE usuarios SET HABILITADO=FALSE WHERE ID=@ID;"
-                    comando.Parameters.AddWithValue("@ID", usuario.ID)
+            Case TiposObjeto.Usuario
+                Dim usuario As Usuario = objetoAEliminar
+                comando.CommandText &= "UPDATE usuarios SET HABILITADO=FALSE WHERE ID=@ID;"
+                comando.Parameters.AddWithValue("@ID", usuario.ID)
 
-                Case TiposObjeto.Administrativo
-                    Dim administrativo As Administrativo = objetoAEliminar
-                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
-                    comando.Parameters.AddWithValue("@ID", administrativo.ID)
+            Case TiposObjeto.Administrativo
+                Dim administrativo As Administrativo = objetoAEliminar
+                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
+                comando.Parameters.AddWithValue("@ID", administrativo.ID)
 
-                Case TiposObjeto.Paciente
-                    Dim paciente As Paciente = objetoAEliminar
-                    comando.CommandText &= "DELETE FROM personas WHERE ID=@ID;"
-                    comando.Parameters.AddWithValue("@ID", paciente.ID)
+            Case TiposObjeto.Paciente
+                Dim paciente As Paciente = objetoAEliminar
+                comando.CommandText &= "DELETE FROM personas WHERE ID=@ID;"
+                comando.Parameters.AddWithValue("@ID", paciente.ID)
 
-                Case TiposObjeto.Medico
-                    Dim medico As Medico = objetoAEliminar
-                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
-                    comando.Parameters.AddWithValue("@ID", medico.ID)
-            End Select
+            Case TiposObjeto.Medico
+                Dim medico As Medico = objetoAEliminar
+                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
+                comando.Parameters.AddWithValue("@ID", medico.ID)
+        End Select
 
-            Try
+        Try
             comando.CommandText &= "COMMIT;"
             ConexionBD.EjecutarTransaccion(comando)
         Catch ex As MySqlException
@@ -1029,15 +1028,6 @@ Public Module AccesoDatos
                                                                           fechaHoraDiferencial))
         Next
 
-        'For Each d As DiagnosticoDiferencial In listaDiagnosticosDiferenciales
-        '    MsgBox(String.Join(vbNewLine, {d.ConductaASeguir, d.FechaHora, d.EnfermedadDiagnosticada.Nombre, d.EnfermedadDiagnosticada.Especialidad.Nombre}) & vbNewLine & vbNewLine)
-        '    Dim texto As New List(Of String)
-        '    For Each s As Sintoma In d.EnfermedadDiagnosticada.Sintomas
-        '        texto.Add(String.Format("{0} ({1}%)", s.Nombre, d.EnfermedadDiagnosticada.FrecuenciaSintoma(d.EnfermedadDiagnosticada.Sintomas.IndexOf(s))))
-        '    Next
-        '    MsgBox(String.Join(vbNewLine, texto))
-        'Next
-
         Return listaDiagnosticosDiferenciales
     End Function
 
@@ -1589,6 +1579,4 @@ Public Module AccesoDatos
         Dim cantidad As Integer = ConexionBD.EjecutarConsulta(comando).Rows(0)(0)
         Return cantidad
     End Function
-
-
 End Module

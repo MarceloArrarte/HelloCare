@@ -56,22 +56,43 @@ Public Class FrmLogin
             txtContrasena.UseSystemPasswordChar = True
         End If
     End Sub
-
-    Private Sub txtCedula_MouseClick(sender As Object, e As MouseEventArgs) Handles txtCedula.MouseClick
-        txtCedula.Clear()
+    'Borra los datos de contraseña si se preciona el txt
+    Private Sub txtCedula_GotFocus(sender As Object, e As EventArgs) Handles txtCedula.GotFocus
+        If txtCedula.Text = "Cédula:" Or txtCedula.Text = "ID Card:" Then
+            txtCedula.Text = ""
+        End If
     End Sub
 
-    Private Sub txtContrasena_TextChanged(sender As Object, e As EventArgs) Handles txtContrasena.TextChanged
-        If Not txtContrasena.UseSystemPasswordChar Then
-            txtContrasena.Clear()
+    Private Sub txtCedula_LostFocus(sender As Object, e As EventArgs) Handles txtCedula.LostFocus
+        If txtCedula.Text = Nothing Then
+            If idiomaSeleccionado = Idiomas.Espanol Then
+                txtCedula.Text = "Cédula:"
+            Else
+                txtCedula.Text = "ID Card:"
+            End If
         End If
-        txtContrasena.UseSystemPasswordChar = True
+    End Sub
+    'Borra los datos de contraseña si se preciona el txt
+    Private Sub txtContrasena_GotFocus(sender As Object, e As EventArgs) Handles txtContrasena.GotFocus
+        If txtContrasena.Text = "Contraseña:" Or txtContrasena.Text = "Password:" Then
+            txtContrasena.Text = ""
+        End If
+    End Sub
+
+    Private Sub txtContrasena_LostFocus(sender As Object, e As EventArgs) Handles txtContrasena.LostFocus
+        If txtContrasena.Text = "" Then
+            If idiomaSeleccionado = Idiomas.Espanol Then
+                txtCedula.Text = "Contraseña:"
+            Else
+                txtCedula.Text = "Password:"
+            End If
+        End If
     End Sub
 
     Private Sub lblTraducir_Click(sender As Object, e As EventArgs) Handles lblTraducir.Click
         TraducirAplicacion()
     End Sub
-
+    'Al presionar F1 abre la ayuda de la ventana
     Private Sub FrmLogin_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F1 Then
             Try

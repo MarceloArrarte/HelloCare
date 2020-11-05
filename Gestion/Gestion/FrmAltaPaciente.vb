@@ -61,16 +61,12 @@ Public Class FrmAltaPaciente
         Dim numeroPuerta As String = txtNumeroPuerta.Text
         Dim apartamento As String = txtApartamento.Text
 
-        Dim ventanaEspera As New FrmEsperar
-        ventanaEspera.Show()
         Try
             CrearPaciente(ci, nombre, apellido, correo, localidad, movil, fijo, sexo, fechaNecimiento, Nothing, calle, numeroPuerta, apartamento)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Paciente agregado con éxito.", "Éxito", "Patient successfully added.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            ventanaEspera.Close()
         End Try
     End Sub
 

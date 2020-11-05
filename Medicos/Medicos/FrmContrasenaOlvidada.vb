@@ -8,6 +8,7 @@ Public Class FrmContrasenaOlvidada
         Dim ci As String = txtCedula.Text
 
         Dim estadoPersonaEnBD As ResultadosLogin
+        ' Verifica que la cédula del médico existe en la base de datos.
         Try
             estadoPersonaEnBD = AutenticarUsuarioMedico(ci, ".")
         Catch ex As Exception
@@ -15,9 +16,8 @@ Public Class FrmContrasenaOlvidada
             Return
         End Try
 
-        Dim ventanaEspera As New FrmEsperar()
-        ventanaEspera.Show()
         Try
+            ' Envía un correo al médico con instrucciones para poder crear una nueva contraseña.
             EnviarCorreoRestauracionContrasena(CargarMedicoPorCI(ci))
             MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail has been sent to your e-mail address with steps to restore your password. Don't close this window.", "")
             txtCedula.Enabled = False
@@ -27,11 +27,10 @@ Public Class FrmContrasenaOlvidada
             btnConfirmar.Visible = True
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            ventanaEspera.Close()
         End Try
     End Sub
 
+    ' Elimina el usuario existente del médico en la BD y lo devuelve a la ventana de login
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         EliminarUsuarioConCodigo(txtCedula.Text, TiposUsuario.Medico, txtCodigo.Text)
         MostrarMensaje(MsgBoxStyle.Information, "Se ha eliminado tu contraseña exitosamente. Por favor, inicia sesión utilizando únicamente tu cédula.", "", "Your password has been successfully deleted. Please sign in using only your ID card.", "")

@@ -5,6 +5,7 @@ Imports System.ComponentModel
 Imports System.Globalization
 
 Public Class FrmRegistro
+           
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtContrasena.Text.Length < 8 Or txtContrasena.Text.Length > 50 Then
             MostrarMensaje(MsgBoxStyle.Critical, "El largo de la contraseña debe ser de entre 8 y 50 caracteres.", "Error", "The length of the password must be between 8 and 50 characters.", "Error")

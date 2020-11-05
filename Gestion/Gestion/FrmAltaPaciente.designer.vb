@@ -284,6 +284,7 @@ Partial Class FrmAltaPaciente
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmAltaPaciente"
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).EndInit()

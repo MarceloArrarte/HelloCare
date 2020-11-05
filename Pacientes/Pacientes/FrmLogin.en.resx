@@ -5800,4 +5800,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Patients login</value>
+  </data>
 </root>

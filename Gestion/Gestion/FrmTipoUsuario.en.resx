@@ -187,9 +187,6 @@
         v9Ld6gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnAdministrativo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnAdministrativo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1272,5 +1269,11 @@
         MvYCAACMZ+yVxhaGThl7NS5jb7/S+Lp0acDtk7EXAABgPGOvNLYwdMrYq3EZe/uVxtelSwNun4y9AAAA
         4xl7pbGFoVPGXo3L2NuvNL4uXRpw+2TsBQAAGOvrr/9/eJZ7CDqf8eAAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>User type selection</value>
   </data>
 </root>

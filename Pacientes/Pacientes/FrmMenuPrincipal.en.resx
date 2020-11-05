@@ -4001,4 +4001,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Main menu</value>
+  </data>
 </root>

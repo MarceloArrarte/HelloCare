@@ -72,9 +72,13 @@ Public Class FrmIngresoSintoma
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub FrmIngresoSintoma_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MostrarMensaje(MsgBoxStyle.YesNo, "Advertencia: no se guardaron los cambios." & vbNewLine & "¿Confirma que desea cerrar la ventana?", "Salir", "Warning: changes have not been saved." & vbNewLine & "Are you sure you want to close the window?", "Exit") =
-                MsgBoxResult.Yes Then
-            Me.Close()
+                MsgBoxResult.No Then
+            e.Cancel = True
         End If
     End Sub
 

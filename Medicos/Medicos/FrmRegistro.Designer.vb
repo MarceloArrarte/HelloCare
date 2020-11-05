@@ -35,15 +35,15 @@ Partial Class FrmRegistro
         '
         'txtContrasena
         '
-        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'txtRepetir
         '
-        resources.ApplyResources(Me.txtRepetir, "txtRepetir")
         Me.txtRepetir.BackColor = System.Drawing.Color.DarkGray
+        resources.ApplyResources(Me.txtRepetir, "txtRepetir")
         Me.txtRepetir.Name = "txtRepetir"
         Me.txtRepetir.UseSystemPasswordChar = True
         '
@@ -71,8 +71,8 @@ Partial Class FrmRegistro
         '
         'btnGuardar
         '
-        resources.ApplyResources(Me.btnGuardar, "btnGuardar")
         Me.btnGuardar.BackColor = System.Drawing.Color.LightCoral
+        resources.ApplyResources(Me.btnGuardar, "btnGuardar")
         Me.btnGuardar.ForeColor = System.Drawing.Color.Transparent
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
@@ -86,8 +86,8 @@ Partial Class FrmRegistro
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -105,6 +105,7 @@ Partial Class FrmRegistro
         Me.Controls.Add(Me.txtRepetir)
         Me.Controls.Add(Me.txtContrasena)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmRegistro"
         Me.ResumeLayout(False)

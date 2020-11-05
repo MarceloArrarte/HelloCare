@@ -4,6 +4,7 @@ Imports System.Text
 Imports Clases
 Imports CapaPersistencia
 
+' Este módulo provee métodos para la encriptación de claves y manejo de contraseñas
 Public Module Autenticacion
     Friend Function CifrarClave(clave As String) As String
         Dim tDES As New TripleDESCryptoServiceProvider
@@ -22,6 +23,7 @@ Public Module Autenticacion
         Return cadenaResultante
     End Function
 
+    ' Genera un hash para la clave pasada como argumento
     Private Function TruncarHash(clave As String, largo As Integer) As Byte()
         Dim sha As New SHA1CryptoServiceProvider
         Dim bytesClave() As Byte = Encoding.Unicode.GetBytes(clave)
@@ -30,13 +32,14 @@ Public Module Autenticacion
         Return hash
     End Function
 
+    ' Elimina un usuario de la base de datos, verificando que el hash de la contraseña coincida.
     Public Sub EliminarUsuarioConCodigo(ci As String, tipo As TiposUsuario, hash As String)
         Select Case tipo
             Case TiposUsuario.Administrativo
-                Dim administrativo As Administrativo = ObtenerAdministrativoPorCI(ci)
-                Dim usuario As Usuario = ObtenerUsuarioPorPersona(administrativo)
-                If usuario.Contrasena = hash Then
-                    EliminarObjeto(usuario, TiposObjeto.Usuario)
+                Dim administrativo As Administrativo = ObtenerAdministrativoPorCI(ci)       ' Obtiene los datos del administrativo por su CI
+                Dim usuario As Usuario = ObtenerUsuarioPorPersona(administrativo)           ' Obtiene los datos de usuario del administrativo
+                If usuario.Contrasena = hash Then       ' Verifica que el código de borrado sea correcto
+                    EliminarObjeto(usuario, TiposObjeto.Usuario)        ' Elimina el usuario de la BD
                 Else
                     Throw New Exception("El código de borrado no es correcto. Verifique que haya sido ingresado correctamente y reintente.")
                 End If

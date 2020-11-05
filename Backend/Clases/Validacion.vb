@@ -1,5 +1,8 @@
-﻿Friend Module Validacion
-    Private ReadOnly CaracteresPermitidosTexto() As Char = ("ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789áéíóúÁÉÍÓÚàèìòùÀÈÌÒÙüÜçÇßãÃ-()/:;""',.%&¿?¡!+<>$= " & vbNewLine).ToCharArray
+﻿' Este módulo ofrece varios procedimientos que se utilizan para validar el texto de distintos campos de clases de tipo String
+' Cuando el campo de texto no supera la validación, el procedimiento lanza una excepción.
+
+Friend Module Validacion
+    Private ReadOnly CaracteresPermitidosTexto() As Char = ("ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789áéíóúÁÉÍÓÚàèìòùÀÈÌÒÙüÜçÇßãÃ-_()/:;""',.%&¿?¡!+<>$= " & vbNewLine).ToCharArray
     Private ReadOnly CaracteresPermitidosNombres() As Char = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚàèìòùÀÈÌÒÙüÜçÇ- ".ToArray
     Private ReadOnly CaracteresPermitidosCorreos() As Char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-+!#$%&'*+-/=?^_`{|.@".ToArray
     Private ReadOnly CaracteresPermitidosNumeros() As Char = "0123456789".ToArray

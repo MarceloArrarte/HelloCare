@@ -23,8 +23,8 @@ Partial Class FrmHistorialDiagnosticos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmHistorialDiagnosticos))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,8 +47,8 @@ Partial Class FrmHistorialDiagnosticos
         '
         'btnSalir
         '
-        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.BackColor = System.Drawing.SystemColors.ButtonFace
+        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnSalir.Name = "btnSalir"
@@ -62,7 +62,6 @@ Partial Class FrmHistorialDiagnosticos
         '
         'tblDiagnosticos
         '
-        resources.ApplyResources(Me.tblDiagnosticos, "tblDiagnosticos")
         Me.tblDiagnosticos.AllowUserToAddRows = False
         Me.tblDiagnosticos.AllowUserToDeleteRows = False
         Me.tblDiagnosticos.AllowUserToResizeColumns = False
@@ -70,6 +69,7 @@ Partial Class FrmHistorialDiagnosticos
         Me.tblDiagnosticos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tblDiagnosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblDiagnosticos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.Column2, Me.Column1, Me.Column3})
+        resources.ApplyResources(Me.tblDiagnosticos, "tblDiagnosticos")
         Me.tblDiagnosticos.MultiSelect = False
         Me.tblDiagnosticos.Name = "tblDiagnosticos"
         Me.tblDiagnosticos.ReadOnly = True
@@ -84,8 +84,8 @@ Partial Class FrmHistorialDiagnosticos
         '
         'Column2
         '
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column2.FillWeight = 40.0!
         resources.ApplyResources(Me.Column2, "Column2")
         Me.Column2.Name = "Column2"
@@ -100,8 +100,8 @@ Partial Class FrmHistorialDiagnosticos
         '
         'Column3
         '
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column3.FillWeight = 40.0!
         resources.ApplyResources(Me.Column3, "Column3")
         Me.Column3.Name = "Column3"
@@ -109,16 +109,16 @@ Partial Class FrmHistorialDiagnosticos
         '
         'btnVerDetalles
         '
-        resources.ApplyResources(Me.btnVerDetalles, "btnVerDetalles")
         Me.btnVerDetalles.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnVerDetalles, "btnVerDetalles")
         Me.btnVerDetalles.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVerDetalles.Name = "btnVerDetalles"
         Me.btnVerDetalles.UseVisualStyleBackColor = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -135,6 +135,7 @@ Partial Class FrmHistorialDiagnosticos
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmHistorialDiagnosticos"
         CType(Me.tblDiagnosticos, System.ComponentModel.ISupportInitialize).EndInit()

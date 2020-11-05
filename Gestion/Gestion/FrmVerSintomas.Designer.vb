@@ -95,16 +95,15 @@ Partial Class FrmVerSintomas
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblPatologias
         '
-        resources.ApplyResources(Me.tblPatologias, "tblPatologias")
         Me.tblPatologias.AllowUserToAddRows = False
         Me.tblPatologias.AllowUserToDeleteRows = False
         Me.tblPatologias.AllowUserToResizeColumns = False
@@ -129,6 +128,7 @@ Partial Class FrmVerSintomas
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblPatologias.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.tblPatologias, "tblPatologias")
         Me.tblPatologias.MultiSelect = False
         Me.tblPatologias.Name = "tblPatologias"
         Me.tblPatologias.ReadOnly = True
@@ -182,8 +182,8 @@ Partial Class FrmVerSintomas
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -206,6 +206,7 @@ Partial Class FrmVerSintomas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmVerSintomas"

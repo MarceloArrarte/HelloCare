@@ -7,7 +7,7 @@ Public Class FrmHistorialChats
     Private Sub FrmHistorialChats_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim consultasMedico As List(Of DiagnosticoPrimarioConConsulta)
         Try
-            consultasMedico = CargarConsultasMedico()
+            consultasMedico = CargarConsultasMedico()           ' Carga las últimas consultas atendidas por el médico
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Return
@@ -16,13 +16,13 @@ Public Class FrmHistorialChats
         For Each d As DiagnosticoPrimarioConConsulta In consultasMedico
             Dim ultimoMensaje As Mensaje
             Try
-                ultimoMensaje = CargarUltimosMensajesDiagnostico(d, 1).SingleOrDefault
+                ultimoMensaje = CargarUltimosMensajesDiagnostico(d, 1).SingleOrDefault      ' Para cada consulta, obtiene el último mensaje si existe
             Catch ex As Exception
                 MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
                 Return
             End Try
 
-            If ultimoMensaje IsNot Nothing Then
+            If ultimoMensaje IsNot Nothing Then         ' Si se envió al menos un mensaje, se carga como previsualización.
                 Dim prefijoMensaje As String
                 If ultimoMensaje.Remitente = TiposRemitente.Medico Then
                     prefijoMensaje = "Tú: "
@@ -32,7 +32,7 @@ Public Class FrmHistorialChats
 
                 tblChats.Rows.Add(d, d.Paciente, prefijoMensaje & ultimoMensaje.ToString, ultimoMensaje.FechaHora.ToString("dd/MM/yyyy HH:mm:ss"))
             Else
-                tblChats.Rows.Add(d, d.Paciente, "Sin mensajes.", "")
+                tblChats.Rows.Add(d, d.Paciente, "Sin mensajes.", "")       ' Si nunca se envió un mensaje, se muestra un mensaje por defecto.
             End If
         Next
     End Sub

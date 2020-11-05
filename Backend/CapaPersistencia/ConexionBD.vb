@@ -1,5 +1,5 @@
-﻿Imports System.CodeDom
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
+
 Public NotInheritable Class ConexionBD
     Private Shared _Conexion As MySqlConnection
     Private Shared Adaptador As MySqlDataAdapter
@@ -23,6 +23,7 @@ Public NotInheritable Class ConexionBD
         End Get
     End Property
 
+    ' Ejecuta una consulta contra la BD y retorna el DataTable con los datos devueltos por la BD
     Public Shared Function EjecutarConsulta(comando As MySqlCommand) As DataTable
         Dim datos As New DataSet
         comando.Connection = Conexion
@@ -33,6 +34,7 @@ Public NotInheritable Class ConexionBD
         Return tabla
     End Function
 
+    ' Sobrecarga de la función anterior que especifica el nombre del DataTable devuelto
     Public Shared Function EjecutarConsulta(comando As MySqlCommand, nombreTabla As String) As DataTable
         Dim datos As New DataSet
         comando.Connection = Conexion
@@ -44,6 +46,7 @@ Public NotInheritable Class ConexionBD
         Return tabla
     End Function
 
+    ' Ejecuta una sentencia SQL contra la BD que no retorna ningún resultado
     Public Shared Sub EjecutarTransaccion(comando As MySqlCommand)
         Try
             comando.Connection = Conexion
@@ -57,6 +60,7 @@ Public NotInheritable Class ConexionBD
         End Try
     End Sub
 
+    ' Retorna el ID correspondiente al último INSERT realizado en la BD, para inserciones que dependan de un ID que a la vez sea Foreign Key
     Public Shared Function ObtenerUltimoIdInsertado() As Integer
         Dim datos As DataTable = EjecutarConsulta(New MySqlCommand("SELECT LAST_INSERT_ID();"))
         Return datos.Rows(0)(0)

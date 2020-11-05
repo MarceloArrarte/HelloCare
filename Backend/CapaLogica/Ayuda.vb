@@ -4,10 +4,14 @@ Imports Clases
 Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 
+' Este módulo provee métodos para abrir PDFs de ayuda para el usuario
 Public Module Ayuda
+    ' Abre páginas del manual de usuario correspondiente al rol recibido como parámetro.
+    ' El rango de páginas a abrir se define tanto en base al tipo de usuario como al formulario desde el cual se llama a este método.
     Public Sub AbrirAyuda(tipoUsuario As TiposUsuario, form As Form)
         Dim primeraPagina, ultimaPagina As Integer
         Dim rangoPaginas As String = ""
+
         Select Case tipoUsuario
             Case TiposUsuario.Administrativo
                 rangoPaginas = ObtenerRangoPaginasManualAdministrativo(form)
@@ -15,21 +19,21 @@ Public Module Ayuda
                 rangoPaginas = ObtenerRangoPaginasManualPaciente(form)
             Case TiposUsuario.Medico
                 rangoPaginas = ObtenerRangoPaginasManualMedico(form)
+            Case Else
+                Throw New Exception("Error al abrir la ayuda del programa.")
         End Select
 
         Dim limitesRango As String() = rangoPaginas.Split("-"c)
         primeraPagina = limitesRango(0)
         ultimaPagina = limitesRango(1)
 
-        Select Case tipoUsuario
-            Case TiposUsuario.Administrativo
-                AbrirPDFAyuda(primeraPagina, ultimaPagina)
-        End Select
+        AbrirPDF(primeraPagina, ultimaPagina)
     End Sub
 
     Private Function ObtenerRangoPaginasManualAdministrativo(form As Form) As String
         Dim nombreCompletoForm As String = form.GetType.ToString
-        Dim nombreCortoForm As String = nombreCompletoForm.Substring(nombreCompletoForm.IndexOf("."c) + 1)
+        Dim nombreCortoForm As String = nombreCompletoForm.Substring(nombreCompletoForm.IndexOf("."c) + 1)      ' Separa el nombre del Form del nombre
+        ' del espacio de nombres al que pertenece
         Dim rangoPaginas As String = ""
         Select Case nombreCortoForm
             Case "FrmAltaAdministrativo"
@@ -150,9 +154,10 @@ Public Module Ayuda
         Return rangoPaginas
     End Function
 
-    Private Sub AbrirPDFAyuda(primeraPagina As Integer, ultimaPagina As Integer)
-        Dim rutaSalida As String = "Ayuda de HelloCare.pdf"
+    Private Sub AbrirPDF(primeraPagina As Integer, ultimaPagina As Integer)
+        Dim rutaSalida As String = "Ayuda de HelloCare.pdf"     ' Define el nombre de archivo a abrir mediante un proceso de Windows
 
+        ' Elimina el archivo de ayuda existente. Si ya está abierto y no es posible eliminarlo, lanza una excepción.
         If File.Exists(rutaSalida) Then
             Try
                 File.Delete(rutaSalida)
@@ -161,24 +166,24 @@ Public Module Ayuda
             End Try
         End If
 
-        Dim os As Stream = New StreamWriter(rutaSalida).BaseStream
+        Dim os As Stream = New StreamWriter(rutaSalida).BaseStream      ' Abre un escritor con el nombre de archivo de salida
         Dim doc As New Document()
         Dim lector As PdfReader
         Try
-            lector = New PdfReader("Manual.pdf")
+            lector = New PdfReader("Manual.pdf")        ' Inicializa un objeto que lee las páginas del manual de usuario
         Catch ex As Exception
             Throw New Exception("No se encuentra el manual del sistema en la carpeta de la aplicación.")
         End Try
-        Dim clonador As New PdfSmartCopy(doc, os)
+        Dim clonador As New PdfSmartCopy(doc, os)       ' Inicializa un objeto que permite copiar las páginas del manual original al archivo de salida
         doc.Open()
-        For i = primeraPagina To ultimaPagina
+        For i = primeraPagina To ultimaPagina           ' Añade al PDF de salida todas las páginas del manual original que corresponden a la ayuda de                                                      formulario a abrir
             Dim pagina As PdfImportedPage = clonador.GetImportedPage(lector, i)
             clonador.AddPage(pagina)
         Next
         doc.Close()
         lector.Close()
 
-        Dim proceso As New Process
+        Dim proceso As New Process                      ' Crea un proceso que abre el archivo de salida con la aplicación predeterminada para PDFs
         proceso.StartInfo.FileName = rutaSalida
         proceso.Start()
     End Sub

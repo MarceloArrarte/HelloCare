@@ -52,40 +52,40 @@ Partial Class FrmListadoAdministrativos
         '
         'btnAgregar
         '
-        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
-        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnModificar
         '
-        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnVer
         '
-        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVer.Name = "btnVer"
         Me.btnVer.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -98,7 +98,6 @@ Partial Class FrmListadoAdministrativos
         '
         'tblAdministrativo
         '
-        resources.ApplyResources(Me.tblAdministrativo, "tblAdministrativo")
         Me.tblAdministrativo.AllowUserToAddRows = False
         Me.tblAdministrativo.AllowUserToDeleteRows = False
         Me.tblAdministrativo.AllowUserToResizeColumns = False
@@ -116,6 +115,7 @@ Partial Class FrmListadoAdministrativos
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblAdministrativo.DefaultCellStyle = DataGridViewCellStyle1
+        resources.ApplyResources(Me.tblAdministrativo, "tblAdministrativo")
         Me.tblAdministrativo.Name = "tblAdministrativo"
         Me.tblAdministrativo.ReadOnly = True
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -191,8 +191,8 @@ Partial Class FrmListadoAdministrativos
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -255,6 +255,7 @@ Partial Class FrmListadoAdministrativos
         Me.Controls.Add(Me.tblAdministrativo)
         Me.Controls.Add(Me.Label2)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmListadoAdministrativos"
         CType(Me.tblAdministrativo, System.ComponentModel.ISupportInitialize).EndInit()

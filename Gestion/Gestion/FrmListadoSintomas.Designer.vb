@@ -62,56 +62,55 @@ Partial Class FrmListadoSintomas
         '
         'btnAgregar
         '
-        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
-        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnVer
         '
-        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVer.Name = "btnVer"
         Me.btnVer.UseVisualStyleBackColor = False
         '
         'btnModificar
         '
-        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnImportar
         '
-        resources.ApplyResources(Me.btnImportar, "btnImportar")
         Me.btnImportar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnImportar, "btnImportar")
         Me.btnImportar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'tblSintomas
         '
-        resources.ApplyResources(Me.tblSintomas, "tblSintomas")
         Me.tblSintomas.AllowUserToAddRows = False
         Me.tblSintomas.AllowUserToDeleteRows = False
         Me.tblSintomas.AllowUserToResizeColumns = False
@@ -137,6 +136,7 @@ Partial Class FrmListadoSintomas
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblSintomas.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.tblSintomas, "tblSintomas")
         Me.tblSintomas.Name = "tblSintomas"
         Me.tblSintomas.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -192,12 +192,11 @@ Partial Class FrmListadoSintomas
         'exploradorArchivos
         '
         Me.exploradorArchivos.FileName = "OpenFileDialog1"
-        resources.ApplyResources(Me.exploradorArchivos, "exploradorArchivos")
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -239,6 +238,7 @@ Partial Class FrmListadoSintomas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmListadoSintomas"

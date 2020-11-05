@@ -173,6 +173,7 @@ Partial Class FrmVerMedicos
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmVerMedicos"
         CType(Me.tblEspecialidades, System.ComponentModel.ISupportInitialize).EndInit()

@@ -148,15 +148,11 @@ Public Class FrmChatMedico
                 archivosAdjuntos.Add(lstArchivos.Items(i))
             Next
 
-            Dim ventanaEspera As New FrmEsperar
-            ventanaEspera.Show()
             Try
                 EnviarSesionChat(consultaEnCurso.Paciente, frmDiagnosticoDiferencial.diagnosticoRealizado, txtConversacion.Text, archivosAdjuntos)
                 MostrarMensaje(MsgBoxStyle.OkOnly, "Se ha enviado una copia de la sesión del chat al paciente.", "", "A copy of the chat session has been sent to the patient.", "")
             Catch ex As Exception
                 MostrarMensaje(MsgBoxStyle.Critical, "Hubo un error al enviar la sesión de chat al correo del paciente.", "Error", "There was an error while sending the chat session to the patient's email.", "Error")
-            Finally
-                ventanaEspera.Close()
             End Try
         End If
     End Sub

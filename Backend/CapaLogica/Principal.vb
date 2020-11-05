@@ -6,6 +6,7 @@ Imports System.Text
 Imports Microsoft.VisualBasic.FileIO
 
 Public Module Principal
+    ' Intenta loguear a un paciente en el sistema con la cédula y contraseña provistas. Indica si tuvo éxito, falló o si la persona no tiene un usuario aún
     Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
         If Not TienePersonaRegistrada(ci, TiposUsuario.Paciente) Then
             Return ResultadosLogin.PersonaNoExiste
@@ -103,6 +104,7 @@ Public Module Principal
         Return ObtenerListadoAdministrativos()
     End Function
 
+    ' Crea una fila idéntica a la provista y la retorna para ser insertada en una otra tabla.
     Public Function DuplicarFila(filaADuplicar As DataGridViewRow) As DataGridViewRow
         Dim nuevaFila As DataGridViewRow = filaADuplicar.Clone
         For i = 0 To filaADuplicar.Cells.Count - 1
@@ -111,22 +113,24 @@ Public Module Principal
         Return nuevaFila
     End Function
 
+    ' Realiza un diagnóstico en base a una lista de síntomas ingresados por el sistema.
     Public Function RealizarDiagnostico(sintomasIngresados As List(Of Sintoma)) As EnfermedadesDiagnosticadas
 
+        ' Inicializa una lista de enfermedades posibles, con sus respectivas probabilidades
         Dim listaEnfermedadesPosibles As New List(Of Enfermedad)
         Dim listaProbabilidades As New List(Of Decimal)
 
         For Each e As Enfermedad In CargarTodasLasEnfermedades()
             Dim porcentajeProbabilidad As Decimal = DeterminarProbabilidadEnfermedad(sintomasIngresados, e)
 
-            If porcentajeProbabilidad > 0 Then
-                listaEnfermedadesPosibles.Add(e)
+            If porcentajeProbabilidad > 0 Then                          ' Si la enfermedad es posible,
+                listaEnfermedadesPosibles.Add(e)                        ' la registra junto con la probabilidad calculada del diagnóstico.
                 listaProbabilidades.Add(porcentajeProbabilidad)
             End If
         Next
 
-        Dim listaEnfermedadesOrdenada As New List(Of Enfermedad)
-        Dim listaProbabilidadesOrdenada As New List(Of Decimal)
+        Dim listaEnfermedadesOrdenada As New List(Of Enfermedad)        ' Declara nuevas listas que ordenan las enfermedades posibles de mayor a menor
+        Dim listaProbabilidadesOrdenada As New List(Of Decimal)         ' probabilidad.
         For i = 0 To listaEnfermedadesPosibles.Count - 1
             Dim enfermedadMasProbable As Enfermedad = listaEnfermedadesPosibles(0)
             For j = 0 To listaEnfermedadesPosibles.Count - 1
@@ -148,13 +152,13 @@ Public Module Principal
         Dim cantidadSintomasDeLaEnfermedad As Integer = enfermedad.Sintomas.Count
         Dim cantidadSintomasCoincidentes As Integer = 0
         Dim listaFrecuencias As New List(Of Decimal)
-        For i = 0 To cantidadSintomasDeLaEnfermedad - 1
-            For Each sintomaIngresado As Sintoma In sintomasIngresados
-                If sintomaIngresado.ID = enfermedad.Sintomas(i).ID Then
+        For i = 0 To cantidadSintomasDeLaEnfermedad - 1                         ' Para cada síntoma registrado en la enfermedad
+            For Each sintomaIngresado As Sintoma In sintomasIngresados          ' se fija si fue ingresado
+                If sintomaIngresado.ID = enfermedad.Sintomas(i).ID Then     ' Si fue ingresado, lo marca como coincidente y agrega su frecuencia a la lista
                     cantidadSintomasCoincidentes += 1
                     listaFrecuencias.Add(enfermedad.FrecuenciaSintoma(i))
                 Else
-                    listaFrecuencias.Add(0)
+                    listaFrecuencias.Add(0)                                 ' Si el síntoma asociado no fue seleccionado, reduce la probabilidad del diag.
                 End If
             Next
         Next
@@ -163,8 +167,8 @@ Public Module Principal
         For Each frecuencia As Decimal In listaFrecuencias
             porcentajeProbabilidad += frecuencia
         Next
-        porcentajeProbabilidad /= cantidadSintomasDeLaEnfermedad
-        Return porcentajeProbabilidad
+        porcentajeProbabilidad /= cantidadSintomasDeLaEnfermedad            ' Calcula la probabilidad del diag. como el promedio de la frecuencia de 
+        Return porcentajeProbabilidad                                       ' síntomas tanto ingresados como no ingresados
     End Function
 
     Public Function CargarUltimosMensajesDiagnostico(diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta, cantidad As Integer) As List(Of Mensaje)
@@ -216,6 +220,8 @@ Public Module Principal
         Return ObtenerDiagnosticosPrimariosPorPaciente(paciente)
     End Function
 
+    ' Este método carga las consultas que el médico logeado puede atender, basándose en sus especialidades. La lista retornada se encuentra ordenada
+    ' de mayor a menor gravedad, dando prioridad a consultas sin diagnóstico o atrasadas.
     Public Function CargarConsultasSinAtenderParaMedicoLogeado() As List(Of DiagnosticoPrimarioConConsulta)
         Dim consultasSinAtender As List(Of DiagnosticoPrimarioConConsulta) = ObtenerConsultasSinAtender()
         Dim consultasFiltradasPorEspecialidad As New List(Of DiagnosticoPrimarioConConsulta)
@@ -478,7 +484,7 @@ Public Module Principal
         Dim parser As New TextFieldParser(nombreArchivo, Encoding.UTF8)
         parser.TextFieldType = FieldType.Delimited
         parser.SetDelimiters(",")
-        While Not parser.EndOfData
+        While Not parser.EndOfData                      ' Agrega a la lista de filas el contenido de las celdas de cada fila de la planilla
             filasParseadas.Add(parser.ReadFields)
         End While
 
@@ -490,7 +496,8 @@ Public Module Principal
         Dim sintomasCargados As List(Of Sintoma) = CargarTodosLosSintomas()
         Dim listaEnfermedadesImportadas As New List(Of Enfermedad)
 
-        For i = 0 To filasParseadas.Count - 1 Step 3
+        ' Almacena los datos de la enfermedad en sí
+        For i = 0 To filasParseadas.Count - 1 Step 3                    ' Step 3 porque cada enfermedad se compone de 3 filas
             Dim datosEnfermedad As String() = filasParseadas(i)
             Dim nombre As String = datosEnfermedad(0)
             Dim descripcion As String = datosEnfermedad(1)
@@ -510,17 +517,17 @@ Public Module Principal
             End If
 
             Dim j As Integer = 0
-            While j < filasParseadas(i + 2).Length AndAlso filasParseadas(i + 2)(j) <> ""
-                Dim valor As String = filasParseadas(i + 2)(j)
+            While j < filasParseadas(i + 2).Length AndAlso filasParseadas(i + 2)(j) <> ""       ' Mientras haya síntomas que se asocian a la nueva 
+                Dim valor As String = filasParseadas(i + 2)(j)                                  ' enfermedad
                 Dim valorConvertido As Decimal
-                If Decimal.TryParse(valor, valorConvertido) = False Then
-                    Throw New Exception(String.Format("Error de formato: las frecuencias de los síntomas de la enfermedad ""{0}"" no tienen un formato válido.",
-                                                      nombre))
+                If Decimal.TryParse(valor, valorConvertido) = False Then        ' Valida que la frecuencia de cada síntoma sea un Decimal válido
+                    Throw New Exception(String.Format("Error de formato: las frecuencias de los síntomas de la enfermedad ""{0}"" no tienen un formato válido.", nombre))
                 End If
-                j += 1
+                j += 1              ' Actualiza un contador que luego se guarda como la cantidad de síntomas de la nueva enfermedad
             End While
 
             Dim cantSintomas As Integer = j
+            ' Guarda arrays con los nombres de los síntomas y sus respectivas frecuencias
             Dim nombresSintomas As String() = filasParseadas(i + 1).Take(cantSintomas).ToArray
             Dim frecuenciasSintomas As String() = filasParseadas(i + 2).Take(cantSintomas).ToArray
 
@@ -531,23 +538,25 @@ Public Module Principal
                 Dim sintoma As Sintoma = Nothing
                 For Each s In sintomasCargados
                     If nombresSintomas(j) = s.Nombre Then
-                        sintoma = s
+                        sintoma = s                             ' Si encuentra el síntoma mencionado en el sistema, lo guarda
                     End If
                 Next
                 If sintoma Is Nothing Then
                     Throw New Exception(String.Format("El síntoma ""{0}"" de la enfermedad ""{1}"" no se encuentra registrado en el sistema.",
                                                        nombresSintomas(j), nombre))
                 Else
-                    listaSintomas.Add(sintoma)
-                    listaFrecuencias.Add(CDec(frecuenciasSintomas(j)))
+                    listaSintomas.Add(sintoma)                                  ' Si halló el síntoma, lo almacena en la lista
+                    listaFrecuencias.Add(CDec(frecuenciasSintomas(j)))          ' guardando en la misma posición de la otra lista la frecuencia
                 End If
             Next
 
+            ' Con las listas de síntomas y frecuencias, crea los SintomasAsociados
             Dim sintomasAsociados As New SintomasAsociados(listaSintomas, listaFrecuencias)
+            ' Crea una nueva enfermedad con los datos obtenidos de las tres filas
             listaEnfermedadesImportadas.Add(New Enfermedad(nombre, recomendaciones, gravedad, descripcion, sintomasAsociados, especialidad))
         Next
 
-        InsertarEnfermedadesImportadas(listaEnfermedadesImportadas)
+        InsertarEnfermedadesImportadas(listaEnfermedadesImportadas) ' Inserta todas las enfermedades halladas en el archivo CSV
     End Sub
 
     Public Sub ImportarSintomas(nombreArchivo As String)
@@ -578,8 +587,7 @@ Public Module Principal
                 Dim valor As String = filasParseadas(i + 2)(j)
                 Dim valorConvertido As Decimal
                 If Decimal.TryParse(valor, valorConvertido) = False Then
-                    Throw New Exception(String.Format("Error de formato: las frecuencias de las enfermedades del síntoma ""{0}"" no tienen un formato válido.",
-                                                      nombre))
+                    Throw New Exception(String.Format("Error de formato: las frecuencias de las enfermedades del síntoma ""{0}"" no tienen un formato válido.", nombre))
                 End If
                 j += 1
             End While
@@ -617,10 +625,7 @@ Public Module Principal
     Public Sub RegistrarUsuario(persona As Persona, contrasena As String)
         Dim nuevoUsuario As New Usuario(CifrarClave(contrasena), persona)
         InsertarObjeto(nuevoUsuario, TiposObjeto.Usuario)
-        Dim ventanaEspera As New FrmEsperar()
-        ventanaEspera.Show()
         EnviarCorreoRegistro(persona, contrasena)
-        ventanaEspera.Close()
     End Sub
 
 

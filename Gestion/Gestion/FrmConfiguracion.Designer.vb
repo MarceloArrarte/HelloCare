@@ -126,45 +126,45 @@ Partial Class FrmConfiguracion
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'TabPage1
         '
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Controls.Add(Me.TabControl2)
         Me.TabPage1.Controls.Add(Me.grdDepartamentos)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.txtBuscarDepartamento)
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabControl2
         '
-        resources.ApplyResources(Me.TabControl2, "TabControl2")
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Controls.Add(Me.TabPage5)
         Me.TabControl2.Controls.Add(Me.TabPage6)
+        resources.ApplyResources(Me.TabControl2, "TabControl2")
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         '
         'TabPage4
         '
-        resources.ApplyResources(Me.TabPage4, "TabPage4")
         Me.TabPage4.Controls.Add(Me.btnAgregarDepartamento)
         Me.TabPage4.Controls.Add(Me.Label3)
         Me.TabPage4.Controls.Add(Me.txtAgregarDepartamento)
+        resources.ApplyResources(Me.TabPage4, "TabPage4")
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'btnAgregarDepartamento
         '
-        resources.ApplyResources(Me.btnAgregarDepartamento, "btnAgregarDepartamento")
         Me.btnAgregarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregarDepartamento, "btnAgregarDepartamento")
         Me.btnAgregarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarDepartamento.Name = "btnAgregarDepartamento"
         Me.btnAgregarDepartamento.UseVisualStyleBackColor = False
@@ -181,19 +181,19 @@ Partial Class FrmConfiguracion
         '
         'TabPage5
         '
-        resources.ApplyResources(Me.TabPage5, "TabPage5")
         Me.TabPage5.Controls.Add(Me.btnModificarDepartamento)
         Me.TabPage5.Controls.Add(Me.txtNuevoNombreDepartamento)
         Me.TabPage5.Controls.Add(Me.Label5)
         Me.TabPage5.Controls.Add(Me.Label4)
         Me.TabPage5.Controls.Add(Me.txtNombreDepartamentoAModificar)
+        resources.ApplyResources(Me.TabPage5, "TabPage5")
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
         'btnModificarDepartamento
         '
-        resources.ApplyResources(Me.btnModificarDepartamento, "btnModificarDepartamento")
         Me.btnModificarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificarDepartamento, "btnModificarDepartamento")
         Me.btnModificarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarDepartamento.Name = "btnModificarDepartamento"
         Me.btnModificarDepartamento.UseVisualStyleBackColor = False
@@ -221,17 +221,17 @@ Partial Class FrmConfiguracion
         '
         'TabPage6
         '
-        resources.ApplyResources(Me.TabPage6, "TabPage6")
         Me.TabPage6.Controls.Add(Me.btnEliminarDepartamento)
         Me.TabPage6.Controls.Add(Me.Label6)
         Me.TabPage6.Controls.Add(Me.txtEliminarDepartamento)
+        resources.ApplyResources(Me.TabPage6, "TabPage6")
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
         'btnEliminarDepartamento
         '
-        resources.ApplyResources(Me.btnEliminarDepartamento, "btnEliminarDepartamento")
         Me.btnEliminarDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminarDepartamento, "btnEliminarDepartamento")
         Me.btnEliminarDepartamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarDepartamento.Name = "btnEliminarDepartamento"
         Me.btnEliminarDepartamento.UseVisualStyleBackColor = False
@@ -249,7 +249,6 @@ Partial Class FrmConfiguracion
         '
         'grdDepartamentos
         '
-        resources.ApplyResources(Me.grdDepartamentos, "grdDepartamentos")
         Me.grdDepartamentos.AllowUserToAddRows = False
         Me.grdDepartamentos.AllowUserToDeleteRows = False
         Me.grdDepartamentos.AllowUserToResizeColumns = False
@@ -267,6 +266,7 @@ Partial Class FrmConfiguracion
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdDepartamentos.DefaultCellStyle = DataGridViewCellStyle1
+        resources.ApplyResources(Me.grdDepartamentos, "grdDepartamentos")
         Me.grdDepartamentos.MultiSelect = False
         Me.grdDepartamentos.Name = "grdDepartamentos"
         Me.grdDepartamentos.ReadOnly = True
@@ -291,20 +291,20 @@ Partial Class FrmConfiguracion
         '
         'TabPage2
         '
-        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Controls.Add(Me.cbxDepartamentos)
         Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.TabControl3)
         Me.TabPage2.Controls.Add(Me.grdLocalidades)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.txtBuscarLocalidades)
+        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'cbxDepartamentos
         '
-        resources.ApplyResources(Me.cbxDepartamentos, "cbxDepartamentos")
         Me.cbxDepartamentos.FormattingEnabled = True
+        resources.ApplyResources(Me.cbxDepartamentos, "cbxDepartamentos")
         Me.cbxDepartamentos.Name = "cbxDepartamentos"
         '
         'Label12
@@ -314,37 +314,37 @@ Partial Class FrmConfiguracion
         '
         'TabControl3
         '
-        resources.ApplyResources(Me.TabControl3, "TabControl3")
         Me.TabControl3.Controls.Add(Me.TabPage7)
         Me.TabControl3.Controls.Add(Me.TabPage8)
         Me.TabControl3.Controls.Add(Me.TabPage10)
         Me.TabControl3.Controls.Add(Me.TabPage9)
+        resources.ApplyResources(Me.TabControl3, "TabControl3")
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
         '
         'TabPage7
         '
-        resources.ApplyResources(Me.TabPage7, "TabPage7")
         Me.TabPage7.Controls.Add(Me.btnAgregarLocalidad)
         Me.TabPage7.Controls.Add(Me.cbxDepartamentoDeNuevaLocalidad)
         Me.TabPage7.Controls.Add(Me.Label13)
         Me.TabPage7.Controls.Add(Me.Label7)
         Me.TabPage7.Controls.Add(Me.txtAgregarLocalidad)
+        resources.ApplyResources(Me.TabPage7, "TabPage7")
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
         'btnAgregarLocalidad
         '
-        resources.ApplyResources(Me.btnAgregarLocalidad, "btnAgregarLocalidad")
         Me.btnAgregarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregarLocalidad, "btnAgregarLocalidad")
         Me.btnAgregarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarLocalidad.Name = "btnAgregarLocalidad"
         Me.btnAgregarLocalidad.UseVisualStyleBackColor = False
         '
         'cbxDepartamentoDeNuevaLocalidad
         '
-        resources.ApplyResources(Me.cbxDepartamentoDeNuevaLocalidad, "cbxDepartamentoDeNuevaLocalidad")
         Me.cbxDepartamentoDeNuevaLocalidad.FormattingEnabled = True
+        resources.ApplyResources(Me.cbxDepartamentoDeNuevaLocalidad, "cbxDepartamentoDeNuevaLocalidad")
         Me.cbxDepartamentoDeNuevaLocalidad.Name = "cbxDepartamentoDeNuevaLocalidad"
         '
         'Label13
@@ -364,19 +364,19 @@ Partial Class FrmConfiguracion
         '
         'TabPage8
         '
-        resources.ApplyResources(Me.TabPage8, "TabPage8")
         Me.TabPage8.Controls.Add(Me.btnModificarLocalidad)
         Me.TabPage8.Controls.Add(Me.txtNuevoNombreLocalidad)
         Me.TabPage8.Controls.Add(Me.Label8)
         Me.TabPage8.Controls.Add(Me.Localidad)
         Me.TabPage8.Controls.Add(Me.txtNombreLocalidadAModificar)
+        resources.ApplyResources(Me.TabPage8, "TabPage8")
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.UseVisualStyleBackColor = True
         '
         'btnModificarLocalidad
         '
-        resources.ApplyResources(Me.btnModificarLocalidad, "btnModificarLocalidad")
         Me.btnModificarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificarLocalidad, "btnModificarLocalidad")
         Me.btnModificarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarLocalidad.Name = "btnModificarLocalidad"
         Me.btnModificarLocalidad.UseVisualStyleBackColor = False
@@ -404,7 +404,6 @@ Partial Class FrmConfiguracion
         '
         'TabPage10
         '
-        resources.ApplyResources(Me.TabPage10, "TabPage10")
         Me.TabPage10.Controls.Add(Me.btnCambiarDepartamentoDeLocalidad)
         Me.TabPage10.Controls.Add(Me.txtLocalidadParaCambiarDepartamento)
         Me.TabPage10.Controls.Add(Me.Label20)
@@ -412,13 +411,14 @@ Partial Class FrmConfiguracion
         Me.TabPage10.Controls.Add(Me.Label9)
         Me.TabPage10.Controls.Add(Me.txtDepartamentoActual)
         Me.TabPage10.Controls.Add(Me.cbxNuevoDepartamentoDeLocalidad)
+        resources.ApplyResources(Me.TabPage10, "TabPage10")
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
         'btnCambiarDepartamentoDeLocalidad
         '
-        resources.ApplyResources(Me.btnCambiarDepartamentoDeLocalidad, "btnCambiarDepartamentoDeLocalidad")
         Me.btnCambiarDepartamentoDeLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnCambiarDepartamentoDeLocalidad, "btnCambiarDepartamentoDeLocalidad")
         Me.btnCambiarDepartamentoDeLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnCambiarDepartamentoDeLocalidad.Name = "btnCambiarDepartamentoDeLocalidad"
         Me.btnCambiarDepartamentoDeLocalidad.UseVisualStyleBackColor = False
@@ -452,23 +452,23 @@ Partial Class FrmConfiguracion
         '
         'cbxNuevoDepartamentoDeLocalidad
         '
-        resources.ApplyResources(Me.cbxNuevoDepartamentoDeLocalidad, "cbxNuevoDepartamentoDeLocalidad")
         Me.cbxNuevoDepartamentoDeLocalidad.FormattingEnabled = True
+        resources.ApplyResources(Me.cbxNuevoDepartamentoDeLocalidad, "cbxNuevoDepartamentoDeLocalidad")
         Me.cbxNuevoDepartamentoDeLocalidad.Name = "cbxNuevoDepartamentoDeLocalidad"
         '
         'TabPage9
         '
-        resources.ApplyResources(Me.TabPage9, "TabPage9")
         Me.TabPage9.Controls.Add(Me.btnEliminarLocalidad)
         Me.TabPage9.Controls.Add(Me.Label10)
         Me.TabPage9.Controls.Add(Me.txtEliminarLocalidad)
+        resources.ApplyResources(Me.TabPage9, "TabPage9")
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
         'btnEliminarLocalidad
         '
-        resources.ApplyResources(Me.btnEliminarLocalidad, "btnEliminarLocalidad")
         Me.btnEliminarLocalidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminarLocalidad, "btnEliminarLocalidad")
         Me.btnEliminarLocalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarLocalidad.Name = "btnEliminarLocalidad"
         Me.btnEliminarLocalidad.UseVisualStyleBackColor = False
@@ -486,7 +486,6 @@ Partial Class FrmConfiguracion
         '
         'grdLocalidades
         '
-        resources.ApplyResources(Me.grdLocalidades, "grdLocalidades")
         Me.grdLocalidades.AllowUserToAddRows = False
         Me.grdLocalidades.AllowUserToDeleteRows = False
         Me.grdLocalidades.AllowUserToResizeColumns = False
@@ -504,6 +503,7 @@ Partial Class FrmConfiguracion
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdLocalidades.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.grdLocalidades, "grdLocalidades")
         Me.grdLocalidades.MultiSelect = False
         Me.grdLocalidades.Name = "grdLocalidades"
         Me.grdLocalidades.ReadOnly = True
@@ -528,36 +528,36 @@ Partial Class FrmConfiguracion
         '
         'TabPage3
         '
-        resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Controls.Add(Me.TabControl4)
         Me.TabPage3.Controls.Add(Me.grdEspecialidades)
         Me.TabPage3.Controls.Add(Me.Label19)
         Me.TabPage3.Controls.Add(Me.txtBuscarEspecialidad)
+        resources.ApplyResources(Me.TabPage3, "TabPage3")
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TabControl4
         '
-        resources.ApplyResources(Me.TabControl4, "TabControl4")
         Me.TabControl4.Controls.Add(Me.TabPage11)
         Me.TabControl4.Controls.Add(Me.TabPage12)
         Me.TabControl4.Controls.Add(Me.TabPage13)
+        resources.ApplyResources(Me.TabControl4, "TabControl4")
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
         '
         'TabPage11
         '
-        resources.ApplyResources(Me.TabPage11, "TabPage11")
         Me.TabPage11.Controls.Add(Me.btnAgregarEspecialidad)
         Me.TabPage11.Controls.Add(Me.Label15)
         Me.TabPage11.Controls.Add(Me.txtAgregarEspecialidad)
+        resources.ApplyResources(Me.TabPage11, "TabPage11")
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.UseVisualStyleBackColor = True
         '
         'btnAgregarEspecialidad
         '
-        resources.ApplyResources(Me.btnAgregarEspecialidad, "btnAgregarEspecialidad")
         Me.btnAgregarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregarEspecialidad, "btnAgregarEspecialidad")
         Me.btnAgregarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad"
         Me.btnAgregarEspecialidad.UseVisualStyleBackColor = False
@@ -574,19 +574,19 @@ Partial Class FrmConfiguracion
         '
         'TabPage12
         '
-        resources.ApplyResources(Me.TabPage12, "TabPage12")
         Me.TabPage12.Controls.Add(Me.btnModificarEspecialidad)
         Me.TabPage12.Controls.Add(Me.txtNuevoNombreEspecialidad)
         Me.TabPage12.Controls.Add(Me.Label16)
         Me.TabPage12.Controls.Add(Me.Label17)
         Me.TabPage12.Controls.Add(Me.txtNombreEspecialidadAModificar)
+        resources.ApplyResources(Me.TabPage12, "TabPage12")
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
         'btnModificarEspecialidad
         '
-        resources.ApplyResources(Me.btnModificarEspecialidad, "btnModificarEspecialidad")
         Me.btnModificarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificarEspecialidad, "btnModificarEspecialidad")
         Me.btnModificarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnModificarEspecialidad.Name = "btnModificarEspecialidad"
         Me.btnModificarEspecialidad.UseVisualStyleBackColor = False
@@ -614,17 +614,17 @@ Partial Class FrmConfiguracion
         '
         'TabPage13
         '
-        resources.ApplyResources(Me.TabPage13, "TabPage13")
         Me.TabPage13.Controls.Add(Me.btnEliminarEspecialidad)
         Me.TabPage13.Controls.Add(Me.Label18)
         Me.TabPage13.Controls.Add(Me.txtEliminarEspecialidad)
+        resources.ApplyResources(Me.TabPage13, "TabPage13")
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.UseVisualStyleBackColor = True
         '
         'btnEliminarEspecialidad
         '
-        resources.ApplyResources(Me.btnEliminarEspecialidad, "btnEliminarEspecialidad")
         Me.btnEliminarEspecialidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminarEspecialidad, "btnEliminarEspecialidad")
         Me.btnEliminarEspecialidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnEliminarEspecialidad.Name = "btnEliminarEspecialidad"
         Me.btnEliminarEspecialidad.UseVisualStyleBackColor = False
@@ -642,7 +642,6 @@ Partial Class FrmConfiguracion
         '
         'grdEspecialidades
         '
-        resources.ApplyResources(Me.grdEspecialidades, "grdEspecialidades")
         Me.grdEspecialidades.AllowUserToAddRows = False
         Me.grdEspecialidades.AllowUserToDeleteRows = False
         Me.grdEspecialidades.AllowUserToResizeColumns = False
@@ -660,6 +659,7 @@ Partial Class FrmConfiguracion
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdEspecialidades.DefaultCellStyle = DataGridViewCellStyle3
+        resources.ApplyResources(Me.grdEspecialidades, "grdEspecialidades")
         Me.grdEspecialidades.MultiSelect = False
         Me.grdEspecialidades.Name = "grdEspecialidades"
         Me.grdEspecialidades.ReadOnly = True
@@ -684,8 +684,8 @@ Partial Class FrmConfiguracion
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -698,8 +698,8 @@ Partial Class FrmConfiguracion
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -712,6 +712,7 @@ Partial Class FrmConfiguracion
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TabControl1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmConfiguracion"
         Me.TabControl1.ResumeLayout(False)

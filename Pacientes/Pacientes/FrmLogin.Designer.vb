@@ -40,25 +40,26 @@ Partial Class FrmLogin
         '
         'txtCedula
         '
-        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.BackColor = System.Drawing.Color.DarkGray
         Me.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.txtCedula, "txtCedula")
         Me.txtCedula.ForeColor = System.Drawing.Color.White
         Me.txtCedula.Name = "txtCedula"
         '
         'txtContrasena
         '
-        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         Me.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None
+        resources.ApplyResources(Me.txtContrasena, "txtContrasena")
         Me.txtContrasena.ForeColor = System.Drawing.Color.White
         Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.UseSystemPasswordChar = True
         '
         'btnIngresar
         '
-        resources.ApplyResources(Me.btnIngresar, "btnIngresar")
         Me.btnIngresar.AutoEllipsis = True
         Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnIngresar, "btnIngresar")
         Me.btnIngresar.ForeColor = System.Drawing.Color.White
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.UseVisualStyleBackColor = False
@@ -94,22 +95,22 @@ Partial Class FrmLogin
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -137,6 +138,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.btnIngresar)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"

@@ -44,16 +44,12 @@ Public Class FrmAltaAdministrativo
             localidad = tblLocalidad.SelectedRows(0).Cells(0).Value
         End If
 
-        Dim ventanaEspera As New FrmEsperar
-        ventanaEspera.Show()
         Try
             CrearAdministrativo(ci, nombre, apellido, correo, localidad, esEncargado)
             MostrarMensaje(MsgBoxStyle.OkOnly, "Administrativo agregado con éxito.", "Éxito", "Administrative staff successfully added.", "Success")
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            ventanaEspera.Close()
         End Try
     End Sub
 

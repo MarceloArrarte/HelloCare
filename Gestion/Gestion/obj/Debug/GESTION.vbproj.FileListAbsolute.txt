@@ -260,3 +260,10 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.exe
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.xml
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.pdb
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.vbprojResolveAssemblyReference.cache
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.FrmAltaEnfermedades.es-419.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.FrmListadoSintomas.aa.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.FrmRegistro.es-419.resources
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\es-419\Gestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\aa\Gestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es-419\Gestion.resources.dll
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\aa\Gestion.resources.dll

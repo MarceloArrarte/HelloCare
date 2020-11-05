@@ -196,6 +196,7 @@ Partial Class FrmAltaAdministrativo
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmAltaAdministrativo"
         CType(Me.tblLocalidad, System.ComponentModel.ISupportInitialize).EndInit()

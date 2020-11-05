@@ -123,6 +123,7 @@ Partial Class FrmRegistro
         Me.Controls.Add(Me.txtRepetir)
         Me.Controls.Add(Me.txtContrasena)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmRegistro"
         Me.ResumeLayout(False)

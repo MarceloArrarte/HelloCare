@@ -15,8 +15,6 @@ Public Class FrmContrasenaOlvidada
             Return
         End Try
 
-        Dim ventanaEspera As New FrmEsperar()
-        ventanaEspera.Show()
         Try
             EnviarCorreoRestauracionContrasena(CargarAdministrativoPorCI(ci))
             MostrarMensaje(MsgBoxStyle.Information, "Se ha enviado un correo electrónico a su casilla con pasos para restaurar su contraseña. No cierre esta ventana.", "", "An e-mail has been sent to your e-mail address with steps to restore your password. Don't close this window.", "")
@@ -27,8 +25,6 @@ Public Class FrmContrasenaOlvidada
             btnConfirmar.Visible = True
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            ventanaEspera.Close()
         End Try
     End Sub
 

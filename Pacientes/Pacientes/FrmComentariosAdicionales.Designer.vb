@@ -33,8 +33,8 @@ Partial Class FrmComentariosAdicionales
         '
         'Label1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
         'txtComentariosAdicionales
@@ -44,8 +44,8 @@ Partial Class FrmComentariosAdicionales
         '
         'btnCancelar
         '
-        resources.ApplyResources(Me.btnCancelar, "btnCancelar")
         Me.btnCancelar.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnCancelar, "btnCancelar")
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnCancelar.Name = "btnCancelar"
@@ -53,8 +53,8 @@ Partial Class FrmComentariosAdicionales
         '
         'btnEnviarConsulta
         '
-        resources.ApplyResources(Me.btnEnviarConsulta, "btnEnviarConsulta")
         Me.btnEnviarConsulta.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnEnviarConsulta, "btnEnviarConsulta")
         Me.btnEnviarConsulta.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnEnviarConsulta.Name = "btnEnviarConsulta"
         Me.btnEnviarConsulta.UseVisualStyleBackColor = False
@@ -68,8 +68,8 @@ Partial Class FrmComentariosAdicionales
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -86,6 +86,7 @@ Partial Class FrmComentariosAdicionales
         Me.Controls.Add(Me.txtComentariosAdicionales)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmComentariosAdicionales"
         Me.ResumeLayout(False)

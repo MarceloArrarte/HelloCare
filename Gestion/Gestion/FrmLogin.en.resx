@@ -121,10 +121,10 @@
     <value>SIGN IN</value>
   </data>
   <data name="txtContrasena.Text" xml:space="preserve">
-    <value>Password</value>
+    <value>Password:</value>
   </data>
   <data name="txtCedula.Text" xml:space="preserve">
-    <value>ID Card</value>
+    <value>ID Card:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkMostrarContrasena.Size" type="System.Drawing.Size, System.Drawing">
@@ -5766,5 +5766,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Administrative staff login</value>
   </data>
 </root>

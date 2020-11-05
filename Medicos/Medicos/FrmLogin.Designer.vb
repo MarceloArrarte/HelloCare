@@ -49,6 +49,7 @@ Partial Class FrmLogin
         Me.txtContrasena.BackColor = System.Drawing.Color.DarkGray
         Me.txtContrasena.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.UseSystemPasswordChar = True
         '
         'btnIngresar
         '
@@ -129,6 +130,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.btnIngresar)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"

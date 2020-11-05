@@ -272,6 +272,9 @@
     <EmbeddedResource Include="FrmAltaEnfermedades.en.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaEnfermedades.es-419.resx">
+      <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaEnfermedades.es.resx">
       <DependentUpon>FrmAltaEnfermedades.vb</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +365,9 @@
     <EmbeddedResource Include="FrmListadoPacientes.resx">
       <DependentUpon>FrmListadoPacientes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoSintomas.aa.resx">
+      <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoSintomas.en.resx">
       <DependentUpon>FrmListadoSintomas.vb</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +441,9 @@
       <DependentUpon>FrmModificacionSintomas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistro.en.resx">
+      <DependentUpon>FrmRegistro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistro.es-419.resx">
       <DependentUpon>FrmRegistro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistro.es.resx">

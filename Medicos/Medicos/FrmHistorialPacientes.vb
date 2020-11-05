@@ -7,7 +7,7 @@ Public Class FrmHistorialPacientes
     Private Sub FrmHistorialPacientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ultimasConsultas As List(Of DiagnosticoPrimarioConConsulta)
         Try
-            ultimasConsultas = CargarConsultasMedico()
+            ultimasConsultas = CargarConsultasMedico()              ' Carga las últimas consultas atendidas por el médico
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Return
@@ -15,8 +15,10 @@ Public Class FrmHistorialPacientes
 
         For Each d As DiagnosticoPrimarioConConsulta In ultimasConsultas
             If d.Enfermedades.Count > 0 Then
+                ' Si la consulta tiene enfermedades diagnosticadas, registra sus datos
                 tblUltimasConsultas.Rows.Add(d, d.Paciente, d.Enfermedades(d.IndiceEnfermedadMasProbable), d.FechaHora)
             Else
+                ' sino agrega la consulta sin datos de diagnóstico
                 tblUltimasConsultas.Rows.Add(d, d.Paciente, "Sin diagnóstico.", d.FechaHora)
             End If
         Next

@@ -101,17 +101,17 @@ Partial Class FrmModificacionSintomas
         '
         'btnConfirmar
         '
-        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfirmar, "btnConfirmar")
         Me.btnConfirmar.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
@@ -130,7 +130,6 @@ Partial Class FrmModificacionSintomas
         '
         'tblAsociadas
         '
-        resources.ApplyResources(Me.tblAsociadas, "tblAsociadas")
         Me.tblAsociadas.AllowUserToAddRows = False
         Me.tblAsociadas.AllowUserToDeleteRows = False
         Me.tblAsociadas.AllowUserToResizeColumns = False
@@ -155,6 +154,7 @@ Partial Class FrmModificacionSintomas
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.tblAsociadas.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.tblAsociadas, "tblAsociadas")
         Me.tblAsociadas.Name = "tblAsociadas"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
@@ -187,7 +187,6 @@ Partial Class FrmModificacionSintomas
         '
         'tblPatologias
         '
-        resources.ApplyResources(Me.tblPatologias, "tblPatologias")
         Me.tblPatologias.AllowUserToAddRows = False
         Me.tblPatologias.AllowUserToDeleteRows = False
         Me.tblPatologias.AllowUserToResizeColumns = False
@@ -213,6 +212,7 @@ Partial Class FrmModificacionSintomas
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.tblPatologias.DefaultCellStyle = DataGridViewCellStyle5
+        resources.ApplyResources(Me.tblPatologias, "tblPatologias")
         Me.tblPatologias.Name = "tblPatologias"
         Me.tblPatologias.ReadOnly = True
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -240,16 +240,16 @@ Partial Class FrmModificacionSintomas
         '
         'btnQuitarPatologia
         '
-        resources.ApplyResources(Me.btnQuitarPatologia, "btnQuitarPatologia")
         Me.btnQuitarPatologia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnQuitarPatologia, "btnQuitarPatologia")
         Me.btnQuitarPatologia.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnQuitarPatologia.Name = "btnQuitarPatologia"
         Me.btnQuitarPatologia.UseVisualStyleBackColor = False
         '
         'btnAgregarPatologia
         '
-        resources.ApplyResources(Me.btnAgregarPatologia, "btnAgregarPatologia")
         Me.btnAgregarPatologia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregarPatologia, "btnAgregarPatologia")
         Me.btnAgregarPatologia.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAgregarPatologia.Name = "btnAgregarPatologia"
         Me.btnAgregarPatologia.UseVisualStyleBackColor = False
@@ -273,8 +273,8 @@ Partial Class FrmModificacionSintomas
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -303,6 +303,7 @@ Partial Class FrmModificacionSintomas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmModificacionSintomas"

@@ -35,16 +35,16 @@ Partial Class FrmTipoUsuario
         '
         'btnPaciente
         '
-        resources.ApplyResources(Me.btnPaciente, "btnPaciente")
         Me.btnPaciente.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnPaciente, "btnPaciente")
         Me.btnPaciente.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnPaciente.Name = "btnPaciente"
         Me.btnPaciente.UseVisualStyleBackColor = False
         '
         'btnMedico
         '
-        resources.ApplyResources(Me.btnMedico, "btnMedico")
         Me.btnMedico.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnMedico, "btnMedico")
         Me.btnMedico.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnMedico.Name = "btnMedico"
         Me.btnMedico.UseVisualStyleBackColor = False
@@ -68,23 +68,23 @@ Partial Class FrmTipoUsuario
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
         'btnAdministrativo
         '
-        resources.ApplyResources(Me.btnAdministrativo, "btnAdministrativo")
         Me.btnAdministrativo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAdministrativo, "btnAdministrativo")
         Me.btnAdministrativo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnAdministrativo.Name = "btnAdministrativo"
         Me.btnAdministrativo.UseVisualStyleBackColor = False
@@ -102,6 +102,7 @@ Partial Class FrmTipoUsuario
         Me.Controls.Add(Me.btnMedico)
         Me.Controls.Add(Me.btnPaciente)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmTipoUsuario"
         Me.ResumeLayout(False)

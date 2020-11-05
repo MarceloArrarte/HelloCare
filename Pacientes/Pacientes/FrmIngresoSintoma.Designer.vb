@@ -63,8 +63,8 @@ Partial Class FrmIngresoSintoma
         '
         'Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
         'btnAgregar
@@ -83,8 +83,8 @@ Partial Class FrmIngresoSintoma
         '
         'btnSalir
         '
-        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnSalir.ForeColor = System.Drawing.Color.White
         Me.btnSalir.Name = "btnSalir"
@@ -111,7 +111,6 @@ Partial Class FrmIngresoSintoma
         '
         'tblDisponibles
         '
-        resources.ApplyResources(Me.tblDisponibles, "tblDisponibles")
         Me.tblDisponibles.AllowUserToAddRows = False
         Me.tblDisponibles.AllowUserToDeleteRows = False
         Me.tblDisponibles.AllowUserToResizeColumns = False
@@ -120,6 +119,7 @@ Partial Class FrmIngresoSintoma
         Me.tblDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblDisponibles.ColumnHeadersVisible = False
         Me.tblDisponibles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colObjeto1, Me.colNombre1})
+        resources.ApplyResources(Me.tblDisponibles, "tblDisponibles")
         Me.tblDisponibles.Name = "tblDisponibles"
         Me.tblDisponibles.ReadOnly = True
         Me.tblDisponibles.RowHeadersVisible = False
@@ -140,7 +140,6 @@ Partial Class FrmIngresoSintoma
         '
         'tblSeleccionados
         '
-        resources.ApplyResources(Me.tblSeleccionados, "tblSeleccionados")
         Me.tblSeleccionados.AllowUserToAddRows = False
         Me.tblSeleccionados.AllowUserToDeleteRows = False
         Me.tblSeleccionados.AllowUserToResizeColumns = False
@@ -149,6 +148,7 @@ Partial Class FrmIngresoSintoma
         Me.tblSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tblSeleccionados.ColumnHeadersVisible = False
         Me.tblSeleccionados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        resources.ApplyResources(Me.tblSeleccionados, "tblSeleccionados")
         Me.tblSeleccionados.Name = "tblSeleccionados"
         Me.tblSeleccionados.ReadOnly = True
         Me.tblSeleccionados.RowHeadersVisible = False
@@ -169,8 +169,8 @@ Partial Class FrmIngresoSintoma
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -194,6 +194,7 @@ Partial Class FrmIngresoSintoma
         Me.Controls.Add(Me.Titulo)
         Me.Controls.Add(Me.LblIngresarSintoma)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmIngresoSintoma"

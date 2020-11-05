@@ -41,24 +41,24 @@ Partial Class FrmMenuPrincipal
         '
         'btnABMSintomas
         '
-        resources.ApplyResources(Me.btnABMSintomas, "btnABMSintomas")
         Me.btnABMSintomas.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnABMSintomas, "btnABMSintomas")
         Me.btnABMSintomas.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnABMSintomas.Name = "btnABMSintomas"
         Me.btnABMSintomas.UseVisualStyleBackColor = False
         '
         'btnABMEnfermedades
         '
-        resources.ApplyResources(Me.btnABMEnfermedades, "btnABMEnfermedades")
         Me.btnABMEnfermedades.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnABMEnfermedades, "btnABMEnfermedades")
         Me.btnABMEnfermedades.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnABMEnfermedades.Name = "btnABMEnfermedades"
         Me.btnABMEnfermedades.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
-        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnSalir, "btnSalir")
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.UseVisualStyleBackColor = False
@@ -72,23 +72,23 @@ Partial Class FrmMenuPrincipal
         '
         'btnConfiguracion
         '
-        resources.ApplyResources(Me.btnConfiguracion, "btnConfiguracion")
         Me.btnConfiguracion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnConfiguracion, "btnConfiguracion")
         Me.btnConfiguracion.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfiguracion.Name = "btnConfiguracion"
         Me.btnConfiguracion.UseVisualStyleBackColor = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
         'btnABMUsuarios
         '
-        resources.ApplyResources(Me.btnABMUsuarios, "btnABMUsuarios")
         Me.btnABMUsuarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnABMUsuarios, "btnABMUsuarios")
         Me.btnABMUsuarios.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnABMUsuarios.Name = "btnABMUsuarios"
         Me.btnABMUsuarios.UseVisualStyleBackColor = False
@@ -106,6 +106,7 @@ Partial Class FrmMenuPrincipal
         Me.Controls.Add(Me.btnABMSintomas)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.Name = "FrmMenuPrincipal"

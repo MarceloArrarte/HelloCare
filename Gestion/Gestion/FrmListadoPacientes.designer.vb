@@ -22,8 +22,8 @@ Partial Class FrmListadoPacientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoPacientes))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmListadoPacientes))
         Me.tblPacientes = New System.Windows.Forms.DataGridView()
         Me.colObjeto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,7 +57,6 @@ Partial Class FrmListadoPacientes
         '
         'tblPacientes
         '
-        resources.ApplyResources(Me.tblPacientes, "tblPacientes")
         Me.tblPacientes.AllowUserToAddRows = False
         Me.tblPacientes.AllowUserToDeleteRows = False
         Me.tblPacientes.AllowUserToResizeColumns = False
@@ -75,6 +74,7 @@ Partial Class FrmListadoPacientes
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.tblPacientes.DefaultCellStyle = DataGridViewCellStyle1
+        resources.ApplyResources(Me.tblPacientes, "tblPacientes")
         Me.tblPacientes.Name = "tblPacientes"
         Me.tblPacientes.ReadOnly = True
         Me.tblPacientes.RowHeadersVisible = False
@@ -203,48 +203,48 @@ Partial Class FrmListadoPacientes
         '
         'btnVolver
         '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
         Me.btnVolver.ForeColor = System.Drawing.Color.Transparent
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.UseVisualStyleBackColor = False
         '
         'btnVer
         '
-        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnVer, "btnVer")
         Me.btnVer.ForeColor = System.Drawing.Color.Transparent
         Me.btnVer.Name = "btnVer"
         Me.btnVer.UseVisualStyleBackColor = False
         '
         'btnModificar
         '
-        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnModificar, "btnModificar")
         Me.btnModificar.ForeColor = System.Drawing.Color.Transparent
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
-        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnEliminar, "btnEliminar")
         Me.btnEliminar.ForeColor = System.Drawing.Color.Transparent
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnAgregar
         '
-        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        resources.ApplyResources(Me.btnAgregar, "btnAgregar")
         Me.btnAgregar.ForeColor = System.Drawing.Color.Transparent
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'lblTraducir
         '
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
         Me.lblTraducir.ForeColor = System.Drawing.Color.White
         Me.lblTraducir.Name = "lblTraducir"
         '
@@ -298,6 +298,7 @@ Partial Class FrmListadoPacientes
         Me.Controls.Add(Me.tblPacientes)
         Me.Controls.Add(Me.Label2)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
         Me.Name = "FrmListadoPacientes"
         CType(Me.tblPacientes, System.ComponentModel.ISupportInitialize).EndInit()
