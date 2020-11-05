@@ -19,337 +19,344 @@ Public Module AccesoDatos
             Throw New Exception("No se puede establecer la conexión con la base de datos.")
         End Try
 
-        Select Case entidad
-            Case TiposObjeto.DiagnosticoPrimario
-                Dim diagnosticoPrimario As DiagnosticoPrimario = objetoAInsertar
-                comando.CommandText &= "INSERT INTO diagnosticos_primarios (ID_PACIENTE, FECHA_HORA, TIPO) VALUES (@ID_PACIENTE, @FECHA_HORA, @TIPO);"
-                comando.Parameters.AddWithValue("@ID_PACIENTE", diagnosticoPrimario.Paciente.ID)
-                comando.Parameters.AddWithValue("@FECHA_HORA", diagnosticoPrimario.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
-                comando.Parameters.AddWithValue("@TIPO", diagnosticoPrimario.Tipo.ToString)
-                ConexionBD.EjecutarTransaccion(comando)
-
-                Dim idDiagnosticoPrimarioBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-                idAsignado = idDiagnosticoPrimarioBD
-                comando.CommandText = ""
-                comando.Parameters.Clear()
-                For i = 0 To diagnosticoPrimario.Enfermedades.Count - 1
-                    comando.CommandText &= String.Format("INSERT INTO sistema_diagnostica VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_ENFERMEDAD{0}, @PROBABILIDAD{0});", i)
-                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, diagnosticoPrimario.Enfermedades(i).Id)
-                    comando.Parameters.AddWithValue("@PROBABILIDAD" & i, diagnosticoPrimario.Probabilidad(i).ToString.Replace(",", "."))
-                Next
-
-                For i = 0 To diagnosticoPrimario.Sintomas.Count - 1
-                    comando.CommandText &= String.Format("INSERT INTO sistema_evalua VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_SINTOMA{0});", i)
-                    comando.Parameters.AddWithValue("@ID_SINTOMA" & i, diagnosticoPrimario.Sintomas(i).ID)
-                Next
-                comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO", idDiagnosticoPrimarioBD)
-
-
-            Case TiposObjeto.DiagnosticoDiferencial
-                Dim diagnosticoDiferencial As DiagnosticoDiferencial = objetoAInsertar
-                comando.CommandText &= "INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES (@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, @ID_ENFERMEDAD, @CONDUCTA_A_SEGUIR, @FECHAHORA);"
-                comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID)
-                comando.Parameters.AddWithValue("@ID_ENFERMEDAD", diagnosticoDiferencial.EnfermedadDiagnosticada.Id)
-                comando.Parameters.AddWithValue("@CONDUCTA_A_SEGUIR", diagnosticoDiferencial.ConductaASeguir)
-                comando.Parameters.AddWithValue("@FECHAHORA", diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
-
-
-            Case TiposObjeto.Enfermedad
-                Dim enfermedad As Enfermedad = objetoAInsertar
-
-                Dim estaDeshabilitado As Boolean = False
-                For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM enfermedades WHERE HABILITADO=FALSE;")).Rows
-                    If r("NOMBRE") = enfermedad.Nombre Then
-                        estaDeshabilitado = True
-                        Exit For
-                    End If
-                Next
-
-                If estaDeshabilitado Then       ' Existe, y se deshabilitó
-                    comando.CommandText &= "UPDATE enfermedades SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, GRAVEDAD=@GRAVEDAD, ID_ESPECIALIDAD=@ID_ESPECIALIDAD WHERE NOMBRE=@NOMBRE"
-                    comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
-                    comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
-                    comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
-                    comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
-                    comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+        Try
+            Select Case entidad
+                Case TiposObjeto.DiagnosticoPrimario
+                    Dim diagnosticoPrimario As DiagnosticoPrimario = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO diagnosticos_primarios (ID_PACIENTE, FECHA_HORA, TIPO) VALUES (@ID_PACIENTE, @FECHA_HORA, @TIPO);"
+                    comando.Parameters.AddWithValue("@ID_PACIENTE", diagnosticoPrimario.Paciente.ID)
+                    comando.Parameters.AddWithValue("@FECHA_HORA", diagnosticoPrimario.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@TIPO", diagnosticoPrimario.Tipo.ToString)
                     ConexionBD.EjecutarTransaccion(comando)
 
-                    Dim comandoBusquedaID As New MySqlCommand("SELECT ID FROM enfermedades WHERE NOMBRE=@NOMBRE;")
-                    comandoBusquedaID.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
-                    Dim idEnfermedadBD As Integer = ConexionBD.EjecutarConsulta(comandoBusquedaID).Rows(0)(0)
+                    Dim idDiagnosticoPrimarioBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                    idAsignado = idDiagnosticoPrimarioBD
                     comando.CommandText = ""
                     comando.Parameters.Clear()
-                    For i = 0 To enfermedad.Sintomas.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
-                        comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i).ID)
-                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                    For i = 0 To diagnosticoPrimario.Enfermedades.Count - 1
+                        comando.CommandText &= String.Format("INSERT INTO sistema_diagnostica VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_ENFERMEDAD{0}, @PROBABILIDAD{0});", i)
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, diagnosticoPrimario.Enfermedades(i).Id)
+                        comando.Parameters.AddWithValue("@PROBABILIDAD" & i, diagnosticoPrimario.Probabilidad(i).ToString.Replace(",", "."))
                     Next
-                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
-                Else        ' Jamás existió
-                    comando.CommandText &= "INSERT INTO enfermedades (NOMBRE, DESCRIPCION, RECOMENDACIONES, GRAVEDAD, ID_ESPECIALIDAD) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @GRAVEDAD, @ID_ESPECIALIDAD);"
-                    comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
-                    comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
-                    comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
-                    comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
-                    comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
-                    ConexionBD.EjecutarTransaccion(comando)
 
-                    Dim idEnfermedadBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-                    comando.CommandText = ""
-                    comando.Parameters.Clear()
-                    For i = 0 To enfermedad.Sintomas.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
-                        comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i).ID)
-                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                    For i = 0 To diagnosticoPrimario.Sintomas.Count - 1
+                        comando.CommandText &= String.Format("INSERT INTO sistema_evalua VALUES (@ID_DIAGNOSTICO_PRIMARIO, @ID_SINTOMA{0});", i)
+                        comando.Parameters.AddWithValue("@ID_SINTOMA" & i, diagnosticoPrimario.Sintomas(i).ID)
                     Next
-                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
-                End If
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO", idDiagnosticoPrimarioBD)
 
 
-            Case TiposObjeto.Especialidad
-                Dim especialidad As Especialidad = objetoAInsertar
+                Case TiposObjeto.DiagnosticoDiferencial
+                    Dim diagnosticoDiferencial As DiagnosticoDiferencial = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO diagnosticos_diferenciales (ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, ID_ENFERMEDAD, CONDUCTA_A_SEGUIR, FECHAHORA) VALUES (@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA, @ID_ENFERMEDAD, @CONDUCTA_A_SEGUIR, @FECHAHORA);"
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", diagnosticoDiferencial.DiagnosticoPrimarioConConsulta.ID)
+                    comando.Parameters.AddWithValue("@ID_ENFERMEDAD", diagnosticoDiferencial.EnfermedadDiagnosticada.Id)
+                    comando.Parameters.AddWithValue("@CONDUCTA_A_SEGUIR", diagnosticoDiferencial.ConductaASeguir)
+                    comando.Parameters.AddWithValue("@FECHAHORA", diagnosticoDiferencial.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
 
-                Dim estaDeshabilitado As Boolean = False
-                For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM especialidades WHERE HABILITADO=FALSE;")).Rows
-                    If r("NOMBRE") = especialidad.Nombre Then
-                        estaDeshabilitado = True
-                        Exit For
+
+                Case TiposObjeto.Enfermedad
+                    Dim enfermedad As Enfermedad = objetoAInsertar
+
+                    Dim estaDeshabilitado As Boolean = False
+                    For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM enfermedades WHERE HABILITADO=FALSE;")).Rows
+                        If r("NOMBRE") = enfermedad.Nombre Then
+                            estaDeshabilitado = True
+                            Exit For
+                        End If
+                    Next
+
+                    If estaDeshabilitado Then       ' Existe, y se deshabilitó
+                        comando.CommandText &= "UPDATE enfermedades SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, GRAVEDAD=@GRAVEDAD, ID_ESPECIALIDAD=@ID_ESPECIALIDAD WHERE NOMBRE=@NOMBRE"
+                        comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
+                        comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
+                        comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+                        ConexionBD.EjecutarTransaccion(comando)
+
+                        Dim comandoBusquedaID As New MySqlCommand("SELECT ID FROM enfermedades WHERE NOMBRE=@NOMBRE;")
+                        comandoBusquedaID.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+                        Dim idEnfermedadBD As Integer = ConexionBD.EjecutarConsulta(comandoBusquedaID).Rows(0)(0)
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        For i = 0 To enfermedad.Sintomas.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i).ID)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                        Next
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
+                    Else        ' Jamás existió
+                        comando.CommandText &= "INSERT INTO enfermedades (NOMBRE, DESCRIPCION, RECOMENDACIONES, GRAVEDAD, ID_ESPECIALIDAD) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @GRAVEDAD, @ID_ESPECIALIDAD);"
+                        comando.Parameters.AddWithValue("@NOMBRE", enfermedad.Nombre)
+                        comando.Parameters.AddWithValue("@DESCRIPCION", enfermedad.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", enfermedad.Recomendaciones)
+                        comando.Parameters.AddWithValue("@GRAVEDAD", enfermedad.Gravedad)
+                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD", enfermedad.Especialidad.ID)
+                        ConexionBD.EjecutarTransaccion(comando)
+
+                        Dim idEnfermedadBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        For i = 0 To enfermedad.Sintomas.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA{0}, @ID_ENFERMEDAD, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_SINTOMA" & i, enfermedad.Sintomas(i).ID)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, enfermedad.FrecuenciaSintoma(i).ToString.Replace(",", "."))
+                        Next
+                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD", idEnfermedadBD)
                     End If
-                Next
-
-                If estaDeshabilitado Then
-                    comando.CommandText &= ("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE=@NOMBRE;")
-                    comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
-                Else
-                    comando.CommandText &= ("INSERT INTO especialidades (NOMBRE) VALUES (@NOMBRE);")
-                    comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
-                End If
 
 
-            Case TiposObjeto.Departamento
-                Dim departamento As Departamento = objetoAInsertar
-                comando.CommandText &= "INSERT INTO departamentos (NOMBRE) VALUES (@NOMBRE);"
-                comando.Parameters.AddWithValue("@NOMBRE", departamento.Nombre)
+                Case TiposObjeto.Especialidad
+                    Dim especialidad As Especialidad = objetoAInsertar
 
-
-            Case TiposObjeto.Localidad
-                Dim localidad As Localidad = objetoAInsertar
-                comando.CommandText &= "INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES (@NOMBRE, @ID_DEPARTAMENTO)"
-                comando.Parameters.AddWithValue("@NOMBRE", localidad.Nombre)
-                comando.Parameters.AddWithValue("@NOMBRE", localidad.Departamento.ID)
-
-
-
-            Case TiposObjeto.Sintoma
-                Dim sintoma As Sintoma = objetoAInsertar
-
-                Dim estaDeshabilitado As Boolean = False
-                For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM sintomas WHERE HABILITADO=FALSE;")).Rows
-                    If r("NOMBRE") = sintoma.Nombre Then
-                        estaDeshabilitado = True
-                        Exit For
-                    End If
-                Next
-
-                If estaDeshabilitado Then
-                    comando.CommandText &= "UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, URGENCIA=@URGENCIA WHERE NOMBRE=@NOMBRE;"
-                    comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
-                    comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
-                    comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
-                    comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    Dim comandoBusquedaID As New MySqlCommand("SELECT ID FROM sintomas WHERE NOMBRE=@NOMBRE;")
-                    comandoBusquedaID.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
-                    Dim idSintomaBD As Integer = ConexionBD.EjecutarConsulta(comandoBusquedaID).Rows(0)(0)
-                    comando.CommandText = ""
-                    comando.Parameters.Clear()
-                    For i = 0 To sintoma.Enfermedades.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
-                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
-                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                    Dim estaDeshabilitado As Boolean = False
+                    For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM especialidades WHERE HABILITADO=FALSE;")).Rows
+                        If r("NOMBRE") = especialidad.Nombre Then
+                            estaDeshabilitado = True
+                            Exit For
+                        End If
                     Next
-                    comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
 
-                Else
-                    comando.CommandText &= "INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @URGENCIA);"
-                    comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
-                    comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
-                    comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
-                    comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-                    comando.CommandText = ""
-                    comando.Parameters.Clear()
-                    For i = 0 To sintoma.Enfermedades.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
-                        comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
-                        comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
-                    Next
-                    comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
-                End If
-
-
-            Case TiposObjeto.Usuario
-                Dim usuario As Usuario = objetoAInsertar
-                comando.CommandText &= "INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES (@CONTRASENIA, @TIPO, @ID_PERSONA);"
-                comando.Parameters.AddWithValue("@CONTRASENIA", usuario.Contrasena)
-                comando.Parameters.AddWithValue("@TIPO", usuario.Tipo)
-                comando.Parameters.AddWithValue("@ID_PERSONA", usuario.Persona.ID)
-
-
-            Case TiposObjeto.Mensaje
-                Dim mensaje As Mensaje = objetoAInsertar
-                If mensaje.Formato = FormatosMensajeAdmitidos.TXT Then
-                    comando.CommandText &= "INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES (@FECHAHORA, @FORMATO, @CONTENIDO, @REMITENTE, @ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA);"
-                    comando.Parameters.AddWithValue("@FECHAHORA", mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
-                    comando.Parameters.AddWithValue("@FORMATO", FormatosMensajeAdmitidos.TXT)
-                    comando.Parameters.AddWithValue("@CONTENIDO", Encoding.UTF8.GetString(mensaje.Contenido))
-                    comando.Parameters.AddWithValue("@REMITENTE", mensaje.Remitente)
-                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", mensaje.DiagnosticoPrimarioConConsulta.ID)
-                Else
-                    comando.CommandText &= "INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, NOMBRE_ARCHIVO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES (@FECHAHORA, @FORMATO, @CONTENIDO, @NOMBRE_ARCHIVO, @REMITENTE, @ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA);"
-                    comando.Parameters.AddWithValue("@FECHAHORA", mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
-                    comando.Parameters.AddWithValue("@FORMATO", mensaje.Formato)
-                    comando.Parameters.AddWithValue("@CONTENIDO", mensaje.Contenido)
-                    comando.Parameters.AddWithValue("@NOMBRE_ARCHIVO", mensaje.NombreArchivo)
-                    comando.Parameters.AddWithValue("@REMITENTE", mensaje.Remitente)
-                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", mensaje.DiagnosticoPrimarioConConsulta.ID)
-                End If
-
-
-            Case TiposObjeto.Administrativo
-                Dim administrativo As Administrativo = objetoAInsertar
-
-                Dim estaDeshabilitado As Boolean = False
-                Dim idAdministrativoBD As Integer = -1
-                Dim tablaAdministrativos As DataTable = ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM ObtenerListadoAdministrativos WHERE `Habilitado administrativo`=FALSE"))
-                For Each filaAdministrativo As DataRow In tablaAdministrativos.Rows
-                    If filaAdministrativo("CI administrativo") = administrativo.CI Then
-                        estaDeshabilitado = True
-                        idAdministrativoBD = filaAdministrativo("CI administrativo")
+                    If estaDeshabilitado Then
+                        comando.CommandText &= ("UPDATE especialidades SET HABILITADO=TRUE WHERE NOMBRE=@NOMBRE;")
+                        comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
+                    Else
+                        comando.CommandText &= ("INSERT INTO especialidades (NOMBRE) VALUES (@NOMBRE);")
+                        comando.Parameters.AddWithValue("@NOMBRE", especialidad.Nombre)
                     End If
-                Next
 
-                If estaDeshabilitado Then
-                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
-                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID;"
-                    comando.CommandText &= "UPDATE administrativos SET ES_ENCARGADO=@ES_ENCARGADO WHERE ID_FUNCIONARIO=@ID;"
-                    comando.Parameters.AddWithValue("@CI", administrativo.CI)
-                    comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
-                    comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
-                    comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
-                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
-                    comando.Parameters.AddWithValue("@TIPO", administrativo.Tipo)
-                    comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
-                    comando.Parameters.AddWithValue("@ID", administrativo.ID)
 
-                Else
+                Case TiposObjeto.Departamento
+                    Dim departamento As Departamento = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO departamentos (NOMBRE) VALUES (@NOMBRE);"
+                    comando.Parameters.AddWithValue("@NOMBRE", departamento.Nombre)
+
+
+                Case TiposObjeto.Localidad
+                    Dim localidad As Localidad = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO localidades (NOMBRE, ID_DEPARTAMENTO) VALUES (@NOMBRE, @ID_DEPARTAMENTO)"
+                    comando.Parameters.AddWithValue("@NOMBRE", localidad.Nombre)
+                    comando.Parameters.AddWithValue("@NOMBRE", localidad.Departamento.ID)
+
+
+
+                Case TiposObjeto.Sintoma
+                    Dim sintoma As Sintoma = objetoAInsertar
+
+                    Dim estaDeshabilitado As Boolean = False
+                    For Each r As DataRow In ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM sintomas WHERE HABILITADO=FALSE;")).Rows
+                        If r("NOMBRE") = sintoma.Nombre Then
+                            estaDeshabilitado = True
+                            Exit For
+                        End If
+                    Next
+
+                    If estaDeshabilitado Then
+                        comando.CommandText &= "UPDATE sintomas SET HABILITADO=TRUE, DESCRIPCION=@DESCRIPCION, RECOMENDACIONES=@RECOMENDACIONES, URGENCIA=@URGENCIA WHERE NOMBRE=@NOMBRE;"
+                        comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
+                        comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
+                        comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
+                        ConexionBD.EjecutarTransaccion(comando)
+
+                        Dim comandoBusquedaID As New MySqlCommand("SELECT ID FROM sintomas WHERE NOMBRE=@NOMBRE;")
+                        comandoBusquedaID.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
+                        Dim idSintomaBD As Integer = ConexionBD.EjecutarConsulta(comandoBusquedaID).Rows(0)(0)
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        For i = 0 To sintoma.Enfermedades.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                        Next
+                        comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
+
+                    Else
+                        comando.CommandText &= "INSERT INTO sintomas (NOMBRE, DESCRIPCION, RECOMENDACIONES, URGENCIA) VALUES (@NOMBRE, @DESCRIPCION, @RECOMENDACIONES, @URGENCIA);"
+                        comando.Parameters.AddWithValue("@NOMBRE", sintoma.Nombre)
+                        comando.Parameters.AddWithValue("@DESCRIPCION", sintoma.Descripcion)
+                        comando.Parameters.AddWithValue("@RECOMENDACIONES", sintoma.Recomendaciones)
+                        comando.Parameters.AddWithValue("@URGENCIA", sintoma.Urgencia)
+                        ConexionBD.EjecutarTransaccion(comando)
+
+                        Dim idSintomaBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        For i = 0 To sintoma.Enfermedades.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO cuadro_sintomatico VALUES (@ID_SINTOMA, @ID_ENFERMEDAD{0}, @FRECUENCIA{0});", i)
+                            comando.Parameters.AddWithValue("@ID_ENFERMEDAD" & i, sintoma.Enfermedades(i).Id)
+                            comando.Parameters.AddWithValue("@FRECUENCIA" & i, sintoma.FrecuenciaEnfermedad(i).ToString.Replace(",", "."))
+                        Next
+                        comando.Parameters.AddWithValue("@ID_SINTOMA", idSintomaBD)
+                    End If
+
+
+                Case TiposObjeto.Usuario
+                    Dim usuario As Usuario = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO usuarios (CONTRASENIA, TIPO, ID_PERSONA) VALUES (@CONTRASENIA, @TIPO, @ID_PERSONA);"
+                    comando.Parameters.AddWithValue("@CONTRASENIA", usuario.Contrasena)
+                    comando.Parameters.AddWithValue("@TIPO", usuario.Tipo)
+                    comando.Parameters.AddWithValue("@ID_PERSONA", usuario.Persona.ID)
+
+
+                Case TiposObjeto.Mensaje
+                    Dim mensaje As Mensaje = objetoAInsertar
+                    If mensaje.Formato = FormatosMensajeAdmitidos.TXT Then
+                        comando.CommandText &= "INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES (@FECHAHORA, @FORMATO, @CONTENIDO, @REMITENTE, @ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA);"
+                        comando.Parameters.AddWithValue("@FECHAHORA", mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                        comando.Parameters.AddWithValue("@FORMATO", FormatosMensajeAdmitidos.TXT)
+                        comando.Parameters.AddWithValue("@CONTENIDO", Encoding.UTF8.GetString(mensaje.Contenido))
+                        comando.Parameters.AddWithValue("@REMITENTE", mensaje.Remitente)
+                        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", mensaje.DiagnosticoPrimarioConConsulta.ID)
+                    Else
+                        comando.CommandText &= "INSERT INTO mensajes (FECHAHORA, FORMATO, CONTENIDO, NOMBRE_ARCHIVO, REMITENTE, ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA) VALUES (@FECHAHORA, @FORMATO, @CONTENIDO, @NOMBRE_ARCHIVO, @REMITENTE, @ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA);"
+                        comando.Parameters.AddWithValue("@FECHAHORA", mensaje.FechaHora.ToString("yyyy-MM-dd HH:mm:ss"))
+                        comando.Parameters.AddWithValue("@FORMATO", mensaje.Formato)
+                        comando.Parameters.AddWithValue("@CONTENIDO", mensaje.Contenido)
+                        comando.Parameters.AddWithValue("@NOMBRE_ARCHIVO", mensaje.NombreArchivo)
+                        comando.Parameters.AddWithValue("@REMITENTE", mensaje.Remitente)
+                        comando.Parameters.AddWithValue("@ID_DIAGNOSTICO_PRIMARIO_CON_CONSULTA", mensaje.DiagnosticoPrimarioConConsulta.ID)
+                    End If
+
+
+                Case TiposObjeto.Administrativo
+                    Dim administrativo As Administrativo = objetoAInsertar
+
+                    Dim estaDeshabilitado As Boolean = False
+                    Dim idAdministrativoBD As Integer = -1
+                    Dim tablaAdministrativos As DataTable = ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM ObtenerListadoAdministrativos WHERE `Habilitado administrativo`=FALSE"))
+                    For Each filaAdministrativo As DataRow In tablaAdministrativos.Rows
+                        If filaAdministrativo("CI administrativo") = administrativo.CI Then
+                            estaDeshabilitado = True
+                            idAdministrativoBD = filaAdministrativo("CI administrativo")
+                        End If
+                    Next
+
+                    If estaDeshabilitado Then
+                        comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID;"
+                        comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID;"
+                        comando.CommandText &= "UPDATE administrativos SET ES_ENCARGADO=@ES_ENCARGADO WHERE ID_FUNCIONARIO=@ID;"
+                        comando.Parameters.AddWithValue("@CI", administrativo.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", administrativo.Tipo)
+                        comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
+                        comando.Parameters.AddWithValue("@ID", administrativo.ID)
+
+                    Else
+                        comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
+                        comando.Parameters.AddWithValue("@CI", administrativo.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", TiposPersona.Funcionario.ToString)
+                        ConexionBD.EjecutarTransaccion(comando)
+
+                        idAdministrativoBD = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.CommandText = ""
+                        comando.Parameters.Clear()
+                        comando.CommandText &= "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID, @TIPO);"
+                        comando.CommandText &= "INSERT INTO administrativos VALUES (@ID, @ES_ENCARGADO);"
+                        comando.Parameters.AddWithValue("@ID", idAdministrativoBD)
+                        comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Administrativo.ToString)
+                        comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
+                    End If
+
+
+                Case TiposObjeto.Paciente
+                    Dim paciente As Paciente = objetoAInsertar
                     comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
-                    comando.Parameters.AddWithValue("@CI", administrativo.CI)
-                    comando.Parameters.AddWithValue("@NOMBRE", administrativo.Nombre)
-                    comando.Parameters.AddWithValue("@APELLIDO", administrativo.Apellido)
-                    comando.Parameters.AddWithValue("@CORREO", administrativo.Correo)
-                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", administrativo.Localidad.ID)
-                    comando.Parameters.AddWithValue("@TIPO", TiposPersona.Funcionario.ToString)
+                    comando.Parameters.AddWithValue("@CI", paciente.CI)
+                    comando.Parameters.AddWithValue("@NOMBRE", paciente.Nombre)
+                    comando.Parameters.AddWithValue("@APELLIDO", paciente.Apellido)
+                    comando.Parameters.AddWithValue("@CORREO", paciente.Correo)
+                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", paciente.Localidad.ID)
+                    comando.Parameters.AddWithValue("@TIPO", paciente.Tipo.ToString)
                     ConexionBD.EjecutarTransaccion(comando)
 
-                    idAdministrativoBD = ConexionBD.ObtenerUltimoIdInsertado
-                    comando.CommandText = ""
+                    Dim idPacienteBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
                     comando.Parameters.Clear()
-                    comando.CommandText &= "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID, @TIPO);"
-                    comando.CommandText &= "INSERT INTO administrativos VALUES (@ID, @ES_ENCARGADO);"
-                    comando.Parameters.AddWithValue("@ID", idAdministrativoBD)
-                    comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Administrativo.ToString)
-                    comando.Parameters.AddWithValue("@ES_ENCARGADO", administrativo.EsEncargado)
-                End If
+                    comando.CommandText = "INSERT INTO pacientes VALUES (@ID, @TELEFONO_MOVIL, @TELEFONO_FIJO, @SEXO, @FECHA_NACIMIENTO, @FECHA_DEFUNCION, @CALLE, @NUMERO_PUERTA, @APARTAMENTO);"
+                    comando.Parameters.AddWithValue("@ID", idPacienteBD)
+                    comando.Parameters.AddWithValue("@TELEFONO_MOVIL", paciente.TelefonoMovil)
+                    comando.Parameters.AddWithValue("@TELEFONO_FIJO", paciente.TelefonoFijo)
+                    comando.Parameters.AddWithValue("@SEXO", paciente.Sexo.ToString)
+                    comando.Parameters.AddWithValue("@FECHA_NACIMIENTO", paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@FECHA_DEFUNCION", paciente.FechaDefuncion.ToString("yyyy-MM-dd HH:mm:ss"))
+                    comando.Parameters.AddWithValue("@CALLE", paciente.Calle)
+                    comando.Parameters.AddWithValue("@NUMERO_PUERTA", paciente.NumeroPuerta)
+                    comando.Parameters.AddWithValue("@APARTAMENTO", paciente.Apartamento)
 
 
-            Case TiposObjeto.Paciente
-                Dim paciente As Paciente = objetoAInsertar
-                comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
-                comando.Parameters.AddWithValue("@CI", paciente.CI)
-                comando.Parameters.AddWithValue("@NOMBRE", paciente.Nombre)
-                comando.Parameters.AddWithValue("@APELLIDO", paciente.Apellido)
-                comando.Parameters.AddWithValue("@CORREO", paciente.Correo)
-                comando.Parameters.AddWithValue("@ID_LOCALIDAD", paciente.Localidad.ID)
-                comando.Parameters.AddWithValue("@TIPO", paciente.Tipo.ToString)
-                ConexionBD.EjecutarTransaccion(comando)
+                Case TiposObjeto.Medico
+                    Dim medico As Medico = objetoAInsertar
 
-                Dim idPacienteBD As Integer = ConexionBD.ObtenerUltimoIdInsertado
-                comando.Parameters.Clear()
-                comando.CommandText = "INSERT INTO pacientes VALUES (@ID, @TELEFONO_MOVIL, @TELEFONO_FIJO, @SEXO, @FECHA_NACIMIENTO, @FECHA_DEFUNCION, @CALLE, @NUMERO_PUERTA, @APARTAMENTO);"
-                comando.Parameters.AddWithValue("@ID", idPacienteBD)
-                comando.Parameters.AddWithValue("@TELEFONO_MOVIL", paciente.TelefonoMovil)
-                comando.Parameters.AddWithValue("@TELEFONO_FIJO", paciente.TelefonoFijo)
-                comando.Parameters.AddWithValue("@SEXO", paciente.Sexo.ToString)
-                comando.Parameters.AddWithValue("@FECHA_NACIMIENTO", paciente.FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss"))
-                comando.Parameters.AddWithValue("@FECHA_DEFUNCION", paciente.FechaDefuncion.ToString("yyyy-MM-dd HH:mm:ss"))
-                comando.Parameters.AddWithValue("@CALLE", paciente.Calle)
-                comando.Parameters.AddWithValue("@NUMERO_PUERTA", paciente.NumeroPuerta)
-                comando.Parameters.AddWithValue("@APARTAMENTO", paciente.Apartamento)
+                    Dim estaDeshabilitado As Boolean = False
+                    Dim idMedicoBD As Integer = -1
+                    Dim tablaMedicos As DataTable = ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM ObtenerListadoMedicos WHERE `Habilitado medico`=FALSE"))
+                    For Each filaMedico As DataRow In tablaMedicos.Rows
+                        If filaMedico("CI medico") = medico.CI Then
+                            estaDeshabilitado = True
+                            idMedicoBD = filaMedico("ID medico")
+                        End If
+                    Next
 
+                    If estaDeshabilitado Then
+                        comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID_MEDICO;"
+                        comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID_MEDICO;"
+                        For i = 0 To medico.Especialidades.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
+                            comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
+                        Next
+                        comando.Parameters.AddWithValue("@CI", medico.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", medico.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
+                        comando.Parameters.AddWithValue("@ID", idMedicoBD)
 
-            Case TiposObjeto.Medico
-                Dim medico As Medico = objetoAInsertar
+                    Else
+                        comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
+                        comando.Parameters.AddWithValue("@CI", medico.CI)
+                        comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
+                        comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
+                        comando.Parameters.AddWithValue("@CORREO", medico.Correo)
+                        comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
+                        comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
+                        ConexionBD.EjecutarTransaccion(comando)
 
-                Dim estaDeshabilitado As Boolean = False
-                Dim idMedicoBD As Integer = -1
-                Dim tablaMedicos As DataTable = ConexionBD.EjecutarConsulta(New MySqlCommand("SELECT * FROM ObtenerListadoMedicos WHERE `Habilitado medico`=FALSE"))
-                For Each filaMedico As DataRow In tablaMedicos.Rows
-                    If filaMedico("CI medico") = medico.CI Then
-                        estaDeshabilitado = True
-                        idMedicoBD = filaMedico("ID medico")
+                        idMedicoBD = ConexionBD.ObtenerUltimoIdInsertado
+                        comando.Parameters.Clear()
+                        comando.CommandText = "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID_MEDICO, @TIPO);"
+                        comando.CommandText &= "INSERT INTO medicos VALUES (@ID_MEDICO);"
+                        For i = 0 To medico.Especialidades.Count - 1
+                            comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
+                            comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
+                        Next
+                        comando.Parameters.AddWithValue("@ID_MEDICO", idMedicoBD)
+                        comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Medico.ToString)
                     End If
-                Next
-
-                If estaDeshabilitado Then
-                    comando.CommandText &= "UPDATE personas SET CI=@CI, NOMBRE=@NOMBRE, APELLIDO=@APELLIDO, CORREO=@CORREO, ID_LOCALIDAD=@ID_LOCALIDAD, TIPO=@TIPO WHERE ID=@ID_MEDICO;"
-                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=TRUE WHERE ID_PERSONA=@ID_MEDICO;"
-                    For i = 0 To medico.Especialidades.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
-                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
-                    Next
-                    comando.Parameters.AddWithValue("@CI", medico.CI)
-                    comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
-                    comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
-                    comando.Parameters.AddWithValue("@CORREO", medico.Correo)
-                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
-                    comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
-                    comando.Parameters.AddWithValue("@ID", idMedicoBD)
-
-                Else
-                    comando.CommandText &= "INSERT INTO personas (CI, NOMBRE, APELLIDO, CORREO, ID_LOCALIDAD, TIPO) VALUES (@CI, @NOMBRE, @APELLIDO, @CORREO, @ID_LOCALIDAD, @TIPO);"
-                    comando.Parameters.AddWithValue("@CI", medico.CI)
-                    comando.Parameters.AddWithValue("@NOMBRE", medico.Nombre)
-                    comando.Parameters.AddWithValue("@APELLIDO", medico.Apellido)
-                    comando.Parameters.AddWithValue("@CORREO", medico.Correo)
-                    comando.Parameters.AddWithValue("@ID_LOCALIDAD", medico.Localidad.ID)
-                    comando.Parameters.AddWithValue("@TIPO", medico.Tipo.ToString)
-                    ConexionBD.EjecutarTransaccion(comando)
-
-                    idMedicoBD = ConexionBD.ObtenerUltimoIdInsertado
-                    comando.Parameters.Clear()
-                    comando.CommandText = "INSERT INTO funcionarios (ID_PERSONA, TIPO) VALUES (@ID_MEDICO, @TIPO);"
-                    comando.CommandText &= "INSERT INTO medicos VALUES (@ID_MEDICO);"
-                    For i = 0 To medico.Especialidades.Count - 1
-                        comando.CommandText &= String.Format("INSERT INTO especialidades_medicos VALUES (@ID_ESPECIALIDAD{0}, @ID_MEDICO);", i)
-                        comando.Parameters.AddWithValue("@ID_ESPECIALIDAD" & i, medico.Especialidades(i).ID)
-                    Next
-                    comando.Parameters.AddWithValue("@ID_MEDICO", idMedicoBD)
-                    comando.Parameters.AddWithValue("@TIPO", TiposFuncionario.Medico.ToString)
-                End If
 
 
-            Case TiposObjeto.DiagnosticoPrimarioConConsulta
-                Dim diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta = objetoAInsertar
-                comando.CommandText &= "INSERT INTO diagnosticos_primarios_con_consulta VALUES (@ID_DIAGNOSTICO, @ID_MEDICO, @COMENTARIOS_ADICIONALES);"
-                comando.CommandText &= "UPDATE diagnosticos_primarios SET TIPO='Con_Consulta' WHERE ID=@ID_DIAGNOSTICO;"
-                comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
-                comando.Parameters.AddWithValue("@ID_MEDICO", DBNull.Value)
-                comando.Parameters.AddWithValue("@COMENTARIOS_ADICIONALES", diagnosticoPrimarioConConsulta.ComentariosAdicionales)
-        End Select
+                Case TiposObjeto.DiagnosticoPrimarioConConsulta
+                    Dim diagnosticoPrimarioConConsulta As DiagnosticoPrimarioConConsulta = objetoAInsertar
+                    comando.CommandText &= "INSERT INTO diagnosticos_primarios_con_consulta VALUES (@ID_DIAGNOSTICO, @ID_MEDICO, @COMENTARIOS_ADICIONALES);"
+                    comando.CommandText &= "UPDATE diagnosticos_primarios SET TIPO='Con_Consulta' WHERE ID=@ID_DIAGNOSTICO;"
+                    comando.Parameters.AddWithValue("@ID_DIAGNOSTICO", diagnosticoPrimarioConConsulta.ID)
+                    comando.Parameters.AddWithValue("@ID_MEDICO", DBNull.Value)
+                    comando.Parameters.AddWithValue("@COMENTARIOS_ADICIONALES", diagnosticoPrimarioConConsulta.ComentariosAdicionales)
+            End Select
+        Catch ex As Exception
+            ConexionBD.Conexion.Close()
+            Throw ex
+        End Try
+
+
 
         Try
             comando.CommandText &= "COMMIT;"
@@ -359,9 +366,7 @@ Public Module AccesoDatos
             ConexionBD.Conexion.Close()
             Throw ex
         Finally
-            If ConexionBD.Conexion.State = ConnectionState.Open Then
-                ConexionBD.Conexion.Close()
-            End If
+            ConexionBD.Conexion.Close()
         End Try
     End Sub
 
@@ -381,53 +386,53 @@ Public Module AccesoDatos
         Select Case entidad
             Case TiposObjeto.Enfermedad
                 Dim enfermedad As Enfermedad = objetoAEliminar
-                comando.CommandText &= "UPDATE enfermedades SET HABILITADO=FALSE WHERE ID=@ID;"
-                comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID;"
-                comando.Parameters.AddWithValue("@ID", enfermedad.Id)
+                    comando.CommandText &= "UPDATE enfermedades SET HABILITADO=FALSE WHERE ID=@ID;"
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_ENFERMEDAD=@ID;"
+                    comando.Parameters.AddWithValue("@ID", enfermedad.Id)
 
-            Case TiposObjeto.Especialidad
-                Dim especialidad As Especialidad = objetoAEliminar
-                comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID;"
-                comando.Parameters.AddWithValue("@ID", especialidad.ID)
+                Case TiposObjeto.Especialidad
+                    Dim especialidad As Especialidad = objetoAEliminar
+                    comando.CommandText &= "UPDATE especialidades SET HABILITADO=FALSE WHERE ID=@ID;"
+                    comando.Parameters.AddWithValue("@ID", especialidad.ID)
 
-            Case TiposObjeto.Departamento
-                Dim departamento As Departamento = objetoAEliminar
-                comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID;"
-                comando.Parameters.AddWithValue("@ID", departamento.ID)
+                Case TiposObjeto.Departamento
+                    Dim departamento As Departamento = objetoAEliminar
+                    comando.CommandText &= "DELETE FROM departamentos WHERE ID=@ID;"
+                    comando.Parameters.AddWithValue("@ID", departamento.ID)
 
-            Case TiposObjeto.Localidad
-                Dim localidad As Localidad = objetoAEliminar
-                comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID;"
-                comando.Parameters.AddWithValue("@ID", localidad.ID)
+                Case TiposObjeto.Localidad
+                    Dim localidad As Localidad = objetoAEliminar
+                    comando.CommandText &= "DELETE FROM localidades WHERE ID=@ID;"
+                    comando.Parameters.AddWithValue("@ID", localidad.ID)
 
-            Case TiposObjeto.Sintoma
-                Dim sintoma As Sintoma = objetoAEliminar
-                comando.CommandText &= "UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;"
-                comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
-                comando.Parameters.AddWithValue("@ID", sintoma.ID)
+                Case TiposObjeto.Sintoma
+                    Dim sintoma As Sintoma = objetoAEliminar
+                    comando.CommandText &= "UPDATE sintomas SET HABILITADO=FALSE WHERE ID=@ID;"
+                    comando.CommandText &= "DELETE FROM cuadro_sintomatico WHERE ID_SINTOMA=@ID;"
+                    comando.Parameters.AddWithValue("@ID", sintoma.ID)
 
-            Case TiposObjeto.Usuario
-                Dim usuario As Usuario = objetoAEliminar
-                comando.CommandText &= "UPDATE usuarios SET HABILITADO=FALSE WHERE ID=@ID;"
-                comando.Parameters.AddWithValue("@ID", usuario.ID)
+                Case TiposObjeto.Usuario
+                    Dim usuario As Usuario = objetoAEliminar
+                    comando.CommandText &= "UPDATE usuarios SET HABILITADO=FALSE WHERE ID=@ID;"
+                    comando.Parameters.AddWithValue("@ID", usuario.ID)
 
-            Case TiposObjeto.Administrativo
-                Dim administrativo As Administrativo = objetoAEliminar
-                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
-                comando.Parameters.AddWithValue("@ID", administrativo.ID)
+                Case TiposObjeto.Administrativo
+                    Dim administrativo As Administrativo = objetoAEliminar
+                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
+                    comando.Parameters.AddWithValue("@ID", administrativo.ID)
 
-            Case TiposObjeto.Paciente
-                Dim paciente As Paciente = objetoAEliminar
-                comando.CommandText &= "DELETE FROM personas WHERE ID=@ID;"
-                comando.Parameters.AddWithValue("@ID", paciente.ID)
+                Case TiposObjeto.Paciente
+                    Dim paciente As Paciente = objetoAEliminar
+                    comando.CommandText &= "DELETE FROM personas WHERE ID=@ID;"
+                    comando.Parameters.AddWithValue("@ID", paciente.ID)
 
-            Case TiposObjeto.Medico
-                Dim medico As Medico = objetoAEliminar
-                comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
-                comando.Parameters.AddWithValue("@ID", medico.ID)
-        End Select
+                Case TiposObjeto.Medico
+                    Dim medico As Medico = objetoAEliminar
+                    comando.CommandText &= "UPDATE funcionarios SET HABILITADO=FALSE WHERE ID_PERSONA=@ID;"
+                    comando.Parameters.AddWithValue("@ID", medico.ID)
+            End Select
 
-        Try
+            Try
             comando.CommandText &= "COMMIT;"
             ConexionBD.EjecutarTransaccion(comando)
         Catch ex As MySqlException
@@ -581,10 +586,20 @@ Public Module AccesoDatos
         End Try
     End Sub
 
-    Public Function TienePersonaRegistrada(ci As String, tipo As TiposPersona) As Boolean
-        Dim comando As New MySqlCommand("SELECT COUNT(*) FROM personas WHERE CI=@CI AND TIPO=@TIPO;")
+    Public Function TienePersonaRegistrada(ci As String, tipo As TiposUsuario) As Boolean
+        Dim comando As MySqlCommand
+        Select Case tipo
+            Case TiposUsuario.Administrativo
+                comando = New MySqlCommand("SELECT COUNT(*) FROM ObtenerAdministrativos WHERE `CI Persona`=@CI")
+            Case TiposUsuario.Medico
+                comando = New MySqlCommand("SELECT COUNT(*) FROM ObtenerMedicos WHERE `CI Persona`=@CI")
+            Case TiposUsuario.Paciente
+                comando = New MySqlCommand("SELECT COUNT(*) FROM ObtenerPacientes WHERE `CI Persona`=@CI")
+            Case Else
+                Throw New Exception("No se especificó un tipo de usuario válido.")
+        End Select
+
         comando.Parameters.AddWithValue("@CI", ci)
-        comando.Parameters.AddWithValue("@TIPO", tipo.ToString)
         Dim datos As DataTable = ConexionBD.EjecutarConsulta(comando)
         Dim cantidadPersonas As Integer = datos.Rows(0)(0)
         Return cantidadPersonas = 1

@@ -117,18 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnAdministrativo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnPaciente.Name" xml:space="preserve">
+    <value>btnPaciente</value>
   </data>
   <data name="&gt;&gt;btnAdministrativo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>Seleccione el tipo de usuario</value>
@@ -136,12 +132,9 @@
   <data name="&gt;&gt;btnVolver.Name" xml:space="preserve">
     <value>btnVolver</value>
   </data>
-  <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 571</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAdministrativo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 44</value>
   </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
@@ -149,8 +142,8 @@
   <data name="btnPaciente.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 45</value>
   </data>
-  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
-    <value>Button1</value>
+  <data name="btnVolver.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 571</value>
   </data>
   <data name="btnMedico.Text" xml:space="preserve">
     <value>Médico</value>
@@ -159,20 +152,14 @@
   <data name="lblTraducir.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmTipoUsuario</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 375</value>
-  </data>
-  <data name="&gt;&gt;btnAdministrativo.Name" xml:space="preserve">
-    <value>btnAdministrativo</value>
-  </data>
-  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 27.75pt, style=Bold, Underline</value>
@@ -1253,14 +1240,15 @@
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>641, 100</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTraducir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnPaciente.Location" type="System.Drawing.Point, System.Drawing">
     <value>524, 225</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="lblTraducir.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1271,17 +1259,14 @@
   <data name="lblTraducir.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FrmTipoUsuario</value>
-  </data>
   <data name="lblTraducir.Location" type="System.Drawing.Point, System.Drawing">
     <value>-85, 629</value>
   </data>
   <data name="&gt;&gt;lblTraducir.Name" xml:space="preserve">
     <value>lblTraducir</value>
   </data>
-  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnMedico.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 45</value>
@@ -1364,17 +1349,17 @@
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="btnMedico.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 300</value>
+  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="btnAdministrativo.Location" type="System.Drawing.Point, System.Drawing">
     <value>524, 375</value>
   </data>
-  <data name="btnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;btnPaciente.Name" xml:space="preserve">
-    <value>btnPaciente</value>
+  <data name="btnMedico.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 300</value>
   </data>
   <data name="btnPaciente.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1382,11 +1367,14 @@
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;btnAdministrativo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnVolver.Text" xml:space="preserve">
     <value>Volver</value>
+  </data>
+  <data name="&gt;&gt;lblTraducir.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnMedico.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1394,11 +1382,11 @@
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="btnAdministrativo.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrativo.Name" xml:space="preserve">
+    <value>btnAdministrativo</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
@@ -1406,14 +1394,14 @@
   <data name="btnVolver.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
-  <data name="Button1.Text" xml:space="preserve">
-    <value>Administrativo</value>
+  <data name="btnAdministrativo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="btnPaciente.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;btnMedico.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1427,6 +1415,9 @@
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>639, 49</value>
   </data>
+  <data name="btnAdministrativo.Text" xml:space="preserve">
+    <value>Administrativo</value>
+  </data>
   <data name="btnPaciente.Text" xml:space="preserve">
     <value>Paciente</value>
   </data>
@@ -1439,17 +1430,20 @@
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmTipoUsuario</value>
+  </data>
   <data name="&gt;&gt;btnMedico.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FrmTipoUsuario</value>
+  </data>
+  <data name="&gt;&gt;btnAdministrativo.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btnMedico.Name" xml:space="preserve">
     <value>btnMedico</value>
-  </data>
-  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="btnMedico.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt</value>
@@ -1459,15 +1453,6 @@
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnVolver.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 45</value>
-  </data>
-  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
   </data>
   <data name="&gt;&gt;btnVolver.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1484,8 +1469,8 @@
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>386, 42</value>
   </data>
-  <data name="&gt;&gt;btnAdministrativo.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
   </data>
   <data name="btnMedico.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1496,14 +1481,8 @@
   <data name="&gt;&gt;lblTraducir.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Button1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15.75pt</value>
-  </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>289, 25</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

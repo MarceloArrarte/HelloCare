@@ -7,7 +7,7 @@ Imports Microsoft.VisualBasic.FileIO
 
 Public Module Principal
     Public Function AutenticarUsuarioPaciente(ci As String, contrasena As String) As ResultadosLogin
-        If Not TienePersonaRegistrada(ci, TiposPersona.Paciente) Then
+        If Not TienePersonaRegistrada(ci, TiposUsuario.Paciente) Then
             Return ResultadosLogin.PersonaNoExiste
         End If
 
@@ -31,7 +31,7 @@ Public Module Principal
     End Function
 
     Public Function AutenticarUsuarioMedico(ci As String, contrasena As String) As ResultadosLogin
-        If Not TienePersonaRegistrada(ci, TiposPersona.Funcionario) Then
+        If Not TienePersonaRegistrada(ci, TiposUsuario.Medico) Then
             Return ResultadosLogin.PersonaNoExiste
         End If
 
@@ -56,7 +56,7 @@ Public Module Principal
     End Function
 
     Public Function AutenticarUsuarioAdministrativo(ci As String, contrasena As String) As ResultadosLogin
-        If Not TienePersonaRegistrada(ci, TiposPersona.Funcionario) Then
+        If Not TienePersonaRegistrada(ci, TiposUsuario.Administrativo) Then
             Return ResultadosLogin.PersonaNoExiste
         End If
 
@@ -117,7 +117,7 @@ Public Module Principal
         Dim listaProbabilidades As New List(Of Decimal)
 
         For Each e As Enfermedad In CargarTodasLasEnfermedades()
-            Dim porcentajeProbabilidad As Decimal = Math.Round(DeterminarProbabilidadEnfermedad(sintomasIngresados, e), 1)
+            Dim porcentajeProbabilidad As Decimal = DeterminarProbabilidadEnfermedad(sintomasIngresados, e)
 
             If porcentajeProbabilidad > 0 Then
                 listaEnfermedadesPosibles.Add(e)
@@ -145,10 +145,10 @@ Public Module Principal
     End Function
 
     Private Function DeterminarProbabilidadEnfermedad(sintomasIngresados As List(Of Sintoma), enfermedad As Enfermedad) As Decimal
-        Dim cantidadSintomasExistentes As Integer = enfermedad.Sintomas.Count
+        Dim cantidadSintomasDeLaEnfermedad As Integer = enfermedad.Sintomas.Count
         Dim cantidadSintomasCoincidentes As Integer = 0
         Dim listaFrecuencias As New List(Of Decimal)
-        For i = 0 To cantidadSintomasExistentes - 1
+        For i = 0 To cantidadSintomasDeLaEnfermedad - 1
             For Each sintomaIngresado As Sintoma In sintomasIngresados
                 If sintomaIngresado.ID = enfermedad.Sintomas(i).ID Then
                     cantidadSintomasCoincidentes += 1
@@ -163,7 +163,7 @@ Public Module Principal
         For Each frecuencia As Decimal In listaFrecuencias
             porcentajeProbabilidad += frecuencia
         Next
-        porcentajeProbabilidad /= cantidadSintomasExistentes
+        porcentajeProbabilidad /= cantidadSintomasDeLaEnfermedad
         Return porcentajeProbabilidad
     End Function
 
@@ -315,7 +315,7 @@ Public Module Principal
         Catch ex As MySqlException
             Select Case ex.Number
                 Case 1062
-                    Throw New Exception("Ya existe un medico con ese nombre.")
+                    Throw New Exception("Ya existe un medico con esa cédula.")
                 Case Else
                     Throw ex
             End Select
@@ -337,7 +337,7 @@ Public Module Principal
         Catch ex As MySqlException
             Select Case ex.Number
                 Case 1062
-                    Throw New Exception("Ya existe un administrativo con ese nombre.")
+                    Throw New Exception("Ya existe un administrativo con esa cédula.")
                 Case Else
                     Throw ex
             End Select
@@ -359,7 +359,7 @@ Public Module Principal
         Catch ex As MySqlException
             Select Case ex.Number
                 Case 1062
-                    Throw New Exception("Ya existe un paciente con ese nombre.")
+                    Throw New Exception("Ya existe un paciente con esa cédula.")
                 Case Else
                     Throw ex
             End Select

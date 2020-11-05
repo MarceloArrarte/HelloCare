@@ -18,9 +18,12 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        ' Si el usuario quiere cerrar sesión, pide confirmación
-        If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea cerrar su sesión?", "Cerrar sesión", "Are you sure you wish to sign out?", "Sign out") = MsgBoxResult.Yes Then
-            Me.Close()
+        Me.Close()
+    End Sub
+
+    Private Sub FrmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea cerrar su sesión?", "Cerrar sesión", "Are you sure you wish to sign out?", "Sign out") = MsgBoxResult.No Then
+            e.Cancel = True
         End If
     End Sub
 

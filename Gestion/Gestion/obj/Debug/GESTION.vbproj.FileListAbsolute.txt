@@ -172,7 +172,6 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\itextsharp.xml
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\MySql.Data.xml
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\CapaPersistencia.pdb
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\bin\Debug\CapaPersistencia.xml
-C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.vbprojResolveAssemblyReference.cache
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.vbproj.Gestion.exe.config
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.FrmAltaAdministrativo.resources
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.FrmAltaEnfermedades.resources
@@ -260,3 +259,4 @@ C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\es\Gestion.resou
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.exe
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.xml
 C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.pdb
+C:\Users\marce\source\repos\HelloCare\Gestion\Gestion\obj\Debug\Gestion.vbprojResolveAssemblyReference.cache

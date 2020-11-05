@@ -63,6 +63,14 @@ Public Class FrmListadoAdministrativos
             Return
         End If
 
+        For Each r As DataGridViewRow In tblAdministrativo.SelectedRows
+            Dim administrativoAEliminar As Administrativo = r.Cells(0).Value
+            If administrativoAEliminar.ID = administrativoLogeado.ID Then
+                MostrarMensaje(MsgBoxStyle.Critical, "No se puede eliminar el usuario de la sesión actual. Inicie sesión con los datos de otro encargado administrativo para poder eliminar este usuario.", "Error", "You cannot delete the user of the current session. Log in with another manager's credentials to delete this user.", "Error")
+                Return
+            End If
+        Next
+
         If MostrarMensaje(MsgBoxStyle.YesNo, "¿Confirma que desea eliminar este administrativo?" & vbNewLine & "Estos cambios no podrán deshacerse.", "Advertencia", "Are you sure to delete this administrative staff?" & vbNewLine & "These changes cannot be undone.", "Warning") = MsgBoxResult.Yes Then
 
             Try

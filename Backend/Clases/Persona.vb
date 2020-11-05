@@ -171,7 +171,7 @@
         ValidarCaracteresCorreo(correo)
 
         ' Si la cadena tiene un formato adecuado, retorna True, sino retorna False
-        If correo Like "*@*.*" Then
+        If correo Like "?*@?*.?*" Then
             Return True
         Else
             Return False

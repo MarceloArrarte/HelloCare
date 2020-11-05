@@ -23,21 +23,22 @@ Partial Class FrmPeticionesChat
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPeticionesChat))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnAceptarConsulta = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tblPeticiones = New System.Windows.Forms.DataGridView()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTraducir = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblTraducir = New System.Windows.Forms.Label()
         CType(Me.tblPeticiones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,6 +63,28 @@ Partial Class FrmPeticionesChat
         Me.tblPeticiones.AllowUserToResizeRows = False
         Me.tblPeticiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tblPeticiones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Lato", 15.75!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tblPeticiones.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.tblPeticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tblPeticiones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column6, Me.Column5, Me.Column4})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Lato", 15.75!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.tblPeticiones.DefaultCellStyle = DataGridViewCellStyle3
+        resources.ApplyResources(Me.tblPeticiones, "tblPeticiones")
+        Me.tblPeticiones.MultiSelect = False
+        Me.tblPeticiones.Name = "tblPeticiones"
+        Me.tblPeticiones.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Lato", 15.75!)
@@ -69,31 +92,29 @@ Partial Class FrmPeticionesChat
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tblPeticiones.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.tblPeticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tblPeticiones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column6, Me.Column5, Me.Column4})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Lato", 15.75!)
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.tblPeticiones.DefaultCellStyle = DataGridViewCellStyle5
-        resources.ApplyResources(Me.tblPeticiones, "tblPeticiones")
-        Me.tblPeticiones.MultiSelect = False
-        Me.tblPeticiones.Name = "tblPeticiones"
-        Me.tblPeticiones.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Lato", 15.75!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tblPeticiones.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.tblPeticiones.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.tblPeticiones.RowHeadersVisible = False
         Me.tblPeticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        '
+        'btnVolver
+        '
+        resources.ApplyResources(Me.btnVolver, "btnVolver")
+        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Name = "Label2"
+        '
+        'lblTraducir
+        '
+        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
+        Me.lblTraducir.ForeColor = System.Drawing.Color.White
+        Me.lblTraducir.Name = "lblTraducir"
         '
         'Column1
         '
@@ -124,6 +145,8 @@ Partial Class FrmPeticionesChat
         '
         'Column5
         '
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column5.FillWeight = 30.0!
         resources.ApplyResources(Me.Column5, "Column5")
         Me.Column5.Name = "Column5"
@@ -135,26 +158,6 @@ Partial Class FrmPeticionesChat
         resources.ApplyResources(Me.Column4, "Column4")
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        '
-        'btnVolver
-        '
-        resources.ApplyResources(Me.btnVolver, "btnVolver")
-        Me.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Name = "Label2"
-        '
-        'lblTraducir
-        '
-        Me.lblTraducir.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.lblTraducir, "lblTraducir")
-        Me.lblTraducir.ForeColor = System.Drawing.Color.White
-        Me.lblTraducir.Name = "lblTraducir"
         '
         'FrmPeticionesChat
         '

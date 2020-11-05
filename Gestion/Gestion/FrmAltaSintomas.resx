@@ -243,13 +243,13 @@
     <value>Lato, 15.75pt</value>
   </data>
   <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>671, 132</value>
+    <value>671, 128</value>
   </data>
   <data name="txtNombre.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
+    <value>176, 28</value>
   </data>
   <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -434,14 +434,17 @@
   <data name="&gt;&gt;lblUrgenciaSintoma.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="txtUrgencia.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lato, 15.75pt</value>
+  </data>
   <data name="txtUrgencia.Location" type="System.Drawing.Point, System.Drawing">
-    <value>959, 135</value>
+    <value>959, 128</value>
   </data>
   <data name="txtUrgencia.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtUrgencia.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 21</value>
+    <value>109, 28</value>
   </data>
   <data name="txtUrgencia.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
