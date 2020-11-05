@@ -220,15 +220,26 @@ Public Module Principal
         Dim consultasSinAtender As List(Of DiagnosticoPrimarioConConsulta) = ObtenerConsultasSinAtender()
         Dim consultasFiltradasPorEspecialidad As New List(Of DiagnosticoPrimarioConConsulta)
         For Each d As DiagnosticoPrimarioConConsulta In consultasSinAtender
-            Dim enfermedad As Enfermedad = d.Enfermedades(d.IndiceEnfermedadMasProbable)
-            For Each e As Especialidad In medicoLogeado.Especialidades
-                If e.ID = enfermedad.Especialidad.ID Then
-                    consultasFiltradasPorEspecialidad.Add(d)
-                End If
-            Next
+            If d.Enfermedades.Count > 0 Then
+                Dim enfermedad As Enfermedad = d.Enfermedades(d.IndiceEnfermedadMasProbable)
+                For Each e As Especialidad In medicoLogeado.Especialidades
+                    If e.ID = enfermedad.Especialidad.ID Then
+                        consultasFiltradasPorEspecialidad.Add(d)
+                    End If
+                Next
+            Else
+                consultasFiltradasPorEspecialidad.Add(d)
+            End If
         Next
 
-        Dim consultasRecientes, consultasAtrasadas As New List(Of DiagnosticoPrimarioConConsulta)
+        Dim consultasRecientes, consultasAtrasadas, listaOrdenada As New List(Of DiagnosticoPrimarioConConsulta)
+        For Each c As DiagnosticoPrimarioConConsulta In consultasFiltradasPorEspecialidad.ToList
+            If c.Enfermedades.Count = 0 Then
+                listaOrdenada.Add(c)
+                consultasFiltradasPorEspecialidad.Remove(c)
+            End If
+        Next
+
         For i = 0 To consultasFiltradasPorEspecialidad.Count - 1
             Dim consulta As DiagnosticoPrimarioConConsulta = consultasFiltradasPorEspecialidad(i)
             If consulta.FechaHora.AddDays(1) < Now Then
@@ -238,7 +249,6 @@ Public Module Principal
             End If
         Next
 
-        Dim listaOrdenada As New List(Of DiagnosticoPrimarioConConsulta)
         consultasAtrasadas.Reverse()
         listaOrdenada.AddRange(consultasAtrasadas)
 

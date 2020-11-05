@@ -14,7 +14,11 @@ Public Class FrmHistorialPacientes
         End Try
 
         For Each d As DiagnosticoPrimarioConConsulta In ultimasConsultas
-            tblUltimasConsultas.Rows.Add(d, d.Paciente, d.Enfermedades(d.IndiceEnfermedadMasProbable), d.FechaHora)
+            If d.Enfermedades.Count > 0 Then
+                tblUltimasConsultas.Rows.Add(d, d.Paciente, d.Enfermedades(d.IndiceEnfermedadMasProbable), d.FechaHora)
+            Else
+                tblUltimasConsultas.Rows.Add(d, d.Paciente, "Sin diagnóstico.", d.FechaHora)
+            End If
         Next
     End Sub
 
